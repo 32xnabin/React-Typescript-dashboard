@@ -34,6 +34,21 @@ import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone'
 import { Myboscase } from 'src/types'
 import { deleteCase, updateCase } from '../../../../services'
 import { HorDiv } from './CaseTable.style'
+import { experimentalStyled } from '@material-ui/core/styles'
+
+const ButtonRed = experimentalStyled(Link)(
+  ({ theme }) => `
+     background: ${theme.colors.error.main};
+     color: ${theme.palette.error.contrastText};
+     padding: 6px 40px;
+     border-radius: 6px;
+     text-decoration:none;
+
+     &:hover {
+        background: ${theme.colors.error.dark};
+     }
+    `,
+)
 
 interface RecentOrdersTableProps {
   className?: string
@@ -193,34 +208,52 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
       <Box
         display="flex"
         alignItems="center"
-        justifyContent="start"
-        style={{ border: 0, boxShadow: 'none' }}
+        justifyContent="space-between"
+        style={{ border: 0, boxShadow: 'none', padding: 7 }}
       >
-        <Select
-          style={{ minWidth: 200, height: 30 }}
-          value={filters.status || 'all'}
-          onChange={handleStatusChange}
-          label="Status"
-          autoWidth
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="start"
+          style={{ border: 0, boxShadow: 'none' }}
         >
-          {statusOptions.map((statusOption) => (
-            <MenuItem key={statusOption.id} value={statusOption.id}>
-              {statusOption.name}
-            </MenuItem>
-          ))}
-        </Select>
-        {selectedBulkActions && (
-          <>
-            <Button
-              color="secondary"
-              onClick={markAsComplete}
-              style={{ margin: 4, background: 'blue' }}
-            >
-              <FontAwesomeIcon color="white" icon={faCheck} />
-            </Button>
-            Mark as complete
-          </>
-        )}
+          <Select
+            style={{ minWidth: 200, height: 30, marginRight: 20 }}
+            value={filters.status || 'all'}
+            onChange={handleStatusChange}
+            label="Status"
+            autoWidth
+          >
+            {statusOptions.map((statusOption) => (
+              <MenuItem key={statusOption.id} value={statusOption.id}>
+                {statusOption.name}
+              </MenuItem>
+            ))}
+          </Select>
+          {selectedBulkActions && (
+            <Tooltip title="Mark As Complete" arrow>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  background: '#ccc',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  height: 30,
+                  width: 30,
+                  borderRadius: 10,
+                }}
+              >
+                <FontAwesomeIcon
+                  onClick={markAsComplete}
+                  color="white"
+                  icon={faCheck}
+                />
+              </div>
+            </Tooltip>
+          )}
+        </Box>
+        <ButtonRed to="/bm/cases/create">New</ButtonRed>
       </Box>
 
       <Divider />

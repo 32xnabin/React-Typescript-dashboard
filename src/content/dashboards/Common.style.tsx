@@ -22,16 +22,16 @@ export const StyledDivSmall = styled(
 
   padding: 6px;
 `
-export const Holder = styled(({ color, ...otherProps }) => (
+export const Holder = styled(({ background, color, ...otherProps }) => (
   <div {...otherProps} />
 ))`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px;
+  height: 350px;
 
   padding: 6px;
-  background-color: #fff;
+  background-color: #${(props) => props.background};
 `
 
 export const ReactCalender = styled(({ color, ...otherProps }) => (
@@ -55,7 +55,7 @@ export const GridContainer = styled(({ color, ...otherProps }) => (
   <div {...otherProps} />
 ))`
   margin: 5px;
-  height: 300px;
+  height: 350px;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #${(props) => props.color};

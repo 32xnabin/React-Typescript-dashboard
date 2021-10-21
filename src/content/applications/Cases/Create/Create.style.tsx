@@ -167,9 +167,6 @@ export const MainWrapper = styled(({ visible, ...otherProps }) => (
 ))`
   background-color: #fff;
 
-  position: relative;
-  left: 30px;
-  top: 30px;
   height: 900px;
 `
 export const BlueHeader = styled(({ visible, ...otherProps }) => (

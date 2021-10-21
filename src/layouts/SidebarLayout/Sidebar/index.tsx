@@ -1,12 +1,12 @@
-import { useContext } from 'react';
-import { Scrollbars } from 'react-custom-scrollbars-2';
-import { SidebarContext } from 'src/contexts/SidebarContext';
-import Logo from 'src/components/Logo';
+import { useContext } from 'react'
+import { Scrollbars } from 'react-custom-scrollbars-2'
+import { SidebarContext } from 'src/contexts/SidebarContext'
+import Logo from 'src/components/Logo'
 
-import { Box, Drawer, Hidden } from '@material-ui/core';
+import { Box, Drawer, Hidden } from '@material-ui/core'
 
-import { experimentalStyled } from '@material-ui/core/styles';
-import SidebarMenu from './SidebarMenu';
+import { experimentalStyled } from '@material-ui/core/styles'
+import SidebarMenu from './SidebarMenu'
 
 const SidebarWrapper = experimentalStyled(Box)(
   ({ theme }) => `
@@ -15,13 +15,12 @@ const SidebarWrapper = experimentalStyled(Box)(
         border: 1px solid #000;
         margin: 2px;
         background: ${theme.sidebar.background};
-        /* box-shadow: ${theme.sidebar.boxShadow}; */
         height: 100%;
         
         @media (min-width: ${theme.breakpoints.values.lg}px) {
         }
-`
-);
+`,
+)
 
 const TopSection = experimentalStyled(Box)(
   ({ theme }) => `
@@ -31,21 +30,19 @@ const TopSection = experimentalStyled(Box)(
         padding: 5px;
         border-bottom: ${theme.sidebar.dividerBg} solid 1px;
         background-color: #fff;
-`
-);
+`,
+)
 
 function Sidebar() {
-  const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
-  const closeSidebar = () => toggleSidebar();
+  const { sidebarToggle, toggleSidebar } = useContext(SidebarContext)
+  const closeSidebar = () => toggleSidebar()
 
   return (
     <>
       <Hidden lgDown>
         <SidebarWrapper>
           <Scrollbars autoHide>
-            <TopSection>
-              
-            </TopSection>
+            <TopSection></TopSection>
             <SidebarMenu />
           </Scrollbars>
         </SidebarWrapper>
@@ -69,7 +66,7 @@ function Sidebar() {
         </Drawer>
       </Hidden>
     </>
-  );
+  )
 }
 
-export default Sidebar;
+export default Sidebar

@@ -9,8 +9,9 @@ import DonutChart from 'react-donut-chart'
 function Section2() {
   return (
     <Card>
-      <Holder>
+      <Holder background={'fff'} style={{ position: 'relative', top: '-80px' }}>
         <DonutChart
+          legend={false}
           innerRadius={0.7}
           outerRadius={0.3}
           selectedOffset={0.0}

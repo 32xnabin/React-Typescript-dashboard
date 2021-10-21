@@ -7,7 +7,15 @@ import WatchList3 from './WatchList3'
 function DashboardCrypto() {
   return (
     <>
-      <Container maxWidth="lg">
+      <div
+        style={{
+          marginTop: 20,
+          border: '1px solid #eee',
+          width: '95%',
+          marginLeft: 8,
+          marginRight: 8,
+        }}
+      >
         <Grid
           container
           direction="row"
@@ -25,7 +33,7 @@ function DashboardCrypto() {
             <WatchList3 />
           </Grid>
         </Grid>
-      </Container>
+      </div>
     </>
   )
 }

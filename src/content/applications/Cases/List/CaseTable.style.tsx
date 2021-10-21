@@ -37,3 +37,20 @@ export const TableHeader = styled(({ visible, ...otherProps }) => (
   padding: 10px;
   margin-bottom: 20px;
 `
+export const BlueHeader = styled(({ visible, ...otherProps }) => (
+  <div {...otherProps} />
+))`
+  background-color: #5faee3;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+`
+
+export const WhiteLabel = styled(Typography)`
+  font-size: 16px;
+  color:#fff
+  margin-left: 5px;
+`

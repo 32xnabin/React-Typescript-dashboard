@@ -310,7 +310,15 @@ const Edit: React.FC = () => {
   const classes = useStyles()
 
   return (
-    <Fragment>
+    <div
+      style={{
+        marginTop: 20,
+        border: '1px solid #eee',
+        width: '95%',
+        marginLeft: 8,
+        marginRight: 8,
+      }}
+    >
       <MainWrapper>
         <BlueHeader>
           <HorDiv>
@@ -567,7 +575,7 @@ const Edit: React.FC = () => {
         </MainContainer>
         <BlueHeader />
       </MainWrapper>
-    </Fragment>
+    </div>
   )
 }
 

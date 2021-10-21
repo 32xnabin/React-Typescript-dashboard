@@ -6,26 +6,12 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
 
 function Section1() {
-  const price = {
-    week: {
-      labels: [
-        'Monday',
-        'Tueday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday',
-      ],
-      data: [55.701, 57.598, 48.607, 46.439, 58.755, 46.978, 58.16],
-    },
-  }
   const [value, setValue] = React.useState()
   const onChange = () => {}
 
   return (
-    <Card>
-      <Holder>
+    <Card style={{ background: '#45a7c1' }}>
+      <Holder background={'45a7c1'}>
         <ReactCalender onChange={onChange} value={value} />
       </Holder>
     </Card>
