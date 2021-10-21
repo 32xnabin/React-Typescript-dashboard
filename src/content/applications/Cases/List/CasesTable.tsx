@@ -1,7 +1,7 @@
 import { FC, ChangeEvent, useState } from 'react'
 import moment from 'moment'
-import { format } from 'date-fns'
-import numeral from 'numeral'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import {
@@ -31,9 +31,8 @@ import { CaseStatus } from 'src/types'
 import { useNavigate } from 'react-router-dom'
 import EditTwoToneIcon from '@material-ui/icons/EditTwoTone'
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone'
-import BulkActions from './BulkActions'
 import { Myboscase } from 'src/types'
-import { deleteCase } from '../../../../services'
+import { deleteCase, updateCase } from '../../../../services'
 
 interface RecentOrdersTableProps {
   className?: string
@@ -141,6 +140,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
     setSelectedCases(
       event.target.checked ? myboscases.map((item) => item.id) : [],
     )
+    console.log('selected cases', selectedCases)
   }
 
   const handleSelectOneCryptoOrder = (
@@ -171,6 +171,22 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
   const selectedAllCases = selectedCases.length === myboscases.length
   let navigate = useNavigate()
 
+  const markAsComplete = (e) => {
+    console.log('marking......', selectedCases)
+
+    for (const id of selectedCases) {
+      const data = { id, status: 'Completed' }
+      updateCase(data)
+        .then((result: any) => {
+          console.log('result--update--->', result)
+        })
+        .catch((error: any) => {
+          console.log('error- form1->', error)
+        })
+    }
+    window.location.reload()
+  }
+
   return (
     <>
       <Box
@@ -192,7 +208,18 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
             </MenuItem>
           ))}
         </Select>
-        {selectedBulkActions && <BulkActions />}
+        {selectedBulkActions && (
+          <>
+            <Button
+              color="secondary"
+              onClick={markAsComplete}
+              style={{ margin: 4, background: 'blue' }}
+            >
+              <FontAwesomeIcon color="white" icon={faCheck} />
+            </Button>
+            Mark as complete
+          </>
+        )}
       </Box>
 
       <Divider />
