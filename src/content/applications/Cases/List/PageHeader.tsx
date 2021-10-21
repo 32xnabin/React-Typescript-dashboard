@@ -1,6 +1,6 @@
 import { Typography, Button, Grid , Select, MenuItem,ListItemText} from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import {TableHeader,  DropDown, HorDiv} from './PageHeader.style'
+import {TableHeader,  DropDown, HorDiv} from './CaseTable.style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 

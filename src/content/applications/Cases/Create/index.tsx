@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 import moment from 'moment'
 import { Myboscase } from '../../../../types'
 import { createCase, uploadImage } from '../../../../services'
-import RichEditor from '../RichEdiotor'
+import RichEditor from '../RichEditor'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWrench } from '@fortawesome/free-solid-svg-icons'
 import { faPrint } from '@fortawesome/free-solid-svg-icons'
@@ -111,7 +111,26 @@ const Create: React.FC = () => {
     { value: 'Chummins', label: 'Chummins' },
   ]
   const mock_subject = ['Light out', 'bulb clean', 'pool clean']
-  //moment(Yup.date()).format('dd//MM/YYYY'),
+  const mock_email_template = [
+    [
+      {
+        type: 'paragraph',
+        children: [{ text: 'Template for Light out ' }],
+      },
+    ],
+    [
+      {
+        type: 'paragraph',
+        children: [{ text: 'Template for bulb clean ' }],
+      },
+    ],
+    [
+      {
+        type: 'paragraph',
+        children: [{ text: 'Template for pool clean ' }],
+      },
+    ],
+  ]
 
   const validationSchema = Yup.object().shape({
     case_type: Yup.string(),
@@ -190,6 +209,13 @@ const Create: React.FC = () => {
     return false
   }
 
+  const onEmailSubjectChange = (e) => {
+    console.log('email subject-----', e.target.value)
+    let index = mock_subject.indexOf(e.target.value)
+    let template = mock_email_template[index]
+    setEmail_desc(template)
+  }
+
   const onAddedDateChange = (value: any) => {
     console.log('added date-----', value)
     const added_date = new Date(value).toISOString().substr(0, 10)
@@ -225,6 +251,8 @@ const Create: React.FC = () => {
       data['assigned_to'] = createCSV(assignedTo)
       data['asset'] = createCSV(asset)
       console.log('caseImages---', caseImages)
+      console.log('email_desc---', email_desc)
+      data['email_description'] = JSON.stringify(email_desc)
       if (caseImages.length > 0) {
         data['images'] = caseImages
       }
@@ -251,6 +279,10 @@ const Create: React.FC = () => {
       data['added_date'] = addedDate
       data['assigned_to'] = createCSV(assignedTo)
       data['asset'] = createCSV(asset)
+      data['email_description'] = email_desc
+      if (caseImages.length > 0) {
+        data['images'] = caseImages
+      }
       console.log('after---', data)
 
       createCase(data)
@@ -264,6 +296,7 @@ const Create: React.FC = () => {
     }
   }
   const classes = useStyles()
+  const emailSubjectFiled = register('email_subject')
 
   return (
     <Fragment>
@@ -415,19 +448,21 @@ const Create: React.FC = () => {
             />
 
             <InfoLabel>Subject</InfoLabel>
-            <DropDown id="email_subject" {...register('email_subject')}>
+            <DropDown
+              id="email_subject"
+              {...emailSubjectFiled}
+              onChange={(e) => {
+                emailSubjectFiled.onChange(e)
+                onEmailSubjectChange(e)
+              }}
+            >
               {mock_subject.map((option) => (
                 <option>{option}</option>
               ))}
             </DropDown>
             <InfoLabel>Descrption</InfoLabel>
             <InputWrapper>
-              <RichEditor
-                onChange={onEditorChange}
-                value={email_desc}
-                setValue={setEmail_desc}
-                {...register('email_description')}
-              />
+              <RichEditor value={email_desc} setValue={setEmail_desc} />
             </InputWrapper>
 
             <InfoLabel>Notes</InfoLabel>

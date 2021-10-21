@@ -33,6 +33,7 @@ import EditTwoToneIcon from '@material-ui/icons/EditTwoTone'
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone'
 import { Myboscase } from 'src/types'
 import { deleteCase, updateCase } from '../../../../services'
+import { HorDiv } from './CaseTable.style'
 
 interface RecentOrdersTableProps {
   className?: string
@@ -347,17 +348,23 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                       {item.priority}
                     </Typography>
                   </TableCell>
-                  <TableCell align="right">
-                    <Tooltip title="Edit Case" arrow>
-                      <Link to={`/bm/cases/edit?id=${item.id}`}>
-                        <EditTwoToneIcon fontSize="small" />
-                      </Link>
-                    </Tooltip>
-                    <Tooltip title="Delete Case" style={{ margin: 8 }} arrow>
-                      <Button onClick={onCaseDelete} data-value1={item.id}>
-                        <DeleteTwoToneIcon fontSize="small" />
-                      </Button>
-                    </Tooltip>
+                  <TableCell>
+                    <HorDiv>
+                      <Tooltip title="Edit Case" arrow>
+                        <Link to={`/bm/cases/edit?id=${item.id}`}>
+                          <EditTwoToneIcon fontSize="small" />
+                        </Link>
+                      </Tooltip>
+                      <Tooltip title="Delete Case" arrow>
+                        <div
+                          onClick={onCaseDelete}
+                          style={{ cursor: 'pointer' }}
+                          data-value1={item.id}
+                        >
+                          <DeleteTwoToneIcon fontSize="small" />
+                        </div>
+                      </Tooltip>
+                    </HorDiv>
                   </TableCell>
                 </TableRow>
               )

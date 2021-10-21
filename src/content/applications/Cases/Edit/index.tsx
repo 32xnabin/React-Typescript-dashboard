@@ -6,7 +6,7 @@ import * as Yup from 'yup'
 import moment from 'moment'
 import { Myboscase } from '../../../../types'
 import { updateCase, getCaseById, uploadImage } from '../../../../services'
-import RichEditor from '../RichEdiotor'
+import RichEditor from '../RichEditor'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWrench } from '@fortawesome/free-solid-svg-icons'
 import { faPrint } from '@fortawesome/free-solid-svg-icons'
@@ -146,6 +146,7 @@ const Edit: React.FC = () => {
   const [caseImages, setCaseImages] = React.useState([''])
   const [casenum, setCasenum] = React.useState(0)
   const [email_desc, setEmail_desc] = React.useState(initialValue)
+  const [notes, setNotes] = React.useState(initialValue)
   const [assignedTo, setAssignedTo] = React.useState([])
   const [asset, setAsset] = React.useState([])
   const [addedDate, setAddedDate] = React.useState(
@@ -181,19 +182,23 @@ const Edit: React.FC = () => {
     if (item.asset) {
       setAsset(prepareMultiSelect(item.asset))
     }
+    if (item.email_description) {
+      setEmail_desc(JSON.parse(item.email_description))
+    }
 
-    setCaseImages(item.images.filter((url) => url != ''))
+    if (item.notes) {
+      setNotes(item.notes)
+    }
+
+    setCaseImages(item.images.filter((url) => url !== ''))
 
     setValue('case_type', item.case_type)
     setValue('priority', item.priority)
     setValue('status', item.status)
     setValue('category', item.category)
-    setValue('notes', item.notes)
+    setValue('job_area', item.job_area)
     setValue('email_subject', item.email_subject)
     setValue('logged_by', item.logged_by)
-    setValue('case_type', item.case_type)
-    setValue('email_description', item.email_description)
-    setValue('job_area', item.job_area)
   }
 
   const prepareMultiSelect = (value: any) => {
@@ -219,9 +224,8 @@ const Edit: React.FC = () => {
       })
   }
 
-  const onEditorChange = (value) => {
-    console.log('onEditorChange ====>', value)
-    console.log('onEditorChange ====>', email_desc)
+  const onNotesChange = (event) => {
+    setNotes(event.target.value)
   }
 
   const onImageUploaded = async (file): Promise<boolean> => {
@@ -277,12 +281,15 @@ const Edit: React.FC = () => {
   const onSubmit = (data: any) => {
     if (assignedTo.length > 0 && asset.length > 0) {
       data['added_date'] = addedDate
-
       data['due_date'] = dueDate
       data['assigned_to'] = createCSV(assignedTo)
       data['asset'] = createCSV(asset)
       data['id'] = caseId
-      data['images'] = caseImages
+      data['email_description'] = JSON.stringify(email_desc)
+      data['notes'] = notes
+      if (caseImages.length > 0) {
+        data['images'] = caseImages
+      }
       console.log('dataaaaaa----->', data)
       updateCase(data)
         .then((result: any) => {
@@ -470,7 +477,6 @@ const Edit: React.FC = () => {
             <InfoLabel>Descrption</InfoLabel>
             <InputWrapper>
               <RichEditor
-                onChange={onEditorChange}
                 value={email_desc}
                 setValue={setEmail_desc}
                 {...register('email_description')}
@@ -478,7 +484,8 @@ const Edit: React.FC = () => {
             </InputWrapper>
 
             <InfoLabel>Notes</InfoLabel>
-            <InputField id="notes" {...register('notes')}></InputField>
+
+            <InputField onChange={onNotesChange} value={notes}></InputField>
           </GridContainer>
           <GridContainer></GridContainer>
         </MainContainer>
@@ -551,7 +558,7 @@ const Edit: React.FC = () => {
             <StyledDiv
               background={'d84937'}
               color={'fff'}
-              disabled={assignedTo.length == 0 || asset.length == 0}
+              disabled={assignedTo.length === 0 || asset.length === 0}
               onClick={handleSubmit(onSubmit)}
             >
               Save
