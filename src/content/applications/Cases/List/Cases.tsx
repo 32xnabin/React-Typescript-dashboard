@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Myboscase } from '../../../../types'
 import { getAllCases } from '../../../../services'
 import { Card } from '@material-ui/core'
 import CasesTable from './CasesTable'
 
-function RecentOrders() {
+function Cases() {
+  let navigate = useNavigate()
   const [mybosCases, setMybosCases] = useState<Myboscase[]>()
 
   useEffect(() => {
@@ -20,6 +22,7 @@ function RecentOrders() {
       })
       .catch((error) => {
         console.log('====>', error)
+        navigate('/login')
       })
   }, [])
 
@@ -30,4 +33,4 @@ function RecentOrders() {
   )
 }
 
-export default RecentOrders
+export default Cases

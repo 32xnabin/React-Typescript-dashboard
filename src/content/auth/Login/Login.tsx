@@ -50,7 +50,8 @@ const Login: React.FC = () => {
     loginUser(data)
       .then((result: any) => {
         console.log('data=====>', result)
-        if (result.success == true) {
+        if (result.success === true) {
+          localStorage.setItem('token', String(result.accessToken))
           navigate('/bm/cases/list')
         } else {
           setMessage('Wrong Credentials please try again!')

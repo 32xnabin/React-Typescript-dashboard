@@ -265,6 +265,7 @@ const Create: React.FC = () => {
         })
         .catch((error: any) => {
           console.log('error- form1->', error)
+          navigate('/login')
         })
     }
   }
@@ -292,6 +293,7 @@ const Create: React.FC = () => {
         })
         .catch((error: any) => {
           console.log('error- form1->', error)
+          navigate('/login')
         })
     }
   }
