@@ -23,12 +23,14 @@ export const CreateCaseForm = styled(Box)`
   margin-top: 10px;
 `
 
-export const InfoLabel = styled(Typography)`
+export const InfoLabel = styled(({ bold, visible, ...otherProps }) => (
+  <Typography {...otherProps} />
+))`
   font-size: 12px;
-  font-weight: bold;
   margin-right: 180px;
   text-align: left;
   color: #5faee3;
+  font-weight: ${(props) => (props.bold ? 'bold' : 'normal')};
 `
 
 export const WhiteLabel = styled(Typography)`
@@ -40,7 +42,7 @@ export const WhiteLabel = styled(Typography)`
 export const HeadingLabel = styled(Typography)`
   font-size: 14px;
   font-weight: bold;
-  margin-right: 130px;
+  margin-right: 135px;
   text-align: left;
   color: #5faee3;
 `

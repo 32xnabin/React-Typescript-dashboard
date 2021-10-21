@@ -1,104 +1,119 @@
-import { Card, Box, Typography, Avatar } from '@material-ui/core';
+import { Card, Typography, TextField } from '@material-ui/core'
 
-  import { GridContainer } from './Common.style';
-  import { experimentalStyled } from '@material-ui/core/styles';
-
-
+import { GridContainer } from './Common.style'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 function Section9() {
+  const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
+    width: 100%;
 
+    height: 20px;
+    padding: 6px;
 
-  const price = {
-    week: {
-      labels: [
-        'Monday',
-        'Tueday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday'
-      ],
-      data: [55.701, 57.598, 48.607, 46.439, 58.755, 46.978, 58.16]
-    }
-  };
-  const AvatarWrapper = experimentalStyled(Avatar)(
-  ({ theme }) => `
-        background: transparent;
-        margin-right: ${theme.spacing(0.5)};
-`
-);
+    color: #fff;
+    margin: 8px 8px;
+  `
+  const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 30px;
+
+    color: #fff;
+  `
 
   return (
-    <Card>
-      <GridContainer color={"5faee3"}>
-            
-            <img style={{margin:3}} height="15" width="15" alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-          
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
-            </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
-            </Typography>
+    <Card style={{ background: '#5581e4' }}>
+      <GridContainer>
+        <Typography
+          style={{ marginLeft: 8, color: '#fff', fontSize: 18 }}
+          noWrap
+        >
+          Activity Feed
+        </Typography>
 
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
-            </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
-            </Typography>
+        <Typography
+          style={{ marginLeft: 8, color: '#fff', fontSize: 14, marginTop: 10 }}
+          noWrap
+        >
+          21/10/2021
+        </Typography>
 
-
-
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+        <Row>
+          <SubRow>
+            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
+              14:10pm - Sign out key 324 - Jhun A
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
+          </SubRow>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
+              14:10pm - Sign out key 324 - Jhun A
             </Typography>
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+          </SubRow>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
+              14:10pm - Sign out key 324 - Jhun A
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
+          </SubRow>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
+              14:10pm - Sign out key 324 - Jhun A
             </Typography>
-
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+          </SubRow>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
+              14:10pm - Sign out key 324 - Jhun A
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
+          </SubRow>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
+              14:10pm - Sign out key 324 - Jhun A
             </Typography>
-
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+          </SubRow>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
+              14:10pm - Sign out key 324 - Jhun A
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
+          </SubRow>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
+              14:10pm - Sign out key 324 - Jhun A
             </Typography>
-
-            
-            
+          </SubRow>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
+              14:10pm - Sign out key 324 - Jhun A
+            </Typography>
+          </SubRow>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
+              14:10pm - Sign out key 324 - Jhun A
+            </Typography>
+          </SubRow>
+        </Row>
       </GridContainer>
-      
     </Card>
-  );
+  )
 }
 
-export default Section9;
+export default Section9

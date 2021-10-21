@@ -1,104 +1,120 @@
-import { Card, Box, Typography, Avatar } from '@material-ui/core';
+import { Card, Typography, TextField } from '@material-ui/core'
 
-  import { GridContainer } from './Common.style';
-  import { experimentalStyled } from '@material-ui/core/styles';
-
-
+import { GridContainer } from './Common.style'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 function Section7() {
+  const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
+    width: 100%;
 
+    height: 60px;
+    padding: 6px;
+    background-color: #ffea9a;
+    color: #000;
+    margin: 8px 8px;
+  `
+  const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
 
-  const price = {
-    week: {
-      labels: [
-        'Monday',
-        'Tueday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday'
-      ],
-      data: [55.701, 57.598, 48.607, 46.439, 58.755, 46.978, 58.16]
-    }
-  };
-  const AvatarWrapper = experimentalStyled(Avatar)(
-  ({ theme }) => `
-        background: transparent;
-        margin-right: ${theme.spacing(0.5)};
-`
-);
+    color: #000;
+  `
 
   return (
-    <Card>
-      <GridContainer color={"efefef"}>
-            
-            <img style={{margin:3}} height="15" width="15" alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-          
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
-            </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
-            </Typography>
+    <Card style={{ background: '#f6d746' }}>
+      <GridContainer>
+        <Typography
+          style={{ marginLeft: 8, color: '#000', fontSize: 18 }}
+          noWrap
+        >
+          Building Summary
+        </Typography>
+        <div
+          style={{
+            background: '#fff',
+            border: 'none',
+            height: 30,
+            width: '98%',
+            marginLeft: 8,
+          }}
+        ></div>
 
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8, fontSize: 18 }} noWrap>
+              Karmela Francia - 24/06/2021
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
-            </Typography>
+            <FontAwesomeIcon
+              color="black"
+              style={{ marginRight: 8 }}
+              fontSize={8}
+              icon={faTrash}
+            />
+          </SubRow>
 
+          <Typography style={{ marginLeft: 8 }} noWrap>
+            Check recyclables area
+          </Typography>
+        </Row>
 
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8, fontSize: 18 }} noWrap>
+              Karmela Francia - 24/06/2021
+            </Typography>
+            <FontAwesomeIcon
+              color="black"
+              style={{ marginRight: 8 }}
+              fontSize={8}
+              icon={faTrash}
+            />
+          </SubRow>
 
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+          <Typography style={{ marginLeft: 8 }} noWrap>
+            Check recyclables area
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8, fontSize: 18 }} noWrap>
+              Karmela Francia - 24/06/2021
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
-            </Typography>
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
-            </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
-            </Typography>
+            <FontAwesomeIcon
+              color="black"
+              style={{ marginRight: 8 }}
+              fontSize={8}
+              icon={faTrash}
+            />
+          </SubRow>
 
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+          <Typography style={{ marginLeft: 8 }} noWrap>
+            Check recyclables area
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8, fontSize: 18 }} noWrap>
+              Karmela Francia - 24/06/2021
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
-            </Typography>
+            <FontAwesomeIcon
+              color="black"
+              style={{ marginRight: 8 }}
+              fontSize={8}
+              icon={faTrash}
+            />
+          </SubRow>
 
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
-            </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
-            </Typography>
-
-            
-            
+          <Typography style={{ marginLeft: 8 }} noWrap>
+            Check recyclables area
+          </Typography>
+        </Row>
       </GridContainer>
-      
     </Card>
-  );
+  )
 }
 
-export default Section7;
+export default Section7

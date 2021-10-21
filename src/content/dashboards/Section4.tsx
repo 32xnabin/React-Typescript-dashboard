@@ -1,96 +1,227 @@
-import { Card, Box, Typography, Avatar } from '@material-ui/core'
+import { Card, Typography } from '@material-ui/core'
 
 import { GridContainer } from './Common.style'
-import { experimentalStyled } from '@material-ui/core/styles'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWrench } from '@fortawesome/free-solid-svg-icons'
 
 function Section4() {
-  const price = {
-    week: {
-      labels: [
-        'Monday',
-        'Tueday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday',
-      ],
-      data: [55.701, 57.598, 48.607, 46.439, 58.755, 46.978, 58.16],
-    },
-  }
-  const AvatarWrapper = experimentalStyled(Avatar)(
-    ({ theme }) => `
-        background: transparent;
-        margin-right: ${theme.spacing(0.5)};
-`,
-  )
+  const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    padding: 6px;
+    color: #000;
+    margin: 4px 8px;
+  `
+  const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 30px;
+    color: #000;
+  `
 
   return (
-    <Card>
-      <GridContainer color={'fff'}>
-        <img
-          style={{ margin: 3 }}
-          height="15"
-          width="15"
-          alt="BTC"
-          src="/static/images/placeholders/logo/bitcoin.png"
-        />
-
-        <Typography variant="subtitle1" noWrap>
-          Contractor Document
+    <Card style={{ background: '#cecece' }}>
+      <GridContainer>
+        <Typography
+          style={{ marginLeft: 8, color: '#000', fontSize: 18 }}
+          noWrap
+        >
+          Management Reports Generated
         </Typography>
-        <Typography variant="subtitle1" noWrap>
-          Document
-        </Typography>
-
-        <AvatarWrapper>
-          <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-        </AvatarWrapper>
-        <Typography variant="subtitle1" noWrap>
-          Contractor Document
-        </Typography>
-        <Typography variant="subtitle1" noWrap>
-          Document
-        </Typography>
-
-        <AvatarWrapper>
-          <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-        </AvatarWrapper>
-        <Typography variant="subtitle1" noWrap>
-          Contractor Document
-        </Typography>
-        <Typography variant="subtitle1" noWrap>
-          Document
-        </Typography>
-        <AvatarWrapper>
-          <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-        </AvatarWrapper>
-        <Typography variant="subtitle1" noWrap>
-          Contractor Document
-        </Typography>
-        <Typography variant="subtitle1" noWrap>
-          Document
-        </Typography>
-
-        <AvatarWrapper>
-          <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-        </AvatarWrapper>
-        <Typography variant="subtitle1" noWrap>
-          Contractor Document
-        </Typography>
-        <Typography variant="subtitle1" noWrap>
-          Document
-        </Typography>
-
-        <AvatarWrapper>
-          <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-        </AvatarWrapper>
-        <Typography variant="subtitle1" noWrap>
-          Contractor Document
-        </Typography>
-        <Typography variant="subtitle1" noWrap>
-          Document
-        </Typography>
+        <Row>
+          <SubRow>
+            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
+            <Typography
+              style={{
+                marginLeft: 8,
+                color: '#fff',
+                background: '#837e7e',
+                padding: 2,
+                borderRadius: 6,
+                fontSize: 12,
+              }}
+              noWrap
+            >
+              Report Period 01/10/2021 - 31/10/2021
+            </Typography>
+          </SubRow>
+          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
+            Created: 21/10/2021
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
+            <Typography
+              style={{
+                marginLeft: 8,
+                color: '#fff',
+                background: '#837e7e',
+                padding: 2,
+                borderRadius: 6,
+                fontSize: 12,
+              }}
+              noWrap
+            >
+              Report Period 01/10/2021 - 31/10/2021
+            </Typography>
+          </SubRow>
+          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
+            Created: 21/10/2021
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
+            <Typography
+              style={{
+                marginLeft: 8,
+                color: '#fff',
+                background: '#837e7e',
+                padding: 2,
+                borderRadius: 6,
+                fontSize: 12,
+              }}
+              noWrap
+            >
+              Report Period 01/10/2021 - 31/10/2021
+            </Typography>
+          </SubRow>
+          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
+            Created: 21/10/2021
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
+            <Typography
+              style={{
+                marginLeft: 8,
+                color: '#fff',
+                background: '#837e7e',
+                padding: 2,
+                borderRadius: 6,
+                fontSize: 12,
+              }}
+              noWrap
+            >
+              Report Period 01/10/2021 - 31/10/2021
+            </Typography>
+          </SubRow>
+          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
+            Created: 21/10/2021
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
+            <Typography
+              style={{
+                marginLeft: 8,
+                color: '#fff',
+                background: '#837e7e',
+                padding: 2,
+                borderRadius: 6,
+                fontSize: 12,
+              }}
+              noWrap
+            >
+              Report Period 01/10/2021 - 31/10/2021
+            </Typography>
+          </SubRow>
+          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
+            Created: 21/10/2021
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
+            <Typography
+              style={{
+                marginLeft: 8,
+                color: '#fff',
+                background: '#837e7e',
+                padding: 2,
+                borderRadius: 6,
+                fontSize: 12,
+              }}
+              noWrap
+            >
+              Report Period 01/10/2021 - 31/10/2021
+            </Typography>
+          </SubRow>
+          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
+            Created: 21/10/2021
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
+            <Typography
+              style={{
+                marginLeft: 8,
+                color: '#fff',
+                background: '#837e7e',
+                padding: 2,
+                borderRadius: 6,
+                fontSize: 12,
+              }}
+              noWrap
+            >
+              Report Period 01/10/2021 - 31/10/2021
+            </Typography>
+          </SubRow>
+          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
+            Created: 21/10/2021
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
+            <Typography
+              style={{
+                marginLeft: 8,
+                color: '#fff',
+                background: '#837e7e',
+                padding: 2,
+                borderRadius: 6,
+                fontSize: 12,
+              }}
+              noWrap
+            >
+              Report Period 01/10/2021 - 31/10/2021
+            </Typography>
+          </SubRow>
+          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
+            Created: 21/10/2021
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
+            <Typography
+              style={{
+                marginLeft: 8,
+                color: '#fff',
+                background: '#837e7e',
+                padding: 2,
+                borderRadius: 6,
+                fontSize: 12,
+              }}
+              noWrap
+            >
+              Report Period 01/10/2021 - 31/10/2021
+            </Typography>
+          </SubRow>
+          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
+            Created: 21/10/2021
+          </Typography>
+        </Row>
       </GridContainer>
     </Card>
   )

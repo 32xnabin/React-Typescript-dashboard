@@ -338,7 +338,7 @@ const Create: React.FC = () => {
         </MainContainer>
         <MainContainer>
           <GridContainer>
-            <InfoLabel>Case Number</InfoLabel>
+            <InfoLabel bold={true}>Case Number</InfoLabel>
             <Disabled>{casenum}</Disabled>
             <InfoLabel>Case Type</InfoLabel>
             <DropDown id="case_type" {...register('case_type')}>

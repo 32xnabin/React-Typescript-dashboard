@@ -1,104 +1,133 @@
-import { Card, Box, Typography, Avatar } from '@material-ui/core';
+import { Card, Typography } from '@material-ui/core'
 
-  import { GridContainer } from './Common.style';
-  import { experimentalStyled } from '@material-ui/core/styles';
-
-
+import { GridContainer } from './Common.style'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWrench } from '@fortawesome/free-solid-svg-icons'
 
 function Section5() {
-
-
-  const price = {
-    week: {
-      labels: [
-        'Monday',
-        'Tueday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday'
-      ],
-      data: [55.701, 57.598, 48.607, 46.439, 58.755, 46.978, 58.16]
-    }
-  };
-  const AvatarWrapper = experimentalStyled(Avatar)(
-  ({ theme }) => `
-        background: transparent;
-        margin-right: ${theme.spacing(0.5)};
-`
-);
+  const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    padding: 6px;
+    background-color: #b3e370;
+    color: #fff;
+    margin: 4px 8px;
+  `
+  const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 30px;
+    background-color: #b3e370;
+    color: #fff;
+  `
 
   return (
-    <Card>
-      <GridContainer color={"ccc"}>
-            
-            <img style={{margin:3}} height="15" width="15" alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-          
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+    <Card style={{ background: '#96ca4d' }}>
+      <GridContainer>
+        <Typography
+          style={{ marginLeft: 8, color: '#fff', fontSize: 18 }}
+          noWrap
+        >
+          Building Summary
+        </Typography>
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8 }} noWrap>
+              RESIDENTS
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
+          </SubRow>
+          <Typography style={{ marginRight: 8 }} noWrap>
+            7
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8 }} noWrap>
+              Overdue cases
             </Typography>
-
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+          </SubRow>
+          <Typography style={{ marginRight: 8 }} noWrap>
+            7
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8 }} noWrap>
+              Overdue cases
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
+          </SubRow>
+          <Typography style={{ marginRight: 8 }} noWrap>
+            7
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8 }} noWrap>
+              Overdue cases
             </Typography>
-
-
-
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+          </SubRow>
+          <Typography style={{ marginRight: 8 }} noWrap>
+            7
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8 }} noWrap>
+              Overdue cases
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
+          </SubRow>
+          <Typography style={{ marginRight: 8 }} noWrap>
+            7
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8 }} noWrap>
+              Overdue cases
             </Typography>
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+          </SubRow>
+          <Typography style={{ marginRight: 8 }} noWrap>
+            7
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8 }} noWrap>
+              Overdue cases
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
+          </SubRow>
+          <Typography style={{ marginRight: 8 }} noWrap>
+            7
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8 }} noWrap>
+              Overdue cases
             </Typography>
-
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
+          </SubRow>
+          <Typography style={{ marginRight: 8 }} noWrap>
+            7
+          </Typography>
+        </Row>
+        <Row>
+          <SubRow>
+            <Typography style={{ marginLeft: 8 }} noWrap>
+              Overdue cases
             </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
-            </Typography>
-
-            <AvatarWrapper>
-            <img alt="BTC" src="/static/images/placeholders/logo/bitcoin.png" />
-           </AvatarWrapper>
-            <Typography variant="subtitle1" noWrap>
-              Contractor Document
-            </Typography>
-             <Typography variant="subtitle1" noWrap>
-               Document
-            </Typography>
-
-            
-            
+          </SubRow>
+          <Typography style={{ marginRight: 8 }} noWrap>
+            7
+          </Typography>
+        </Row>
       </GridContainer>
-      
     </Card>
-  );
+  )
 }
 
-export default Section5;
+export default Section5

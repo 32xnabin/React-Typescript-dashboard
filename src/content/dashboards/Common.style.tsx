@@ -1,4 +1,6 @@
 import { Box, Button, TextField, Typography } from '@material-ui/core'
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css'
 
 import styled from 'styled-components'
 
@@ -32,12 +34,26 @@ export const Holder = styled(({ color, ...otherProps }) => (
   background-color: #fff;
 `
 
+export const ReactCalender = styled(({ color, ...otherProps }) => (
+  <Calendar {...otherProps} />
+))`
+  background: #45a7c1;
+  background-color: #45a7c1;
+  color:#fff !important; 
+  .react-calendar__tile{
+  color:#fff !important; 
+
+  }
+  .react-calendar__tile--now{
+    background-color: #36869d;
+  }
+  .react-calendar__month-view__weekdays {
+    background-color: #36869d;
+`
+
 export const GridContainer = styled(({ color, ...otherProps }) => (
   <div {...otherProps} />
 ))`
-  display: grid;
-  grid-template-columns: 5% 60% 35%;
-  grid-gap: 5px;
   margin: 5px;
   height: 300px;
   overflow-y: auto;
