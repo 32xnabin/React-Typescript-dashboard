@@ -1,12 +1,10 @@
 import { Helmet } from 'react-helmet-async'
 
-import { Container, Grid } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import { BlueHeader, WhiteLabel, HorDiv } from './CaseTable.style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWrench } from '@fortawesome/free-solid-svg-icons'
 import { faPrint } from '@fortawesome/free-solid-svg-icons'
 import { faCog } from '@fortawesome/free-solid-svg-icons'
-import { faPaperclip } from '@fortawesome/free-solid-svg-icons'
 
 import RecentOrders from './Cases'
 

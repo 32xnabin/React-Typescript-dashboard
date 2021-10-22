@@ -1,4 +1,4 @@
-import { Container, Grid } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
 import WatchList1 from './WatchList1'
 import WatchList2 from './WatchList2'

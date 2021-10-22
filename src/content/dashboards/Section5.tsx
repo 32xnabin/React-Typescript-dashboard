@@ -2,8 +2,6 @@ import { Card, Typography } from '@material-ui/core'
 
 import { GridContainer } from './Common.style'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWrench } from '@fortawesome/free-solid-svg-icons'
 
 function Section5() {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`

@@ -24,7 +24,7 @@ function Cases() {
         console.log('====>', error)
         navigate('/login')
       })
-  }, [])
+  })
 
   return (
     <Card style={{ border: 0, boxShadow: 'none' }}>

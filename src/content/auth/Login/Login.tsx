@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react'
-import { useForm, Controller } from 'react-hook-form'
+import React from 'react'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Link } from 'react-router-dom'
@@ -7,12 +7,7 @@ import * as Yup from 'yup'
 
 import { loginUser } from '../../../services'
 
-import {
-  MainContainer,
-  GridContainer,
-  MainWrapper,
-  StyledDiv,
-} from './Login.style'
+import { GridContainer, StyledDiv } from './Login.style'
 
 import { InputField } from '../Common.style'
 
@@ -24,22 +19,10 @@ const Login: React.FC = () => {
     password: Yup.string(),
   })
 
-  const {
-    register,
-    control,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(validationSchema),
   })
 
-  const initialValue = [
-    {
-      type: 'paragraph',
-      children: [{ text: ' ' }],
-    },
-  ]
   const [message, setMessage] = React.useState('')
 
   React.useEffect(() => {}, [])
@@ -61,10 +44,6 @@ const Login: React.FC = () => {
         console.log('error- form1->', error)
         setMessage('Something went wrong please try again!')
       })
-  }
-
-  const onCancel = (data: any) => {
-    navigate('/bm/cases/list')
   }
 
   return (

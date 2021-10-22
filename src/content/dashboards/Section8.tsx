@@ -2,8 +2,6 @@ import { Card, Typography, Checkbox } from '@material-ui/core'
 
 import { GridContainer } from './Common.style'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
 function Section8() {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
@@ -16,14 +14,6 @@ function Section8() {
     padding: 6px;
     color: #fff;
     margin: 4px 8px;
-  `
-  const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 40px;
-    color: #fff;
-    marginright: 8px;
   `
 
   return (

@@ -1,10 +1,7 @@
-import { Card, Typography, TextField } from '@material-ui/core'
+import { Card, Typography } from '@material-ui/core'
 
 import { GridContainer } from './Common.style'
 import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
-
 function Section9() {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
     width: 100%;

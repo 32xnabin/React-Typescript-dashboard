@@ -2,8 +2,6 @@ import { ReactNode } from 'react'
 
 import BrightnessLowTwoToneIcon from '@material-ui/icons/BrightnessLowTwoTone'
 import TableChartTwoToneIcon from '@material-ui/icons/TableChartTwoTone'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWrench } from '@fortawesome/free-solid-svg-icons'
 
 export interface MenuItem {
   link?: string

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Box, CircularProgress } from '@material-ui/core'
 import upload_blue from './upload_blue.png'
 interface IProps {
   uploadImage: (file: any) => Promise<boolean>
@@ -19,6 +18,7 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
   return (
     <div>
       <img
+        alt="upload"
         src={file}
         style={{
           backgroundImage: 'url(' + upload_blue + ')',

@@ -8,11 +8,7 @@ import {
   Tooltip,
   Divider,
   Box,
-  FormControl,
-  InputLabel,
-  Card,
   Checkbox,
-  IconButton,
   Table,
   TableBody,
   TableCell,
@@ -23,12 +19,9 @@ import {
   Select,
   MenuItem,
   Typography,
-  Button,
 } from '@material-ui/core'
 
-import Label from 'src/components/Label'
 import { CaseStatus } from 'src/types'
-import { useNavigate } from 'react-router-dom'
 import EditTwoToneIcon from '@material-ui/icons/EditTwoTone'
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone'
 import { Myboscase } from 'src/types'
@@ -182,10 +175,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
 
   const filteredCases = applyFilters(myboscases, filters)
   const paginatedCases = applyPagination(filteredCases, page, limit)
-  const selectedSomeCases =
-    selectedCases.length > 0 && selectedCases.length < myboscases.length
   const selectedAllCases = selectedCases.length === myboscases.length
-  let navigate = useNavigate()
 
   const markAsComplete = (e) => {
     console.log('marking......', selectedCases)

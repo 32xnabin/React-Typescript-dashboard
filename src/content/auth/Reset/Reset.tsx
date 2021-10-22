@@ -6,12 +6,7 @@ import { Link } from 'react-router-dom'
 import * as Yup from 'yup'
 
 import { resetPassword, validateResetToken } from '../../../services'
-import {
-  MainContainer,
-  GridContainer,
-  MainWrapper,
-  StyledDiv,
-} from './Reset.style'
+import { GridContainer, StyledDiv } from './Reset.style'
 import { InputField } from '../Common.style'
 
 const Reset: React.FC = () => {
@@ -22,30 +17,17 @@ const Reset: React.FC = () => {
     password: Yup.string(),
   })
 
-  const {
-    register,
-    control,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(validationSchema),
   })
 
-  const initialValue = [
-    {
-      type: 'paragraph',
-      children: [{ text: ' ' }],
-    },
-  ]
   const [message, setMessage] = React.useState('')
   const [code, setCode] = React.useState('')
   const [valid, setValid] = React.useState(false)
-  const [user, setUser] = React.useState()
 
   React.useEffect(() => {
     validateCode()
-  }, [])
+  })
   const validateCode = () => {
     const code = new URLSearchParams(window.location.search).get('code')
     console.log('code------>', code)
@@ -55,7 +37,6 @@ const Reset: React.FC = () => {
       validateResetToken({ token: code })
         .then((result: any) => {
           console.log('result-byiddd---->', result)
-          setUser(result.user)
           setValid(true)
         })
         .catch((error: any) => {
@@ -75,7 +56,7 @@ const Reset: React.FC = () => {
     resetPassword(dataWithToken)
       .then((result: any) => {
         console.log('data=====>', result)
-        if (result.success == true) {
+        if (result.success === true) {
           setMessage('Sucess! go to login now')
         } else {
           setMessage('Something went wrong please try again!')

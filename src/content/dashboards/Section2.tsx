@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react'
-import { Card, Box, Typography, Avatar } from '@material-ui/core'
+import React from 'react'
+import { Card, Typography } from '@material-ui/core'
 
 import { Holder } from './Common.style'
-import { experimentalStyled } from '@material-ui/core/styles'
 
 import DonutChart from 'react-donut-chart'
 

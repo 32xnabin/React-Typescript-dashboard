@@ -1,4 +1,4 @@
-import { Box, Container, Card } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import { Helmet } from 'react-helmet-async'
 
 import { experimentalStyled } from '@material-ui/core/styles'
