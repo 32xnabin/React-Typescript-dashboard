@@ -28,9 +28,7 @@ function ApplicationsTransactions() {
           }}
         >
           <BlueHeader>
-            <HorDiv>
-              <WhiteLabel>Cases</WhiteLabel>
-            </HorDiv>
+            <WhiteLabel>Cases</WhiteLabel>
             <HorDiv>
               <FontAwesomeIcon color="white" icon={faPrint} />
               <FontAwesomeIcon color="white" icon={faCog} />

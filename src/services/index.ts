@@ -47,10 +47,12 @@ export const getAllCases = async (): Promise<Myboscase[]> => {
 }
 
 export const getCaseById = async (id: string): Promise<Myboscase> => {
+  const token = localStorage.getItem('token')
   return axios
     .get(`${API}/cases/${id}`, {
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
     })
     .then((response) => {
@@ -64,10 +66,12 @@ export const getCaseById = async (id: string): Promise<Myboscase> => {
 }
 
 export const updateCase = async (data: any): Promise<Myboscase> => {
+  const token = localStorage.getItem('token')
   return axios
     .put(`${API}/cases/${data.id}`, data, {
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
     })
     .then((response) => {
@@ -81,10 +85,12 @@ export const updateCase = async (data: any): Promise<Myboscase> => {
 }
 
 export const deleteCase = async (id: string): Promise<Myboscase> => {
+  const token = localStorage.getItem('token')
   return axios
     .delete(`${API}/cases/${id}`, {
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
     })
     .then((response) => {
@@ -98,6 +104,7 @@ export const deleteCase = async (id: string): Promise<Myboscase> => {
 }
 
 export const uploadImage = async (file): Promise<any> => {
+  const token = localStorage.getItem('token')
   console.log('uploading.........', file)
   let formData = new FormData()
   formData.append('file', file)
@@ -105,6 +112,7 @@ export const uploadImage = async (file): Promise<any> => {
     .post(`${API}/upload/`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`,
       },
     })
     .then((response) => {

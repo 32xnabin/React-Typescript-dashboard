@@ -51,6 +51,6 @@ export const BlueHeader = styled(({ visible, ...otherProps }) => (
 
 export const WhiteLabel = styled(Typography)`
   font-size: 16px;
-  color:#fff
+  color: #fff;
   margin-left: 5px;
 `

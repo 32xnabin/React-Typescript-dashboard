@@ -37,6 +37,7 @@ export const WhiteLabel = styled(Typography)`
   font-size: 14px;
 
   margin-left: 5px;
+  color: #fff;
 `
 
 export const HeadingLabel = styled(Typography)`

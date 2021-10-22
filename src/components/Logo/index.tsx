@@ -1,15 +1,15 @@
-import { Box, Hidden, Tooltip } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-import { experimentalStyled } from '@material-ui/core/styles';
+import { Box, Hidden, Tooltip } from '@material-ui/core'
+import { Link } from 'react-router-dom'
+import { experimentalStyled } from '@material-ui/core/styles'
 import Logo1 from './Logo.png'
-
 
 const LogoWrapper = experimentalStyled(Box)(
   ({ theme }) => `
        
         background-color: #336799;
-`
-);
+        padding:4px;
+`,
+)
 
 const LogoSignWrapper = experimentalStyled(Box)(
   () => `
@@ -17,8 +17,8 @@ const LogoSignWrapper = experimentalStyled(Box)(
         height: 38px;
         margin-top: 4px;
         transform: scale(.8);
-`
-);
+`,
+)
 
 const LogoSign = experimentalStyled(Box)(
   ({ theme }) => `
@@ -54,8 +54,8 @@ const LogoSign = experimentalStyled(Box)(
         &:after {
             background: ${theme.palette.secondary.main};
         }
-`
-);
+`,
+)
 
 const LogoSignInner = experimentalStyled(Box)(
   ({ theme }) => `
@@ -67,15 +67,15 @@ const LogoSignInner = experimentalStyled(Box)(
         z-index: 5;
         border-radius: ${theme.general.borderRadiusSm};
         background: ${theme.header.background};
-`
-);
+`,
+)
 
 const LogoTextWrapper = experimentalStyled(Box)(
   ({ theme }) => `
         padding-left: ${theme.spacing(1)};
         background-color: #336799;
-`
-);
+`,
+)
 
 const VersionBadge = experimentalStyled(Box)(
   ({ theme }) => `
@@ -87,27 +87,22 @@ const VersionBadge = experimentalStyled(Box)(
         display: inline-block;
         line-height: 1;
         font-size: ${theme.typography.pxToRem(11)};
-`
-);
+`,
+)
 
 const LogoText = experimentalStyled(Box)(
   ({ theme }) => `
         font-size: ${theme.typography.pxToRem(15)};
         font-weight: ${theme.typography.fontWeightBold};
-`
-);
+`,
+)
 
 function Logo() {
-
-
   return (
-    <LogoWrapper >
-     
+    <LogoWrapper>
       <img src={Logo1} alt="logo" />
-       
-      
     </LogoWrapper>
-  );
+  )
 }
 
-export default Logo;
+export default Logo
