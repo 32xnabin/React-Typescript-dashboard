@@ -121,13 +121,9 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
 
     deleteCase(id)
       .then((result: any) => {
-        console.log('result--update--->', result)
-
         window.location.reload()
       })
-      .catch((error: any) => {
-        console.log('error- form1->', error)
-      })
+      .catch((error: any) => {})
 
     return true
   }
@@ -149,7 +145,6 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
     setSelectedCases(
       event.target.checked ? myboscases.map((item) => item.id) : [],
     )
-    console.log('selected cases', selectedCases)
   }
 
   const handleSelectOneCryptoOrder = (
@@ -178,17 +173,11 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
   const selectedAllCases = selectedCases.length === myboscases.length
 
   const markAsComplete = (e) => {
-    console.log('marking......', selectedCases)
-
     for (const id of selectedCases) {
       const data = { id, status: 'Completed' }
       updateCase(data)
-        .then((result: any) => {
-          console.log('result--update--->', result)
-        })
-        .catch((error: any) => {
-          console.log('error- form1->', error)
-        })
+        .then((result: any) => {})
+        .catch((error: any) => {})
     }
     window.location.reload()
   }

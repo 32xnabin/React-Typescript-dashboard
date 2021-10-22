@@ -30,17 +30,14 @@ const Reset: React.FC = () => {
   })
   const validateCode = () => {
     const code = new URLSearchParams(window.location.search).get('code')
-    console.log('code------>', code)
     if (code) {
       setCode(code)
 
       validateResetToken({ token: code })
         .then((result: any) => {
-          console.log('result-byiddd---->', result)
           setValid(true)
         })
         .catch((error: any) => {
-          console.log('error- form1->', error)
           navigate('/nowhere')
         })
     } else {
@@ -49,13 +46,10 @@ const Reset: React.FC = () => {
   }
 
   const onSubmit = (data: any) => {
-    console.log('data=====>', data)
     const dataWithToken = { ...data, token: code }
-    console.log('dataWithToken=====>', dataWithToken)
 
     resetPassword(dataWithToken)
       .then((result: any) => {
-        console.log('data=====>', result)
         if (result.success === true) {
           setMessage('Sucess! go to login now')
         } else {
@@ -63,7 +57,6 @@ const Reset: React.FC = () => {
         }
       })
       .catch((error: any) => {
-        console.log('error- form1->', error)
         setMessage('Something went wrong please try again!')
       })
   }

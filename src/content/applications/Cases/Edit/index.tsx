@@ -150,12 +150,10 @@ const Edit: React.FC = () => {
   const [caseId, setCaseId] = React.useState('')
 
   React.useEffect(() => {
-    console.log('use effect called======>')
     populateCase()
   })
 
   const prefillForm = (item: any) => {
-    console.log('editingg........', item)
     setCasenum(item.case_number)
 
     const added_date = new Date(item.added_date || new Date())
@@ -197,7 +195,6 @@ const Edit: React.FC = () => {
     const arr = items.map((item) => {
       return { value: item, label: item }
     })
-    console.log('asset cats==>', arr)
     return arr
   }
 
@@ -207,11 +204,9 @@ const Edit: React.FC = () => {
 
     getCaseById(id)
       .then((result: any) => {
-        console.log('result-byiddd---->', result)
         prefillForm(result)
       })
       .catch((error: any) => {
-        console.log('error- form1->', error)
         navigate('/login')
       })
   }
@@ -222,7 +217,6 @@ const Edit: React.FC = () => {
 
   const onImageUploaded = async (file): Promise<boolean> => {
     const res = await uploadImage(file)
-    console.log('upload done ====>', res)
 
     setCaseImages([...caseImages, res.url])
     return false
@@ -237,36 +231,29 @@ const Edit: React.FC = () => {
     }
     setCaseImages(newArray)
     navigate(`/bm/cases/edit?id=${caseId}`)
-    console.log('caseImages ====>', caseImages)
     return true
   }
 
   const onAddedDateChange = (value: any) => {
-    console.log('added date-----', value)
     const added_date = new Date(value).toISOString().substr(0, 10)
     setAddedDate(added_date)
   }
 
   const onDueDateChange = (value: any) => {
-    console.log('added date-----', value)
     const due_date = new Date(value).toISOString().substr(0, 10)
     setDueDate(due_date)
   }
 
   const onAssignedChange = (value: any) => {
-    console.log('assigned-----', value)
     setAssignedTo(value)
   }
 
   const onAssetChange = (value: any) => {
-    console.log('setAsset-----', value)
-
     setAsset(value)
   }
 
   const createCSV = (arr: any[]) => {
     let csv = arr.map((item) => item.value).join(',')
-    console.log('csv--->', csv)
     return csv
   }
 
@@ -282,16 +269,11 @@ const Edit: React.FC = () => {
       if (caseImages.length > 0) {
         data['images'] = caseImages
       }
-      console.log('dataaaaaa----->', data)
       updateCase(data)
         .then((result: any) => {
-          console.log('result--update--->', result)
-
           navigate('/bm/cases/list')
         })
-        .catch((error: any) => {
-          console.log('error- form1->', error)
-        })
+        .catch((error: any) => {})
     }
   }
 

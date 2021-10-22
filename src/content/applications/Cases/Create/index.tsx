@@ -207,56 +207,47 @@ const Create: React.FC = () => {
     }
     setCaseImages(newArray)
     navigate('/bm/cases/create')
-    console.log('caseImages ====>', caseImages)
     return true
   }
 
   const onImageUploaded = async (file): Promise<boolean> => {
     const res = await uploadImage(file)
-    console.log('upload done ====>', res)
     setCaseImages([...caseImages, res.url])
     return false
   }
 
   const onJobAreaChange = (e) => {
-    console.log('job area-----', e.target.value)
     let index = mock_job_area.indexOf(e.target.value)
     let template = mock_job_area[index]
     setJobArea(template)
   }
 
   const onEmailSubjectChange = (e) => {
-    console.log('email subject-----', e.target.value)
     let index = mock_subject.indexOf(e.target.value)
     let template = mock_email_template[index]
     setEmail_desc(template)
   }
 
   const onAddedDateChange = (value: any) => {
-    console.log('added date-----', value)
     const added_date = new Date(value).toISOString().substr(0, 10)
     setAddedDate(added_date)
   }
 
   const onDueDateChange = (value: any) => {
-    console.log('added date-----', value)
     const due_date = new Date(value).toISOString().substr(0, 10)
     setDueDate(due_date)
   }
 
   const onAssignedChange = (value: any) => {
-    console.log('assigned-----', value)
     setAssignedTo(value)
   }
 
   const onAssetChange = (value: any) => {
-    console.log('setAsset-----', value)
     setAsset(value)
   }
 
   const createCSV = (arr: any[]) => {
     let csv = arr.map((item) => item.value).join(',')
-    console.log('csv--->', csv)
     return csv
   }
 
@@ -269,13 +260,10 @@ const Create: React.FC = () => {
       data['added_date'] = addedDate
       data['assigned_to'] = createCSV(assignedTo)
       data['asset'] = createCSV(asset)
-      console.log('caseImages---', caseImages)
-      console.log('email_desc---', email_desc)
       data['email_description'] = JSON.stringify(email_desc)
       if (caseImages.length > 0) {
         data['images'] = caseImages
       }
-      console.log('after---', data)
 
       createCase(data)
         .then((result: any) => {
@@ -283,7 +271,6 @@ const Create: React.FC = () => {
           navigate('/bm/cases/list')
         })
         .catch((error: any) => {
-          console.log('error- form1->', error)
           navigate('/login')
         })
     }
@@ -306,7 +293,6 @@ const Create: React.FC = () => {
       if (caseImages.length > 0) {
         data['images'] = caseImages
       }
-      console.log('after---', data)
 
       createCase(data)
         .then((result: any) => {
@@ -314,7 +300,6 @@ const Create: React.FC = () => {
           navigate('/bm/cases/list')
         })
         .catch((error: any) => {
-          console.log('error- form1->', error)
           navigate('/login')
         })
     }

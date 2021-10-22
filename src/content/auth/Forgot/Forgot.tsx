@@ -24,11 +24,8 @@ const Forgot: React.FC = () => {
   React.useEffect(() => {}, [])
 
   const onSubmit = (data: any) => {
-    console.log('data=====>', data)
-
     forgotPassword(data)
       .then((result: any) => {
-        console.log('data=====>', result)
         if (result.success === true) {
           setMessage(result.message)
         } else {
@@ -36,7 +33,6 @@ const Forgot: React.FC = () => {
         }
       })
       .catch((error: any) => {
-        console.log('error- form1->', error)
         setMessage('Something went wrong please try again!')
       })
   }

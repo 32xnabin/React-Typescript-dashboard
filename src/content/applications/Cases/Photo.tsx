@@ -9,7 +9,6 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
 
   const handleChange = async (e) => {
     setFile(URL.createObjectURL(e.target.files[0]))
-    console.log(e.target.files[0])
     const res = await uploadImage(e.target.files[0])
 
     setUploding(res)

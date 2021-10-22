@@ -28,11 +28,8 @@ const Login: React.FC = () => {
   React.useEffect(() => {}, [])
 
   const onSubmit = (data: any) => {
-    console.log('data=====>', data)
-
     loginUser(data)
       .then((result: any) => {
-        console.log('data=====>', result)
         if (result.success === true) {
           localStorage.setItem('token', String(result.accessToken))
           navigate('/bm/cases/list')
@@ -41,7 +38,6 @@ const Login: React.FC = () => {
         }
       })
       .catch((error: any) => {
-        console.log('error- form1->', error)
         setMessage('Something went wrong please try again!')
       })
   }

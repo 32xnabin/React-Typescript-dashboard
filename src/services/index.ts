@@ -20,11 +20,9 @@ export const createCase = async (
       },
     )
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }
@@ -39,11 +37,9 @@ export const getAllCases = async (): Promise<Myboscase[]> => {
       },
     })
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }
@@ -58,11 +54,9 @@ export const getCaseById = async (id: string): Promise<Myboscase> => {
       },
     })
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }
@@ -78,11 +72,9 @@ export const updateCase = async (data: any): Promise<Myboscase> => {
       },
     })
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }
@@ -97,18 +89,15 @@ export const deleteCase = async (id: string): Promise<Myboscase> => {
       },
     })
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }
 
 export const uploadImage = async (file): Promise<any> => {
   const token = localStorage.getItem('token')
-  console.log('uploading.........', file)
   let formData = new FormData()
   formData.append('file', file)
   return axios
@@ -119,11 +108,9 @@ export const uploadImage = async (file): Promise<any> => {
       },
     })
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }
@@ -138,11 +125,9 @@ export const SignUp = async (data: any): Promise<any> => {
       },
     })
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }
@@ -155,11 +140,9 @@ export const activate = async (data: any): Promise<any> => {
       },
     })
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }
@@ -172,11 +155,9 @@ export const loginUser = async (data: any): Promise<any> => {
       },
     })
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }
@@ -189,11 +170,9 @@ export const forgotPassword = async (data: any): Promise<any> => {
       },
     })
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }
@@ -206,11 +185,9 @@ export const validateResetToken = async (data: any): Promise<any> => {
       },
     })
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }
@@ -222,11 +199,9 @@ export const resetPassword = async (data: any): Promise<any> => {
       },
     })
     .then((response) => {
-      console.log(response)
       return response.data
     })
     .catch((error) => {
-      console.log(error)
       return null
     })
 }

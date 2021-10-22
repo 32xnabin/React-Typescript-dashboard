@@ -12,8 +12,6 @@ function Cases() {
   useEffect(() => {
     getAllCases()
       .then((res) => {
-        console.log('res====>', res)
-        console.log('max----', res[res.length - 1].case_number)
         localStorage.setItem(
           'max_case_number',
           String(res[res.length - 1].case_number),
@@ -21,7 +19,6 @@ function Cases() {
         setMybosCases(res)
       })
       .catch((error) => {
-        console.log('====>', error)
         navigate('/login')
       })
   })
