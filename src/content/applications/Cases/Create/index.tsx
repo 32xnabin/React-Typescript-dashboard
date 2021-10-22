@@ -96,7 +96,31 @@ const Create: React.FC = () => {
     'Awaiting Quote',
   ]
   const mock_job_area = ['common-asset', 'common-not-asset', 'private lot']
-  const mock_category = ['clouido', 'common area', 'door']
+  const mock_category = [
+    'All Categories',
+    'CLOUDIO',
+    'COMMON AREA',
+    'DOOR',
+    'ELECTRICAL',
+    'EXHAUST',
+    'GYM / POOL',
+  ]
+
+  const mock_apartments = [
+    'Pick Appartments',
+    '44',
+    '375',
+    '77',
+    '56',
+    '45',
+    '66',
+    '44',
+    '375',
+    '77',
+    '56',
+    '45',
+    '66',
+  ]
 
   const mock_assets = [
     { value: 'BLDG-Plumbing', label: 'BLDG-Plumbing' },
@@ -169,6 +193,7 @@ const Create: React.FC = () => {
   const [caseImages, setCaseImages] = React.useState([''])
   const [casenum, setCasenum] = React.useState(0)
   const [email_desc, setEmail_desc] = React.useState(initialValue)
+  const [jobArea, setJobArea] = React.useState('')
   const [assignedTo, setAssignedTo] = React.useState([])
   const [asset, setAsset] = React.useState([])
   const [addedDate, setAddedDate] = React.useState(
@@ -183,11 +208,6 @@ const Create: React.FC = () => {
     setAddedDate(new Date().toISOString().substr(0, 10))
     setDueDate(new Date().toISOString().substr(0, 10))
   }, [])
-
-  const onEditorChange = (value) => {
-    console.log('onEditorChange ====>', value)
-    console.log('onEditorChange ====>', email_desc)
-  }
 
   const removePhoto = async (e) => {
     const url = e.currentTarget.getAttribute('data-value1')
@@ -207,6 +227,13 @@ const Create: React.FC = () => {
     console.log('upload done ====>', res)
     setCaseImages([...caseImages, res.url])
     return false
+  }
+
+  const onJobAreaChange = (e) => {
+    console.log('job area-----', e.target.value)
+    let index = mock_job_area.indexOf(e.target.value)
+    let template = mock_job_area[index]
+    setJobArea(template)
   }
 
   const onEmailSubjectChange = (e) => {
@@ -245,7 +272,10 @@ const Create: React.FC = () => {
   }
 
   const onSubmit = (data: any) => {
-    if (assignedTo.length > 0 && asset.length > 0) {
+    if (
+      assignedTo.length > 0 &&
+      (jobArea === 'common-not-asset' || asset.length > 0)
+    ) {
       data['due_date'] = dueDate
       data['added_date'] = addedDate
       data['assigned_to'] = createCSV(assignedTo)
@@ -275,7 +305,10 @@ const Create: React.FC = () => {
   }
 
   const onAddAndReset = (data: any) => {
-    if (assignedTo.length > 0 && asset.length > 0) {
+    if (
+      assignedTo.length > 0 &&
+      (jobArea === 'common-not-asset' || asset.length > 0)
+    ) {
       data['due_date'] = dueDate
       data['added_date'] = addedDate
       data['assigned_to'] = createCSV(assignedTo)
@@ -299,6 +332,7 @@ const Create: React.FC = () => {
   }
   const classes = useStyles()
   const emailSubjectFiled = register('email_subject')
+  const jobAreaFiled = register('job_area')
 
   return (
     <div
@@ -435,20 +469,43 @@ const Create: React.FC = () => {
         <MainContainer>
           <GridContainer>
             <InfoLabel>Job Area</InfoLabel>
-            <DropDown id="job_area" {...register('job_area')}>
+            <DropDown
+              id="job_area"
+              {...jobAreaFiled}
+              onChange={(e) => {
+                jobAreaFiled.onChange(e)
+                onJobAreaChange(e)
+              }}
+            >
               {mock_job_area.map((option) => (
                 <option>{option}</option>
               ))}
             </DropDown>
+            {jobArea !== 'common-not-asset' && (
+              <>
+                <InfoLabel>Category</InfoLabel>
+                {jobArea === 'common-asset' ? (
+                  <DropDown id="category" {...register('category')}>
+                    {mock_category.map((option) => (
+                      <option>{option}</option>
+                    ))}
+                  </DropDown>
+                ) : (
+                  <DropDown id="category" {...register('category')}>
+                    {mock_apartments.map((option) => (
+                      <option>{option}</option>
+                    ))}
+                  </DropDown>
+                )}
 
-            <InfoLabel>Category</InfoLabel>
-            <DropDown id="category" {...register('category')}>
-              {mock_category.map((option) => (
-                <option>{option}</option>
-              ))}
-            </DropDown>
-            <InfoLabel>Asset</InfoLabel>
-            <Select isMulti onChange={onAssetChange} options={mock_assets} />
+                <InfoLabel>Asset</InfoLabel>
+                <Select
+                  isMulti
+                  onChange={onAssetChange}
+                  options={mock_assets}
+                />
+              </>
+            )}
 
             <InfoLabel>Assigned To</InfoLabel>
             <Select
@@ -549,7 +606,10 @@ const Create: React.FC = () => {
             <StyledDiv
               background={'d84937'}
               color={'fff'}
-              disabled={assignedTo.length === 0 || asset.length === 0}
+              disabled={
+                assignedTo.length === 0 ||
+                (jobArea !== 'common-not-asset' && asset.length === 0)
+              }
               onClick={handleSubmit(onSubmit)}
             >
               Save
@@ -558,7 +618,10 @@ const Create: React.FC = () => {
             <StyledDiv
               background={'d84937'}
               color={'fff'}
-              disabled={assignedTo.length === 0 || asset.length === 0}
+              disabled={
+                assignedTo.length === 0 ||
+                (jobArea !== 'common-not-asset' && asset.length === 0)
+              }
               onClick={handleSubmit(onAddAndReset)}
             >
               Save and Add New
