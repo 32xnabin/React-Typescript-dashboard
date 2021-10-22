@@ -12,7 +12,7 @@ function Section2() {
       <Holder background={'fff'} style={{ position: 'relative', top: '-80px' }}>
         <DonutChart
           legend={false}
-          innerRadius={0.7}
+          innerRadius={0.6}
           outerRadius={0.3}
           selectedOffset={0.0}
           data={[

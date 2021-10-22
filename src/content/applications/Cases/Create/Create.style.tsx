@@ -41,7 +41,7 @@ export const WhiteLabel = styled(Typography)`
 `
 
 export const HeadingLabel = styled(Typography)`
-  font-size: 14px;
+  font-size: 16px;
   margin-right: 135px;
   text-align: left;
   color: #5faee3;
@@ -60,7 +60,6 @@ export const MainContainer = styled(Box)`
   display: grid;
   grid-template-columns: 55% 45%;
   grid-gap: 10px;
-  margin: 5px;
 `
 
 export const FileuploadContainer = styled(Box)`
@@ -202,7 +201,7 @@ export const BlueLine = styled(({ visible, ...otherProps }) => (
   height: 1px;
 
   width: 98%;
-  margin-left: 5px;
+
   margin-bottom: 15px;
 `
 

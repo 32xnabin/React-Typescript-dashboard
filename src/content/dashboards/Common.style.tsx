@@ -29,8 +29,7 @@ export const Holder = styled(({ background, color, ...otherProps }) => (
   justify-content: center;
   align-items: center;
   height: 350px;
-
-  padding: 6px;
+  padding: 2px;
   background-color: #${(props) => props.background};
 `
 
@@ -38,9 +37,13 @@ export const ReactCalender = styled(({ color, ...otherProps }) => (
   <Calendar {...otherProps} />
 ))`
   background: #45a7c1;
-  background-color: #45a7c1;
+  
   color:#fff !important; 
   .react-calendar__tile{
+  color:#fff !important; 
+
+  }
+  .react-calendar__navigation__label{
   color:#fff !important; 
 
   }
@@ -48,7 +51,7 @@ export const ReactCalender = styled(({ color, ...otherProps }) => (
     background-color: #36869d;
   }
   .react-calendar__month-view__weekdays {
-    background-color: #36869d;
+    background-color: #36869d !important;
 `
 
 export const GridContainer = styled(({ color, ...otherProps }) => (

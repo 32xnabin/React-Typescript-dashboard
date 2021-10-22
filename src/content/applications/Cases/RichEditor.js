@@ -139,7 +139,7 @@ const BlockButton = ({ format, children }) => {
           event.preventDefault()
           toggleBlock(editor, format)
         }}
-        style={{ lineHeight: 1 }}
+        style={{ lineHeight: 0.5, width: 10, height: 10 }}
       >
         {children}
       </ToggleButton>
@@ -158,7 +158,7 @@ const MarkButton = ({ format, children }) => {
           event.preventDefault()
           toggleMark(editor, format)
         }}
-        style={{ lineHeight: 1 }}
+        style={{ lineHeight: 0.5, width: 10, height: 10 }}
       >
         {children}
       </ToggleButton>
