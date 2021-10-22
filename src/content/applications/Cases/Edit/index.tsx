@@ -1,10 +1,8 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
-import moment from 'moment'
-import { Myboscase } from '../../../../types'
 import { updateCase, getCaseById, uploadImage } from '../../../../services'
 import RichEditor from '../RichEditor'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,7 +14,7 @@ import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone'
 import Photo from '../Photo'
 import { makeStyles } from '@material-ui/styles'
 import Select from 'react-select'
-import { Button, MenuItem, Modal } from '@material-ui/core'
+import { Button, Modal } from '@material-ui/core'
 
 import {
   InputField,
@@ -126,13 +124,7 @@ const Edit: React.FC = () => {
     logged_by: Yup.string(),
   })
 
-  const {
-    register,
-    control,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit, setValue } = useForm({
     resolver: yupResolver(validationSchema),
   })
 
@@ -160,8 +152,7 @@ const Edit: React.FC = () => {
   React.useEffect(() => {
     console.log('use effect called======>')
     populateCase()
-    //setAddedDate(new Date().toISOString().substr(0, 10));
-  }, [])
+  })
 
   const prefillForm = (item: any) => {
     console.log('editingg........', item)
@@ -418,7 +409,7 @@ const Edit: React.FC = () => {
                 .filter((url) => url !== '')
                 .map((url, index) => (
                   <div key={index}>
-                    <img height={150} width={150} src={url} />
+                    <img alt="case" height={150} width={150} src={url} />
                     <Button onClick={removePhoto} data-value1={url}>
                       <DeleteTwoToneIcon fontSize="small" />
                     </Button>

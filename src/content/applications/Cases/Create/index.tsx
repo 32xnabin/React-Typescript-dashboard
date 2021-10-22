@@ -1,11 +1,8 @@
 import React, { Fragment } from 'react'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Link } from 'react-router-dom'
 import * as Yup from 'yup'
-import moment from 'moment'
-import { Myboscase } from '../../../../types'
 import { createCase, uploadImage } from '../../../../services'
 import RichEditor from '../RichEditor'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -27,7 +24,6 @@ import {
   DropDown,
   InputWrapper,
   WhiteLabel,
-  StyledButton,
   ButtonsContainer,
   HeadingLabel1,
   MainWrapper,
@@ -36,13 +32,12 @@ import {
   HorDiv,
   StyledDiv,
   Disabled,
-  ImagesDiv,
   GridContainerPhoto,
   StyledDivSmall,
   HeadingLabel,
 } from './Create.style'
 import { makeStyles } from '@material-ui/styles'
-import { Button, MenuItem, Modal } from '@material-ui/core'
+import { Button, Modal } from '@material-ui/core'
 
 import Select from 'react-select'
 
@@ -172,13 +167,7 @@ const Create: React.FC = () => {
     logged_by: Yup.string(),
   })
 
-  const {
-    register,
-    control,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(validationSchema),
   })
 
@@ -441,7 +430,7 @@ const Create: React.FC = () => {
                 .filter((url) => url !== '')
                 .map((url, index) => (
                   <div key={index}>
-                    <img height={150} width={150} src={url} />
+                    <img alt="case" height={150} width={150} src={url} />
                     <Button onClick={removePhoto} data-value1={url}>
                       <DeleteTwoToneIcon fontSize="small" />
                     </Button>
