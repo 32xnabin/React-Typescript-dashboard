@@ -8,8 +8,14 @@ import DonutChart from 'react-donut-chart'
 
 function Section2() {
   return (
-    <Card>
-      <Holder background={'fff'} style={{ position: 'relative', top: '-80px' }}>
+    <Card style={{ padding: 10 }}>
+      <Typography
+        style={{ marginLeft: 8, color: '#45a7c1', fontSize: 18 }}
+        noWrap
+      >
+        Cases graph
+      </Typography>
+      <Holder style={{ position: 'relative', top: '-80px' }}>
         <DonutChart
           legend={false}
           innerRadius={0.6}

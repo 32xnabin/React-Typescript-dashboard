@@ -10,7 +10,13 @@ function Section1() {
   const onChange = () => {}
 
   return (
-    <Card style={{ background: '#45a7c1' }}>
+    <Card style={{ background: '#45a7c1',padding:10 }}>
+      <Typography
+        style={{ marginLeft: 8, color: '#fff', fontSize: 18 }}
+        noWrap
+      >
+        Calendar
+      </Typography>
       <Holder background={'45a7c1'}>
         <ReactCalender onChange={onChange} value={value} />
       </Holder>

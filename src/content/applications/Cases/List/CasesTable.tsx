@@ -265,7 +265,6 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                 <Checkbox
                   color="primary"
                   checked={selectedAllCases}
-                  indeterminate={selectedSomeCases}
                   onChange={handleSelectAllCases}
                 />
               </TableCell>

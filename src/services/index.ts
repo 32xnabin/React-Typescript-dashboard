@@ -74,6 +74,7 @@ export const updateCase = async (data: any): Promise<Myboscase> => {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
+        'Content-Length': `${Buffer.byteLength(data)}`,
       },
     })
     .then((response) => {
