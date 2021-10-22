@@ -2,7 +2,7 @@ import { alpha, createTheme, lighten, darken } from '@material-ui/core'
 import '@material-ui/lab/themeAugmentation'
 
 const themeColors = {
-  primary: '#5569ff',
+  primary: '#45a7c1',
   secondary: '#6E759F',
   success: '#44D600',
   warning: '#FFA319',

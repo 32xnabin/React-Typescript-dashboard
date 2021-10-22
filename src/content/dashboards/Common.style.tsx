@@ -38,7 +38,7 @@ export const ReactCalender = styled(({ color, ...otherProps }) => (
 ))`
   background: #45a7c1;
   
-  color:#fff !important; 
+  
   .react-calendar__tile{
   color:#fff !important; 
 

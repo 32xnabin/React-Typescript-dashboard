@@ -16,6 +16,7 @@ const SidebarWrapper = experimentalStyled(Box)(
         margin: 2px;
         background: ${theme.sidebar.background};
         height: 100%;
+        overflow:hidden;
         
         @media (min-width: ${theme.breakpoints.values.lg}px) {
         }
