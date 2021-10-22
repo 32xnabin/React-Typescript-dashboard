@@ -5,6 +5,7 @@
   "description": "MYBOS Dashboard frontend components framework, Material-UI.",
   "author": "nabin",
   "private": false,
+  "proxy": "https://still-basin-69659.herokuapp.com/api",
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
