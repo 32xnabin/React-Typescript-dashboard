@@ -7,6 +7,7 @@ const API = process.env.REACT_APP_API_URL
 export const createCase = async (
   myboscase: Myboscase,
 ): Promise<Myboscase[]> => {
+  const token = localStorage.getItem('token')
   return axios
     .post(
       `${API}/cases`,
@@ -14,6 +15,7 @@ export const createCase = async (
       {
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
         },
       },
     )
