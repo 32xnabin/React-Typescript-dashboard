@@ -26,7 +26,7 @@ export const createCase = async (
       return null
     })
 }
-// localStorage.setItem('token', String(result.accessToken))
+
 export const getAllCases = async (): Promise<Myboscase[]> => {
   const token = localStorage.getItem('token')
   return axios
