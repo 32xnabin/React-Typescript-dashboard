@@ -121,7 +121,7 @@ export const SignUp = async (data: any): Promise<any> => {
   return axios
     .post(`${API}/users/login`, data, {
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
     .then((response) => {
