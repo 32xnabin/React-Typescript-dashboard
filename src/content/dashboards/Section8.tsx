@@ -3,7 +3,7 @@ import { Card, Typography, Checkbox } from '@material-ui/core'
 import { GridContainer } from './Common.style'
 import styled from 'styled-components'
 
-function Section8() {
+const Section8: React.FC = () => {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
     display: flex;
     width: 100%;

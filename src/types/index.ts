@@ -15,6 +15,7 @@ export interface Myboscase {
   notes?: string
   logged_by?: string
   createdAt?: Date
+  updatedAt?: Date
 }
 
 export type CaseStatus = 'completed' | 'pending' | 'failed'

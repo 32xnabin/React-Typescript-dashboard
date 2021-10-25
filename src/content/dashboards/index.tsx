@@ -4,7 +4,7 @@ import WatchList1 from './WatchList1'
 import WatchList2 from './WatchList2'
 import WatchList3 from './WatchList3'
 
-function DashboardCrypto() {
+const DashboardCrypto: React.FC = () => {
   return (
     <>
       <div

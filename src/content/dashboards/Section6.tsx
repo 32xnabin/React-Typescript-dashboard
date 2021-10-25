@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons'
 
-function Section6() {
+const Section6: React.FC = () => {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
     display: flex;
     width: 100%;

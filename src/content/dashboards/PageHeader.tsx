@@ -2,7 +2,7 @@ import { Typography, Avatar, Grid } from '@material-ui/core'
 
 import { useTheme } from '@material-ui/core/styles'
 
-function PageHeader() {
+const PageHeader: React.FC = () => {
   const user = {
     name: 'Catherine Pike',
     avatar: '/static/images/avatars/1.jpg',

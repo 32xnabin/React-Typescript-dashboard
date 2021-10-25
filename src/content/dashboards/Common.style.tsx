@@ -32,6 +32,18 @@ export const Holder = styled(({ background, color, ...otherProps }) => (
   background-color: #${(props) => props.background};
 `
 
+export const Holder1 = styled(({ background, color, ...otherProps }) => (
+  <div {...otherProps} />
+))`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  padding: 2px;
+  background-color: #${(props) => props.background};
+`
+
 export const ReactCalender = styled(({ color, ...otherProps }) => (
   <Calendar {...otherProps} />
 ))`

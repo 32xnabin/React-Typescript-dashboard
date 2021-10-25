@@ -3,7 +3,7 @@ import { Card, Typography } from '@material-ui/core'
 
 import { Holder, ReactCalender } from './Common.style'
 
-function Section1() {
+const Section1: React.FC = () => {
   const [value, setValue] = React.useState(new Date())
   const onChange = () => {
     setValue(new Date())
