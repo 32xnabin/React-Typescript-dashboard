@@ -38,7 +38,7 @@ import {
   HeadingLabel,
 } from './Create.style'
 import { makeStyles } from '@material-ui/styles'
-import { Button, Modal, Checkbox } from '@material-ui/core'
+import { Button, Modal } from '@material-ui/core'
 
 import Select from 'react-select'
 
