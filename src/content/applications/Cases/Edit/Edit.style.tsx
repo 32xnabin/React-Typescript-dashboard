@@ -58,9 +58,8 @@ export const HeadingLabel1 = styled(Typography)`
 
 export const MainContainer = styled(Box)`
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 60% 40%;
   grid-gap: 10px;
-  margin: 5px;
 `
 
 export const FileuploadContainer = styled(Box)`
@@ -71,9 +70,20 @@ export const FileuploadContainer = styled(Box)`
 `
 export const GridContainer = styled(Box)`
   display: grid;
+  grid-template-columns: 30% 70%;
+  grid-gap: 10px;
+
+  justify-content: start;
+  margin-right: 40px;
+  margin-left: 15px;
+`
+export const GridContainer1 = styled(Box)`
+  display: grid;
   grid-template-columns: auto auto;
   grid-gap: 10px;
-  margin: 0px auto 0px auto;
+  justify-content: space-between;
+  margin-right: 40px;
+  margin-left: 5px;
 `
 export const GridContainerPhoto = styled(Box)`
   padding: 10px;

@@ -31,6 +31,8 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
           width: 200,
           height: 200,
           border: '1px solid #5faee3',
+          minHeight: '200px',
+          minWidth: '200px',
         }}
       />
       <br />

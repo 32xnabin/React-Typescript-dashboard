@@ -23,6 +23,7 @@ import {
   Placeholder,
   MainContainer,
   GridContainer,
+  GridContainer1,
   FileuploadContainer,
   DropDown,
   InputWrapper,
@@ -342,7 +343,7 @@ const Edit: React.FC = () => {
             <HeadingLabel>Case Information</HeadingLabel>
             <Placeholder />
           </GridContainer>
-          <GridContainer>
+          <GridContainer1>
             <HeadingLabel>Attachments</HeadingLabel>
             <StyledDivSmall
               color="primary"
@@ -351,8 +352,7 @@ const Edit: React.FC = () => {
             >
               <FontAwesomeIcon color="white" icon={faPaperclip} />
             </StyledDivSmall>
-            <Placeholder />
-          </GridContainer>
+          </GridContainer1>
         </MainContainer>
         <MainContainer>
           <div>
