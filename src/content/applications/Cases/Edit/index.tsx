@@ -99,6 +99,22 @@ const Edit: React.FC = () => {
     { value: 'BLDG-Rest', label: 'BLDG-Rest' },
   ]
 
+  const mock_apartments = [
+    'Pick Appartments',
+    '44',
+    '375',
+    '77',
+    '56',
+    '45',
+    '66',
+    '44',
+    '375',
+    '77',
+    '56',
+    '45',
+    '66',
+  ]
+
   const mock_assigned_to = [
     { value: 'Ace hanndy andy', label: 'Ace hanndy andy' },
     { value: 'bradyos', label: 'bradyos' },
@@ -134,6 +150,8 @@ const Edit: React.FC = () => {
       children: [{ text: ' ' }],
     },
   ]
+
+  const [jobArea, setJobArea] = React.useState('common-asset')
   const [openModal, setOpenModal] = React.useState(false)
   const [caseImages, setCaseImages] = React.useState([''])
   const [casenum, setCasenum] = React.useState(0)
@@ -151,9 +169,11 @@ const Edit: React.FC = () => {
 
   React.useEffect(() => {
     populateCase()
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const prefillForm = (item: any) => {
+    console.log('editing......', item)
     setCasenum(item.case_number)
 
     const added_date = new Date(item.added_date || new Date())
@@ -184,8 +204,14 @@ const Edit: React.FC = () => {
     setValue('case_type', item.case_type)
     setValue('priority', item.priority)
     setValue('status', item.status)
-    setValue('category', item.category)
-    setValue('job_area', item.job_area)
+    if (item.job_area) {
+      setJobArea(item.job_area)
+      setValue('job_area', item.job_area)
+      if (item.category) {
+        setValue('category', item.category)
+      }
+    }
+
     setValue('email_subject', item.email_subject)
     setValue('logged_by', item.logged_by)
   }
@@ -244,6 +270,12 @@ const Edit: React.FC = () => {
     setDueDate(due_date)
   }
 
+  const onJobAreaChange = (e) => {
+    let index = mock_job_area.indexOf(e.target.value)
+    let template = mock_job_area[index]
+    setJobArea(template)
+  }
+
   const onAssignedChange = (value: any) => {
     setAssignedTo(value)
   }
@@ -282,6 +314,7 @@ const Edit: React.FC = () => {
   }
 
   const classes = useStyles()
+  const jobAreaFiled = register('job_area')
 
   return (
     <div
@@ -337,7 +370,7 @@ const Edit: React.FC = () => {
             <InfoLabel>Case Type</InfoLabel>
             <DropDown id="case_type" {...register('case_type')}>
               {mock_case_types.map((option) => (
-                <option>{option}</option>
+                <option key={option}>{option}</option>
               ))}
             </DropDown>
 
@@ -361,13 +394,13 @@ const Edit: React.FC = () => {
             <InfoLabel>Priority</InfoLabel>
             <DropDown id="priority" {...register('priority')}>
               {mock_priority.map((option) => (
-                <option>{option}</option>
+                <option key={option}>{option}</option>
               ))}
             </DropDown>
             <InfoLabel>Status</InfoLabel>
             <DropDown id="status" {...register('status')}>
               {mock_status.map((option) => (
-                <option>{option}</option>
+                <option key={option}>{option}</option>
               ))}
             </DropDown>
           </GridContainer>
@@ -419,27 +452,43 @@ const Edit: React.FC = () => {
         <MainContainer>
           <GridContainer>
             <InfoLabel>Job Area</InfoLabel>
-            <DropDown id="job_area" {...register('job_area')}>
+            <DropDown
+              id="job_area"
+              {...jobAreaFiled}
+              onChange={(e) => {
+                jobAreaFiled.onChange(e)
+                onJobAreaChange(e)
+              }}
+            >
               {mock_job_area.map((option) => (
-                <option>{option}</option>
+                <option key={option}>{option}</option>
               ))}
             </DropDown>
+            {jobArea !== 'common-not-asset' && (
+              <>
+                <InfoLabel>Category</InfoLabel>
+                {jobArea === 'common-asset' ? (
+                  <DropDown id="category" {...register('category')}>
+                    {mock_category.map((option) => (
+                      <option key={option}>{option}</option>
+                    ))}
+                  </DropDown>
+                ) : (
+                  <DropDown id="category" {...register('category')}>
+                    {mock_apartments.map((option) => (
+                      <option key={option}>{option}</option>
+                    ))}
+                  </DropDown>
+                )}
 
-            <InfoLabel>Category</InfoLabel>
-            <DropDown id="category" {...register('category')}>
-              {mock_category.map((option) => (
-                <option>{option}</option>
-              ))}
-            </DropDown>
-            <InfoLabel>Asset</InfoLabel>
-            <InputWrapper>
-              <Select
-                value={asset}
-                isMulti
-                onChange={onAssetChange}
-                options={mock_assets}
-              />
-            </InputWrapper>
+                <InfoLabel>Asset</InfoLabel>
+                <Select
+                  isMulti
+                  onChange={onAssetChange}
+                  options={mock_assets}
+                />
+              </>
+            )}
             <InfoLabel>Assigned To</InfoLabel>
             <InputWrapper>
               <Select
@@ -453,7 +502,7 @@ const Edit: React.FC = () => {
             <InfoLabel>Subject</InfoLabel>
             <DropDown id="email_subject" {...register('email_subject')}>
               {mock_subject.map((option) => (
-                <option>{option}</option>
+                <option key={option}>{option}</option>
               ))}
             </DropDown>
             <InfoLabel>Descrption</InfoLabel>

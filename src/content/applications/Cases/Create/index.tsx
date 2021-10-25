@@ -182,7 +182,7 @@ const Create: React.FC = () => {
   const [caseImages, setCaseImages] = React.useState([''])
   const [casenum, setCasenum] = React.useState(0)
   const [email_desc, setEmail_desc] = React.useState(initialValue)
-  const [jobArea, setJobArea] = React.useState('')
+  const [jobArea, setJobArea] = React.useState('common-asset')
   const [assignedTo, setAssignedTo] = React.useState([])
   const [asset, setAsset] = React.useState([])
   const [addedDate, setAddedDate] = React.useState(
@@ -252,6 +252,7 @@ const Create: React.FC = () => {
   }
 
   const onSubmit = (data: any) => {
+    console.log('adding....', data)
     if (
       assignedTo.length > 0 &&
       (jobArea === 'common-not-asset' || asset.length > 0)
@@ -361,7 +362,7 @@ const Create: React.FC = () => {
             <InfoLabel>Case Type</InfoLabel>
             <DropDown id="case_type" {...register('case_type')}>
               {mock_case_types.map((option) => (
-                <option>{option}</option>
+                <option key={option}>{option}</option>
               ))}
             </DropDown>
 
@@ -385,13 +386,13 @@ const Create: React.FC = () => {
             <InfoLabel>Priority</InfoLabel>
             <DropDown id="priority" {...register('priority')}>
               {mock_priority.map((option) => (
-                <option>{option}</option>
+                <option key={option}>{option}</option>
               ))}
             </DropDown>
             <InfoLabel>Status</InfoLabel>
             <DropDown id="status" {...register('status')}>
               {mock_status.map((option) => (
-                <option>{option}</option>
+                <option key={option}>{option}</option>
               ))}
             </DropDown>
           </GridContainer>
@@ -452,7 +453,7 @@ const Create: React.FC = () => {
               }}
             >
               {mock_job_area.map((option) => (
-                <option>{option}</option>
+                <option key={option}>{option}</option>
               ))}
             </DropDown>
             {jobArea !== 'common-not-asset' && (
@@ -461,13 +462,13 @@ const Create: React.FC = () => {
                 {jobArea === 'common-asset' ? (
                   <DropDown id="category" {...register('category')}>
                     {mock_category.map((option) => (
-                      <option>{option}</option>
+                      <option key={option}>{option}</option>
                     ))}
                   </DropDown>
                 ) : (
                   <DropDown id="category" {...register('category')}>
                     {mock_apartments.map((option) => (
-                      <option>{option}</option>
+                      <option key={option}>{option}</option>
                     ))}
                   </DropDown>
                 )}
@@ -498,7 +499,7 @@ const Create: React.FC = () => {
               }}
             >
               {mock_subject.map((option) => (
-                <option>{option}</option>
+                <option key={option}>{option}</option>
               ))}
             </DropDown>
             <InfoLabel>Descrption</InfoLabel>

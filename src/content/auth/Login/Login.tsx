@@ -32,7 +32,7 @@ const Login: React.FC = () => {
       .then((result: any) => {
         if (result.success === true) {
           localStorage.setItem('token', String(result.accessToken))
-          navigate('/bm/cases/list')
+          navigate('/bm/dashboards')
         } else {
           setMessage('Wrong Credentials please try again!')
         }
