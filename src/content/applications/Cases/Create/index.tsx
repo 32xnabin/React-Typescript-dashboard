@@ -38,7 +38,7 @@ import {
   HeadingLabel,
 } from './Create.style'
 import { makeStyles } from '@material-ui/styles'
-import { Button, Modal } from '@material-ui/core'
+import { Button, Modal, Checkbox } from '@material-ui/core'
 
 import Select from 'react-select'
 
@@ -519,6 +519,28 @@ const Create: React.FC = () => {
             <HeadingLabel1>Options</HeadingLabel1>
             <Placeholder />
           </GridContainer>
+          <GridContainer1></GridContainer1>
+          <GridContainer1>
+            <InfoLabel style={{ marginLeft: 10 }}>
+              Add this case to management report?
+            </InfoLabel>
+            <input
+              type="checkbox"
+              id="add_to_report"
+              {...register('add_to_report')}
+            />
+          </GridContainer1>
+          <GridContainer1></GridContainer1>
+          <GridContainer1>
+            <InfoLabel style={{ marginLeft: 10 }}>
+              Duplicate this case across other buildings?
+            </InfoLabel>
+            <input
+              type="checkbox"
+              id="duplicate_case"
+              {...register('duplicate_case')}
+            />
+          </GridContainer1>
           <GridContainer>
             <HeadingLabel></HeadingLabel>
             <Placeholder />
@@ -549,6 +571,17 @@ const Create: React.FC = () => {
 
           <div></div>
         </MainContainer>
+        <MainContainer>
+          <GridContainer1>
+            <InfoLabel style={{ marginLeft: 10 }}>Jobs logged by</InfoLabel>
+            <InputField
+              id="logged_by"
+              {...register('logged_by')}
+              value={'demo manager'}
+            ></InputField>
+          </GridContainer1>
+          <GridContainer1></GridContainer1>
+        </MainContainer>
 
         <MainContainer>
           <GridContainer>
@@ -566,6 +599,13 @@ const Create: React.FC = () => {
           </div>
 
           <div></div>
+        </MainContainer>
+        <MainContainer>
+          <GridContainer1>
+            <InfoLabel style={{ marginLeft: 10 }}>
+              Send email to the following contractors?:
+            </InfoLabel>
+          </GridContainer1>
         </MainContainer>
 
         <MainContainer>
