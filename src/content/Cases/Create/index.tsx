@@ -306,6 +306,9 @@ const Create: React.FC = () => {
         .then((result: any) => {
           localStorage.setItem('max_case_number', String(result.case_number))
           handleClickSnack()
+          setTimeout(() => {
+            navigate('/bm/cases/list')
+          }, 3000)
         })
         .catch((error: any) => {
           navigate('/login')
@@ -360,7 +363,7 @@ const Create: React.FC = () => {
           open={openSnack}
           autoHideDuration={3000}
           onClose={handleClose}
-          message="Case Added"
+          message="Case Successfully Added"
           action={action}
         />
         <BlueHeader>

@@ -16,6 +16,10 @@ import { makeStyles } from '@material-ui/styles'
 import Select from 'react-select'
 import { Button, Modal } from '@material-ui/core'
 
+import Snackbar from '@mui/material/Snackbar'
+import IconButton from '@mui/material/IconButton'
+import CloseIcon from '@mui/icons-material/Close'
+
 import {
   InputField,
   DateField,
@@ -43,6 +47,35 @@ import {
 } from './Edit.style'
 
 const Edit: React.FC = () => {
+  const [openSnack, setOpenSnak] = React.useState(false)
+  const handleClickSnack = () => {
+    setOpenSnak(true)
+  }
+
+  const handleCloseSnack = (
+    event: React.SyntheticEvent | React.MouseEvent,
+    reason?: string,
+  ) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpenSnak(false)
+  }
+
+  const action = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleCloseSnack}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  )
+
   function rand() {
     return Math.round(Math.random() * 20) - 10
   }
@@ -314,7 +347,10 @@ const Edit: React.FC = () => {
       }
       updateCase(data)
         .then((result: any) => {
-          navigate('/bm/cases/list')
+          handleClickSnack()
+          setTimeout(() => {
+            navigate('/bm/cases/list')
+          }, 3000)
         })
         .catch((error: any) => {})
     }
@@ -338,6 +374,13 @@ const Edit: React.FC = () => {
       }}
     >
       <MainWrapper>
+        <Snackbar
+          open={openSnack}
+          autoHideDuration={3000}
+          onClose={handleClose}
+          message="Case Successfully Updated"
+          action={action}
+        />
         <BlueHeader>
           <HorDiv>
             <FontAwesomeIcon color="white" icon={faWrench} />
