@@ -40,7 +40,7 @@ export const getAllCases = async (): Promise<Myboscase[]> => {
       return response.data
     })
     .catch((error) => {
-      return null
+      return error
     })
 }
 
