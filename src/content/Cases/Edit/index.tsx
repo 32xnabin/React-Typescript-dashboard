@@ -343,7 +343,7 @@ const Edit: React.FC = () => {
             <FontAwesomeIcon color="white" icon={faWrench} />
             <WhiteLabel>Edit Case</WhiteLabel>
           </HorDiv>
-          <HorDiv>
+          <HorDiv style={{ visibility: 'hidden' }}>
             <FontAwesomeIcon color="white" icon={faPrint} />
             <FontAwesomeIcon color="white" icon={faCog} />
           </HorDiv>
@@ -494,6 +494,7 @@ const Edit: React.FC = () => {
                 <InfoLabel>Asset</InfoLabel>
                 <InputWrapper>
                   <Select
+                    value={asset}
                     isMulti
                     onChange={onAssetChange}
                     options={mock_assets}

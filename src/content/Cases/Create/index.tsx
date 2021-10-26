@@ -368,7 +368,7 @@ const Create: React.FC = () => {
             <FontAwesomeIcon color="white" icon={faWrench} />
             <WhiteLabel>Create Cases</WhiteLabel>
           </HorDiv>
-          <HorDiv>
+          <HorDiv style={{ visibility: 'hidden' }}>
             <FontAwesomeIcon color="white" icon={faPrint} />
             <FontAwesomeIcon color="white" icon={faCog} />
           </HorDiv>

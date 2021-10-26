@@ -26,7 +26,7 @@ function ApplicationsTransactions() {
         >
           <BlueHeader>
             <WhiteLabel>Cases</WhiteLabel>
-            <HorDiv>
+            <HorDiv style={{ visibility: 'hidden' }}>
               <FontAwesomeIcon color="white" icon={faPrint} />
               <FontAwesomeIcon color="white" icon={faCog} />
             </HorDiv>
