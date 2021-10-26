@@ -14,11 +14,12 @@ function Cases() {
       .then((res) => {
         localStorage.setItem(
           'max_case_number',
-          String(res[res.length - 1].case_number),
+          res.length > 0 ? String(res[res.length - 1].case_number) : "0",
         )
         setMybosCases(res)
       })
       .catch((error) => {
+        console.log(error)
         navigate('/login')
       })
   })
