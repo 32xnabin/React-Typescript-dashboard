@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { createCase, uploadImage } from '../../../services'
-import RichEditor from '../RichEditor'
+import RichEditor from '../../../components/RichEditor'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWrench } from '@fortawesome/free-solid-svg-icons'
 import { faPrint } from '@fortawesome/free-solid-svg-icons'
 import { faCog } from '@fortawesome/free-solid-svg-icons'
 import { faPaperclip } from '@fortawesome/free-solid-svg-icons'
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone'
-import Photo from '../Photo'
+import Photo from '../../../components/Photo'
 
 import {
   InputField,

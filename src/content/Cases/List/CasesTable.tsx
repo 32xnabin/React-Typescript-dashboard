@@ -28,7 +28,7 @@ import { Myboscase } from 'src/types'
 import { deleteCase, updateCase } from '../../../services'
 import { HorDiv } from './CaseTable.style'
 import { experimentalStyled } from '@material-ui/core/styles'
-import AlertDialog from './AlertDialog'
+import AlertDialog from '../../../components/AlertDialog'
 
 const ButtonRed = experimentalStyled(Link)(
   ({ theme }) => `
