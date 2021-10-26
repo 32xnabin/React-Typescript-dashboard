@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Myboscase } from '../../../../types'
-import { getAllCases } from '../../../../services'
+import { Myboscase } from '../../../types'
+import { getAllCases } from '../../../services'
 import { Card } from '@material-ui/core'
 import CasesTable from './CasesTable'
 
@@ -14,7 +14,7 @@ function Cases() {
       .then((res) => {
         localStorage.setItem(
           'max_case_number',
-          String(res[res.length - 1].case_number),
+          res.length > 0 ? String(res[res.length - 1].case_number) : '0',
         )
         setMybosCases(res)
       })

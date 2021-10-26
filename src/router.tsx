@@ -28,13 +28,13 @@ const Dashboards = Loader(lazy(() => import('src/content/dashboards')))
 
 //const Transactions = Loader(lazy(() => import('src/content/applications/Transactions')));
 const ListCase = Loader(
-  lazy(() => import('src/content/applications/Cases/List')),
+  lazy(() => import('src/content/Cases/List')),
 )
 const CreateCase = Loader(
-  lazy(() => import('src/content/applications/Cases/Create')),
+  lazy(() => import('src/content/Cases/Create')),
 )
 const EditCase = Loader(
-  lazy(() => import('src/content/applications/Cases/Edit')),
+  lazy(() => import('src/content/Cases/Edit')),
 )
 
 // Status

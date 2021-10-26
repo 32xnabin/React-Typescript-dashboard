@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
-import { updateCase, getCaseById, uploadImage } from '../../../../services'
+import { updateCase, getCaseById, uploadImage } from '../../../services'
 import RichEditor from '../RichEditor'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWrench } from '@fortawesome/free-solid-svg-icons'
@@ -26,6 +26,7 @@ import {
   GridContainer1,
   FileuploadContainer,
   DropDown,
+  DropDownLong,
   InputWrapper,
   WhiteLabel,
   ButtonsContainer,
@@ -92,12 +93,14 @@ const Edit: React.FC = () => {
     'Awaiting Quote',
   ]
   const mock_job_area = ['common-asset', 'common-not-asset', 'private lot']
-  const mock_category = ['clouido', 'common area', 'door']
-
-  const mock_assets = [
-    { value: 'BLDG-Plumbing', label: 'BLDG-Plumbing' },
-    { value: 'BLDG-Toilets', label: 'BLDG-Toilets' },
-    { value: 'BLDG-Rest', label: 'BLDG-Rest' },
+  const mock_category = [
+    'All Categories',
+    'CLOUDIO',
+    'COMMON AREA',
+    'DOOR',
+    'ELECTRICAL',
+    'EXHAUST',
+    'GYM / POOL',
   ]
 
   const mock_apartments = [
@@ -116,6 +119,12 @@ const Edit: React.FC = () => {
     '66',
   ]
 
+  const mock_assets = [
+    { value: 'BLDG-Plumbing', label: 'BLDG-Plumbing' },
+    { value: 'BLDG-Toilets', label: 'BLDG-Toilets' },
+    { value: 'BLDG-Rest', label: 'BLDG-Rest' },
+  ]
+
   const mock_assigned_to = [
     { value: 'Ace hanndy andy', label: 'Ace hanndy andy' },
     { value: 'bradyos', label: 'bradyos' },
@@ -123,7 +132,6 @@ const Edit: React.FC = () => {
     { value: 'Chummins', label: 'Chummins' },
   ]
   const mock_subject = ['Light out', 'bulb clean', 'pool clean']
-  //moment(Yup.date()).format('dd//MM/YYYY'),
 
   const validationSchema = Yup.object().shape({
     case_type: Yup.string(),
@@ -233,6 +241,7 @@ const Edit: React.FC = () => {
 
     getCaseById(id)
       .then((result: any) => {
+        console.log('--->', result)
         prefillForm(result)
       })
       .catch((error: any) => {
@@ -246,7 +255,6 @@ const Edit: React.FC = () => {
 
   const onImageUploaded = async (file): Promise<boolean> => {
     const res = await uploadImage(file)
-
     setCaseImages([...caseImages, res.url])
     return false
   }
@@ -471,24 +479,26 @@ const Edit: React.FC = () => {
                 <InfoLabel>Category</InfoLabel>
                 {jobArea === 'common-asset' ? (
                   <DropDown id="category" {...register('category')}>
-                    {mock_category.map((option) => (
-                      <option key={option}>{option}</option>
+                    {mock_category.map((option, index) => (
+                      <option key={index}>{option}</option>
                     ))}
                   </DropDown>
                 ) : (
                   <DropDown id="category" {...register('category')}>
-                    {mock_apartments.map((option) => (
-                      <option key={option}>{option}</option>
+                    {mock_apartments.map((option, index) => (
+                      <option key={index}>{option}</option>
                     ))}
                   </DropDown>
                 )}
 
                 <InfoLabel>Asset</InfoLabel>
-                <Select
-                  isMulti
-                  onChange={onAssetChange}
-                  options={mock_assets}
-                />
+                <InputWrapper>
+                  <Select
+                    isMulti
+                    onChange={onAssetChange}
+                    options={mock_assets}
+                  />
+                </InputWrapper>
               </>
             )}
             <InfoLabel>Assigned To</InfoLabel>
@@ -502,19 +512,18 @@ const Edit: React.FC = () => {
             </InputWrapper>
 
             <InfoLabel>Subject</InfoLabel>
-            <DropDown id="email_subject" {...register('email_subject')}>
+            <DropDownLong id="email_subject" {...register('email_subject')}>
               {mock_subject.map((option) => (
                 <option key={option}>{option}</option>
               ))}
-            </DropDown>
+            </DropDownLong>
             <InfoLabel>Descrption</InfoLabel>
-            <InputWrapper>
-              <RichEditor
-                value={email_desc}
-                setValue={setEmail_desc}
-                {...register('email_description')}
-              />
-            </InputWrapper>
+
+            <RichEditor
+              value={email_desc}
+              setValue={setEmail_desc}
+              {...register('email_description')}
+            />
 
             <InfoLabel>Notes</InfoLabel>
 
@@ -581,14 +590,14 @@ const Edit: React.FC = () => {
           <div></div>
         </MainContainer>
         <MainContainer>
-          <GridContainer1>
-            <InfoLabel style={{ marginLeft: 10 }}>Jobs logged by</InfoLabel>
+          <GridContainer>
+            <InfoLabel>Jobs logged by</InfoLabel>
             <InputField
               id="logged_by"
               {...register('logged_by')}
               value={'demo manager'}
             ></InputField>
-          </GridContainer1>
+          </GridContainer>
           <GridContainer1></GridContainer1>
         </MainContainer>
 

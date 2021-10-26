@@ -111,6 +111,18 @@ export const DropDown = styled.select`
   }
   color: #918e8e;
 `
+export const DropDownLong = styled.select`
+  height: 35px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  .MuiInputBase-input {
+    font-size: 14px;
+    line-height: 1.1875em;
+    color: #918e8e;
+  }
+  color: #918e8e;
+`
 
 export const Disabled = styled.div`
   width: 450px;
@@ -128,7 +140,6 @@ export const Disabled = styled.div`
 export const InputField = styled(({ visible, ...otherProps }) => (
   <TextField variant="outlined" {...otherProps} />
 ))`
-  width: 450px;
   height: 45px !important;
   position: relative;
   left: -5px;

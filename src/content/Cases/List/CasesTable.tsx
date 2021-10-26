@@ -25,9 +25,10 @@ import { CaseStatus } from 'src/types'
 import EditTwoToneIcon from '@material-ui/icons/EditTwoTone'
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone'
 import { Myboscase } from 'src/types'
-import { deleteCase, updateCase } from '../../../../services'
+import { deleteCase, updateCase } from '../../../services'
 import { HorDiv } from './CaseTable.style'
 import { experimentalStyled } from '@material-ui/core/styles'
+import AlertDialog from './AlertDialog'
 
 const ButtonRed = experimentalStyled(Link)(
   ({ theme }) => `
@@ -76,6 +77,8 @@ const applyPagination = (
 }
 
 const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
+  const [selectedCaseId, setSelectedCaseId] = useState('')
   const [selectedCases, setSelectedCases] = useState<string[]>([''])
   const selectedBulkActions = selectedCases.length > 0
   const [page, setPage] = useState<number>(0)
@@ -116,16 +119,21 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
     },
   ]
 
-  const onCaseDelete = async (e) => {
-    const id = e.currentTarget.getAttribute('data-value1')
-
-    deleteCase(id)
+  const confirmDelete = () => {
+    deleteCase(selectedCaseId)
       .then((result: any) => {
+        setShowDeleteConfirm(false)
         window.location.reload()
       })
       .catch((error: any) => {})
 
     return true
+  }
+
+  const onCaseDelete = async (e) => {
+    const id = e.currentTarget.getAttribute('data-value1')
+    setSelectedCaseId(id)
+    setShowDeleteConfirm(true)
   }
 
   const handleStatusChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -234,7 +242,12 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
         </Box>
         <ButtonRed to="/bm/cases/create">New</ButtonRed>
       </Box>
-
+      <AlertDialog
+        confirmDelete={confirmDelete}
+        showDeleteConfirm={showDeleteConfirm}
+        setShowDeleteConfirm={setShowDeleteConfirm}
+        message={'Delete this case ?'}
+      />
       <Divider />
       <TableContainer style={{ border: 0, boxShadow: 'none' }}>
         <Table>

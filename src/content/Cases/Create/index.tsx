@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
-import { createCase, uploadImage } from '../../../../services'
+import { createCase, uploadImage } from '../../../services'
 import RichEditor from '../RichEditor'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWrench } from '@fortawesome/free-solid-svg-icons'
@@ -23,6 +23,7 @@ import {
   GridContainer1,
   FileuploadContainer,
   DropDown,
+  DropDownLong,
   InputWrapper,
   WhiteLabel,
   ButtonsContainer,
@@ -38,14 +39,48 @@ import {
   HeadingLabel,
 } from './Create.style'
 import { makeStyles } from '@material-ui/styles'
-import { Button, Modal } from '@material-ui/core'
+import { Modal } from '@material-ui/core'
+import Button from '@mui/material/Button'
+import Snackbar from '@mui/material/Snackbar'
+import IconButton from '@mui/material/IconButton'
+import CloseIcon from '@mui/icons-material/Close'
 
 import Select from 'react-select'
 
 function rand() {
   return Math.round(Math.random() * 20) - 10
 }
+
 const Create: React.FC = () => {
+  const [openSnack, setOpenSnak] = React.useState(false)
+  const handleClickSnack = () => {
+    setOpenSnak(true)
+  }
+
+  const handleCloseSnack = (
+    event: React.SyntheticEvent | React.MouseEvent,
+    reason?: string,
+  ) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpenSnak(false)
+  }
+
+  const action = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleCloseSnack}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  )
+
   function getModalStyle() {
     const top = 50 + rand()
     const left = 50 + rand()
@@ -270,7 +305,7 @@ const Create: React.FC = () => {
       createCase(data)
         .then((result: any) => {
           localStorage.setItem('max_case_number', String(result.case_number))
-          navigate('/bm/cases/list')
+          handleClickSnack()
         })
         .catch((error: any) => {
           navigate('/login')
@@ -321,6 +356,13 @@ const Create: React.FC = () => {
       }}
     >
       <MainWrapper>
+        <Snackbar
+          open={openSnack}
+          autoHideDuration={3000}
+          onClose={handleClose}
+          message="Case Added"
+          action={action}
+        />
         <BlueHeader>
           <HorDiv>
             <FontAwesomeIcon color="white" icon={faWrench} />
@@ -475,23 +517,25 @@ const Create: React.FC = () => {
                 )}
 
                 <InfoLabel>Asset</InfoLabel>
-                <Select
-                  isMulti
-                  onChange={onAssetChange}
-                  options={mock_assets}
-                />
+                <InputWrapper>
+                  <Select
+                    isMulti
+                    onChange={onAssetChange}
+                    options={mock_assets}
+                  />
+                </InputWrapper>
               </>
             )}
-
             <InfoLabel>Assigned To</InfoLabel>
-            <Select
-              isMulti
-              onChange={onAssignedChange}
-              options={mock_assigned_to}
-            />
-
+            <InputWrapper>
+              <Select
+                isMulti
+                onChange={onAssignedChange}
+                options={mock_assigned_to}
+              />
+            </InputWrapper>
             <InfoLabel>Subject</InfoLabel>
-            <DropDown
+            <DropDownLong
               id="email_subject"
               {...emailSubjectFiled}
               onChange={(e) => {
@@ -502,11 +546,10 @@ const Create: React.FC = () => {
               {mock_subject.map((option) => (
                 <option key={option}>{option}</option>
               ))}
-            </DropDown>
+            </DropDownLong>
             <InfoLabel>Descrption</InfoLabel>
-            <InputWrapper>
-              <RichEditor value={email_desc} setValue={setEmail_desc} />
-            </InputWrapper>
+
+            <RichEditor value={email_desc} setValue={setEmail_desc} />
 
             <InfoLabel>Notes</InfoLabel>
             <InputField id="notes" {...register('notes')}></InputField>
@@ -572,14 +615,14 @@ const Create: React.FC = () => {
           <div></div>
         </MainContainer>
         <MainContainer>
-          <GridContainer1>
-            <InfoLabel style={{ marginLeft: 10 }}>Jobs logged by</InfoLabel>
+          <GridContainer>
+            <InfoLabel>Jobs logged by</InfoLabel>
             <InputField
               id="logged_by"
               {...register('logged_by')}
               value={'demo manager'}
             ></InputField>
-          </GridContainer1>
+          </GridContainer>
           <GridContainer1></GridContainer1>
         </MainContainer>
 

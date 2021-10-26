@@ -15,7 +15,10 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
   }
 
   return (
-    <div>
+    <div style={{ background: '#eee' }}>
+      <h2 style={{ color: '#5faee3', width: '100%', textAlign: 'center' }}>
+        Upload File
+      </h2>
       <img
         alt="upload"
         src={file}
@@ -24,15 +27,16 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'auto',
           backgroundPositionY: 'center',
-          backgroundPositionX: 40,
+          backgroundPositionX: 'center',
           backgroundColor: '#e5e5e5',
           padding: 0,
           margin: 3,
           width: 200,
-          height: 200,
+          height: 100,
           border: '1px solid #5faee3',
-          minHeight: '200px',
+          minHeight: '100px',
           minWidth: '200px',
+          marginLeft:'40px',
         }}
       />
       <br />

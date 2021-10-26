@@ -25,7 +25,9 @@ const Login: React.FC = () => {
 
   const [message, setMessage] = React.useState('')
 
-  React.useEffect(() => {}, [])
+  React.useEffect(() => {
+    localStorage.setItem('token', '')
+  }, [])
 
   const onSubmit = (data: any) => {
     loginUser(data)

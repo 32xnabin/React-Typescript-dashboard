@@ -1,12 +1,13 @@
-import { useContext } from 'react';
+import { useContext } from 'react'
 
-import { Box, Hidden, IconButton, Tooltip } from '@material-ui/core';
-import { experimentalStyled } from '@material-ui/core/styles';
-import MenuTwoToneIcon from '@material-ui/icons/MenuTwoTone';
-import { SidebarContext } from 'src/contexts/SidebarContext';
-import CloseTwoToneIcon from '@material-ui/icons/CloseTwoTone';
+import { Box, Hidden, IconButton, Tooltip } from '@material-ui/core'
+import { experimentalStyled } from '@material-ui/core/styles'
+import MenuTwoToneIcon from '@material-ui/icons/MenuTwoTone'
+import { SidebarContext } from 'src/contexts/SidebarContext'
+import CloseTwoToneIcon from '@material-ui/icons/CloseTwoTone'
 
-import Logo from 'src/components/Logo';
+import Logo from 'src/components/Logo'
+import HeaderUserbox from './Userbox'
 
 const HeaderWrapper = experimentalStyled(Box)(
   ({ theme }) => `
@@ -24,21 +25,20 @@ const HeaderWrapper = experimentalStyled(Box)(
             left: 0;
             width: auto;
         }
-`
-);
+`,
+)
 
 function Header() {
-  const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
+  const { sidebarToggle, toggleSidebar } = useContext(SidebarContext)
 
   return (
     <HeaderWrapper display="flex" alignItems="center">
       <Box display="flex" alignItems="center">
-     
-          <Logo />
-      
+        <Logo />
       </Box>
       <Box display="flex" alignItems="center">
-       
+        <HeaderUserbox />
+
         <Hidden lgUp>
           <Tooltip arrow title="Search">
             <IconButton color="primary" onClick={toggleSidebar}>
@@ -48,7 +48,7 @@ function Header() {
         </Hidden>
       </Box>
     </HeaderWrapper>
-  );
+  )
 }
 
-export default Header;
+export default Header

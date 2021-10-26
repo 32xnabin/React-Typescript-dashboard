@@ -15,7 +15,6 @@ function ApplicationsTransactions() {
         <Helmet>
           <title>MYBOS - Cases</title>
         </Helmet>
-
         <div
           style={{
             marginTop: 20,
