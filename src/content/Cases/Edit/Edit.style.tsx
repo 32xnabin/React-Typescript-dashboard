@@ -164,7 +164,7 @@ export const InputFieldSubject = styled(({ visible, ...otherProps }) => (
   <input {...otherProps} />
 ))`
   height: 36px !important;
-  width: 450px;
+  width: 550px;
   padding-left: 5px;
   color: #918e8e;
   font-size: 14px;
@@ -173,6 +173,8 @@ export const InputFieldSubject = styled(({ visible, ...otherProps }) => (
   background: #fff;
   -webkit-appearance: none;
   -moz-appearance: textfield;
+  position: relative;
+  z-index: 2;
 `
 
 export const DateField = styled(({ visible, ...otherProps }) => (

@@ -19,7 +19,7 @@ import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone'
 import Snackbar from '@mui/material/Snackbar'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
-import { Divider, List, ListItem, Popover } from '@material-ui/core'
+import { List, ListItem, Popover } from '@material-ui/core'
 
 import {
   InputField,
@@ -617,9 +617,8 @@ const Edit: React.FC = () => {
                     ))}
                   </DropDown>
                 )}
-
                 <InfoLabel>Asset</InfoLabel>
-                <InputWrapper>
+                <InputWrapper style={{ zIndex: 4 }}>
                   <Select
                     value={asset}
                     isMulti
@@ -630,7 +629,7 @@ const Edit: React.FC = () => {
               </>
             )}
             <InfoLabel>Assigned To</InfoLabel>
-            <InputWrapper>
+            <InputWrapper style={{ zIndex: 3 }}>
               <Select
                 value={assignedTo}
                 isMulti
@@ -647,18 +646,24 @@ const Edit: React.FC = () => {
               ></InputFieldSubject>
               <Button
                 style={{
-                  background: '#fff',
                   border: '1px solid #ccc',
-                  height: 35,
+                  height: 36,
                   borderRadius: 0,
+                  width: '610px',
+                  position: 'relative',
+                  top: -36,
+                  zIndex: 1,
+                  textAlign: 'right',
                 }}
                 ref={ref}
                 onClick={handleOpenPop}
               >
-                <ExpandMoreTwoToneIcon
-                  style={{ color: '#ccc' }}
-                  sx={{ ml: 1 }}
-                />
+                <div style={{ textAlign: 'right', width: '100%' }}>
+                  <ExpandMoreTwoToneIcon
+                    style={{ color: '#ccc' }}
+                    sx={{ ml: 1 }}
+                  />
+                </div>
               </Button>
               <Popover
                 anchorEl={ref.current}
@@ -669,19 +674,24 @@ const Edit: React.FC = () => {
                   horizontal: 'left',
                 }}
               >
-                <List sx={{ p: 1 }} component="nav">
-                  {mock_subject.map((option) => (
-                    <ListItem>
-                      <Button
-                        onClick={onEmailSubjectChange}
-                        data-subject={option}
-                      >
-                        {option}
-                      </Button>
-                    </ListItem>
-                  ))}
-                </List>
-                <Divider />
+                <div style={{ width: '610px', border: '1px solid #ccc' }}>
+                  <List sx={{ p: 1 }} component="nav">
+                    {mock_subject.map((option) => (
+                      <ListItem>
+                        <Button
+                          style={{
+                            width: '610px',
+                            justifyContent: 'flex-start',
+                          }}
+                          onClick={onEmailSubjectChange}
+                          data-subject={option}
+                        >
+                          {option}
+                        </Button>
+                      </ListItem>
+                    ))}
+                  </List>
+                </div>
               </Popover>
             </div>
             <InfoLabel>Descrption</InfoLabel>
