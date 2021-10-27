@@ -560,7 +560,7 @@ const Edit: React.FC = () => {
               {caseImages
                 .filter((url) => url !== '')
                 .map((url, index) => (
-                  <div key={index}>
+                  <div key={index} style={{ margin: 10 }}>
                     <img alt="case" height={150} width={150} src={url} />
                     <Button onClick={removePhoto} data-value1={url}>
                       <DeleteTwoToneIcon fontSize="small" />
