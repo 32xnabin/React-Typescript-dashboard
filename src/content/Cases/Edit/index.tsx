@@ -15,10 +15,11 @@ import Photo from '../../../components/Photo'
 import { makeStyles } from '@material-ui/styles'
 import Select from 'react-select'
 import { Button, Modal } from '@material-ui/core'
-
+import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone'
 import Snackbar from '@mui/material/Snackbar'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
+import { Divider, List, ListItem, Popover } from '@material-ui/core'
 
 import {
   InputField,
@@ -30,7 +31,7 @@ import {
   GridContainer1,
   FileuploadContainer,
   DropDown,
-  DropDownLong,
+  InputFieldSubject,
   InputWrapper,
   WhiteLabel,
   ButtonsContainer,
@@ -47,6 +48,17 @@ import {
 } from './Edit.style'
 
 const Edit: React.FC = () => {
+  const ref = React.useRef<any>(null)
+  const [isOpen, setOpen] = React.useState<boolean>(false)
+
+  const handleOpenPop = (): void => {
+    setOpen(true)
+  }
+
+  const handleClosePop = (): void => {
+    setOpen(false)
+  }
+
   const [openSnack, setOpenSnak] = React.useState(false)
   const handleClickSnack = () => {
     setOpenSnak(true)
@@ -164,7 +176,38 @@ const Edit: React.FC = () => {
     { value: 'AZ-Electrician', label: 'AZ-Plumbing' },
     { value: 'Chummins', label: 'Chummins' },
   ]
-  const mock_subject = ['Light out', 'bulb clean', 'pool clean']
+  const mock_subject = [
+    'Light out',
+    'bulb clean',
+    'Inspect water meters',
+    'pool clean',
+  ]
+  const mock_email_template = [
+    [
+      {
+        type: 'paragraph',
+        children: [{ text: 'Template for Light out ' }],
+      },
+    ],
+    [
+      {
+        type: 'paragraph',
+        children: [{ text: 'Template for bulb clean ' }],
+      },
+    ],
+    [
+      {
+        type: 'paragraph',
+        children: [{ text: 'Template for water meters ' }],
+      },
+    ],
+    [
+      {
+        type: 'paragraph',
+        children: [{ text: 'Template for pool clean ' }],
+      },
+    ],
+  ]
 
   const validationSchema = Yup.object().shape({
     case_type: Yup.string(),
@@ -197,6 +240,7 @@ const Edit: React.FC = () => {
   const [openModal, setOpenModal] = React.useState(false)
   const [caseImages, setCaseImages] = React.useState([''])
   const [casenum, setCasenum] = React.useState(0)
+  const [email_subject, setEmail_subject] = React.useState('')
   const [email_desc, setEmail_desc] = React.useState(initialValue)
   const [notes, setNotes] = React.useState(initialValue)
   const [assignedTo, setAssignedTo] = React.useState([])
@@ -233,6 +277,10 @@ const Edit: React.FC = () => {
     if (item.asset) {
       setAsset(prepareMultiSelect(item.asset))
     }
+    if (item.email_subject) {
+      setEmail_subject(item.email_subject)
+    }
+
     if (item.email_description) {
       setEmail_desc(JSON.parse(item.email_description))
     }
@@ -254,7 +302,6 @@ const Edit: React.FC = () => {
       }
     }
 
-    setValue('email_subject', item.email_subject)
     setValue('logged_by', item.logged_by)
     setValue('add_to_report', item.add_to_report)
     setValue('duplicate_case', item.duplicate_case)
@@ -333,6 +380,22 @@ const Edit: React.FC = () => {
     return csv
   }
 
+  const onEmailSubjectChangeText = (e) => {
+    setEmail_subject(e.target.value)
+  }
+
+  const onEmailSubjectChange = (e) => {
+    const subject = e.currentTarget.getAttribute('data-subject')
+    handleClosePop()
+
+    setEmail_subject(subject)
+    let index = mock_subject.indexOf(subject)
+    if (index !== -1) {
+      let template = mock_email_template[index]
+      setEmail_desc(template)
+    }
+  }
+
   const onSubmit = (data: any) => {
     if (assignedTo.length > 0 && asset.length > 0) {
       data['added_date'] = addedDate
@@ -340,6 +403,7 @@ const Edit: React.FC = () => {
       data['assigned_to'] = createCSV(assignedTo)
       data['asset'] = createCSV(asset)
       data['id'] = caseId
+      data['email_subject'] = email_subject
       data['email_description'] = JSON.stringify(email_desc)
       data['notes'] = notes
       if (caseImages.length > 0) {
@@ -556,11 +620,50 @@ const Edit: React.FC = () => {
             </InputWrapper>
 
             <InfoLabel>Subject</InfoLabel>
-            <DropDownLong id="email_subject" {...register('email_subject')}>
-              {mock_subject.map((option) => (
-                <option key={option}>{option}</option>
-              ))}
-            </DropDownLong>
+            <div>
+              <InputFieldSubject
+                value={email_subject}
+                onChange={(e) => onEmailSubjectChangeText(e)}
+              ></InputFieldSubject>
+              <Button
+                style={{
+                  background: '#fff',
+                  border: '1px solid #ccc',
+                  height: 35,
+                  borderRadius: 0,
+                }}
+                ref={ref}
+                onClick={handleOpenPop}
+              >
+                <ExpandMoreTwoToneIcon
+                  style={{ color: '#ccc' }}
+                  sx={{ ml: 1 }}
+                />
+              </Button>
+              <Popover
+                anchorEl={ref.current}
+                onClose={handleClosePop}
+                open={isOpen}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+              >
+                <List sx={{ p: 1 }} component="nav">
+                  {mock_subject.map((option) => (
+                    <ListItem>
+                      <Button
+                        onClick={onEmailSubjectChange}
+                        data-subject={option}
+                      >
+                        {option}
+                      </Button>
+                    </ListItem>
+                  ))}
+                </List>
+                <Divider />
+              </Popover>
+            </div>
             <InfoLabel>Descrption</InfoLabel>
 
             <RichEditor

@@ -141,12 +141,9 @@ export const InputField = styled(({ visible, ...otherProps }) => (
   <TextField variant="outlined" {...otherProps} />
 ))`
   height: 45px !important;
-  position: relative;
-  left: -5px;
   border-radius: 4px;
   background: #fff;
   -webkit-appearance: none;
-
   -moz-appearance: textfield;
 
   .MuiInputBase-input {
@@ -155,6 +152,17 @@ export const InputField = styled(({ visible, ...otherProps }) => (
     color: #918e8e;
   }
   padding-left: 5px;
+`
+export const InputFieldSubject = styled(({ visible, ...otherProps }) => (
+  <input {...otherProps} />
+))`
+  height: 36px !important;
+  width: 450px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
 `
 
 export const DateField = styled(({ visible, ...otherProps }) => (
