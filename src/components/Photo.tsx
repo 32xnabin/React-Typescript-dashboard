@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { useState } from 'react'
 import upload_blue from './upload_blue.png'
 interface IProps {
@@ -20,7 +21,6 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
         Upload File
       </h2>
       <img
-        alt="upload"
         src={file}
         style={{
           backgroundImage: 'url(' + upload_blue + ')',
@@ -36,12 +36,13 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
           border: '1px solid #5faee3',
           minHeight: '100px',
           minWidth: '200px',
-          marginLeft:'40px',
+          marginLeft: '40px',
         }}
       />
       <br />
+
       <input
-        style={{ color: '#fff', margin: 4 }}
+        style={{ color: '#fff', margin: 4, width: '200px' }}
         type="file"
         onChange={handleChange}
       />
