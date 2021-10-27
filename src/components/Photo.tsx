@@ -1,19 +1,20 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { useState } from 'react'
+
+import { useState, useRef } from 'react'
 import upload_blue from './upload_blue.png'
 interface IProps {
   uploadImage: (file: any) => Promise<boolean>
 }
 const Photo: React.FC<IProps> = ({ uploadImage }) => {
   const [file, setFile] = useState('')
-  const [uploading, setUploding] = useState(true)
-
+  const [uploading, setUploading] = useState(true)
   const handleChange = async (e) => {
     setFile(URL.createObjectURL(e.target.files[0]))
     const res = await uploadImage(e.target.files[0])
 
-    setUploding(res)
+    setUploading(res)
   }
+  const inputRef = useRef(null)
 
   return (
     <div style={{ background: '#eee', textAlign: 'center' }}>
@@ -40,12 +41,30 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
         }}
       />
       <br />
-
-      <input
-        style={{ color: '#fff', margin: 4, width: '200px' }}
-        type="file"
-        onChange={handleChange}
-      />
+      <div>
+        <label
+          onClick={() => inputRef.current.click()}
+          style={{
+            color: '#fff',
+            position: 'relative',
+            top: '25px',
+            left: '-5px',
+            margin: 4,
+            width: '200px',
+            zIndex: 2,
+          }}
+        >
+          Select file
+        </label>
+        <input
+          ref={inputRef}
+          id="browse"
+          className="btn-file-upload"
+          style={{ color: '#5faee3', margin: 4, width: '200px' }}
+          type="file"
+          onChange={handleChange}
+        />
+      </div>
 
       {uploading && file ? (
         <div style={{ height: 20, color: '#5faee3' }}>uploading....</div>
