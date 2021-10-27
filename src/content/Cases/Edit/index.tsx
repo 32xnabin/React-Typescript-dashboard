@@ -136,6 +136,9 @@ const Edit: React.FC = () => {
     'Deleted',
     'Awaiting Invoice',
     'Awaiting Quote',
+    'Awaiting Approval',
+    'Committee Approval',
+    'Contractor status',
   ]
   const mock_job_area = ['common-asset', 'common-not-asset', 'private lot']
   const mock_category = [
@@ -278,7 +281,6 @@ const Edit: React.FC = () => {
   }, [])
 
   const prefillForm = (item: any) => {
-    console.log('editing......', item)
     setCasenum(item.case_number)
 
     const added_date = new Date(item.added_date || new Date())
@@ -340,7 +342,6 @@ const Edit: React.FC = () => {
 
     getCaseById(id)
       .then((result: any) => {
-        console.log('--->', result)
         prefillForm(result)
       })
       .catch((error: any) => {

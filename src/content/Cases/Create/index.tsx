@@ -138,6 +138,9 @@ const Create: React.FC = () => {
     'Deleted',
     'Awaiting Invoice',
     'Awaiting Quote',
+    'Awaiting Approval',
+    'Committee Approval',
+    'Contractor status',
   ]
   const mock_job_area = ['common-asset', 'common-not-asset', 'private lot']
   const mock_category = [
@@ -214,7 +217,12 @@ const Create: React.FC = () => {
     [
       {
         type: 'paragraph',
-        children: [{ text: 'Blueridge to survey Main water meter and Residential water meter and random Lot water meters to find out if water usage is appropriate and if any issues with meters such as Lots 35, 63 and 93 ' }],
+        children: [
+          {
+            text:
+              'Blueridge to survey Main water meter and Residential water meter and random Lot water meters to find out if water usage is appropriate and if any issues with meters such as Lots 35, 63 and 93 ',
+          },
+        ],
       },
     ],
     [
@@ -337,8 +345,6 @@ const Create: React.FC = () => {
   }
 
   const onSubmit = (data: any) => {
-    console.log('adding....', data)
-    console.log('email_desc....', email_desc)
     if (
       assignedTo.length > 0 &&
       (jobArea === 'common-not-asset' || asset.length > 0)
@@ -353,17 +359,17 @@ const Create: React.FC = () => {
         data['images'] = caseImages
       }
 
-      // createCase(data)
-      //   .then((result: any) => {
-      //     localStorage.setItem('max_case_number', String(result.case_number))
-      //     handleClickSnack()
-      //     setTimeout(() => {
-      //       navigate('/bm/cases/list')
-      //     }, 3000)
-      //   })
-      //   .catch((error: any) => {
-      //     navigate('/login')
-      //   })
+      createCase(data)
+        .then((result: any) => {
+          localStorage.setItem('max_case_number', String(result.case_number))
+          handleClickSnack()
+          setTimeout(() => {
+            navigate('/bm/cases/list')
+          }, 3000)
+        })
+        .catch((error: any) => {
+          navigate('/login')
+        })
     }
   }
 
@@ -372,8 +378,7 @@ const Create: React.FC = () => {
   }
 
   const onAddAndReset = (data: any) => {
-    console.log('adding....', data)
-    console.log('email_desc....', email_desc)
+   
     if (
       assignedTo.length > 0 &&
       (jobArea === 'common-not-asset' || asset.length > 0)

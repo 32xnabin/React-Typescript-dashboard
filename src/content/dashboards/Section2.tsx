@@ -14,8 +14,6 @@ const Section2: React.FC = () => {
   const twelveMonth = moment().startOf('day').subtract(12, 'month')
 
   const filterCases = (duration, casesNow) => {
-    console.log('=======duration===>', duration)
-
     const currentDate = new Date().toISOString().substr(0, 10)
     let durationDate = moment(currentDate)
     switch (duration) {
@@ -41,7 +39,6 @@ const Section2: React.FC = () => {
         break
     }
 
-    console.log('mybosCases--->', mybosCases)
     const filtered = casesNow.filter(
       (item) => moment(item.updatedAt) >= durationDate,
     )
@@ -49,7 +46,7 @@ const Section2: React.FC = () => {
     const namesOnly = filtered.map((item) => {
       return item.case_type
     })
-    console.log('namesOnly--->', namesOnly)
+
     const count = {}
     namesOnly.forEach((e) => (count[e] ? count[e]++ : (count[e] = 1)))
     const keys = Object.keys(count)
@@ -61,8 +58,6 @@ const Section2: React.FC = () => {
     for (let i = 0; i < keys.length; i++) {
       finalArray.push({ label: keys[i], value: (count[keys[i]] / total) * 100 })
     }
-
-    console.log(finalArray)
 
     setFilteredCases(finalArray)
   }
