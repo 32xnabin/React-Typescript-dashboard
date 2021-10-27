@@ -180,7 +180,7 @@ const Create: React.FC = () => {
   ]
   const mock_subject = [
     'Light out',
-    'bulb clean',
+    'bulb blown',
     'Inspect water meters',
     'pool clean',
   ]
@@ -188,25 +188,39 @@ const Create: React.FC = () => {
     [
       {
         type: 'paragraph',
-        children: [{ text: 'Template for Light out ' }],
+        children: [
+          {
+            text:
+              'AWS BM : 1.9.7001(108) - https://drive.google.com/file/d/1YEm6rtKJhkdhqS3-Vi3okZO9yhYzgUzC/view?usp=sharing ',
+          },
+        ],
+      },
+      {
+        type: 'paragraph',
+        children: [
+          {
+            text:
+              'AWS Resident: 1.7.4001(76) - https://drive.google.com/file/d/1S0dsR3nWsTwhsiR2zV857F57OvnVFlKc/view?usp=sharing',
+          },
+        ],
       },
     ],
     [
       {
         type: 'paragraph',
-        children: [{ text: 'Template for bulb clean ' }],
+        children: [{ text: 'Template for bulb blown ' }],
       },
     ],
     [
       {
         type: 'paragraph',
-        children: [{ text: 'Template for water meters ' }],
+        children: [{ text: 'Blueridge to survey Main water meter and Residential water meter and random Lot water meters to find out if water usage is appropriate and if any issues with meters such as Lots 35, 63 and 93 ' }],
       },
     ],
     [
       {
         type: 'paragraph',
-        children: [{ text: 'Template for pool clean ' }],
+        children: [{ text: 'Clean and test Parts on order ' }],
       },
     ],
   ]
@@ -324,6 +338,7 @@ const Create: React.FC = () => {
 
   const onSubmit = (data: any) => {
     console.log('adding....', data)
+    console.log('email_desc....', email_desc)
     if (
       assignedTo.length > 0 &&
       (jobArea === 'common-not-asset' || asset.length > 0)
@@ -338,17 +353,17 @@ const Create: React.FC = () => {
         data['images'] = caseImages
       }
 
-      createCase(data)
-        .then((result: any) => {
-          localStorage.setItem('max_case_number', String(result.case_number))
-          handleClickSnack()
-          setTimeout(() => {
-            navigate('/bm/cases/list')
-          }, 3000)
-        })
-        .catch((error: any) => {
-          navigate('/login')
-        })
+      // createCase(data)
+      //   .then((result: any) => {
+      //     localStorage.setItem('max_case_number', String(result.case_number))
+      //     handleClickSnack()
+      //     setTimeout(() => {
+      //       navigate('/bm/cases/list')
+      //     }, 3000)
+      //   })
+      //   .catch((error: any) => {
+      //     navigate('/login')
+      //   })
     }
   }
 
@@ -358,6 +373,7 @@ const Create: React.FC = () => {
 
   const onAddAndReset = (data: any) => {
     console.log('adding....', data)
+    console.log('email_desc....', email_desc)
     if (
       assignedTo.length > 0 &&
       (jobArea === 'common-not-asset' || asset.length > 0)
@@ -372,17 +388,17 @@ const Create: React.FC = () => {
         data['images'] = caseImages
       }
 
-      createCase(data)
-        .then((result: any) => {
-          localStorage.setItem('max_case_number', String(result.case_number))
-          handleClickSnack()
-          setTimeout(() => {
-            navigate('/bm/cases/create')
-          }, 3000)
-        })
-        .catch((error: any) => {
-          navigate('/login')
-        })
+      //   createCase(data)
+      //     .then((result: any) => {
+      //       localStorage.setItem('max_case_number', String(result.case_number))
+      //       handleClickSnack()
+      //       setTimeout(() => {
+      //         navigate('/bm/cases/create')
+      //       }, 3000)
+      //     })
+      //     .catch((error: any) => {
+      //       navigate('/login')
+      //     })
     }
   }
   const classes = useStyles()
