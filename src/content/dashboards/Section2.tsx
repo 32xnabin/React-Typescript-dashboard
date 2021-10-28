@@ -8,7 +8,7 @@ import { Holder } from './Common.style'
 
 const Section2: React.FC = () => {
   const thisWeek = moment().startOf('day').subtract(1, 'week')
-  const thisMonth = moment().startOf('day').subtract(1, 'month')
+  const thisMonth = moment().startOf('day').subtract(0, 'month')
   const threeMonth = moment().startOf('day').subtract(3, 'month')
   const sixMonth = moment().startOf('day').subtract(6, 'month')
   const twelveMonth = moment().startOf('day').subtract(12, 'month')
@@ -79,6 +79,7 @@ const Section2: React.FC = () => {
   React.useEffect(() => {
     getAllCases()
       .then((res) => {
+        console.log('res===>', res)
         setMybosCases(res)
         filterCases('TODAY', res)
       })

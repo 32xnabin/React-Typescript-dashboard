@@ -23,6 +23,7 @@ import { List, ListItem, Popover } from '@material-ui/core'
 
 import {
   InputField,
+  InputFieldNotes,
   DateField,
   InfoLabel,
   Placeholder,
@@ -704,7 +705,10 @@ const Edit: React.FC = () => {
 
             <InfoLabel>Notes</InfoLabel>
 
-            <InputField onChange={onNotesChange} value={notes}></InputField>
+            <InputFieldNotes
+              onChange={onNotesChange}
+              value={notes}
+            ></InputFieldNotes>
           </GridContainer>
           <GridContainer></GridContainer>
         </MainContainer>

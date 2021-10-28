@@ -16,6 +16,7 @@ import Photo from '../../../components/Photo'
 
 import {
   InputField,
+  InputFieldNotes,
   DateField,
   InfoLabel,
   Placeholder,
@@ -659,7 +660,11 @@ const Create: React.FC = () => {
             <RichEditor value={email_desc} setValue={setEmail_desc} />
 
             <InfoLabel>Notes</InfoLabel>
-            <InputField id="notes" {...register('notes')}></InputField>
+
+            <InputFieldNotes
+              id="notes"
+              {...register('notes')}
+            ></InputFieldNotes>
           </GridContainer>
           <GridContainer></GridContainer>
         </MainContainer>
