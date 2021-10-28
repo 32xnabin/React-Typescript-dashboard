@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { createCase, uploadImage } from '../../../services'
 import RichEditor from '../../../components/RichEditor'
+import { TextareaAutosize } from '@material-ui/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWrench } from '@fortawesome/free-solid-svg-icons'
 import { faPrint } from '@fortawesome/free-solid-svg-icons'
@@ -16,7 +17,6 @@ import Photo from '../../../components/Photo'
 
 import {
   InputField,
-  InputFieldNotes,
   DateField,
   InfoLabel,
   Placeholder,
@@ -661,10 +661,11 @@ const Create: React.FC = () => {
 
             <InfoLabel>Notes</InfoLabel>
 
-            <InputFieldNotes
+            <TextareaAutosize
+              style={{ border: '1px solid #ccc', minHeight: '150px' }}
               id="notes"
               {...register('notes')}
-            ></InputFieldNotes>
+            ></TextareaAutosize>
           </GridContainer>
           <GridContainer></GridContainer>
         </MainContainer>
