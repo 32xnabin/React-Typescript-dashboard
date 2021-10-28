@@ -7,18 +7,17 @@ import { getAllCases } from '../../services'
 import { Holder } from './Common.style'
 
 const Section2: React.FC = () => {
-  const thisWeek = moment().startOf('day').subtract(1, 'week')
-  const thisMonth = moment().startOf('day').subtract(0, 'month')
-  const threeMonth = moment().startOf('day').subtract(3, 'month')
-  const sixMonth = moment().startOf('day').subtract(6, 'month')
-  const twelveMonth = moment().startOf('day').subtract(12, 'month')
-
   const filterCases = (duration, casesNow) => {
-    const currentDate = new Date().toISOString().substr(0, 10)
-    let durationDate = moment(currentDate)
+    const thisWeek = moment().startOf('day').subtract(1, 'week').valueOf()
+    const thisMonth = moment().startOf('day').subtract(1, 'month').valueOf()
+    const threeMonth = moment().startOf('day').subtract(3, 'month').valueOf()
+    const sixMonth = moment().startOf('day').subtract(6, 'month').valueOf()
+    const twelveMonth = moment().startOf('day').subtract(12, 'month').valueOf()
+    let durationDate = moment().startOf('day').valueOf()
+    const currDate = moment().startOf('day').valueOf()
     switch (duration) {
       case 'TODAY':
-        durationDate = moment(currentDate)
+        durationDate = currDate
         break
       case 'THIS_WEEK':
         durationDate = thisWeek
@@ -38,11 +37,12 @@ const Section2: React.FC = () => {
       default:
         break
     }
+    
 
     const filtered = casesNow.filter(
-      (item) => moment(item.updatedAt) >= durationDate,
+      (item) => moment(item.updatedAt).valueOf() > durationDate,
     )
-
+    console.log('filtered length===>', filtered.length)
     const namesOnly = filtered.map((item) => {
       return item.case_type
     })
