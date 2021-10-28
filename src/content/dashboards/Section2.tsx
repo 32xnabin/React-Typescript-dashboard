@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import { useNavigate } from 'react-router-dom'
 import { Card, Typography, Box } from '@material-ui/core'
 import DonutChart from 'react-donut-chart'
 import { Myboscase } from '../../types'
@@ -7,14 +8,24 @@ import { getAllCases } from '../../services'
 import { Holder } from './Common.style'
 
 const Section2: React.FC = () => {
+  let navigate = useNavigate()
   const filterCases = (duration, casesNow) => {
-    const thisWeek = moment().startOf('day').subtract(1, 'week').valueOf()
-    const thisMonth = moment().startOf('day').subtract(1, 'month').valueOf()
-    const threeMonth = moment().startOf('day').subtract(3, 'month').valueOf()
-    const sixMonth = moment().startOf('day').subtract(6, 'month').valueOf()
-    const twelveMonth = moment().startOf('day').subtract(12, 'month').valueOf()
-    let durationDate = moment().startOf('day').valueOf()
-    const currDate = moment().startOf('day').valueOf()
+    const thisWeek = moment().startOf('week').format('MMMM DD h:mm A')
+    const thisMonth = moment().startOf('month').format('MMMM DD h:mm A')
+    const threeMonth = moment()
+      .startOf('month')
+      .subtract(3, 'month')
+      .format('MMMM DD h:mm A')
+    const sixMonth = moment()
+      .startOf('month')
+      .subtract(6, 'month')
+      .format('MMMM DD h:mm A')
+    const twelveMonth = moment()
+      .startOf('month')
+      .subtract(12, 'month')
+      .format('MMMM DD h:mm A')
+    let durationDate = ''
+    const currDate = moment().startOf('day').format('MMMM DD h:mm A')
     switch (duration) {
       case 'TODAY':
         durationDate = currDate
@@ -22,7 +33,7 @@ const Section2: React.FC = () => {
       case 'THIS_WEEK':
         durationDate = thisWeek
         break
-      case 'MONTHLY':
+      case 'THIS_MONTH':
         durationDate = thisMonth
         break
       case 'THREE_MONTHS':
@@ -37,12 +48,13 @@ const Section2: React.FC = () => {
       default:
         break
     }
-    
 
-    const filtered = casesNow.filter(
-      (item) => moment(item.updatedAt).valueOf() > durationDate,
+    const filtered = casesNow.filter((item) =>
+      moment(moment(item.updatedAt).format('MMMM DD h:mm A')).isAfter(
+        moment(durationDate),
+      ),
     )
-    console.log('filtered length===>', filtered.length)
+
     const namesOnly = filtered.map((item) => {
       return item.case_type
     })
@@ -67,8 +79,8 @@ const Section2: React.FC = () => {
     { value: 'THIS_WEEK', label: 'This Week' },
     { value: 'THIS_MONTH', label: 'Monthly' },
     { value: 'THREE_MONTHS', label: 'Three Months' },
-    { value: 'SIX_MONTH', label: 'Six Months' },
-    { value: 'TWELVE_MONTH', label: 'Twelve Months' },
+    { value: 'SIX_MONTHS', label: 'Six Months' },
+    { value: 'TWELVE_MONTHS', label: 'Twelve Months' },
   ]
 
   const [mybosCases, setMybosCases] = React.useState<Myboscase[]>()
@@ -83,7 +95,9 @@ const Section2: React.FC = () => {
         setMybosCases(res)
         filterCases('TODAY', res)
       })
-      .catch((error) => {})
+      .catch((error) => {
+        navigate('/login')
+      })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
