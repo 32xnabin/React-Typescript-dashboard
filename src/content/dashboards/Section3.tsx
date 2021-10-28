@@ -27,7 +27,7 @@ const Section3: React.FC = () => {
   `
 
   return (
-    <Card style={{ background: '#f04547' }}>
+    <Card style={{ background: '#f04547', height: '400px' }}>
       <GridContainer color={'f04547'}>
         <Typography
           style={{ marginLeft: 8, color: '#fff', fontSize: 18 }}

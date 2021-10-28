@@ -41,70 +41,70 @@ const Section9: React.FC = () => {
         <Row>
           <SubRow>
             <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              14:10pm - Sign out key 324 - Jhun A
+              Complete inspection Daily Inspection (7148) - Demo Manager
             </Typography>
           </SubRow>
         </Row>
         <Row>
           <SubRow>
             <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              14:10pm - Sign out key 324 - Jhun A
+              Complete inspection Daily Inspection (7148) - Demo Manager
             </Typography>
           </SubRow>
         </Row>
         <Row>
           <SubRow>
             <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              14:10pm - Sign out key 324 - Jhun A
+              Complete inspection Daily Inspection (7148) - Demo Manager
             </Typography>
           </SubRow>
         </Row>
         <Row>
           <SubRow>
             <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              14:10pm - Sign out key 324 - Jhun A
+              Complete inspection Daily Inspection (7148) - Demo Manager
             </Typography>
           </SubRow>
         </Row>
         <Row>
           <SubRow>
             <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              14:10pm - Sign out key 324 - Jhun A
+              Complete inspection Daily Inspection (7148) - Demo Manager
             </Typography>
           </SubRow>
         </Row>
         <Row>
           <SubRow>
             <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              14:10pm - Sign out key 324 - Jhun A
+              Complete inspection Daily Inspection (7148) - Demo Manager
             </Typography>
           </SubRow>
         </Row>
         <Row>
           <SubRow>
             <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              14:10pm - Sign out key 324 - Jhun A
+              Complete inspection Daily Inspection (7148) - Demo Manager
             </Typography>
           </SubRow>
         </Row>
         <Row>
           <SubRow>
             <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              14:10pm - Sign out key 324 - Jhun A
+              Complete inspection Daily Inspection (7148) - Demo Manager
             </Typography>
           </SubRow>
         </Row>
         <Row>
           <SubRow>
             <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              14:10pm - Sign out key 324 - Jhun A
+              Complete inspection Daily Inspection (7148) - Demo Manager
             </Typography>
           </SubRow>
         </Row>
         <Row>
           <SubRow>
             <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              14:10pm - Sign out key 324 - Jhun A
+              Complete inspection Daily Inspection (7148) - Demo Manager
             </Typography>
           </SubRow>
         </Row>
