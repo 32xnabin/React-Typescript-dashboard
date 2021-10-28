@@ -91,7 +91,6 @@ const Section2: React.FC = () => {
   React.useEffect(() => {
     getAllCases()
       .then((res) => {
-        console.log('res===>', res)
         setMybosCases(res)
         filterCases('TODAY', res)
       })
