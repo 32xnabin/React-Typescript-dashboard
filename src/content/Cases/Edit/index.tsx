@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { updateCase, getCaseById, uploadImage } from '../../../services'
 import RichEditor from '../../../components/RichEditor'
+import { TextareaAutosize } from '@material-ui/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWrench } from '@fortawesome/free-solid-svg-icons'
 import { faPrint } from '@fortawesome/free-solid-svg-icons'
@@ -23,7 +24,6 @@ import { List, ListItem, Popover } from '@material-ui/core'
 
 import {
   InputField,
-  InputFieldNotes,
   DateField,
   InfoLabel,
   Placeholder,
@@ -265,7 +265,7 @@ const Edit: React.FC = () => {
   const [casenum, setCasenum] = React.useState(0)
   const [email_subject, setEmail_subject] = React.useState('')
   const [email_desc, setEmail_desc] = React.useState(initialValue)
-  const [notes, setNotes] = React.useState(initialValue)
+  const [notes, setNotes] = React.useState('')
   const [assignedTo, setAssignedTo] = React.useState([])
   const [asset, setAsset] = React.useState([])
   const [addedDate, setAddedDate] = React.useState(
@@ -705,10 +705,11 @@ const Edit: React.FC = () => {
 
             <InfoLabel>Notes</InfoLabel>
 
-            <InputFieldNotes
+            <TextareaAutosize
+              style={{ border: '1px solid #ccc', minHeight: '150px' }}
               onChange={onNotesChange}
               value={notes}
-            ></InputFieldNotes>
+            ></TextareaAutosize>
           </GridContainer>
           <GridContainer></GridContainer>
         </MainContainer>
