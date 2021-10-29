@@ -460,6 +460,7 @@ const Edit: React.FC = () => {
     >
       <MainWrapper>
         <Snackbar
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
           open={openSnack}
           autoHideDuration={3000}
           onClose={handleClose}

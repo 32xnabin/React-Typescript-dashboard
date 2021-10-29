@@ -366,7 +366,7 @@ const Create: React.FC = () => {
           handleClickSnack()
           setTimeout(() => {
             navigate('/bm/cases/list')
-          }, 3000)
+          }, 2000)
         })
         .catch((error: any) => {
           navigate('/login')
@@ -393,17 +393,17 @@ const Create: React.FC = () => {
         data['images'] = caseImages
       }
 
-      //   createCase(data)
-      //     .then((result: any) => {
-      //       localStorage.setItem('max_case_number', String(result.case_number))
-      //       handleClickSnack()
-      //       setTimeout(() => {
-      //         navigate('/bm/cases/create')
-      //       }, 3000)
-      //     })
-      //     .catch((error: any) => {
-      //       navigate('/login')
-      //     })
+      createCase(data)
+        .then((result: any) => {
+          localStorage.setItem('max_case_number', String(result.case_number))
+          handleClickSnack()
+          setTimeout(() => {
+            navigate('/bm/cases/create')
+          }, 2000)
+        })
+        .catch((error: any) => {
+          navigate('/login')
+        })
     }
   }
   const classes = useStyles()
@@ -421,6 +421,7 @@ const Create: React.FC = () => {
     >
       <MainWrapper>
         <Snackbar
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
           open={openSnack}
           autoHideDuration={3000}
           onClose={handleClose}
