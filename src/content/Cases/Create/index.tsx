@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 import { createCase, uploadImage } from '../../../services'
-import RichEditor from '../../../components/RichEditor'
+import SlateEditor from '../../../components/SlateEditor/Editor'
 import { TextareaAutosize } from '@material-ui/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWrench } from '@fortawesome/free-solid-svg-icons'
@@ -655,9 +655,14 @@ const Create: React.FC = () => {
               </Popover>
             </div>
 
-            <InfoLabel>Descrption</InfoLabel>
-
-            <RichEditor value={email_desc} setValue={setEmail_desc} />
+            <InfoLabel>Description</InfoLabel>
+            <InputWrapper>
+              <SlateEditor
+                {...register('email_description')}
+                value={email_desc}
+                setValue={setEmail_desc}
+              />
+            </InputWrapper>
 
             <InfoLabel>Notes</InfoLabel>
 
