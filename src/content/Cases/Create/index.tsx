@@ -49,6 +49,7 @@ import CloseIcon from '@mui/icons-material/Close'
 
 import Select from 'react-select'
 import { List, ListItem, Popover } from '@material-ui/core'
+import { Myboscase } from '../../../types'
 
 function rand() {
   return Math.round(Math.random() * 20) - 10
@@ -66,7 +67,7 @@ const Create: React.FC = () => {
     setOpen(false)
   }
 
-  const [openSnack, setOpenSnak] = React.useState(false)
+  const [openSnack, setOpenSnak] = React.useState<boolean>(false)
   const handleClickSnack = () => {
     setOpenSnak(true)
   }
@@ -322,30 +323,30 @@ const Create: React.FC = () => {
     }
   }
 
-  const onAddedDateChange = (value: any) => {
+  const onAddedDateChange = (value: string) => {
     const added_date = new Date(value).toISOString().substr(0, 10)
     setAddedDate(added_date)
   }
 
-  const onDueDateChange = (value: any) => {
+  const onDueDateChange = (value: string) => {
     const due_date = new Date(value).toISOString().substr(0, 10)
     setDueDate(due_date)
   }
 
-  const onAssignedChange = (value: any) => {
+  const onAssignedChange = (value: { value: string; label: string }[]) => {
     setAssignedTo(value)
   }
 
-  const onAssetChange = (value: any) => {
+  const onAssetChange = (value: { value: string; label: string }[]) => {
     setAsset(value)
   }
 
-  const createCSV = (arr: any[]) => {
+  const createCSV = (arr: { value: string; label: string }[]) => {
     let csv = arr.map((item) => item.value).join(',')
     return csv
   }
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: Myboscase) => {
     if (
       assignedTo.length > 0 &&
       (jobArea === 'common-not-asset' || asset.length > 0)
@@ -374,11 +375,11 @@ const Create: React.FC = () => {
     }
   }
 
-  const onCancel = (data: any) => {
+  const onCancel = () => {
     navigate('/bm/cases/list')
   }
 
-  const onAddAndReset = (data: any) => {
+  const onAddAndReset = (data: Myboscase) => {
     if (
       assignedTo.length > 0 &&
       (jobArea === 'common-not-asset' || asset.length > 0)
@@ -398,7 +399,7 @@ const Create: React.FC = () => {
           localStorage.setItem('max_case_number', String(result.case_number))
           handleClickSnack()
           setTimeout(() => {
-            navigate('/bm/cases/create')
+            window.location.reload()
           }, 2000)
         })
         .catch((error: any) => {

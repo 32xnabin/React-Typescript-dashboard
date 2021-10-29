@@ -47,6 +47,7 @@ import {
   Disabled,
   HeadingLabel,
 } from './Edit.style'
+import { Myboscase } from 'src/types'
 
 const Edit: React.FC = () => {
   const ref = React.useRef<any>(null)
@@ -281,8 +282,8 @@ const Edit: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const prefillForm = (item: any) => {
-    setCasenum(item.case_number)
+  const prefillForm = (item: Myboscase) => {
+    setCasenum(Number(item.case_number))
 
     const added_date = new Date(item.added_date || new Date())
       .toISOString()
@@ -372,12 +373,12 @@ const Edit: React.FC = () => {
     return true
   }
 
-  const onAddedDateChange = (value: any) => {
+  const onAddedDateChange = (value: string) => {
     const added_date = new Date(value).toISOString().substr(0, 10)
     setAddedDate(added_date)
   }
 
-  const onDueDateChange = (value: any) => {
+  const onDueDateChange = (value: string) => {
     const due_date = new Date(value).toISOString().substr(0, 10)
     setDueDate(due_date)
   }
@@ -388,15 +389,15 @@ const Edit: React.FC = () => {
     setJobArea(template)
   }
 
-  const onAssignedChange = (value: any) => {
+  const onAssignedChange = (value: { value: string; label: string }[]) => {
     setAssignedTo(value)
   }
 
-  const onAssetChange = (value: any) => {
+  const onAssetChange = (value: { value: string; label: string }[]) => {
     setAsset(value)
   }
 
-  const createCSV = (arr: any[]) => {
+  const createCSV = (arr: { value: string; label: string }[]) => {
     let csv = arr.map((item) => item.value).join(',')
     return csv
   }
@@ -417,7 +418,7 @@ const Edit: React.FC = () => {
     }
   }
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: Myboscase) => {
     if (assignedTo.length > 0 && asset.length > 0) {
       data['added_date'] = addedDate
       data['due_date'] = dueDate
@@ -441,7 +442,7 @@ const Edit: React.FC = () => {
     }
   }
 
-  const onCancel = (data: any) => {
+  const onCancel = () => {
     navigate('/bm/cases/list')
   }
 
