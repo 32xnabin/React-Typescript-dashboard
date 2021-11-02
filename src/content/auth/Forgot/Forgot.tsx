@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
-import { forgotPassword } from '../../../services'
+import { forgotPassword } from '../../../services/auth'
 
 import { GridContainer, StyledDiv } from './Forgot.style'
 

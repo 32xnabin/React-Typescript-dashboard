@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Link } from 'react-router-dom'
 import * as Yup from 'yup'
 
-import { loginUser } from '../../../services'
+import { loginUser } from '../../../services/auth'
 
 import { GridContainer, StyledDiv } from './Login.style'
 

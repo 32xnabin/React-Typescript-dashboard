@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
-import { updateCase, getCaseById, uploadImage } from '../../../services'
+import { updateCase, getCaseById, uploadImage } from '../../../services/cases'
 import SlateEditor from '../../../components/SlateEditor/Editor'
 import { TextareaAutosize } from '@material-ui/core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -30,6 +30,7 @@ import {
   MainContainer,
   GridContainer,
   GridContainer1,
+  GridContainer2,
   FileuploadContainer,
   DropDown,
   InputFieldSubject,
@@ -559,18 +560,18 @@ const Edit: React.FC = () => {
                 <Photo uploadImage={onImageUploaded} />
               </GridContainerPhoto>
             </Modal>
-            <GridContainer>
+            <GridContainer2>
               {caseImages
                 .filter((url) => url !== '')
                 .map((url, index) => (
-                  <div key={index} style={{ margin: 10 }}>
-                    <img alt="case" height={150} width={150} src={url} />
+                  <div key={index} style={{ margin: 10 }}>  
+                    <img alt="case" style={{minHeight:'150px',margin: 3, width: 'auto', maxWidth:'150px'}} height={150} width={150} src={url} />
                     <Button onClick={removePhoto} data-value1={url}>
                       <DeleteTwoToneIcon fontSize="small" />
                     </Button>
-                  </div>
+                  </div>   
                 ))}
-            </GridContainer>
+            </GridContainer2>
           </FileuploadContainer>
         </MainContainer>
         <MainContainer>

@@ -26,8 +26,7 @@ const AuthContainer = experimentalStyled(Box)(
     justify-content:center;
     align-items: center;
     background: #10101082;
-    margin-bottom: 100px;
-    margin-right: 150px;
+    margin: 0px auto;
     padding:20px;
 
 `,

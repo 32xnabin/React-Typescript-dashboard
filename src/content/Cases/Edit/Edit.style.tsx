@@ -75,7 +75,7 @@ export const GridContainer = styled(Box)`
 
   justify-content: start;
   margin-right: 40px;
-  margin-left: 15px;
+  margin-left: 15px;  
 `
 export const GridContainer1 = styled(Box)`
   display: grid;
@@ -86,11 +86,18 @@ export const GridContainer1 = styled(Box)`
   margin-left: 5px;
 `
 export const GridContainerPhoto = styled(Box)`
-  padding: 10px;
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 5px;
-  margin: 0px auto 0px auto;
+  margin: 10px auto;   
+  margin-left: 5px;
+`
+export const GridContainer2 = styled(Box)`
+  display: grid;
+  grid-template-columns: auto auto ;
+  grid-gap: 5px;
+  margin: 10px auto;   
+  margin-left: 5px;
 `
 
 export const ButtonsContainer = styled(Box)`

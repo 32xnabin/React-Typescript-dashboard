@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Link } from 'react-router-dom'
 import * as Yup from 'yup'
 
-import { resetPassword, validateResetToken } from '../../../services'
+import { resetPassword, validateResetToken } from '../../../services/auth'
 import { GridContainer, StyledDiv } from './Reset.style'
 import { InputField } from '../Common.style'
 

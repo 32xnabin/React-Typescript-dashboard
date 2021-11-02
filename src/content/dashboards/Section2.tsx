@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Card, Typography, Box } from '@material-ui/core'
 import DonutChart from 'react-donut-chart'
 import { Myboscase } from '../../types'
-import { getAllCases } from '../../services'
+import { getAllCases } from '../../services/cases'
 import { Holder } from './Common.style'
 
 const Section2: React.FC = () => {

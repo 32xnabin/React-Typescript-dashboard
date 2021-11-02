@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Myboscase } from '../../../types'
-import { getAllCases } from '../../../services'
+import { getAllCases } from '../../../services/cases'
 import { Card } from '@material-ui/core'
 import CasesTable from './CasesTable'
 
