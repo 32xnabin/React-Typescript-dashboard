@@ -3,11 +3,12 @@ import { Myboscase } from '../types'
 require('dotenv').config()
 
 const API = process.env.REACT_APP_API_URL
-const token = localStorage.getItem('token')
+
 
 export const createCase = async (
   myboscase: Myboscase,
 ): Promise<Myboscase[]> => {
+  const token = localStorage.getItem('token')
   return axios
     .post(
       `${API}/cases`,
@@ -28,6 +29,7 @@ export const createCase = async (
 }
 
 export const getAllCases = async (): Promise<Myboscase[]> => {
+  const token = localStorage.getItem('token')
   return axios
     .get(`${API}/cases`, {
       headers: {
@@ -44,6 +46,7 @@ export const getAllCases = async (): Promise<Myboscase[]> => {
 }
 
 export const getCaseById = async (id: string): Promise<Myboscase> => {
+  const token = localStorage.getItem('token')
   return axios
     .get(`${API}/cases/${id}`, {
       headers: {
@@ -60,6 +63,7 @@ export const getCaseById = async (id: string): Promise<Myboscase> => {
 }
 
 export const updateCase = async (data: any): Promise<Myboscase> => {
+  const token = localStorage.getItem('token')
   return axios
     .put(`${API}/cases/${data.id}`, data, {
       headers: {
@@ -77,6 +81,7 @@ export const updateCase = async (data: any): Promise<Myboscase> => {
 }
 
 export const deleteCase = async (id: string): Promise<Myboscase> => {
+  const token = localStorage.getItem('token')
   return axios
     .delete(`${API}/cases/${id}`, {
       headers: {
@@ -93,6 +98,7 @@ export const deleteCase = async (id: string): Promise<Myboscase> => {
 }
 
 export const uploadImage = async (file): Promise<any> => {
+  const token = localStorage.getItem('token')
   let formData = new FormData()
   formData.append('file', file)
   return axios
