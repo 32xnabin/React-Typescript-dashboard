@@ -1,26 +1,26 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as Yup from 'yup'
-import { updateCase, getCaseById, uploadImage } from '../../../services/cases'
-import SlateEditor from '../../../components/SlateEditor/Editor'
-import { TextareaAutosize } from '@material-ui/core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWrench } from '@fortawesome/free-solid-svg-icons'
-import { faPrint } from '@fortawesome/free-solid-svg-icons'
-import { faCog } from '@fortawesome/free-solid-svg-icons'
-import { faPaperclip } from '@fortawesome/free-solid-svg-icons'
-import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone'
-import Photo from '../../../components/Photo'
-import { makeStyles } from '@material-ui/styles'
-import Select from 'react-select'
-import { Button, Modal } from '@material-ui/core'
-import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone'
-import Snackbar from '@mui/material/Snackbar'
-import IconButton from '@mui/material/IconButton'
-import CloseIcon from '@mui/icons-material/Close'
-import { List, ListItem, Popover } from '@material-ui/core'
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
+import { updateCase, getCaseById, uploadImage } from '../../../services/cases';
+import SlateEditor from '../../../components/SlateEditor/Editor';
+import { TextareaAutosize } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faPrint } from '@fortawesome/free-solid-svg-icons';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
+import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
+import Photo from '../../../components/Photo';
+import { makeStyles } from '@material-ui/styles';
+import Select from 'react-select';
+import { Button, Modal } from '@material-ui/core';
+import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone';
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import { List, ListItem, Popover } from '@material-ui/core';
 
 import {
   InputField,
@@ -47,36 +47,36 @@ import {
   GridContainerPhoto,
   Disabled,
   HeadingLabel,
-} from './Edit.style'
-import { Myboscase } from 'src/types'
+} from './Edit.style';
+import { Myboscase } from 'src/types';
 
 const Edit: React.FC = () => {
-  const ref = React.useRef<any>(null)
-  const [isOpen, setOpen] = React.useState<boolean>(false)
+  const ref = React.useRef<any>(null);
+  const [isOpen, setOpen] = React.useState<boolean>(false);
 
   const handleOpenPop = (): void => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const handleClosePop = (): void => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
-  const [openSnack, setOpenSnak] = React.useState(false)
+  const [openSnack, setOpenSnak] = React.useState(false);
   const handleClickSnack = () => {
-    setOpenSnak(true)
-  }
+    setOpenSnak(true);
+  };
 
   const handleCloseSnack = (
     event: React.SyntheticEvent | React.MouseEvent,
-    reason?: string,
+    reason?: string
   ) => {
     if (reason === 'clickaway') {
-      return
+      return;
     }
 
-    setOpenSnak(false)
-  }
+    setOpenSnak(false);
+  };
 
   const action = (
     <React.Fragment>
@@ -89,24 +89,24 @@ const Edit: React.FC = () => {
         <CloseIcon fontSize="small" />
       </IconButton>
     </React.Fragment>
-  )
+  );
 
   function rand() {
-    return Math.round(Math.random() * 20) - 10
+    return Math.round(Math.random() * 20) - 10;
   }
   function getModalStyle() {
-    const top = 50 + rand()
-    const left = 50 + rand()
+    const top = 50 + rand();
+    const left = 50 + rand();
 
     return {
       top: `${top}%`,
       left: `${left}%`,
       transform: `translate(-${top}%, -${left}%)`,
-    }
+    };
   }
   const handleClose = () => {
-    setOpenModal(false)
-  }
+    setOpenModal(false);
+  };
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -117,11 +117,11 @@ const Edit: React.FC = () => {
       padding: 4,
       outline: 'none',
     },
-  }))
+  }));
 
-  const [modalStyle] = React.useState(getModalStyle)
+  const [modalStyle] = React.useState(getModalStyle);
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const mock_case_types = [
     'Repair and Maintainance',
@@ -130,8 +130,8 @@ const Edit: React.FC = () => {
     'Replacement',
     'Gardening',
     'Incident',
-  ]
-  const mock_priority = ['High', 'Low', 'Medium']
+  ];
+  const mock_priority = ['High', 'Low', 'Medium'];
   const mock_status = [
     'New',
     'In Progress',
@@ -142,8 +142,8 @@ const Edit: React.FC = () => {
     'Awaiting Approval',
     'Committee Approval',
     'Contractor status',
-  ]
-  const mock_job_area = ['common-asset', 'common-not-asset', 'private lot']
+  ];
+  const mock_job_area = ['common-asset', 'common-not-asset', 'private lot'];
   const mock_category = [
     'All Categories',
     'CLOUDIO',
@@ -152,7 +152,7 @@ const Edit: React.FC = () => {
     'ELECTRICAL',
     'EXHAUST',
     'GYM / POOL',
-  ]
+  ];
 
   const mock_apartments = [
     'Pick Appartments',
@@ -168,34 +168,33 @@ const Edit: React.FC = () => {
     '56',
     '45',
     '66',
-  ]
+  ];
 
   const mock_assets = [
     { value: 'BLDG-Plumbing', label: 'BLDG-Plumbing' },
     { value: 'BLDG-Toilets', label: 'BLDG-Toilets' },
     { value: 'BLDG-Rest', label: 'BLDG-Rest' },
-  ]
+  ];
 
   const mock_assigned_to = [
     { value: 'Ace hanndy andy', label: 'Ace hanndy andy' },
     { value: 'bradyos', label: 'bradyos' },
     { value: 'AZ-Electrician', label: 'AZ-Plumbing' },
     { value: 'Chummins', label: 'Chummins' },
-  ]
+  ];
   const mock_subject = [
     'Light out',
     'bulb blown',
     'Inspect water meters',
     'pool clean',
-  ]
+  ];
   const mock_email_template = [
     [
       {
         type: 'paragraph',
         children: [
           {
-            text:
-              'AWS BM : 1.9.7001(108) - https://drive.google.com/file/d/1YEm6rtKJhkdhqS3-Vi3okZO9yhYzgUzC/view?usp=sharing ',
+            text: 'AWS BM : 1.9.7001(108) - https://drive.google.com/file/d/1YEm6rtKJhkdhqS3-Vi3okZO9yhYzgUzC/view?usp=sharing ',
           },
         ],
       },
@@ -203,8 +202,7 @@ const Edit: React.FC = () => {
         type: 'paragraph',
         children: [
           {
-            text:
-              'AWS Resident: 1.7.4001(76) - https://drive.google.com/file/d/1S0dsR3nWsTwhsiR2zV857F57OvnVFlKc/view?usp=sharing',
+            text: 'AWS Resident: 1.7.4001(76) - https://drive.google.com/file/d/1S0dsR3nWsTwhsiR2zV857F57OvnVFlKc/view?usp=sharing',
           },
         ],
       },
@@ -220,8 +218,7 @@ const Edit: React.FC = () => {
         type: 'paragraph',
         children: [
           {
-            text:
-              'Blueridge to survey Main water meter and Residential water meter and random Lot water meters to find out if water usage is appropriate and if any issues with meters such as Lots 35, 63 and 93 ',
+            text: 'Blueridge to survey Main water meter and Residential water meter and random Lot water meters to find out if water usage is appropriate and if any issues with meters such as Lots 35, 63 and 93 ',
           },
         ],
       },
@@ -232,7 +229,7 @@ const Edit: React.FC = () => {
         children: [{ text: 'Clean and test Parts on order ' }],
       },
     ],
-  ]
+  ];
 
   const validationSchema = Yup.object().shape({
     case_type: Yup.string(),
@@ -248,207 +245,210 @@ const Edit: React.FC = () => {
     email_description: Yup.string(),
     notes: Yup.string(),
     logged_by: Yup.string(),
-  })
+  });
 
   const { register, handleSubmit, setValue } = useForm({
     resolver: yupResolver(validationSchema),
-  })
+  });
 
   const initialValue = [
     {
       type: 'paragraph',
       children: [{ text: ' ' }],
     },
-  ]
+  ];
 
-  const [jobArea, setJobArea] = React.useState('common-asset')
-  const [openModal, setOpenModal] = React.useState(false)
-  const [caseImages, setCaseImages] = React.useState([''])
-  const [casenum, setCasenum] = React.useState(0)
-  const [email_subject, setEmail_subject] = React.useState('')
-  const [email_desc, setEmail_desc] = React.useState(initialValue)
-  const [notes, setNotes] = React.useState('')
-  const [assignedTo, setAssignedTo] = React.useState([])
-  const [asset, setAsset] = React.useState([])
+  const [jobArea, setJobArea] = React.useState('common-asset');
+  const [openModal, setOpenModal] = React.useState(false);
+  const [caseImages, setCaseImages] = React.useState(['']);
+  const [casenum, setCasenum] = React.useState(0);
+  const [email_subject, setEmail_subject] = React.useState('');
+  const [email_desc, setEmail_desc] = React.useState(initialValue);
+  const [notes, setNotes] = React.useState('');
+  const [assignedTo, setAssignedTo] = React.useState([]);
+  const [asset, setAsset] = React.useState([]);
   const [addedDate, setAddedDate] = React.useState(
-    new Date().toISOString().substr(0, 10),
-  )
+    new Date().toISOString().substr(0, 10)
+  );
   const [dueDate, setDueDate] = React.useState(
-    new Date().toISOString().substr(0, 10),
-  )
-  const [caseId, setCaseId] = React.useState('')
+    new Date().toISOString().substr(0, 10)
+  );
+  const [caseId, setCaseId] = React.useState('');
 
   React.useEffect(() => {
-    populateCase()
+    populateCase();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   const prefillForm = (item: Myboscase) => {
-    setCasenum(Number(item.case_number))
+    setCasenum(Number(item.case_number));
 
     const added_date = new Date(item.added_date || new Date())
       .toISOString()
-      .substr(0, 10)
+      .substr(0, 10);
     const due_date = new Date(item.due_date || new Date())
       .toISOString()
-      .substr(0, 10)
-    setAddedDate(added_date)
-    setDueDate(due_date)
+      .substr(0, 10);
+    setAddedDate(added_date);
+    setDueDate(due_date);
 
     if (item.assigned_to) {
-      setAssignedTo(prepareMultiSelect(item.assigned_to))
+      setAssignedTo(prepareMultiSelect(item.assigned_to));
     }
     if (item.asset) {
-      setAsset(prepareMultiSelect(item.asset))
+      setAsset(prepareMultiSelect(item.asset));
     }
     if (item.email_subject) {
-      setEmail_subject(item.email_subject)
+      setEmail_subject(item.email_subject);
     }
 
     if (item.email_description) {
-      setEmail_desc(JSON.parse(item.email_description))
+      setEmail_desc(JSON.parse(item.email_description));
     }
 
     if (item.notes) {
-      setNotes(item.notes)
+      setNotes(item.notes);
     }
 
-    setCaseImages(item.images.filter((url) => url !== ''))
+    setCaseImages(item.images.filter((url) => url !== ''));
 
-    setValue('case_type', item.case_type)
-    setValue('priority', item.priority)
-    setValue('status', item.status)
+    setValue('case_type', item.case_type);
+    setValue('priority', item.priority);
+    setValue('status', item.status);
     if (item.job_area) {
-      setJobArea(item.job_area)
-      setValue('job_area', item.job_area)
+      setJobArea(item.job_area);
+      setValue('job_area', item.job_area);
       if (item.category) {
-        setValue('category', item.category)
+        setValue('category', item.category);
       }
     }
 
-    setValue('logged_by', item.logged_by)
-    setValue('add_to_report', item.add_to_report)
-    setValue('duplicate_case', item.duplicate_case)
-  }
+    setValue('logged_by', item.logged_by);
+    setValue('add_to_report', item.add_to_report);
+    setValue('duplicate_case', item.duplicate_case);
+  };
 
   const prepareMultiSelect = (value: any) => {
-    const items = value.split(',')
+    const items = value.split(',');
     const arr = items.map((item) => {
-      return { value: item, label: item }
-    })
-    return arr
-  }
+      return { value: item, label: item };
+    });
+    return arr;
+  };
 
   const populateCase = () => {
-    const id = new URLSearchParams(window.location.search).get('id')
-    setCaseId(id)
+    const id = new URLSearchParams(window.location.search).get('id');
+    setCaseId(id);
 
     getCaseById(id)
       .then((result: any) => {
-        prefillForm(result)
+        prefillForm(result);
       })
       .catch((error: any) => {
-        navigate('/login')
-      })
-  }
+        navigate('/login');
+      });
+  };
 
   const onNotesChange = (event) => {
-    setNotes(event.target.value)
-  }
+    setNotes(event.target.value);
+  };
 
   const onImageUploaded = async (file): Promise<boolean> => {
-    const res = await uploadImage(file)
-    setCaseImages([...caseImages, res.url])
-    return false
-  }
+    const res = await uploadImage(file);
+    setCaseImages([...caseImages, res.url]);
+    return false;
+  };
 
   const removePhoto = async (e) => {
-    const url = e.currentTarget.getAttribute('data-value1')
-    const newArray = caseImages
-    const index = newArray.indexOf(url)
+    const url = e.currentTarget.getAttribute('data-value1');
+    const newArray = caseImages;
+    const index = newArray.indexOf(url);
     if (index > -1) {
-      newArray.splice(index, 1)
+      newArray.splice(index, 1);
     }
-    setCaseImages(newArray)
-    navigate(`/bm/cases/edit?id=${caseId}`)
-    return true
-  }
+    setCaseImages(newArray);
+    navigate(`/bm/cases/edit?id=${caseId}`);
+    return true;
+  };
 
   const onAddedDateChange = (value: string) => {
-    const added_date = new Date(value).toISOString().substr(0, 10)
-    setAddedDate(added_date)
-  }
+    const added_date = new Date(value).toISOString().substr(0, 10);
+    setAddedDate(added_date);
+  };
 
   const onDueDateChange = (value: string) => {
-    const due_date = new Date(value).toISOString().substr(0, 10)
-    setDueDate(due_date)
-  }
+    const due_date = new Date(value).toISOString().substr(0, 10);
+    setDueDate(due_date);
+  };
 
   const onJobAreaChange = (e) => {
-    let index = mock_job_area.indexOf(e.target.value)
-    let template = mock_job_area[index]
-    setJobArea(template)
-  }
+    let index = mock_job_area.indexOf(e.target.value);
+    let template = mock_job_area[index];
+    setJobArea(template);
+  };
 
   const onAssignedChange = (value: { value: string; label: string }[]) => {
-    setAssignedTo(value)
-  }
+    setAssignedTo(value);
+  };
 
   const onAssetChange = (value: { value: string; label: string }[]) => {
-    setAsset(value)
-  }
+    setAsset(value);
+  };
 
   const createCSV = (arr: { value: string; label: string }[]) => {
-    let csv = arr.map((item) => item.value).join(',')
-    return csv
-  }
+    let csv = arr.map((item) => item.value).join(',');
+    return csv;
+  };
 
   const onEmailSubjectChangeText = (e) => {
-    setEmail_subject(e.target.value)
-  }
+    setEmail_subject(e.target.value);
+  };
 
   const onEmailSubjectChange = (e) => {
-    const subject = e.currentTarget.getAttribute('data-subject')
-    handleClosePop()
+    const subject = e.currentTarget.getAttribute('data-subject');
+    handleClosePop();
 
-    setEmail_subject(subject)
-    let index = mock_subject.indexOf(subject)
+    setEmail_subject(subject);
+    let index = mock_subject.indexOf(subject);
     if (index !== -1) {
-      let template = mock_email_template[index]
-      setEmail_desc(template)
+      let template = mock_email_template[index];
+      setEmail_desc(template);
     }
-  }
+  };
 
   const onSubmit = (data: Myboscase) => {
-    if (assignedTo.length > 0 && asset.length > 0) {
-      data['added_date'] = addedDate
-      data['due_date'] = dueDate
-      data['assigned_to'] = createCSV(assignedTo)
-      data['asset'] = createCSV(asset)
-      data['id'] = caseId
-      data['email_subject'] = email_subject
-      data['email_description'] = JSON.stringify(email_desc)
-      data['notes'] = notes
+    if (
+      assignedTo.length > 0 &&
+      (jobArea === 'common-not-asset' || asset.length > 0)
+    ) {
+      data['added_date'] = addedDate;
+      data['due_date'] = dueDate;
+      data['assigned_to'] = createCSV(assignedTo);
+      data['asset'] = createCSV(asset);
+      data['id'] = caseId;
+      data['email_subject'] = email_subject;
+      data['email_description'] = JSON.stringify(email_desc);
+      data['notes'] = notes;
       if (caseImages.length > 0) {
-        data['images'] = caseImages
+        data['images'] = caseImages;
       }
       updateCase(data)
         .then((result: any) => {
-          handleClickSnack()
+          handleClickSnack();
           setTimeout(() => {
-            navigate('/bm/cases/list')
-          }, 3000)
+            navigate('/bm/cases/list');
+          }, 3000);
         })
-        .catch((error: any) => {})
+        .catch((error: any) => {});
     }
-  }
+  };
 
   const onCancel = () => {
-    navigate('/bm/cases/list')
-  }
+    navigate('/bm/cases/list');
+  };
 
-  const classes = useStyles()
-  const jobAreaFiled = register('job_area')
+  const classes = useStyles();
+  const jobAreaFiled = register('job_area');
 
   return (
     <div
@@ -564,12 +564,23 @@ const Edit: React.FC = () => {
               {caseImages
                 .filter((url) => url !== '')
                 .map((url, index) => (
-                  <div key={index} style={{ margin: 10 }}>  
-                    <img alt="case" style={{minHeight:'150px',margin: 3, width: 'auto', maxWidth:'150px'}} height={150} width={150} src={url} />
+                  <div key={index} style={{ margin: 10 }}>
+                    <img
+                      alt="case"
+                      style={{
+                        minHeight: '150px',
+                        margin: 3,
+                        width: 'auto',
+                        maxWidth: '150px',
+                      }}
+                      height={150}
+                      width={150}
+                      src={url}
+                    />
                     <Button onClick={removePhoto} data-value1={url}>
                       <DeleteTwoToneIcon fontSize="small" />
                     </Button>
-                  </div>   
+                  </div>
                 ))}
             </GridContainer2>
           </FileuploadContainer>
@@ -597,8 +608,8 @@ const Edit: React.FC = () => {
               id="job_area"
               {...jobAreaFiled}
               onChange={(e) => {
-                jobAreaFiled.onChange(e)
-                onJobAreaChange(e)
+                jobAreaFiled.onChange(e);
+                onJobAreaChange(e);
               }}
             >
               {mock_job_area.map((option) => (
@@ -827,7 +838,10 @@ const Edit: React.FC = () => {
             <StyledDiv
               background={'d84937'}
               color={'fff'}
-              disabled={assignedTo.length === 0 || asset.length === 0}
+              disabled={
+                assignedTo.length === 0 ||
+                (jobArea !== 'common-not-asset' && asset.length === 0)
+              }
               onClick={handleSubmit(onSubmit)}
             >
               Save
@@ -837,7 +851,7 @@ const Edit: React.FC = () => {
         <BlueHeader />
       </MainWrapper>
     </div>
-  )
-}
+  );
+};
 
-export default Edit
+export default Edit;
