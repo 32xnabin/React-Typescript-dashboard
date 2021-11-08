@@ -565,18 +565,16 @@ const Edit: React.FC = () => {
                 .filter((url) => url !== '')
                 .map((url, index) => (
                   <div key={index} style={{ margin: 10 }}>
-                    <img
-                      alt="case"
+                    <div
                       style={{
-                        minHeight: '150px',
-                        margin: 3,
-                        width: 'auto',
-                        maxWidth: '150px',
+                        height: '250px',
+                        width: '200px',
+                        background: 'no-repeat center',
+                        backgroundPosition: 'center',
+                        backgroundSize: 'contain',
+                        backgroundImage: `url(${url})`,
                       }}
-                      height={150}
-                      width={150}
-                      src={url}
-                    />
+                    ></div>
                     <Button onClick={removePhoto} data-value1={url}>
                       <DeleteTwoToneIcon fontSize="small" />
                     </Button>

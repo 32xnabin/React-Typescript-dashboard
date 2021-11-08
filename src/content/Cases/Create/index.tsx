@@ -1,19 +1,19 @@
-import React, { Fragment } from 'react'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as Yup from 'yup'
-import { createCase, uploadImage } from '../../../services/cases'
-import SlateEditor from '../../../components/SlateEditor/Editor'
-import { TextareaAutosize } from '@material-ui/core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWrench } from '@fortawesome/free-solid-svg-icons'
-import { faPrint } from '@fortawesome/free-solid-svg-icons'
-import { faCog } from '@fortawesome/free-solid-svg-icons'
-import { faPaperclip } from '@fortawesome/free-solid-svg-icons'
-import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone'
-import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone'
-import Photo from '../../../components/Photo'
+import React, { Fragment } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
+import { createCase, uploadImage } from '../../../services/cases';
+import SlateEditor from '../../../components/SlateEditor/Editor';
+import { TextareaAutosize } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faPrint } from '@fortawesome/free-solid-svg-icons';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
+import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
+import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone';
+import Photo from '../../../components/Photo';
 
 import {
   InputField,
@@ -40,49 +40,49 @@ import {
   GridContainerPhoto,
   StyledDivSmall,
   HeadingLabel,
-} from './Create.style'
-import { makeStyles } from '@material-ui/styles'
-import { Modal } from '@material-ui/core'
-import Button from '@mui/material/Button'
-import Snackbar from '@mui/material/Snackbar'
-import IconButton from '@mui/material/IconButton'
-import CloseIcon from '@mui/icons-material/Close'
+} from './Create.style';
+import { makeStyles } from '@material-ui/styles';
+import { Modal } from '@material-ui/core';
+import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
-import Select from 'react-select'
-import { List, ListItem, Popover } from '@material-ui/core'
-import { Myboscase } from '../../../types'
+import Select from 'react-select';
+import { List, ListItem, Popover } from '@material-ui/core';
+import { Myboscase } from '../../../types';
 
 function rand() {
-  return Math.round(Math.random() * 20) - 10
+  return Math.round(Math.random() * 20) - 10;
 }
 
 const Create: React.FC = () => {
-  const ref = React.useRef<any>(null)
-  const [isOpen, setOpen] = React.useState<boolean>(false)
+  const ref = React.useRef<any>(null);
+  const [isOpen, setOpen] = React.useState<boolean>(false);
 
   const handleOpenPop = (): void => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const handleClosePop = (): void => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
-  const [openSnack, setOpenSnak] = React.useState<boolean>(false)
+  const [openSnack, setOpenSnak] = React.useState<boolean>(false);
   const handleClickSnack = () => {
-    setOpenSnak(true)
-  }
+    setOpenSnak(true);
+  };
 
   const handleCloseSnack = (
     event: React.SyntheticEvent | React.MouseEvent,
-    reason?: string,
+    reason?: string
   ) => {
     if (reason === 'clickaway') {
-      return
+      return;
     }
 
-    setOpenSnak(false)
-  }
+    setOpenSnak(false);
+  };
 
   const action = (
     <React.Fragment>
@@ -95,21 +95,21 @@ const Create: React.FC = () => {
         <CloseIcon fontSize="small" />
       </IconButton>
     </React.Fragment>
-  )
+  );
 
   function getModalStyle() {
-    const top = 50 + rand()
-    const left = 50 + rand()
+    const top = 50 + rand();
+    const left = 50 + rand();
 
     return {
       top: `${top}%`,
       left: `${left}%`,
       transform: `translate(-${top}%, -${left}%)`,
-    }
+    };
   }
   const handleClose = () => {
-    setOpenModal(false)
-  }
+    setOpenModal(false);
+  };
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -120,10 +120,10 @@ const Create: React.FC = () => {
       padding: 4,
       outline: 'none',
     },
-  }))
+  }));
 
-  const [modalStyle] = React.useState(getModalStyle)
-  let navigate = useNavigate()
+  const [modalStyle] = React.useState(getModalStyle);
+  let navigate = useNavigate();
 
   const mock_case_types = [
     'Repair and Maintainance',
@@ -132,8 +132,8 @@ const Create: React.FC = () => {
     'Replacement',
     'Gardening',
     'Incident',
-  ]
-  const mock_priority = ['High', 'Low', 'Medium']
+  ];
+  const mock_priority = ['High', 'Low', 'Medium'];
   const mock_status = [
     'New',
     'In Progress',
@@ -144,8 +144,8 @@ const Create: React.FC = () => {
     'Awaiting Approval',
     'Committee Approval',
     'Contractor status',
-  ]
-  const mock_job_area = ['common-asset', 'common-not-asset', 'private lot']
+  ];
+  const mock_job_area = ['common-asset', 'common-not-asset', 'private lot'];
   const mock_category = [
     'All Categories',
     'CLOUDIO',
@@ -154,7 +154,7 @@ const Create: React.FC = () => {
     'ELECTRICAL',
     'EXHAUST',
     'GYM / POOL',
-  ]
+  ];
 
   const mock_apartments = [
     'Pick Appartments',
@@ -170,34 +170,33 @@ const Create: React.FC = () => {
     '56',
     '45',
     '66',
-  ]
+  ];
 
   const mock_assets = [
     { value: 'BLDG-Plumbing', label: 'BLDG-Plumbing' },
     { value: 'BLDG-Toilets', label: 'BLDG-Toilets' },
     { value: 'BLDG-Rest', label: 'BLDG-Rest' },
-  ]
+  ];
 
   const mock_assigned_to = [
     { value: 'Ace hanndy andy', label: 'Ace hanndy andy' },
     { value: 'bradyos', label: 'bradyos' },
     { value: 'AZ-Electrician', label: 'AZ-Plumbing' },
     { value: 'Chummins', label: 'Chummins' },
-  ]
+  ];
   const mock_subject = [
     'Light out',
     'bulb blown',
     'Inspect water meters',
     'pool clean',
-  ]
+  ];
   const mock_email_template = [
     [
       {
         type: 'paragraph',
         children: [
           {
-            text:
-              'AWS BM : 1.9.7001(108) - https://drive.google.com/file/d/1YEm6rtKJhkdhqS3-Vi3okZO9yhYzgUzC/view?usp=sharing ',
+            text: 'AWS BM : 1.9.7001(108) - https://drive.google.com/file/d/1YEm6rtKJhkdhqS3-Vi3okZO9yhYzgUzC/view?usp=sharing ',
           },
         ],
       },
@@ -205,8 +204,7 @@ const Create: React.FC = () => {
         type: 'paragraph',
         children: [
           {
-            text:
-              'AWS Resident: 1.7.4001(76) - https://drive.google.com/file/d/1S0dsR3nWsTwhsiR2zV857F57OvnVFlKc/view?usp=sharing',
+            text: 'AWS Resident: 1.7.4001(76) - https://drive.google.com/file/d/1S0dsR3nWsTwhsiR2zV857F57OvnVFlKc/view?usp=sharing',
           },
         ],
       },
@@ -222,8 +220,7 @@ const Create: React.FC = () => {
         type: 'paragraph',
         children: [
           {
-            text:
-              'Blueridge to survey Main water meter and Residential water meter and random Lot water meters to find out if water usage is appropriate and if any issues with meters such as Lots 35, 63 and 93 ',
+            text: 'Blueridge to survey Main water meter and Residential water meter and random Lot water meters to find out if water usage is appropriate and if any issues with meters such as Lots 35, 63 and 93 ',
           },
         ],
       },
@@ -234,7 +231,7 @@ const Create: React.FC = () => {
         children: [{ text: 'Clean and test Parts on order ' }],
       },
     ],
-  ]
+  ];
 
   const validationSchema = Yup.object().shape({
     case_type: Yup.string(),
@@ -250,166 +247,166 @@ const Create: React.FC = () => {
     email_description: Yup.string(),
     notes: Yup.string(),
     logged_by: Yup.string(),
-  })
+  });
 
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(validationSchema),
-  })
+  });
 
   const initialValue = [
     {
       type: 'paragraph',
       children: [{ text: ' ' }],
     },
-  ]
+  ];
 
-  const [openModal, setOpenModal] = React.useState(false)
-  const [caseImages, setCaseImages] = React.useState([''])
-  const [casenum, setCasenum] = React.useState(0)
-  const [email_subject, setEmail_subject] = React.useState('')
-  const [email_desc, setEmail_desc] = React.useState(initialValue)
-  const [jobArea, setJobArea] = React.useState('common-asset')
-  const [assignedTo, setAssignedTo] = React.useState([])
-  const [asset, setAsset] = React.useState([])
+  const [openModal, setOpenModal] = React.useState(false);
+  const [caseImages, setCaseImages] = React.useState(['']);
+  const [casenum, setCasenum] = React.useState(0);
+  const [email_subject, setEmail_subject] = React.useState('');
+  const [email_desc, setEmail_desc] = React.useState(initialValue);
+  const [jobArea, setJobArea] = React.useState('common-asset');
+  const [assignedTo, setAssignedTo] = React.useState([]);
+  const [asset, setAsset] = React.useState([]);
   const [addedDate, setAddedDate] = React.useState(
-    new Date().toISOString().substr(0, 10),
-  )
+    new Date().toISOString().substr(0, 10)
+  );
   const [dueDate, setDueDate] = React.useState(
-    new Date().toISOString().substr(0, 10),
-  )
+    new Date().toISOString().substr(0, 10)
+  );
 
   React.useEffect(() => {
-    setCasenum(Number(localStorage.getItem('max_case_number')) + 1)
-    setAddedDate(new Date().toISOString().substr(0, 10))
-    setDueDate(new Date().toISOString().substr(0, 10))
-  }, [])
+    setCasenum(Number(localStorage.getItem('max_case_number')) + 1);
+    setAddedDate(new Date().toISOString().substr(0, 10));
+    setDueDate(new Date().toISOString().substr(0, 10));
+  }, []);
 
   const removePhoto = async (e) => {
-    const url = e.currentTarget.getAttribute('data-value1')
-    const newArray = caseImages
-    const index = newArray.indexOf(url)
+    const url = e.currentTarget.getAttribute('data-value1');
+    const newArray = caseImages;
+    const index = newArray.indexOf(url);
     if (index > -1) {
-      newArray.splice(index, 1)
+      newArray.splice(index, 1);
     }
-    setCaseImages(newArray)
-    navigate('/bm/cases/create')
-    return true
-  }
+    setCaseImages(newArray);
+    navigate('/bm/cases/create');
+    return true;
+  };
 
   const onImageUploaded = async (file): Promise<boolean> => {
-    const res = await uploadImage(file)
-    setCaseImages([...caseImages, res.url])
-    return false
-  }
+    const res = await uploadImage(file);
+    setCaseImages([...caseImages, res.url]);
+    return false;
+  };
 
   const onJobAreaChange = (e) => {
-    let index = mock_job_area.indexOf(e.target.value)
-    let template = mock_job_area[index]
-    setJobArea(template)
-  }
+    let index = mock_job_area.indexOf(e.target.value);
+    let template = mock_job_area[index];
+    setJobArea(template);
+  };
 
   const onEmailSubjectChangeText = (e) => {
-    setEmail_subject(e.target.value)
-  }
+    setEmail_subject(e.target.value);
+  };
 
   const onEmailSubjectChange = (e) => {
-    const subject = e.currentTarget.getAttribute('data-subject')
-    handleClosePop()
+    const subject = e.currentTarget.getAttribute('data-subject');
+    handleClosePop();
 
-    setEmail_subject(subject)
-    let index = mock_subject.indexOf(subject)
+    setEmail_subject(subject);
+    let index = mock_subject.indexOf(subject);
     if (index !== -1) {
-      let template = mock_email_template[index]
-      setEmail_desc(template)
+      let template = mock_email_template[index];
+      setEmail_desc(template);
     }
-  }
+  };
 
   const onAddedDateChange = (value: string) => {
-    const added_date = new Date(value).toISOString().substr(0, 10)
-    setAddedDate(added_date)
-  }
+    const added_date = new Date(value).toISOString().substr(0, 10);
+    setAddedDate(added_date);
+  };
 
   const onDueDateChange = (value: string) => {
-    const due_date = new Date(value).toISOString().substr(0, 10)
-    setDueDate(due_date)
-  }
+    const due_date = new Date(value).toISOString().substr(0, 10);
+    setDueDate(due_date);
+  };
 
   const onAssignedChange = (value: { value: string; label: string }[]) => {
-    setAssignedTo(value)
-  }
+    setAssignedTo(value);
+  };
 
   const onAssetChange = (value: { value: string; label: string }[]) => {
-    setAsset(value)
-  }
+    setAsset(value);
+  };
 
   const createCSV = (arr: { value: string; label: string }[]) => {
-    let csv = arr.map((item) => item.value).join(',')
-    return csv
-  }
+    let csv = arr.map((item) => item.value).join(',');
+    return csv;
+  };
 
   const onSubmit = (data: Myboscase) => {
     if (
       assignedTo.length > 0 &&
       (jobArea === 'common-not-asset' || asset.length > 0)
     ) {
-      data['due_date'] = dueDate
-      data['added_date'] = addedDate
-      data['assigned_to'] = createCSV(assignedTo)
-      data['asset'] = createCSV(asset)
-      data['email_subject'] = email_subject
-      data['email_description'] = JSON.stringify(email_desc)
+      data['due_date'] = dueDate;
+      data['added_date'] = addedDate;
+      data['assigned_to'] = createCSV(assignedTo);
+      data['asset'] = createCSV(asset);
+      data['email_subject'] = email_subject;
+      data['email_description'] = JSON.stringify(email_desc);
       if (caseImages.length > 0) {
-        data['images'] = caseImages
+        data['images'] = caseImages;
       }
 
       createCase(data)
         .then((result: any) => {
-          localStorage.setItem('max_case_number', String(result.case_number))
-          handleClickSnack()
+          localStorage.setItem('max_case_number', String(result.case_number));
+          handleClickSnack();
           setTimeout(() => {
-            navigate('/bm/cases/list')
-          }, 2000)
+            navigate('/bm/cases/list');
+          }, 2000);
         })
         .catch((error: any) => {
-          navigate('/login')
-        })
+          navigate('/login');
+        });
     }
-  }
+  };
 
   const onCancel = () => {
-    navigate('/bm/cases/list')
-  }
+    navigate('/bm/cases/list');
+  };
 
   const onAddAndReset = (data: Myboscase) => {
     if (
       assignedTo.length > 0 &&
       (jobArea === 'common-not-asset' || asset.length > 0)
     ) {
-      data['due_date'] = dueDate
-      data['added_date'] = addedDate
-      data['assigned_to'] = createCSV(assignedTo)
-      data['asset'] = createCSV(asset)
-      data['email_subject'] = email_subject
-      data['email_description'] = JSON.stringify(email_desc)
+      data['due_date'] = dueDate;
+      data['added_date'] = addedDate;
+      data['assigned_to'] = createCSV(assignedTo);
+      data['asset'] = createCSV(asset);
+      data['email_subject'] = email_subject;
+      data['email_description'] = JSON.stringify(email_desc);
       if (caseImages.length > 0) {
-        data['images'] = caseImages
+        data['images'] = caseImages;
       }
 
       createCase(data)
         .then((result: any) => {
-          localStorage.setItem('max_case_number', String(result.case_number))
-          handleClickSnack()
+          localStorage.setItem('max_case_number', String(result.case_number));
+          handleClickSnack();
           setTimeout(() => {
-            window.location.reload()
-          }, 2000)
+            window.location.reload();
+          }, 2000);
         })
         .catch((error: any) => {
-          navigate('/login')
-        })
+          navigate('/login');
+        });
     }
-  }
-  const classes = useStyles()
-  const jobAreaFiled = register('job_area')
+  };
+  const classes = useStyles();
+  const jobAreaFiled = register('job_area');
 
   return (
     <div
@@ -526,11 +523,20 @@ const Create: React.FC = () => {
                 .filter((url) => url !== '')
                 .map((url, index) => (
                   <div key={index} style={{ margin: 10 }}>
-                    <img alt="case" style={{minHeight:'150px',margin: 3, width: 'auto', maxWidth:'150px'}} height={150}  src={url} />
+                    <div
+                      style={{
+                        height: '250px',
+                        width: '200px',
+                        background: 'no-repeat center',
+                        backgroundPosition: 'center',
+                        backgroundSize: 'contain',
+                        backgroundImage: `url(${url})`,
+                      }}
+                    ></div>
                     <Button onClick={removePhoto} data-value1={url}>
                       <DeleteTwoToneIcon fontSize="small" />
                     </Button>
-                  </div>   
+                  </div>
                 ))}
             </GridContainer2>
           </FileuploadContainer>
@@ -558,8 +564,8 @@ const Create: React.FC = () => {
               id="job_area"
               {...jobAreaFiled}
               onChange={(e) => {
-                jobAreaFiled.onChange(e)
-                onJobAreaChange(e)
+                jobAreaFiled.onChange(e);
+                onJobAreaChange(e);
               }}
             >
               {mock_job_area.map((option) => (
@@ -811,7 +817,7 @@ const Create: React.FC = () => {
         <BlueHeader />
       </MainWrapper>
     </div>
-  )
-}
+  );
+};
 
-export default Create
+export default Create;
