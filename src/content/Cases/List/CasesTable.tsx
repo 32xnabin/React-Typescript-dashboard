@@ -1,9 +1,9 @@
-import { FC, ChangeEvent, useState } from 'react'
-import moment from 'moment'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { FC, ChangeEvent, useState } from 'react';
+import moment from 'moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import {
   Tooltip,
   Divider,
@@ -19,16 +19,16 @@ import {
   Select,
   MenuItem,
   Typography,
-} from '@material-ui/core'
+} from '@material-ui/core';
 
-import { CaseStatus } from 'src/types'
-import EditTwoToneIcon from '@material-ui/icons/EditTwoTone'
-import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone'
-import { Myboscase } from 'src/types'
-import { deleteCase, updateCase } from '../../../services/cases'
-import { HorDiv } from './CaseTable.style'
-import { experimentalStyled } from '@material-ui/core/styles'
-import AlertDialog from '../../../components/AlertDialog'
+import { CaseStatus } from 'src/types';
+import EditTwoToneIcon from '@material-ui/icons/EditTwoTone';
+import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
+import { Myboscase } from 'src/types';
+import { deleteCase, updateCase } from '../../../services/cases';
+import { HorDiv } from './CaseTable.style';
+import { experimentalStyled } from '@material-ui/core/styles';
+import AlertDialog from '../../../components/AlertDialog';
 
 const ButtonRed = experimentalStyled(Link)(
   ({ theme }) => `
@@ -41,51 +41,50 @@ const ButtonRed = experimentalStyled(Link)(
      &:hover {
         background: ${theme.colors.error.dark};
      }
-    `,
-)
+    `
+);
 
 interface RecentOrdersTableProps {
-  className?: string
-  myboscases: Myboscase[]
+  className?: string;
+  myboscases: Myboscase[];
 }
 
 interface Filters {
-  status?: CaseStatus
+  status?: CaseStatus;
 }
 
 const applyFilters = (
   myboscases: Myboscase[],
-  filters: Filters,
+  filters: Filters
 ): Myboscase[] => {
   return myboscases.filter((myboscase) => {
-    let matches = true
+    let matches = true;
 
     if (filters.status && myboscase.status !== filters.status) {
-      matches = false
+      matches = false;
     }
 
-    return matches
-  })
-}
+    return matches;
+  });
+};
 
 const applyPagination = (
   myboscases: Myboscase[],
   page: number,
-  limit: number,
+  limit: number
 ): Myboscase[] => {
-  return myboscases.slice(page * limit, page * limit + limit)
-}
+  return myboscases.slice(page * limit, page * limit + limit);
+};
 
 const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
-  const [selectedCaseId, setSelectedCaseId] = useState('')
-  const [selectedCases, setSelectedCases] = useState<string[]>([''])
-  const selectedBulkActions = selectedCases.length > 0
-  const [page, setPage] = useState<number>(0)
-  const [limit, setLimit] = useState<number>(5)
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [selectedCaseId, setSelectedCaseId] = useState('');
+  const [selectedCases, setSelectedCases] = useState<string[]>(['']);
+  const [page, setPage] = useState<number>(0);
+  const [limit, setLimit] = useState<number>(5);
   const [filters, setFilters] = useState<Filters>({
     status: null,
-  })
+  });
 
   const statusOptions = [
     {
@@ -117,78 +116,78 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
       id: 'all',
       name: 'All',
     },
-  ]
+  ];
 
   const confirmDelete = () => {
     deleteCase(selectedCaseId)
       .then((result: any) => {
-        setShowDeleteConfirm(false)
-        window.location.reload()
+        setShowDeleteConfirm(false);
+        window.location.reload();
       })
-      .catch((error: any) => {})
+      .catch((error: any) => {});
 
-    return true
-  }
+    return true;
+  };
 
   const onCaseDelete = async (e) => {
-    const id = e.currentTarget.getAttribute('data-value1')
-    setSelectedCaseId(id)
-    setShowDeleteConfirm(true)
-  }
+    const id = e.currentTarget.getAttribute('data-value1');
+    setSelectedCaseId(id);
+    setShowDeleteConfirm(true);
+  };
 
   const handleStatusChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    let value = null
+    let value = null;
 
     if (e.target.value !== 'all') {
-      value = e.target.value
+      value = e.target.value;
     }
 
     setFilters((prevFilters) => ({
       ...prevFilters,
       status: value,
-    }))
-  }
+    }));
+  };
 
   const handleSelectAllCases = (event: ChangeEvent<HTMLInputElement>): void => {
     setSelectedCases(
-      event.target.checked ? myboscases.map((item) => item.id) : [],
-    )
-  }
+      event.target.checked ? myboscases.map((item) => item.id) : []
+    );
+  };
 
   const handleSelectOneCryptoOrder = (
     event: ChangeEvent<HTMLInputElement>,
-    caseId: string,
+    caseId: string
   ): void => {
     if (!selectedCases.includes(caseId)) {
-      setSelectedCases((prevSelected) => [...prevSelected, caseId])
+      setSelectedCases((prevSelected) => [...prevSelected, caseId]);
     } else {
       setSelectedCases((prevSelected) =>
-        prevSelected.filter((id) => id !== caseId),
-      )
+        prevSelected.filter((id) => id !== caseId)
+      );
     }
-  }
+  };
 
   const handlePageChange = (event: any, newPage: number): void => {
-    setPage(newPage)
-  }
+    setPage(newPage);
+  };
 
   const handleLimitChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    setLimit(parseInt(event.target.value))
-  }
+    setLimit(parseInt(event.target.value));
+  };
 
-  const filteredCases = applyFilters(myboscases, filters)
-  const paginatedCases = applyPagination(filteredCases, page, limit)
-  const selectedAllCases = selectedCases.length === myboscases.length
+  const filteredCases = applyFilters(myboscases, filters);
+  const paginatedCases = applyPagination(filteredCases, page, limit);
+  const selectedAllCases = selectedCases.length === myboscases.length;
 
   const markAsComplete = (e) => {
     for (const id of selectedCases) {
-      const data = { id, status: 'Completed' }
+      const data = { id, status: 'Completed' };
       updateCase(data)
         .then((result: any) => {})
-        .catch((error: any) => {})
+        .catch((error: any) => {});
     }
-    window.location.reload()
-  }
+    window.location.reload();
+  };
 
   return (
     <>
@@ -217,7 +216,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </MenuItem>
             ))}
           </Select>
-          {selectedBulkActions && (
+          {selectedCases.length > 1 && (
             <Tooltip title="Mark As Complete" arrow>
               <div
                 style={{
@@ -273,7 +272,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
           </TableHead>
           <TableBody>
             {paginatedCases.map((item) => {
-              const isCaseselected = selectedCases.includes(item.id)
+              const isCaseselected = selectedCases.includes(item.id);
               return (
                 <TableRow hover key={item.id} selected={isCaseselected}>
                   <TableCell padding="checkbox">
@@ -391,7 +390,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                     </HorDiv>
                   </TableCell>
                 </TableRow>
-              )
+              );
             })}
           </TableBody>
         </Table>
@@ -408,15 +407,15 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
         />
       </Box>
     </>
-  )
-}
+  );
+};
 
 RecentOrdersTable.propTypes = {
   myboscases: PropTypes.array.isRequired,
-}
+};
 
 RecentOrdersTable.defaultProps = {
   myboscases: [],
-}
+};
 
-export default RecentOrdersTable
+export default RecentOrdersTable;
