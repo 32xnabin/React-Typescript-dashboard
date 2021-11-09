@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { FC, useRef, ChangeEvent, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -21,7 +21,10 @@ import {
   InfoLabel,
   Placeholder,
   MainContainer,
+  GridContainerHeader,
   GridContainer,
+  GridContainerCheckBox,
+  FullWidthContainer,
   GridContainer1,
   GridContainer2,
   FileuploadContainer,
@@ -49,16 +52,16 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
 import Select from 'react-select';
-import { List, ListItem, Popover } from '@material-ui/core';
+import { List, ListItem, Popover, Checkbox } from '@material-ui/core';
 import { Myboscase } from '../../../types';
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
 }
 
-const Create: React.FC = () => {
-  const ref = React.useRef<any>(null);
-  const [isOpen, setOpen] = React.useState<boolean>(false);
+const Create: FC = () => {
+  const ref = useRef<any>(null);
+  const [isOpen, setOpen] = useState<boolean>(false);
 
   const handleOpenPop = (): void => {
     setOpen(true);
@@ -68,7 +71,7 @@ const Create: React.FC = () => {
     setOpen(false);
   };
 
-  const [openSnack, setOpenSnak] = React.useState<boolean>(false);
+  const [openSnack, setOpenSnak] = useState<boolean>(false);
   const handleClickSnack = () => {
     setOpenSnak(true);
   };
@@ -122,7 +125,7 @@ const Create: React.FC = () => {
     },
   }));
 
-  const [modalStyle] = React.useState(getModalStyle);
+  const [modalStyle] = useState(getModalStyle);
   let navigate = useNavigate();
 
   const mock_case_types = [
@@ -260,22 +263,22 @@ const Create: React.FC = () => {
     },
   ];
 
-  const [openModal, setOpenModal] = React.useState(false);
-  const [caseImages, setCaseImages] = React.useState(['']);
-  const [casenum, setCasenum] = React.useState(0);
-  const [email_subject, setEmail_subject] = React.useState('');
-  const [email_desc, setEmail_desc] = React.useState(initialValue);
-  const [jobArea, setJobArea] = React.useState('common-asset');
-  const [assignedTo, setAssignedTo] = React.useState([]);
-  const [asset, setAsset] = React.useState([]);
-  const [addedDate, setAddedDate] = React.useState(
+  const [openModal, setOpenModal] = useState(false);
+  const [caseImages, setCaseImages] = useState(['']);
+  const [casenum, setCasenum] = useState(0);
+  const [email_subject, setEmail_subject] = useState('');
+  const [email_desc, setEmail_desc] = useState(initialValue);
+  const [jobArea, setJobArea] = useState(['common-asset']);
+  const [assignedTo, setAssignedTo] = useState([]);
+  const [asset, setAsset] = useState([]);
+  const [addedDate, setAddedDate] = useState(
     new Date().toISOString().substr(0, 10)
   );
-  const [dueDate, setDueDate] = React.useState(
+  const [dueDate, setDueDate] = useState(
     new Date().toISOString().substr(0, 10)
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCasenum(Number(localStorage.getItem('max_case_number')) + 1);
     setAddedDate(new Date().toISOString().substr(0, 10));
     setDueDate(new Date().toISOString().substr(0, 10));
@@ -299,11 +302,11 @@ const Create: React.FC = () => {
     return false;
   };
 
-  const onJobAreaChange = (e) => {
-    let index = mock_job_area.indexOf(e.target.value);
-    let template = mock_job_area[index];
-    setJobArea(template);
-  };
+  // const onJobAreaChange = (e) => {
+  //   let index = mock_job_area.indexOf(e.target.value);
+  //   let template = mock_job_area[index];
+  //   setJobArea(template);
+  // };
 
   const onEmailSubjectChangeText = (e) => {
     setEmail_subject(e.target.value);
@@ -347,7 +350,7 @@ const Create: React.FC = () => {
   const onSubmit = (data: Myboscase) => {
     if (
       assignedTo.length > 0 &&
-      (jobArea === 'common-not-asset' || asset.length > 0)
+      (jobArea.indexOf('common-not-asset') !== -1 || asset.length > 0)
     ) {
       data['due_date'] = dueDate;
       data['added_date'] = addedDate;
@@ -380,7 +383,7 @@ const Create: React.FC = () => {
   const onAddAndReset = (data: Myboscase) => {
     if (
       assignedTo.length > 0 &&
-      (jobArea === 'common-not-asset' || asset.length > 0)
+      (jobArea.indexOf('common-not-asset') !== -1 || asset.length > 0)
     ) {
       data['due_date'] = dueDate;
       data['added_date'] = addedDate;
@@ -405,8 +408,31 @@ const Create: React.FC = () => {
         });
     }
   };
+
+  const handleJobAreaChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    // ['common-asset', 'common-not-asset', 'private lot'];
+    console.log('checked:', event.target.checked);
+    console.log('value:', event.target.value);
+
+    if (event.target.checked && event.target.value === 'common-not-asset') {
+      if (jobArea.indexOf(event.target.value) === -1)
+        setJobArea(['common-not-asset']);
+    }
+    if (event.target.checked && event.target.value !== 'common-not-asset') {
+      let removeIndex = jobArea.indexOf('common-not-asset');
+      if (removeIndex !== -1) {
+        jobArea.splice(removeIndex, 1);
+      }
+      if (jobArea.indexOf(event.target.value) === -1)
+        setJobArea([...jobArea, event.target.value]);
+    }
+    if (!event.target.checked) {
+      let index = jobArea.indexOf(event.target.value);
+      jobArea.splice(index, 1);
+      setJobArea(jobArea.splice(index, 1));
+    }
+  };
   const classes = useStyles();
-  const jobAreaFiled = register('job_area');
 
   return (
     <div
@@ -438,10 +464,10 @@ const Create: React.FC = () => {
           </HorDiv>
         </BlueHeader>
         <MainContainer>
-          <GridContainer>
+          <GridContainerHeader>
             <HeadingLabel>Case Information</HeadingLabel>
             <Placeholder />
-          </GridContainer>
+          </GridContainerHeader>
           <GridContainer1>
             <HeadingLabel>Attachments</HeadingLabel>
 
@@ -465,8 +491,9 @@ const Create: React.FC = () => {
         <MainContainer>
           <GridContainer>
             <InfoLabel bold={true}>Case Number</InfoLabel>
-            <Disabled>{casenum}</Disabled>
             <InfoLabel>Case Type</InfoLabel>
+
+            <Disabled>{casenum}</Disabled>
             <DropDown id="case_type" {...register('case_type')}>
               {mock_case_types.map((option) => (
                 <option key={option}>{option}</option>
@@ -475,13 +502,13 @@ const Create: React.FC = () => {
 
             <InfoLabel>Added</InfoLabel>
 
+            <InfoLabel>Due Date</InfoLabel>
             <DateField
               value={addedDate}
               onChange={(e) => onAddedDateChange(e.target.value)}
               id="added_date"
               type="date"
             />
-            <InfoLabel>Due Date</InfoLabel>
 
             <DateField
               value={dueDate}
@@ -491,12 +518,13 @@ const Create: React.FC = () => {
             />
 
             <InfoLabel>Priority</InfoLabel>
+
+            <InfoLabel>Status</InfoLabel>
             <DropDown id="priority" {...register('priority')}>
               {mock_priority.map((option) => (
                 <option key={option}>{option}</option>
               ))}
             </DropDown>
-            <InfoLabel>Status</InfoLabel>
             <DropDown id="status" {...register('status')}>
               {mock_status.map((option) => (
                 <option key={option}>{option}</option>
@@ -542,14 +570,10 @@ const Create: React.FC = () => {
           </FileuploadContainer>
         </MainContainer>
         <MainContainer>
-          <GridContainer>
+          <GridContainerHeader>
             <HeadingLabel>Asset Information</HeadingLabel>
             <Placeholder />
-          </GridContainer>
-          <GridContainer>
-            <HeadingLabel></HeadingLabel>
-            <Placeholder />
-          </GridContainer>
+          </GridContainerHeader>
         </MainContainer>
         <MainContainer>
           <div>
@@ -560,36 +584,55 @@ const Create: React.FC = () => {
         <MainContainer>
           <GridContainer>
             <InfoLabel>Job Area</InfoLabel>
-            <DropDown
-              id="job_area"
-              {...jobAreaFiled}
-              onChange={(e) => {
-                jobAreaFiled.onChange(e);
-                onJobAreaChange(e);
-              }}
-            >
-              {mock_job_area.map((option) => (
-                <option key={option}>{option}</option>
-              ))}
-            </DropDown>
-            {jobArea !== 'common-not-asset' && (
+            <Placeholder />
+            <GridContainerCheckBox>
+              <Checkbox
+                color="primary"
+                checked={
+                  jobArea.indexOf('common-not-asset') === -1 &&
+                  jobArea.indexOf('common-asset') !== -1
+                }
+                value="common-asset"
+                onChange={handleJobAreaChange}
+              />
+              <InfoLabel>Asset</InfoLabel>
+              <Checkbox
+                color="primary"
+                checked={
+                  jobArea.indexOf('common-not-asset') === -1 &&
+                  jobArea.indexOf('private lot') !== -1
+                }
+                value="private lot"
+                onChange={handleJobAreaChange}
+              />
+              <InfoLabel>Private Lot</InfoLabel>
+              <Checkbox
+                color="primary"
+                checked={jobArea.indexOf('common-not-asset') !== -1}
+                value="common-not-asset"
+                onChange={handleJobAreaChange}
+              />
+              <InfoLabel>N/A</InfoLabel>
+            </GridContainerCheckBox>
+            <div />
+
+            {jobArea.indexOf('common-not-asset') === -1 && (
               <>
                 <InfoLabel>Category</InfoLabel>
-                {jobArea === 'common-asset' ? (
-                  <DropDown id="category" {...register('category')}>
-                    {mock_category.map((option) => (
-                      <option key={option}>{option}</option>
-                    ))}
-                  </DropDown>
-                ) : (
-                  <DropDown id="category" {...register('category')}>
-                    {mock_apartments.map((option) => (
-                      <option key={option}>{option}</option>
-                    ))}
-                  </DropDown>
-                )}
 
                 <InfoLabel>Asset</InfoLabel>
+                <DropDown id="category" {...register('category')}>
+                  {mock_category.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </DropDown>
+
+                <DropDown id="apartment" {...register('apartment')}>
+                  {mock_apartments.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </DropDown>
+
                 <InputWrapper style={{ zIndex: 4 }}>
                   <Select
                     isMulti
@@ -600,6 +643,7 @@ const Create: React.FC = () => {
               </>
             )}
             <InfoLabel>Assigned To</InfoLabel>
+            <InfoLabel>Contacts</InfoLabel>
             <InputWrapper style={{ zIndex: 3 }}>
               <Select
                 isMulti
@@ -607,179 +651,148 @@ const Create: React.FC = () => {
                 options={mock_assigned_to}
               />
             </InputWrapper>
-            <InfoLabel>Subject</InfoLabel>
-            <div>
-              <InputFieldSubject
-                onChange={(e) => onEmailSubjectChangeText(e)}
-                value={email_subject}
-              ></InputFieldSubject>
-              <Button
-                style={{
-                  border: '1px solid #ccc',
-                  height: 36,
-                  borderRadius: 0,
-                  width: '610px',
-                  position: 'relative',
-                  top: -36,
-                  zIndex: 1,
-                  textAlign: 'right',
-                }}
-                ref={ref}
-                onClick={handleOpenPop}
-              >
-                <div style={{ textAlign: 'right', width: '100%' }}>
-                  <ExpandMoreTwoToneIcon
-                    style={{ color: '#ccc' }}
-                    sx={{ ml: 1 }}
-                  />
-                </div>
-              </Button>
-              <Popover
-                anchorEl={ref.current}
-                onClose={handleClosePop}
-                open={isOpen}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-              >
-                <div style={{ width: '610px', border: '1px solid #ccc' }}>
-                  <List sx={{ p: 1 }} component="nav">
-                    {mock_subject.map((option) => (
-                      <ListItem>
-                        <Button
-                          style={{
-                            width: '610px',
-                            justifyContent: 'flex-start',
-                          }}
-                          onClick={onEmailSubjectChange}
-                          data-subject={option}
-                        >
-                          {option}
-                        </Button>
-                      </ListItem>
-                    ))}
-                  </List>
-                </div>
-              </Popover>
-            </div>
-
-            <InfoLabel>Description</InfoLabel>
-            <InputWrapper>
-              <SlateEditor
-                {...register('email_description')}
-                value={email_desc}
-                setValue={setEmail_desc}
+            <InputWrapper style={{ zIndex: 3 }}>
+              <Select
+                isMulti
+                onChange={onAssignedChange}
+                options={mock_assigned_to}
               />
             </InputWrapper>
-
-            <InfoLabel>Notes</InfoLabel>
-
-            <TextareaAutosize
-              style={{ border: '1px solid #ccc', minHeight: '150px' }}
-              id="notes"
-              {...register('notes')}
-            ></TextareaAutosize>
           </GridContainer>
-          <GridContainer></GridContainer>
         </MainContainer>
+        <FullWidthContainer>
+          <InfoLabel>Subject</InfoLabel>
+          <div>
+            <InputFieldSubject
+              onChange={(e) => onEmailSubjectChangeText(e)}
+              value={email_subject}
+            ></InputFieldSubject>
+            <Button
+              style={{
+                border: '1px solid #ccc',
+                height: 36,
+                borderRadius: 0,
+                width: '610px',
+                position: 'relative',
+                left: '-550px',
+                zIndex: 1,
+                textAlign: 'right',
+              }}
+              ref={ref}
+              onClick={handleOpenPop}
+            >
+              <div style={{ textAlign: 'right', width: '100%' }}>
+                <ExpandMoreTwoToneIcon
+                  style={{ color: '#ccc' }}
+                  sx={{ ml: 1 }}
+                />
+              </div>
+            </Button>
+            <Popover
+              anchorEl={ref.current}
+              onClose={handleClosePop}
+              open={isOpen}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+            >
+              <div
+                style={{
+                  width: '610px',
+                  border: '1px solid #ccc',
+                }}
+              >
+                <List sx={{ p: 1 }} component="nav">
+                  {mock_subject.map((option) => (
+                    <ListItem>
+                      <Button
+                        style={{
+                          width: '610px',
+                          justifyContent: 'flex-start',
+                        }}
+                        onClick={onEmailSubjectChange}
+                        data-subject={option}
+                      >
+                        {option}
+                      </Button>
+                    </ListItem>
+                  ))}
+                </List>
+              </div>
+            </Popover>
+          </div>
 
-        <MainContainer>
-          <GridContainer>
-            <HeadingLabel1>Options</HeadingLabel1>
-            <Placeholder />
-          </GridContainer>
-          <GridContainer1></GridContainer1>
-          <GridContainer1>
-            <InfoLabel style={{ marginLeft: 10 }}>
-              Add this case to management report?
-            </InfoLabel>
+          <InfoLabel>Description</InfoLabel>
+
+          <SlateEditor
+            {...register('email_description')}
+            value={email_desc}
+            setValue={setEmail_desc}
+          />
+          <InfoLabel>Notes</InfoLabel>
+          <TextareaAutosize
+            style={{
+              border: '1px solid #ccc',
+              minHeight: '150px',
+              padding: '10px',
+            }}
+            id="notes"
+            {...register('notes')}
+          ></TextareaAutosize>
+        </FullWidthContainer>
+        <GridContainerHeader>
+          <HeadingLabel>Options</HeadingLabel>
+          <Placeholder />
+        </GridContainerHeader>
+        <FullWidthContainer>
+          <GridContainer style={{ border: '1px solid #fff !important' }}>
             <input
               type="checkbox"
               id="add_to_report"
               {...register('add_to_report')}
             />
-          </GridContainer1>
-          <GridContainer1></GridContainer1>
-          <GridContainer1>
             <InfoLabel style={{ marginLeft: 10 }}>
-              Duplicate this case across other buildings?
+              Add this case to management report?
             </InfoLabel>
             <input
               type="checkbox"
               id="duplicate_case"
               {...register('duplicate_case')}
             />
-          </GridContainer1>
-          <GridContainer>
-            <HeadingLabel></HeadingLabel>
-            <Placeholder />
-          </GridContainer>
-        </MainContainer>
-        <MainContainer>
-          <div>
-            <BlueLine />
-          </div>
 
-          <div></div>
-        </MainContainer>
-
-        <MainContainer>
-          <GridContainer>
-            <HeadingLabel1>Logs</HeadingLabel1>
-            <Placeholder />
-          </GridContainer>
-          <GridContainer>
-            <HeadingLabel></HeadingLabel>
-            <Placeholder />
-          </GridContainer>
-        </MainContainer>
-        <MainContainer>
-          <div>
-            <BlueLine />
-          </div>
-
-          <div></div>
-        </MainContainer>
-        <MainContainer>
-          <GridContainer>
-            <InfoLabel>Jobs logged by</InfoLabel>
-            <InputField
-              id="logged_by"
-              {...register('logged_by')}
-              value={'demo manager'}
-            ></InputField>
-          </GridContainer>
-          <GridContainer1></GridContainer1>
-        </MainContainer>
-
-        <MainContainer>
-          <GridContainer>
-            <HeadingLabel1>Email</HeadingLabel1>
-            <Placeholder />
-          </GridContainer>
-          <GridContainer>
-            <HeadingLabel></HeadingLabel>
-            <Placeholder />
-          </GridContainer>
-        </MainContainer>
-        <MainContainer>
-          <div>
-            <BlueLine />
-          </div>
-
-          <div></div>
-        </MainContainer>
-        <MainContainer>
-          <GridContainer1>
             <InfoLabel style={{ marginLeft: 10 }}>
-              Send email to the following contractors?:
+              Duplicate this case across other buildings?
             </InfoLabel>
-          </GridContainer1>
-        </MainContainer>
+          </GridContainer>
+        </FullWidthContainer>
 
-        <MainContainer>
-          <GridContainer></GridContainer>
+        <FullWidthContainer>
+          <HeadingLabel1>Logs</HeadingLabel1>
+        </FullWidthContainer>
+
+        <FullWidthContainer>
+          <InfoLabel>Jobs logged by</InfoLabel>
+          <InputField
+            id="logged_by"
+            {...register('logged_by')}
+            value={'demo manager'}
+          ></InputField>
+        </FullWidthContainer>
+
+        <FullWidthContainer>
+          <HeadingLabel1>Email</HeadingLabel1>
+
+          <HeadingLabel></HeadingLabel>
+        </FullWidthContainer>
+
+        <FullWidthContainer>
+          <InfoLabel style={{ marginLeft: 10 }}>
+            Send email to the following contractors?:
+          </InfoLabel>
+        </FullWidthContainer>
+
+        <FullWidthContainer>
           <ButtonsContainer>
             <StyledDiv
               background={'000'}
@@ -794,7 +807,8 @@ const Create: React.FC = () => {
               color={'fff'}
               disabled={
                 assignedTo.length === 0 ||
-                (jobArea !== 'common-not-asset' && asset.length === 0)
+                (jobArea.indexOf('common-not-asset') === -1 &&
+                  asset.length === 0)
               }
               onClick={handleSubmit(onSubmit)}
             >
@@ -806,15 +820,15 @@ const Create: React.FC = () => {
               color={'fff'}
               disabled={
                 assignedTo.length === 0 ||
-                (jobArea !== 'common-not-asset' && asset.length === 0)
+                (jobArea.indexOf('common-not-asset') === -1 &&
+                  asset.length === 0)
               }
               onClick={handleSubmit(onAddAndReset)}
             >
               Save and Add New
             </StyledDiv>
           </ButtonsContainer>
-        </MainContainer>
-        <BlueHeader />
+        </FullWidthContainer>
       </MainWrapper>
     </div>
   );

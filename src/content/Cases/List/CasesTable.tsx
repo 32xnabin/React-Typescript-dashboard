@@ -27,22 +27,7 @@ import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import { Myboscase } from 'src/types';
 import { deleteCase, updateCase } from '../../../services/cases';
 import { HorDiv } from './CaseTable.style';
-import { experimentalStyled } from '@material-ui/core/styles';
 import AlertDialog from '../../../components/AlertDialog';
-
-const ButtonRed = experimentalStyled(Link)(
-  ({ theme }) => `
-     background: ${theme.colors.error.main};
-     color: ${theme.palette.error.contrastText};
-     padding: 6px 40px;
-     border-radius: 6px;
-     text-decoration:none;
-
-     &:hover {
-        background: ${theme.colors.error.dark};
-     }
-    `
-);
 
 interface RecentOrdersTableProps {
   className?: string;
@@ -239,7 +224,6 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
             </Tooltip>
           )}
         </Box>
-        <ButtonRed to="/bm/cases/create">New</ButtonRed>
       </Box>
       <AlertDialog
         confirmDelete={confirmDelete}
