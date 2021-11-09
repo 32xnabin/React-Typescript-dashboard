@@ -1,9 +1,9 @@
-import { Card, Typography } from '@material-ui/core'
+import { Card, Typography } from '@material-ui/core';
 
-import { GridContainer } from './Common.style'
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWrench } from '@fortawesome/free-solid-svg-icons'
+import { GridContainer } from './Common.style';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWrench } from '@fortawesome/free-solid-svg-icons';
 
 const Section3: React.FC = () => {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
@@ -13,24 +13,24 @@ const Section3: React.FC = () => {
     align-items: center;
     height: 30px;
     padding: 6px;
-    background-color: #f99393;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     margin: 4px 8px;
-  `
+  `;
   const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
     display: flex;
     justify-content: start;
     align-items: center;
     height: 30px;
-    background-color: #f99393;
-    color: #fff;
-  `
+    background-color: #fff;
+    color: #000;
+  `;
 
   return (
-    <Card style={{ background: '#f04547', height: '400px' }}>
+    <Card style={{ height: '400px' }}>
       <GridContainer color={'f04547'}>
         <Typography
-          style={{ marginLeft: 8, color: '#fff', fontSize: 18 }}
+          style={{ marginLeft: 8, color: '#000', fontSize: 18 }}
           noWrap
         >
           Items Requiring Action
@@ -136,7 +136,7 @@ const Section3: React.FC = () => {
         </Row>
       </GridContainer>
     </Card>
-  )
-}
+  );
+};
 
-export default Section3
+export default Section3;

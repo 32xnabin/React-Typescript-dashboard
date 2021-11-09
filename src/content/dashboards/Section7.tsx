@@ -1,19 +1,17 @@
-import React from 'react'
-import { Card, Typography } from '@material-ui/core'
+import React from 'react';
+import { Card, Typography } from '@material-ui/core';
 
-import { GridContainer } from './Common.style'
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { GridContainer } from './Common.style';
+import styled from 'styled-components';
 const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
   width: 100%;
 
   height: 60px;
   padding: 6px;
-  background-color: #ffea9a;
+
   color: #000;
   margin: 8px 8px;
-`
+`;
 const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
   display: flex;
   justify-content: space-between;
@@ -21,7 +19,7 @@ const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
   height: 30px;
 
   color: #000;
-`
+`;
 const InputFilter = styled(({ color, ...otherProps }) => (
   <input {...otherProps} />
 ))`
@@ -29,7 +27,7 @@ const InputFilter = styled(({ color, ...otherProps }) => (
   height: 35px;
   border: 1px solid #ccc;
   margin-left: 5px;
-`
+`;
 
 const Section7: React.FC = () => {
   const items = [
@@ -38,33 +36,33 @@ const Section7: React.FC = () => {
     'Karmela Francia - 24/06/2021',
     'Lorem ipsum- 24/06/2021',
     'RLorem ipsum- 24/06/2021',
-  ]
-  const [filterText, setFilterText] = React.useState('')
-  const [filteredArray, setFilteredArray] = React.useState(items)
+  ];
+  const [filterText, setFilterText] = React.useState('');
+  const [filteredArray, setFilteredArray] = React.useState(items);
 
-  React.useEffect(() => {}, [])
+  React.useEffect(() => {}, []);
 
   const onFilterTextChange = (text: string) => {
-    setFilterText(text)
+    setFilterText(text);
     if (text !== '') {
       setFilteredArray(
         items.filter((item) =>
-          item.toUpperCase().startsWith(text.toUpperCase()),
-        ),
-      )
+          item.toUpperCase().startsWith(text.toUpperCase())
+        )
+      );
     } else {
-      setFilteredArray(items)
+      setFilteredArray(items);
     }
-  }
+  };
 
   return (
-    <Card style={{ background: '#f6d746' }}>
+    <Card style={{ padding: 10, height: '400px' }}>
       <GridContainer>
         <Typography
           style={{ marginLeft: 8, color: '#000', fontSize: 18 }}
           noWrap
         >
-          Building Summary
+          Notes
         </Typography>
         <InputFilter
           value={filterText}
@@ -77,12 +75,7 @@ const Section7: React.FC = () => {
               <Typography style={{ marginLeft: 8, fontSize: 18 }} noWrap>
                 {item}
               </Typography>
-              <FontAwesomeIcon
-                color="black"
-                style={{ marginRight: 8 }}
-                fontSize={8}
-                icon={faTrash}
-              />
+              <input type="checkbox" />
             </SubRow>
             <Typography style={{ marginLeft: 8 }} noWrap>
               Check recyclables area
@@ -91,7 +84,7 @@ const Section7: React.FC = () => {
         ))}
       </GridContainer>
     </Card>
-  )
-}
+  );
+};
 
-export default Section7
+export default Section7;

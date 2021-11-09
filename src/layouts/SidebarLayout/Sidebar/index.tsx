@@ -1,27 +1,30 @@
-import { useContext } from 'react'
-import { Scrollbars } from 'react-custom-scrollbars-2'
-import { SidebarContext } from 'src/contexts/SidebarContext'
-import Logo from 'src/components/Logo'
+import { useContext } from 'react';
+import { Scrollbars } from 'react-custom-scrollbars-2';
+import { SidebarContext } from 'src/contexts/SidebarContext';
+import Logo from 'src/components/Logo';
 
-import { Box, Drawer, Hidden } from '@material-ui/core'
+import { Box, Drawer, Hidden } from '@material-ui/core';
 
-import { experimentalStyled } from '@material-ui/core/styles'
-import SidebarMenu from './SidebarMenu'
+import { experimentalStyled } from '@material-ui/core/styles';
+import SidebarMenu from './SidebarMenu';
 
 const SidebarWrapper = experimentalStyled(Box)(
   ({ theme }) => `
         width: ${theme.sidebar.width};
         color: ${theme.sidebar.textColor};
         border: 1px solid #000;
-        margin: 2px;
         background: ${theme.sidebar.background};
         height: 100%;
         overflow:hidden;
+        height: 1000px;
+        position: fixed;
+
+        background-color: #10274b;
         
         @media (min-width: ${theme.breakpoints.values.lg}px) {
         }
-`,
-)
+`
+);
 
 const TopSection = experimentalStyled(Box)(
   ({ theme }) => `
@@ -30,20 +33,24 @@ const TopSection = experimentalStyled(Box)(
         align-items: center;
         padding: 5px;
         border-bottom: ${theme.sidebar.dividerBg} solid 1px;
-        background-color: #fff;
-`,
-)
+        background-color: #10274b;
+`
+);
 
 function Sidebar() {
-  const { sidebarToggle, toggleSidebar } = useContext(SidebarContext)
-  const closeSidebar = () => toggleSidebar()
+  const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
+  const closeSidebar = () => toggleSidebar();
 
   return (
     <>
       <Hidden lgDown>
         <SidebarWrapper>
           <Scrollbars autoHide>
-            <TopSection></TopSection>
+            <TopSection>
+              <Box display="flex" alignItems="center">
+                <Logo />
+              </Box>
+            </TopSection>
             <SidebarMenu />
           </Scrollbars>
         </SidebarWrapper>
@@ -67,7 +74,7 @@ function Sidebar() {
         </Drawer>
       </Hidden>
     </>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;

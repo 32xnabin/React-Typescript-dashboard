@@ -1,78 +1,81 @@
-import React from 'react'
-import moment from 'moment'
-import { useNavigate } from 'react-router-dom'
-import { Card, Typography, Box } from '@material-ui/core'
-import DonutChart from 'react-donut-chart'
-import { Myboscase } from '../../types'
-import { getAllCases } from '../../services/cases'
-import { Holder } from './Common.style'
+import React from 'react';
+import moment from 'moment';
+import { useNavigate } from 'react-router-dom';
+import { Card, Typography, Box } from '@material-ui/core';
+import DonutChart from 'react-donut-chart';
+import { Myboscase } from '../../types';
+import { getAllCases } from '../../services/cases';
+import { Holder } from './Common.style';
 
 const Section2: React.FC = () => {
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   const filterCases = (duration, casesNow) => {
-    const thisWeek = moment().startOf('week').format('MMMM DD h:mm A')
-    const thisMonth = moment().startOf('month').format('MMMM DD h:mm A')
+    const thisWeek = moment().startOf('week').format('MMMM DD h:mm A');
+    const thisMonth = moment().startOf('month').format('MMMM DD h:mm A');
     const threeMonth = moment()
       .startOf('month')
       .subtract(3, 'month')
-      .format('MMMM DD h:mm A')
+      .format('MMMM DD h:mm A');
     const sixMonth = moment()
       .startOf('month')
       .subtract(6, 'month')
-      .format('MMMM DD h:mm A')
+      .format('MMMM DD h:mm A');
     const twelveMonth = moment()
       .startOf('month')
       .subtract(12, 'month')
-      .format('MMMM DD h:mm A')
-    let durationDate = ''
-    const currDate = moment().startOf('day').format('MMMM DD h:mm A')
+      .format('MMMM DD h:mm A');
+    let durationDate = '';
+    const currDate = moment().startOf('day').format('MMMM DD h:mm A');
     switch (duration) {
       case 'TODAY':
-        durationDate = currDate
-        break
+        durationDate = currDate;
+        break;
       case 'THIS_WEEK':
-        durationDate = thisWeek
-        break
+        durationDate = thisWeek;
+        break;
       case 'THIS_MONTH':
-        durationDate = thisMonth
-        break
+        durationDate = thisMonth;
+        break;
       case 'THREE_MONTHS':
-        durationDate = threeMonth
-        break
+        durationDate = threeMonth;
+        break;
       case 'SIX_MONTHS':
-        durationDate = sixMonth
-        break
+        durationDate = sixMonth;
+        break;
       case 'TWELVE_MONTHS':
-        durationDate = twelveMonth
-        break
+        durationDate = twelveMonth;
+        break;
       default:
-        break
+        break;
     }
 
     const filtered = casesNow.filter((item) =>
       moment(moment(item.updatedAt).format('MMMM DD h:mm A')).isAfter(
-        moment(durationDate),
-      ),
-    )
+        moment(durationDate)
+      )
+    );
 
     const namesOnly = filtered.map((item) => {
-      return item.case_type
-    })
+      return item.case_type;
+    });
 
-    const count = {}
-    namesOnly.forEach((e) => (count[e] ? count[e]++ : (count[e] = 1)))
-    const keys = Object.keys(count)
-    let total = 0
+    const count = {};
+    namesOnly.forEach((e) => (count[e] ? count[e]++ : (count[e] = 1)));
+    const keys = Object.keys(count);
+    let total = 0;
     for (let i = 0; i < keys.length; i++) {
-      total += count[keys[i]]
+      total += count[keys[i]];
     }
-    const finalArray = []
+    const finalArray = [];
     for (let i = 0; i < keys.length; i++) {
-      finalArray.push({ label: keys[i], value: (count[keys[i]] / total) * 100 })
+      finalArray.push({
+        label: keys[i],
+        value: (count[keys[i]] / total) * 100,
+      });
     }
 
-    setFilteredCases(finalArray)
-  }
+    setFilteredCases(finalArray);
+  };
 
   const mock_assigned_to = [
     { value: 'TODAY', label: 'Today' },
@@ -81,30 +84,35 @@ const Section2: React.FC = () => {
     { value: 'THREE_MONTHS', label: 'Three Months' },
     { value: 'SIX_MONTHS', label: 'Six Months' },
     { value: 'TWELVE_MONTHS', label: 'Twelve Months' },
-  ]
+  ];
+  const colors = ['#45a7c1', '#ca83e9', '#45c67b', '#f04547', '#45a7c1'];
 
-  const [mybosCases, setMybosCases] = React.useState<Myboscase[]>()
-  const [filteredCases, setFilteredCases] = React.useState<
-    { value: string; label: string }[]
-  >()
+  const [mybosCases, setMybosCases] = React.useState<Myboscase[]>();
+  const [filteredCases, setFilteredCases] =
+    React.useState<{ value: string; label: string }[]>();
 
   React.useEffect(() => {
     getAllCases()
       .then((res) => {
-        setMybosCases(res)
-        filterCases('TODAY', res)
+        setMybosCases(res);
+        filterCases('TODAY', res);
       })
       .catch((error) => {
-        navigate('/login')
-      })
+        navigate('/login');
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   return (
     <Card style={{ padding: 10, height: '400px' }}>
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Typography
-          style={{ marginLeft: 8, color: '#45a7c1', fontSize: 18 }}
+          style={{
+            marginLeft: 8,
+            color: '#45a7c1',
+            fontSize: 18,
+            visibility: 'hidden',
+          }}
           noWrap
         >
           Cases graph
@@ -120,7 +128,7 @@ const Section2: React.FC = () => {
               <option key={index} value={item.value}>
                 {item.label}
               </option>
-            ),
+            )
           )}
         </select>
       </Box>
@@ -129,8 +137,6 @@ const Section2: React.FC = () => {
           style={{
             width: '300px',
             height: '300px',
-            position: 'relative',
-            top: '-80px',
           }}
         >
           <DonutChart
@@ -143,7 +149,7 @@ const Section2: React.FC = () => {
         </Holder>
       </Box>
     </Card>
-  )
-}
+  );
+};
 
-export default Section2
+export default Section2;

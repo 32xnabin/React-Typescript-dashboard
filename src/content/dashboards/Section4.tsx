@@ -1,9 +1,9 @@
-import { Card, Typography } from '@material-ui/core'
+import { Card, Typography } from '@material-ui/core';
 
-import { GridContainer } from './Common.style'
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faWrench } from '@fortawesome/free-solid-svg-icons'
+import { GridContainer } from './Common.style';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWrench } from '@fortawesome/free-solid-svg-icons';
 
 const Section4: React.FC = () => {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
@@ -15,17 +15,17 @@ const Section4: React.FC = () => {
     padding: 6px;
     color: #000;
     margin: 4px 8px;
-  `
+  `;
   const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
     display: flex;
     justify-content: start;
     align-items: center;
     height: 30px;
     color: #000;
-  `
+  `;
 
   return (
-    <Card style={{ background: '#cecece' }}>
+    <Card>
       <GridContainer>
         <Typography
           style={{ marginLeft: 8, color: '#000', fontSize: 18 }}
@@ -224,7 +224,7 @@ const Section4: React.FC = () => {
         </Row>
       </GridContainer>
     </Card>
-  )
-}
+  );
+};
 
-export default Section4
+export default Section4;

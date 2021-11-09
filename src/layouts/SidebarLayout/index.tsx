@@ -14,17 +14,21 @@ const MainWrapper = experimentalStyled(Box)(
   ({ theme }) => `
         flex: 1 1 auto;
         display: flex;
-        height: 1000px;
+        background:#ebeff3;
+       
         
 `
 );
 
 const MainContent = experimentalStyled(Box)(
   ({ theme }) => `
-       margin-top: ${theme.header.height}; 
+       
        display:flex;
        width:100%;
        background:#ebeff3;
+       min-height: 2000px; 
+       margin-left:300px;
+       margin-top:88px;
         
 `
 );
@@ -33,9 +37,9 @@ const SidebarLayout: FC<SidebarLayoutProps> = () => {
   return (
     <>
       <MainWrapper>
+        <Sidebar />
         <Header />
         <MainContent>
-          <Sidebar />
           <Outlet />
         </MainContent>
       </MainWrapper>

@@ -1,7 +1,7 @@
-import { Card, Typography } from '@material-ui/core'
+import { Card, Typography } from '@material-ui/core';
 
-import { GridContainer } from './Common.style'
-import styled from 'styled-components'
+import { GridContainer } from './Common.style';
+import styled from 'styled-components';
 const Section9: React.FC = () => {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
     width: 100%;
@@ -11,7 +11,7 @@ const Section9: React.FC = () => {
 
     color: #fff;
     margin: 8px 8px;
-  `
+  `;
   const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
     display: flex;
     justify-content: start;
@@ -19,10 +19,10 @@ const Section9: React.FC = () => {
     height: 30px;
 
     color: #fff;
-  `
+  `;
 
   return (
-    <Card style={{ background: '#5581e4' }}>
+    <Card style={{ height: '1000px' }}>
       <GridContainer>
         <Typography
           style={{ marginLeft: 8, color: '#fff', fontSize: 18 }}
@@ -110,7 +110,7 @@ const Section9: React.FC = () => {
         </Row>
       </GridContainer>
     </Card>
-  )
-}
+  );
+};
 
-export default Section9
+export default Section9;

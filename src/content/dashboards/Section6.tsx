@@ -1,9 +1,9 @@
-import { Card, Typography } from '@material-ui/core'
+import { Card, Typography } from '@material-ui/core';
 
-import { GridContainer } from './Common.style'
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons'
+import { GridContainer } from './Common.style';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 
 const Section6: React.FC = () => {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
@@ -16,35 +16,35 @@ const Section6: React.FC = () => {
     padding: 6px;
     color: #fff;
     margin: 4px 8px;
-  `
+  `;
   const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
     display: flex;
     justify-content: start;
     align-items: center;
     height: 40px;
     color: #fff;
-  `
+  `;
 
   return (
-    <Card style={{ background: '#913dcb' }}>
+    <Card style={{ padding: 10, height: '400px' }}>
       <GridContainer>
         <Typography
           style={{
             marginLeft: 8,
             marginBottom: 10,
-            color: '#fff',
+            color: '#000',
             fontSize: 18,
           }}
           noWrap
         >
-          Latest Work Orders Sent
+          Building Summary
         </Typography>
         <Row>
           <SubRow>
             <FontAwesomeIcon
               style={{
                 color: '#fff',
-                background: '#f04547',
+                background: '#ccc',
                 padding: 1,
                 borderRadius: 2,
               }}
@@ -52,22 +52,22 @@ const Section6: React.FC = () => {
               fontSize={18}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8 }} noWrap>
+            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
               WO#2514-A
             </Typography>
           </SubRow>
           <Typography
             style={{
               marginRight: 8,
+              padding: 6,
               color: '#fff',
-              background: '#b76ceb',
-              padding: 2,
-              borderRadius: 4,
+              background: '#45c67b',
+              borderRadius: 8,
               fontSize: 12,
             }}
             noWrap
           >
-            Sent: 2021-10-06 21:13:25
+            00
           </Typography>
         </Row>
         <Row>
@@ -75,7 +75,7 @@ const Section6: React.FC = () => {
             <FontAwesomeIcon
               style={{
                 color: '#fff',
-                background: '#f04547',
+                background: '#ccc',
                 padding: 1,
                 borderRadius: 2,
               }}
@@ -83,22 +83,22 @@ const Section6: React.FC = () => {
               fontSize={18}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8 }} noWrap>
+            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
               WO#2514-A
             </Typography>
           </SubRow>
           <Typography
             style={{
               marginRight: 8,
+              padding: 6,
               color: '#fff',
-              background: '#b76ceb',
-              padding: 2,
-              borderRadius: 4,
+              background: '#45c67b',
+              borderRadius: 8,
               fontSize: 12,
             }}
             noWrap
           >
-            Sent: 2021-10-06 21:13:25
+            33
           </Typography>
         </Row>
         <Row>
@@ -106,7 +106,7 @@ const Section6: React.FC = () => {
             <FontAwesomeIcon
               style={{
                 color: '#fff',
-                background: '#f04547',
+                background: '#ccc',
                 padding: 1,
                 borderRadius: 2,
               }}
@@ -114,22 +114,22 @@ const Section6: React.FC = () => {
               fontSize={18}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8 }} noWrap>
+            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
               WO#2514-A
             </Typography>
           </SubRow>
           <Typography
             style={{
               marginRight: 8,
+              padding: 6,
               color: '#fff',
-              background: '#b76ceb',
-              padding: 2,
-              borderRadius: 4,
+              background: '#45c67b',
+              borderRadius: 8,
               fontSize: 12,
             }}
             noWrap
           >
-            Sent: 2021-10-06 21:13:25
+            12
           </Typography>
         </Row>
         <Row>
@@ -137,7 +137,7 @@ const Section6: React.FC = () => {
             <FontAwesomeIcon
               style={{
                 color: '#fff',
-                background: '#f04547',
+                background: '#ccc',
                 padding: 1,
                 borderRadius: 2,
               }}
@@ -145,22 +145,22 @@ const Section6: React.FC = () => {
               fontSize={18}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8 }} noWrap>
+            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
               WO#2514-A
             </Typography>
           </SubRow>
           <Typography
             style={{
               marginRight: 8,
+              padding: 6,
               color: '#fff',
-              background: '#b76ceb',
-              padding: 2,
-              borderRadius: 4,
+              background: '#45c67b',
+              borderRadius: 8,
               fontSize: 12,
             }}
             noWrap
           >
-            Sent: 2021-10-06 21:13:25
+            42
           </Typography>
         </Row>
         <Row>
@@ -168,7 +168,7 @@ const Section6: React.FC = () => {
             <FontAwesomeIcon
               style={{
                 color: '#fff',
-                background: '#f04547',
+                background: '#ccc',
                 padding: 1,
                 borderRadius: 2,
               }}
@@ -176,22 +176,22 @@ const Section6: React.FC = () => {
               fontSize={18}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8 }} noWrap>
+            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
               WO#2514-A
             </Typography>
           </SubRow>
           <Typography
             style={{
               marginRight: 8,
+              padding: 6,
               color: '#fff',
-              background: '#b76ceb',
-              padding: 2,
-              borderRadius: 4,
+              background: '#45c67b',
+              borderRadius: 8,
               fontSize: 12,
             }}
             noWrap
           >
-            Sent: 2021-10-06 21:13:25
+            09
           </Typography>
         </Row>
         <Row>
@@ -199,7 +199,7 @@ const Section6: React.FC = () => {
             <FontAwesomeIcon
               style={{
                 color: '#fff',
-                background: '#f04547',
+                background: '#ccc',
                 padding: 1,
                 borderRadius: 2,
               }}
@@ -207,22 +207,22 @@ const Section6: React.FC = () => {
               fontSize={18}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8 }} noWrap>
+            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
               WO#2514-A
             </Typography>
           </SubRow>
           <Typography
             style={{
               marginRight: 8,
+              padding: 6,
               color: '#fff',
-              background: '#b76ceb',
-              padding: 2,
-              borderRadius: 4,
+              background: '#45c67b',
+              borderRadius: 8,
               fontSize: 12,
             }}
             noWrap
           >
-            Sent: 2021-10-06 21:13:25
+            66
           </Typography>
         </Row>
         <Row>
@@ -230,7 +230,7 @@ const Section6: React.FC = () => {
             <FontAwesomeIcon
               style={{
                 color: '#fff',
-                background: '#f04547',
+                background: '#ccc',
                 padding: 1,
                 borderRadius: 2,
               }}
@@ -238,22 +238,22 @@ const Section6: React.FC = () => {
               fontSize={18}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8 }} noWrap>
+            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
               WO#2514-A
             </Typography>
           </SubRow>
           <Typography
             style={{
               marginRight: 8,
+              padding: 6,
               color: '#fff',
-              background: '#b76ceb',
-              padding: 2,
-              borderRadius: 4,
+              background: '#45c67b',
+              borderRadius: 8,
               fontSize: 12,
             }}
             noWrap
           >
-            Sent: 2021-10-06 21:13:25
+            11
           </Typography>
         </Row>
         <Row>
@@ -261,7 +261,7 @@ const Section6: React.FC = () => {
             <FontAwesomeIcon
               style={{
                 color: '#fff',
-                background: '#f04547',
+                background: '#ccc',
                 padding: 1,
                 borderRadius: 2,
               }}
@@ -269,27 +269,27 @@ const Section6: React.FC = () => {
               fontSize={18}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8 }} noWrap>
+            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
               WO#2514-A
             </Typography>
           </SubRow>
           <Typography
             style={{
               marginRight: 8,
+              padding: 6,
               color: '#fff',
-              background: '#b76ceb',
-              padding: 2,
-              borderRadius: 4,
+              background: '#45c67b',
+              borderRadius: 8,
               fontSize: 12,
             }}
             noWrap
           >
-            Sent: 2021-10-06 21:13:25
+            11
           </Typography>
         </Row>
       </GridContainer>
     </Card>
-  )
-}
+  );
+};
 
-export default Section6
+export default Section6;

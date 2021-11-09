@@ -1,14 +1,14 @@
-import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css'
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledDivSmall = styled(
   ({ disabled, color, background, visible, ...otherProps }) => (
     <div {...otherProps} />
-  ),
+  )
 )`
-  background-color: #5faee3;
+  background-color: #fff;
   color: #${(props) => props.color};
   height: 25px;
   cursor: ${(props) => (props.disabled ? ' ' : 'pointer')};
@@ -20,17 +20,17 @@ export const StyledDivSmall = styled(
   align-items: center;
 
   padding: 6px;
-`
+`;
 export const Holder = styled(({ background, color, ...otherProps }) => (
   <div {...otherProps} />
 ))`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 350px;
-  padding: 2px;
-  background-color: #${(props) => props.background};
-`
+  height: 400px;
+  width: 100%;
+  background-color: #fff;
+`;
 
 export const Holder1 = styled(({ background, color, ...otherProps }) => (
   <div {...otherProps} />
@@ -40,35 +40,39 @@ export const Holder1 = styled(({ background, color, ...otherProps }) => (
   justify-content: center;
   align-items: center;
   height: 350px;
+  width: 100%;
   padding: 2px;
-  background-color: #${(props) => props.background};
-`
+  background-color: #fff;
+`;
 
 export const ReactCalender = styled(({ color, ...otherProps }) => (
   <Calendar {...otherProps} />
 ))`
-  background: #45a7c1 !important;
+  background: #fff !important;
+  border:none;
   .react-calendar__tile{
-  color:#fff !important; 
+  color:#000 !important; 
 
   }
   .react-calendar__navigation__label{
-  color:#fff !important; 
+  color:#000 !important; 
 
   }
   .react-calendar__tile--now{
-    background-color: #36869d;
+    background-color: #45a7c1;
   }
   .react-calendar__month-view__weekdays {
-    background-color: #36869d !important;
-`
+    background-color: #fff !important;
+`;
 
 export const GridContainer = styled(({ color, ...otherProps }) => (
   <div {...otherProps} />
 ))`
-  margin: 5px;
-  height: 350px;
+  padding: 8px;
+  height: 400px;
+  width: 100%;
+  border: none;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: #${(props) => props.color};
-`
+  background-color: #fff;
+`;

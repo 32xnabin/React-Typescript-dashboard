@@ -1,24 +1,21 @@
-import React from 'react'
-import { Card, Typography } from '@material-ui/core'
+import React from 'react';
+import { Card } from '@material-ui/core';
 
-import { Holder, ReactCalender } from './Common.style'
+import { Holder, ReactCalender } from './Common.style';
 
 const Section1: React.FC = () => {
-  const [value, setValue] = React.useState(new Date())
+  const [value, setValue] = React.useState(new Date());
   const onChange = () => {
-    setValue(new Date())
-  }
+    setValue(new Date());
+  };
 
   return (
-    <Card style={{ background: '#45a7c1', padding: 10 }}>
-      <Typography style={{ marginLeft: 8, color: '#fff', fontSize: 18 }} noWrap>
-        Calendar
-      </Typography>
+    <Card style={{ height: '400px' }}>
       <Holder background={'45a7c1'}>
         <ReactCalender onChange={onChange} value={value} />
       </Holder>
     </Card>
-  )
-}
+  );
+};
 
-export default Section1
+export default Section1;

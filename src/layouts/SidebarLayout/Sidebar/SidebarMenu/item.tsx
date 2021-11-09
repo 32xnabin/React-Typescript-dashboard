@@ -41,6 +41,7 @@ const SidebarMenuItem: FC<SidebarMenuItemProps> = ({
     return (
       <ListItem className="Mui-children" key={name} {...rest}>
         <Button
+          style={{ color: '#fff' }}
           className={clsx({ 'Mui-active': menuToggle })}
           startIcon={Icon && <Icon />}
           endIcon={
@@ -78,7 +79,7 @@ SidebarMenuItem.propTypes = {
   icon: PropTypes.elementType,
   badge: PropTypes.string,
   open: PropTypes.bool,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
 
 SidebarMenuItem.defaultProps = {

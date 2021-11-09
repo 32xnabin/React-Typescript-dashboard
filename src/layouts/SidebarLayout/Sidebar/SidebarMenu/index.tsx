@@ -4,7 +4,6 @@ import SidebarMenuItem from './item';
 import menuItems, { MenuItem } from './items';
 import { experimentalStyled } from '@material-ui/core/styles';
 
-
 const MenuWrapper = experimentalStyled(List)(
   ({ theme }) => `
     margin-bottom: ${theme.spacing(1)};
@@ -17,7 +16,7 @@ const MenuWrapper = experimentalStyled(List)(
     .MuiListSubheader-root {
       text-transform: uppercase;
       font-size: ${theme.typography.pxToRem(13)};
-      color: ${theme.sidebar.menuItemHeadingColor};
+      color: #fff;
       padding: ${theme.spacing(0.8, 2)};
       line-height: 1.4;
     }
@@ -38,8 +37,8 @@ const SubMenuWrapper = experimentalStyled(List)(
     
         .MuiButton-root {
           display: flex;
-          color: ${theme.sidebar.menuItemColor};
-          background-color: ${theme.sidebar.menuItemBg};
+          color: #fff;
+         
           width: 100%;
           justify-content: flex-start;
           font-size: ${theme.typography.pxToRem(14)};
@@ -54,7 +53,7 @@ const SubMenuWrapper = experimentalStyled(List)(
             .MuiBadge-standard {
               background: ${theme.colors.primary.main};
               font-size: ${theme.typography.pxToRem(12)};
-              color: ${theme.palette.primary.contrastText};
+              color: #fff;
             }
           }
     
@@ -71,7 +70,7 @@ const SubMenuWrapper = experimentalStyled(List)(
           .MuiButton-startIcon {
             font-size: ${theme.typography.pxToRem(26)};
             margin-right: ${theme.spacing(1.5)};
-            color: ${theme.sidebar.menuItemIconColor};
+            color: #fff;
           }
           
           .MuiButton-endIcon {
@@ -81,12 +80,12 @@ const SubMenuWrapper = experimentalStyled(List)(
 
           &.Mui-active,
           &:hover {
-            background-color: ${theme.sidebar.menuItemBgActive};
-            color: ${theme.sidebar.menuItemColorActive};
+            
+            color: #4c87bf;
 
             .MuiButton-startIcon,
             .MuiButton-endIcon {
-                color: ${theme.sidebar.menuItemIconColorActive};
+                color: #4c87bf;
             }
           }
         }
@@ -112,7 +111,7 @@ const SubMenuWrapper = experimentalStyled(List)(
 
               &.Mui-active,
               &:hover {
-                background-color: ${theme.sidebar.menuItemBg};
+                
               }
             }
           }
@@ -124,7 +123,7 @@ const SubMenuWrapper = experimentalStyled(List)(
 
 const renderSidebarMenuItems = ({
   items,
-  path
+  path,
 }: {
   items: MenuItem[];
   path: string;
@@ -137,7 +136,7 @@ const renderSidebarMenuItems = ({
 const reduceChildRoutes = ({
   ev,
   path,
-  item
+  item,
 }: {
   ev: JSX.Element[];
   path: string;
@@ -145,16 +144,26 @@ const reduceChildRoutes = ({
 }): Array<JSX.Element> => {
   const key = item.name;
 
-  const exactMatch = item.link ? !!matchPath({
-    path: item.link,
-    end: true
-  }, path) : false;
+  const exactMatch = item.link
+    ? !!matchPath(
+        {
+          path: item.link,
+          end: true,
+        },
+        path
+      )
+    : false;
 
   if (item.items) {
-    const partialMatch = item.link ? !!matchPath({
-      path: item.link,
-      end: false
-    }, path) : false;
+    const partialMatch = item.link
+      ? !!matchPath(
+          {
+            path: item.link,
+            end: false,
+          },
+          path
+        )
+      : false;
 
     ev.push(
       <SidebarMenuItem
@@ -168,7 +177,7 @@ const reduceChildRoutes = ({
       >
         {renderSidebarMenuItems({
           path,
-          items: item.items
+          items: item.items,
         })}
       </SidebarMenuItem>
     );
@@ -186,11 +195,10 @@ const reduceChildRoutes = ({
   }
 
   return ev;
-}
+};
 
 function SidebarMenu() {
   const location = useLocation();
-
 
   return (
     <>
@@ -203,7 +211,7 @@ function SidebarMenu() {
         >
           {renderSidebarMenuItems({
             items: section.items,
-            path: location.pathname
+            path: location.pathname,
           })}
         </MenuWrapper>
       ))}
