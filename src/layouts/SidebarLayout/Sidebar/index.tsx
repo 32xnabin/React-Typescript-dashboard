@@ -30,10 +30,11 @@ const TopSection = experimentalStyled(Box)(
   ({ theme }) => `
         display: flex;
         height: 80px;
-        align-items: center;
+        align-items: top;
         padding: 5px;
-        border-bottom: ${theme.sidebar.dividerBg} solid 1px;
-        background-color: #10274b;
+        margin-bottom:100px;
+        
+       
 `
 );
 

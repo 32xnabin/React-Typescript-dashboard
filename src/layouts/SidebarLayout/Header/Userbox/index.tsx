@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react'
+import { useRef, useState } from 'react';
 
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 import {
   Box,
@@ -12,59 +12,59 @@ import {
   ListItemText,
   Popover,
   Typography,
-} from '@material-ui/core'
+} from '@material-ui/core';
 
-import { experimentalStyled } from '@material-ui/core/styles'
-import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone'
-import AccountBoxTwoToneIcon from '@material-ui/icons/AccountBoxTwoTone'
-import LockOpenTwoToneIcon from '@material-ui/icons/LockOpenTwoTone'
+import { experimentalStyled } from '@material-ui/core/styles';
+import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone';
+import AccountBoxTwoToneIcon from '@material-ui/icons/AccountBoxTwoTone';
+import LockOpenTwoToneIcon from '@material-ui/icons/LockOpenTwoTone';
 
 const UserBoxButton = experimentalStyled(Button)(
   ({ theme }) => `
         padding-left: ${theme.spacing(1)};
         padding-right: ${theme.spacing(1)};
-`,
-)
+`
+);
 
 const UserBoxText = experimentalStyled(Box)(
   ({ theme }) => `
         text-align: left;
         padding-left: ${theme.spacing(1)};
-`,
-)
+`
+);
 
 const UserBoxLabel = experimentalStyled(Typography)(
   ({ theme }) => `
         font-weight: ${theme.typography.fontWeightBold};
         color: ${theme.palette.secondary.main};
         display: block;
-`,
-)
+`
+);
 
 function HeaderUserbox() {
-  const ref = useRef<any>(null)
-  const [isOpen, setOpen] = useState<boolean>(false)
+  const ref = useRef<any>(null);
+  const [isOpen, setOpen] = useState<boolean>(false);
 
   const handleOpen = (): void => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const handleClose = (): void => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   return (
     <>
       <UserBoxButton color="secondary" ref={ref} onClick={handleOpen}>
         <Hidden mdDown>
           <UserBoxText>
-            <UserBoxLabel style={{ color: '#fff' }} variant="body1">
+            <UserBoxLabel style={{ color: '#817d7d' }} variant="body1">
               Demo Manager
             </UserBoxLabel>
           </UserBoxText>
         </Hidden>
         <Hidden smDown>
-          <ExpandMoreTwoToneIcon style={{ color: '#fff' }} sx={{ ml: 1 }} />
+          <ExpandMoreTwoToneIcon style={{ color: '#817d7d' }} sx={{ ml: 1 }} />
         </Hidden>
       </UserBoxButton>
       <Popover
@@ -95,7 +95,7 @@ function HeaderUserbox() {
         <Divider />
       </Popover>
     </>
-  )
+  );
 }
 
-export default HeaderUserbox
+export default HeaderUserbox;
