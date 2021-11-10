@@ -40,7 +40,7 @@ const Section5: React.FC = () => {
             marginLeft: 8,
             marginBottom: 10,
             color: '#000',
-            fontSize: 18,
+            fontSize: 14,
           }}
           noWrap
         >
@@ -61,13 +61,13 @@ const Section5: React.FC = () => {
                 fontSize={8}
                 icon={faFilePdf}
               />
-              <Typography style={{ fontSize: 16, marginLeft: '8px' }}>
+              <Typography style={{ fontSize: 12, marginLeft: '8px' }}>
                 {item}
               </Typography>
             </SubRow>
 
             <SubRow>
-              <Typography style={{ fontSize: 12, marginLeft: '16px' }} noWrap>
+              <Typography style={{ fontSize: 10, marginLeft: '16px' }} noWrap>
                 Check recyclables area
               </Typography>
             </SubRow>

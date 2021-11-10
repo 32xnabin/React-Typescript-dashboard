@@ -4,6 +4,7 @@ import Image from './sidebarImage.jpg';
 
 const LogoWrapper = experimentalStyled(Box)(
   ({ theme }) => `
+  margin: 20px auto;
 `
 );
 
@@ -11,7 +12,7 @@ function SideBarImage() {
   return (
     <LogoWrapper>
       <img
-        style={{ height: '120px', width: 'auto', marginLeft: '10px' }}
+        style={{ height: '120px', width: 'auto' }}
         src={Image}
         alt="sidebar"
       />

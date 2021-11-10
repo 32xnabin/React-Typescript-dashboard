@@ -33,7 +33,7 @@ const Section6: React.FC = () => {
             marginLeft: 8,
             marginBottom: 10,
             color: '#000',
-            fontSize: 18,
+            fontSize: 16,
           }}
           noWrap
         >
@@ -49,10 +49,13 @@ const Section6: React.FC = () => {
                 borderRadius: 2,
               }}
               color="white"
-              fontSize={18}
+              fontSize={12}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
+            <Typography
+              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              noWrap
+            >
               WO#2514-A
             </Typography>
           </SubRow>
@@ -63,7 +66,7 @@ const Section6: React.FC = () => {
               color: '#fff',
               background: '#45c67b',
               borderRadius: 8,
-              fontSize: 12,
+              fontSize: 10,
             }}
             noWrap
           >
@@ -80,10 +83,13 @@ const Section6: React.FC = () => {
                 borderRadius: 2,
               }}
               color="white"
-              fontSize={18}
+              fontSize={12}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
+            <Typography
+              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              noWrap
+            >
               WO#2514-A
             </Typography>
           </SubRow>
@@ -94,7 +100,7 @@ const Section6: React.FC = () => {
               color: '#fff',
               background: '#45c67b',
               borderRadius: 8,
-              fontSize: 12,
+              fontSize: 10,
             }}
             noWrap
           >
@@ -111,10 +117,13 @@ const Section6: React.FC = () => {
                 borderRadius: 2,
               }}
               color="white"
-              fontSize={18}
+              fontSize={12}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
+            <Typography
+              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              noWrap
+            >
               WO#2514-A
             </Typography>
           </SubRow>
@@ -125,7 +134,7 @@ const Section6: React.FC = () => {
               color: '#fff',
               background: '#45c67b',
               borderRadius: 8,
-              fontSize: 12,
+              fontSize: 10,
             }}
             noWrap
           >
@@ -142,10 +151,13 @@ const Section6: React.FC = () => {
                 borderRadius: 2,
               }}
               color="white"
-              fontSize={18}
+              fontSize={12}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
+            <Typography
+              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              noWrap
+            >
               WO#2514-A
             </Typography>
           </SubRow>
@@ -156,7 +168,7 @@ const Section6: React.FC = () => {
               color: '#fff',
               background: '#45c67b',
               borderRadius: 8,
-              fontSize: 12,
+              fontSize: 10,
             }}
             noWrap
           >
@@ -173,10 +185,17 @@ const Section6: React.FC = () => {
                 borderRadius: 2,
               }}
               color="white"
-              fontSize={18}
+              fontSize={12}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
+            <Typography
+              style={{
+                marginLeft: 8,
+                color: '#000',
+                fontSize: 12,
+              }}
+              noWrap
+            >
               WO#2514-A
             </Typography>
           </SubRow>
@@ -187,7 +206,7 @@ const Section6: React.FC = () => {
               color: '#fff',
               background: '#45c67b',
               borderRadius: 8,
-              fontSize: 12,
+              fontSize: 10,
             }}
             noWrap
           >
@@ -204,10 +223,13 @@ const Section6: React.FC = () => {
                 borderRadius: 2,
               }}
               color="white"
-              fontSize={18}
+              fontSize={12}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
+            <Typography
+              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              noWrap
+            >
               WO#2514-A
             </Typography>
           </SubRow>
@@ -218,7 +240,7 @@ const Section6: React.FC = () => {
               color: '#fff',
               background: '#45c67b',
               borderRadius: 8,
-              fontSize: 12,
+              fontSize: 10,
             }}
             noWrap
           >
@@ -235,10 +257,13 @@ const Section6: React.FC = () => {
                 borderRadius: 2,
               }}
               color="white"
-              fontSize={18}
+              fontSize={12}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
+            <Typography
+              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              noWrap
+            >
               WO#2514-A
             </Typography>
           </SubRow>
@@ -249,7 +274,7 @@ const Section6: React.FC = () => {
               color: '#fff',
               background: '#45c67b',
               borderRadius: 8,
-              fontSize: 12,
+              fontSize: 10,
             }}
             noWrap
           >
@@ -266,10 +291,13 @@ const Section6: React.FC = () => {
                 borderRadius: 2,
               }}
               color="white"
-              fontSize={18}
+              fontSize={12}
               icon={faFilePdf}
             />
-            <Typography style={{ marginLeft: 8, color: '#000' }} noWrap>
+            <Typography
+              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              noWrap
+            >
               WO#2514-A
             </Typography>
           </SubRow>
@@ -280,7 +308,7 @@ const Section6: React.FC = () => {
               color: '#fff',
               background: '#45c67b',
               borderRadius: 8,
-              fontSize: 12,
+              fontSize: 10,
             }}
             noWrap
           >

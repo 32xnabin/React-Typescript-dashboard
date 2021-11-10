@@ -59,7 +59,7 @@ const Section8: React.FC = () => {
     <Card style={{ padding: 10, height: '400px' }}>
       <GridContainer>
         <Typography
-          style={{ marginLeft: 8, color: '#000', fontSize: 18 }}
+          style={{ marginLeft: 8, color: '#000', fontSize: 16 }}
           noWrap
         >
           Important Phone numbers
@@ -72,11 +72,11 @@ const Section8: React.FC = () => {
         {filteredArray.map((item, index) => (
           <Row key={index}>
             <SubRow>
-              <Typography style={{ marginLeft: 8, fontSize: 18 }} noWrap>
+              <Typography style={{ marginLeft: 8, fontSize: 14 }} noWrap>
                 {item}
               </Typography>
               <Typography
-                style={{ marginLeft: 8, fontSize: 16, color: '#45a7c1' }}
+                style={{ marginLeft: 8, fontSize: 10, color: '#45a7c1' }}
                 noWrap
               >
                 {numbers[index]}

@@ -59,7 +59,7 @@ const Section7: React.FC = () => {
     <Card style={{ padding: 10, height: '400px' }}>
       <GridContainer>
         <Typography
-          style={{ marginLeft: 8, color: '#000', fontSize: 18 }}
+          style={{ marginLeft: 8, color: '#000', fontSize: 14 }}
           noWrap
         >
           Notes
@@ -72,12 +72,12 @@ const Section7: React.FC = () => {
         {filteredArray.map((item, index) => (
           <Row key={index}>
             <SubRow>
-              <Typography style={{ marginLeft: 8, fontSize: 18 }} noWrap>
+              <Typography style={{ marginLeft: 8, fontSize: 14 }} noWrap>
                 {item}
               </Typography>
               <input type="checkbox" />
             </SubRow>
-            <Typography style={{ marginLeft: 8 }} noWrap>
+            <Typography style={{ marginLeft: 8, fontSize: 10 }} noWrap>
               Check recyclables area
             </Typography>
           </Row>

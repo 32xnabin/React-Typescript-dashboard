@@ -31,7 +31,7 @@ const TopSection = experimentalStyled(Box)(
   ({ theme }) => `
         display: flex;
         flex-direction:column;
-        height: 120px;
+        height: 130px;
         align-items: top;
         padding: 5px;
         margin-bottom:100px;
