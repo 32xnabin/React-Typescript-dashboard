@@ -180,7 +180,11 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
         display="flex"
         alignItems="center"
         justifyContent="space-between"
-        style={{ border: 0, boxShadow: 'none', padding: 7 }}
+        style={{
+          border: 0,
+          boxShadow: 'none',
+          padding: 7,
+        }}
       >
         <Box
           display="flex"

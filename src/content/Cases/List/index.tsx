@@ -19,6 +19,7 @@ function ApplicationsTransactions() {
             border: 'none',
             width: '90%',
             marginLeft: 16,
+            marginBottom: '200px',
           }}
         >
           <BlueHeader>

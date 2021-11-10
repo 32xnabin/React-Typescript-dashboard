@@ -26,7 +26,6 @@ const MainContent = experimentalStyled(Box)(
        display:flex;
        width:100%;
        background:#ebeff3;
-       min-height: 2000px; 
        margin-left:300px;
        margin-top:88px;
         

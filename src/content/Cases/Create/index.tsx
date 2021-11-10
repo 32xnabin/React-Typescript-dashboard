@@ -253,6 +253,8 @@ const Create: FC = () => {
     job_area: Yup.string(),
     category: Yup.string(),
     asset_category: Yup.string(),
+    contacts: Yup.string(),
+    apartment: Yup.string(),
     assigned_to: Yup.string(),
     email_subject: Yup.string(),
     email_description: Yup.string(),
@@ -449,6 +451,7 @@ const Create: FC = () => {
         width: '95%',
         marginLeft: 8,
         marginRight: 8,
+        marginBottom: '200px',
       }}
     >
       <MainWrapper>
