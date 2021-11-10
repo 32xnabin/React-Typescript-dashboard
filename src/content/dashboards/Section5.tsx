@@ -19,14 +19,6 @@ const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
 
   color: #000;
 `;
-const InputFilter = styled(({ color, ...otherProps }) => (
-  <input {...otherProps} />
-))`
-  width: 99%;
-  height: 35px;
-  border: 1px solid #ccc;
-  margin-left: 5px;
-`;
 
 const Section5: React.FC = () => {
   const items = [
@@ -37,23 +29,8 @@ const Section5: React.FC = () => {
     'RLorem ipsum- 24/06/2021',
   ];
   const colors = ['#45a7c1', '#f04547', '#45c67b', '#f04547', '#45a7c1'];
-  const [filterText, setFilterText] = React.useState('');
-  const [filteredArray, setFilteredArray] = React.useState(items);
 
   React.useEffect(() => {}, []);
-
-  const onFilterTextChange = (text: string) => {
-    setFilterText(text);
-    if (text !== '') {
-      setFilteredArray(
-        items.filter((item) =>
-          item.toUpperCase().startsWith(text.toUpperCase())
-        )
-      );
-    } else {
-      setFilteredArray(items);
-    }
-  };
 
   return (
     <Card style={{ padding: 10, height: '400px' }}>
@@ -70,7 +47,7 @@ const Section5: React.FC = () => {
           Management Reports Generated
         </Typography>
 
-        {filteredArray.map((item, index) => (
+        {items.map((item, index) => (
           <Row key={index}>
             <SubRow>
               <FontAwesomeIcon

@@ -10,13 +10,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWrench } from '@fortawesome/free-solid-svg-icons';
 import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
-import { faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone';
 import Photo from '../../../components/Photo';
 
 import {
-  InputField,
   DateField,
   InfoLabel,
   Placeholder,
@@ -25,7 +23,6 @@ import {
   GridContainer,
   GridContainerCheckBox,
   FullWidthContainer,
-  GridContainer1,
   GridContainer2,
   GridContainer3,
   FileuploadContainer,
@@ -42,7 +39,6 @@ import {
   StyledDiv,
   Disabled,
   GridContainerPhoto,
-  StyledDivSmall,
   HeadingLabel,
 } from './Create.style';
 import { makeStyles } from '@material-ui/styles';

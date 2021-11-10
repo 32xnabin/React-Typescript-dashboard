@@ -85,7 +85,6 @@ const Section2: React.FC = () => {
     { value: 'SIX_MONTHS', label: 'Six Months' },
     { value: 'TWELVE_MONTHS', label: 'Twelve Months' },
   ];
-  const colors = ['#45a7c1', '#ca83e9', '#45c67b', '#f04547', '#45a7c1'];
 
   const [mybosCases, setMybosCases] = React.useState<Myboscase[]>();
   const [filteredCases, setFilteredCases] =
