@@ -1,8 +1,8 @@
-import { alpha, createTheme, lighten, darken } from '@material-ui/core'
-import '@material-ui/lab/themeAugmentation'
+import { alpha, createTheme, lighten, darken } from '@material-ui/core';
+import '@material-ui/lab/themeAugmentation';
 
 const themeColors = {
-  primary: '#45a7c1',
+  primary: '#3996d3',
   secondary: '#6E759F',
   success: '#44D600',
   warning: '#FFA319',
@@ -11,7 +11,7 @@ const themeColors = {
   black: '#223354',
   white: '#ffffff',
   primaryAlt: '#000C57',
-}
+};
 
 const colors = {
   gradients: {
@@ -31,14 +31,12 @@ const colors = {
       '0px 1px 4px rgba(68, 214, 0, 0.25), 0px 3px 12px 2px rgba(68, 214, 0, 0.35)',
     error:
       '0px 1px 4px rgba(255, 25, 67, 0.25), 0px 3px 12px 2px rgba(255, 25, 67, 0.35)',
-    info:
-      '0px 1px 4px rgba(51, 194, 255, 0.25), 0px 3px 12px 2px rgba(51, 194, 255, 0.35)',
+    info: '0px 1px 4px rgba(51, 194, 255, 0.25), 0px 3px 12px 2px rgba(51, 194, 255, 0.35)',
     primary:
       '0px 1px 4px rgba(85, 105, 255, 0.25), 0px 3px 12px 2px rgba(85, 105, 255, 0.35)',
     warning:
       '0px 1px 4px rgba(255, 163, 25, 0.25), 0px 3px 12px 2px rgba(255, 163, 25, 0.35)',
-    card:
-      '0px 9px 16px rgba(159, 162, 191, 0.18), 0px 2px 2px rgba(159, 162, 191, 0.32)',
+    card: '0px 9px 16px rgba(159, 162, 191, 0.18), 0px 2px 2px rgba(159, 162, 191, 0.32)',
     cardSm:
       '0px 2px 3px rgba(159, 162, 191, 0.18), 0px 1px 1px rgba(159, 162, 191, 0.32)',
     cardLg:
@@ -123,7 +121,7 @@ const colors = {
     main: themeColors.info,
     dark: darken(themeColors.info, 0.2),
   },
-}
+};
 
 export const PureLightTheme = createTheme({
   // direction: i18n.dir(),
@@ -211,7 +209,7 @@ export const PureLightTheme = createTheme({
   },
 
   general: {
-    reactFrameworkColor: '#00D8FF',
+    reactFrameworkColor: '#4fadea',
     borderRadiusSm: '4px',
     borderRadius: '6px',
     borderRadiusLg: '10px',
@@ -821,9 +819,10 @@ export const PureLightTheme = createTheme({
           margin: 1,
         },
         root: {
-          '.MuiAutocomplete-inputRoot.MuiOutlinedInput-root .MuiAutocomplete-endAdornment': {
-            right: 14,
-          },
+          '.MuiAutocomplete-inputRoot.MuiOutlinedInput-root .MuiAutocomplete-endAdornment':
+            {
+              right: 14,
+            },
         },
         clearIndicator: {
           background: colors.error.lighter,
@@ -1150,4 +1149,4 @@ export const PureLightTheme = createTheme({
     'none',
     'none',
   ],
-})
+});

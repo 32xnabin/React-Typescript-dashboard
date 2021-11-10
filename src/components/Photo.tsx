@@ -1,20 +1,20 @@
 /* eslint-disable jsx-a11y/alt-text */
 
-import { useState, useRef } from 'react'
-import upload_blue from './upload_blue.png'
+import { useState, useRef } from 'react';
+import upload_blue from './upload_blue.png';
 interface IProps {
-  uploadImage: (file: any) => Promise<boolean>
+  uploadImage: (file: any) => Promise<boolean>;
 }
 const Photo: React.FC<IProps> = ({ uploadImage }) => {
-  const [file, setFile] = useState('')
-  const [uploading, setUploading] = useState(true)
+  const [file, setFile] = useState('');
+  const [uploading, setUploading] = useState(true);
   const handleChange = async (e) => {
-    setFile(URL.createObjectURL(e.target.files[0]))
-    const res = await uploadImage(e.target.files[0])
+    setFile(URL.createObjectURL(e.target.files[0]));
+    const res = await uploadImage(e.target.files[0]);
 
-    setUploading(res)
-  }
-  const inputRef = useRef(null)
+    setUploading(res);
+  };
+  const inputRef = useRef(null);
 
   return (
     <div style={{ background: '#eee', textAlign: 'center' }}>
@@ -29,11 +29,11 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
           backgroundSize: 'auto',
           backgroundPositionY: 'center',
           backgroundPositionX: 'center',
-          backgroundColor: '#e5e5e5',  
+          backgroundColor: '#e5e5e5',
           padding: 0,
           margin: 3,
           width: 'auto',
-          maxWidth:'150px',
+          maxWidth: '150px',
           height: 100,
           border: '1px solid #5faee3',
           minHeight: '100px',
@@ -73,7 +73,7 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
         <div style={{ height: 20 }}></div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Photo
+export default Photo;

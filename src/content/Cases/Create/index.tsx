@@ -27,13 +27,14 @@ import {
   FullWidthContainer,
   GridContainer1,
   GridContainer2,
+  GridContainer3,
   FileuploadContainer,
   DropDown,
   InputFieldSubject,
   InputWrapper,
   WhiteLabel,
   ButtonsContainer,
-  HeadingLabel1,
+  InputFieldLoggedBy,
   MainWrapper,
   BlueHeader,
   BlueLine,
@@ -141,14 +142,13 @@ const Create: FC = () => {
     'New',
     'In Progress',
     'Completed',
-    'Deleted',
     'Awaiting Invoice',
     'Awaiting Quote',
     'Awaiting Approval',
     'Committee Approval',
     'Contractor status',
   ];
-  const mock_job_area = ['common-asset', 'common-not-asset', 'private lot'];
+
   const mock_category = [
     'All Categories',
     'CLOUDIO',
@@ -187,6 +187,14 @@ const Create: FC = () => {
     { value: 'AZ-Electrician', label: 'AZ-Plumbing' },
     { value: 'Chummins', label: 'Chummins' },
   ];
+
+  const mock_contacts = [
+    { value: 'John Doe', label: 'John Doe' },
+    { value: 'Smith', label: 'Smith' },
+    { value: 'Bob', label: 'Bob' },
+    { value: 'Well', label: 'Well' },
+  ];
+
   const mock_subject = [
     'Light out',
     'bulb blown',
@@ -268,8 +276,9 @@ const Create: FC = () => {
   const [casenum, setCasenum] = useState(0);
   const [email_subject, setEmail_subject] = useState('');
   const [email_desc, setEmail_desc] = useState(initialValue);
-  const [jobArea, setJobArea] = useState(['common-asset']);
+  const [jobArea, setJobArea] = useState([]);
   const [assignedTo, setAssignedTo] = useState([]);
+  const [contacts, setContacts] = useState([]);
   const [asset, setAsset] = useState([]);
   const [addedDate, setAddedDate] = useState(
     new Date().toISOString().substr(0, 10)
@@ -302,12 +311,6 @@ const Create: FC = () => {
     return false;
   };
 
-  // const onJobAreaChange = (e) => {
-  //   let index = mock_job_area.indexOf(e.target.value);
-  //   let template = mock_job_area[index];
-  //   setJobArea(template);
-  // };
-
   const onEmailSubjectChangeText = (e) => {
     setEmail_subject(e.target.value);
   };
@@ -338,6 +341,10 @@ const Create: FC = () => {
     setAssignedTo(value);
   };
 
+  const onContactChange = (value: { value: string; label: string }[]) => {
+    setContacts(value);
+  };
+
   const onAssetChange = (value: { value: string; label: string }[]) => {
     setAsset(value);
   };
@@ -348,12 +355,11 @@ const Create: FC = () => {
   };
 
   const onSubmit = (data: Myboscase) => {
-    if (
-      assignedTo.length > 0 &&
-      (jobArea.indexOf('common-not-asset') !== -1 || asset.length > 0)
-    ) {
+    if (assignedTo.length > 0) {
       data['due_date'] = dueDate;
       data['added_date'] = addedDate;
+      data['job_area'] = JSON.stringify(jobArea);
+      data['contacts'] = createCSV(contacts);
       data['assigned_to'] = createCSV(assignedTo);
       data['asset'] = createCSV(asset);
       data['email_subject'] = email_subject;
@@ -381,12 +387,11 @@ const Create: FC = () => {
   };
 
   const onAddAndReset = (data: Myboscase) => {
-    if (
-      assignedTo.length > 0 &&
-      (jobArea.indexOf('common-not-asset') !== -1 || asset.length > 0)
-    ) {
+    if (assignedTo.length > 0) {
       data['due_date'] = dueDate;
       data['added_date'] = addedDate;
+      data['job_area'] = JSON.stringify(jobArea);
+      data['contacts'] = createCSV(contacts);
       data['assigned_to'] = createCSV(assignedTo);
       data['asset'] = createCSV(asset);
       data['email_subject'] = email_subject;
@@ -394,6 +399,7 @@ const Create: FC = () => {
       if (caseImages.length > 0) {
         data['images'] = caseImages;
       }
+      console.log('data=========>', data);
 
       createCase(data)
         .then((result: any) => {
@@ -410,7 +416,7 @@ const Create: FC = () => {
   };
 
   const handleJobAreaChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    // ['common-asset', 'common-not-asset', 'private lot'];
+    console.log('jobArea:', jobArea);
     console.log('checked:', event.target.checked);
     console.log('value:', event.target.value);
 
@@ -421,15 +427,16 @@ const Create: FC = () => {
     if (event.target.checked && event.target.value !== 'common-not-asset') {
       let removeIndex = jobArea.indexOf('common-not-asset');
       if (removeIndex !== -1) {
-        jobArea.splice(removeIndex, 1);
+        setJobArea([]);
       }
       if (jobArea.indexOf(event.target.value) === -1)
         setJobArea([...jobArea, event.target.value]);
     }
     if (!event.target.checked) {
-      let index = jobArea.indexOf(event.target.value);
-      jobArea.splice(index, 1);
-      setJobArea(jobArea.splice(index, 1));
+      const arr = jobArea.filter(function (item) {
+        return item !== event.target.value;
+      });
+      setJobArea(arr);
     }
   };
   const classes = useStyles();
@@ -455,7 +462,11 @@ const Create: FC = () => {
         />
         <BlueHeader>
           <HorDiv>
-            <FontAwesomeIcon color="white" icon={faWrench} />
+            <FontAwesomeIcon
+              color="white"
+              style={{ visibility: 'hidden' }}
+              icon={faWrench}
+            />
             <WhiteLabel>Create Cases</WhiteLabel>
           </HorDiv>
           <HorDiv style={{ visibility: 'hidden' }}>
@@ -464,30 +475,15 @@ const Create: FC = () => {
           </HorDiv>
         </BlueHeader>
         <MainContainer>
-          <GridContainerHeader>
+          <GridContainerHeader style={{ borderBottom: '1px solid #cccc' }}>
             <HeadingLabel>Case Information</HeadingLabel>
             <Placeholder />
           </GridContainerHeader>
-          <GridContainer1>
-            <HeadingLabel>Attachments</HeadingLabel>
+          <div style={{ background: '#fff', borderRadius: '6px', padding: 15 }}>
+            <HeadingLabel>Photos</HeadingLabel>
+          </div>
+        </MainContainer>
 
-            <StyledDivSmall
-              color="primary"
-              style={{ height: 20 }}
-              onClick={() => setOpenModal(true)}
-            >
-              <FontAwesomeIcon color="white" icon={faPaperclip} />
-            </StyledDivSmall>
-          </GridContainer1>
-        </MainContainer>
-        <MainContainer>
-          <div>
-            <BlueLine />
-          </div>
-          <div>
-            <BlueLine />
-          </div>
-        </MainContainer>
         <MainContainer>
           <GridContainer>
             <InfoLabel bold={true}>Case Number</InfoLabel>
@@ -531,6 +527,7 @@ const Create: FC = () => {
               ))}
             </DropDown>
           </GridContainer>
+
           <FileuploadContainer>
             <Modal onClose={handleClose} open={openModal}>
               <GridContainerPhoto style={modalStyle} className={classes.paper}>
@@ -546,6 +543,28 @@ const Create: FC = () => {
                 <Photo uploadImage={onImageUploaded} />
               </GridContainerPhoto>
             </Modal>
+            <div
+              style={{
+                background: '#fff',
+                borderRadius: '6px',
+                width: '95%',
+                padding: 15,
+                display: 'flex',
+                justifyContent: 'space-between',
+                border: '1px dashed #5faee3',
+                margin: '10px',
+              }}
+            >
+              <div style={{ width: '100px' }} />
+              <StyledDiv
+                style={{ width: '100px' }}
+                background={'fff'}
+                color={'4fadea'}
+                onClick={() => setOpenModal(true)}
+              >
+                Select file
+              </StyledDiv>
+            </div>
             <GridContainer2>
               {caseImages
                 .filter((url) => url !== '')
@@ -553,12 +572,13 @@ const Create: FC = () => {
                   <div key={index} style={{ margin: 10 }}>
                     <div
                       style={{
-                        height: '250px',
+                        height: '100px',
                         width: '200px',
                         background: 'no-repeat center',
                         backgroundPosition: 'center',
                         backgroundSize: 'contain',
                         backgroundImage: `url(${url})`,
+                        border: '1px solid #eee',
                       }}
                     ></div>
                     <Button onClick={removePhoto} data-value1={url}>
@@ -615,6 +635,20 @@ const Create: FC = () => {
               <InfoLabel>N/A</InfoLabel>
             </GridContainerCheckBox>
             <div />
+            {jobArea.indexOf('private lot') !== -1 && (
+              <>
+                <InfoLabel>Apartment</InfoLabel>
+                <Placeholder />
+                <DropDown id="apartment" {...register('apartment')}>
+                  {mock_apartments.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </DropDown>
+                <Placeholder />
+                <Placeholder />
+                <Placeholder />
+              </>
+            )}
 
             {jobArea.indexOf('common-not-asset') === -1 && (
               <>
@@ -623,12 +657,6 @@ const Create: FC = () => {
                 <InfoLabel>Asset</InfoLabel>
                 <DropDown id="category" {...register('category')}>
                   {mock_category.map((option) => (
-                    <option key={option}>{option}</option>
-                  ))}
-                </DropDown>
-
-                <DropDown id="apartment" {...register('apartment')}>
-                  {mock_apartments.map((option) => (
                     <option key={option}>{option}</option>
                   ))}
                 </DropDown>
@@ -644,6 +672,7 @@ const Create: FC = () => {
             )}
             <InfoLabel>Assigned To</InfoLabel>
             <InfoLabel>Contacts</InfoLabel>
+
             <InputWrapper style={{ zIndex: 3 }}>
               <Select
                 isMulti
@@ -654,8 +683,8 @@ const Create: FC = () => {
             <InputWrapper style={{ zIndex: 3 }}>
               <Select
                 isMulti
-                onChange={onAssignedChange}
-                options={mock_assigned_to}
+                onChange={onContactChange}
+                options={mock_contacts}
               />
             </InputWrapper>
           </GridContainer>
@@ -704,8 +733,8 @@ const Create: FC = () => {
                 }}
               >
                 <List sx={{ p: 1 }} component="nav">
-                  {mock_subject.map((option) => (
-                    <ListItem>
+                  {mock_subject.map((option, index) => (
+                    <ListItem key={index}>
                       <Button
                         style={{
                           width: '610px',
@@ -741,12 +770,25 @@ const Create: FC = () => {
             {...register('notes')}
           ></TextareaAutosize>
         </FullWidthContainer>
-        <GridContainerHeader>
-          <HeadingLabel>Options</HeadingLabel>
-          <Placeholder />
-        </GridContainerHeader>
+
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'start',
+            background: '#fff',
+            padding: '10px 40px',
+            borderBottom: '1px solid #ccc',
+            borderRadius: '6px 6px 0 0',
+            position: 'relative',
+            top: '30px',
+          }}
+        >
+          <div>Options</div>
+        </div>
+        <Placeholder />
+
         <FullWidthContainer>
-          <GridContainer style={{ border: '1px solid #fff !important' }}>
+          <GridContainer3>
             <input
               type="checkbox"
               id="add_to_report"
@@ -764,71 +806,61 @@ const Create: FC = () => {
             <InfoLabel style={{ marginLeft: 10 }}>
               Duplicate this case across other buildings?
             </InfoLabel>
-          </GridContainer>
+          </GridContainer3>
         </FullWidthContainer>
-
-        <FullWidthContainer>
-          <HeadingLabel1>Logs</HeadingLabel1>
-        </FullWidthContainer>
-
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'start',
+            background: '#fff',
+            padding: '10px 40px',
+            borderBottom: '1px solid #ccc',
+            borderRadius: '6px 6px 0 0',
+            position: 'relative',
+            top: '30px',
+          }}
+        >
+          <div>Activity History</div>
+        </div>
+        <Placeholder />
         <FullWidthContainer>
           <InfoLabel>Jobs logged by</InfoLabel>
-          <InputField
+          <InputFieldLoggedBy
             id="logged_by"
             {...register('logged_by')}
             value={'demo manager'}
-          ></InputField>
+          ></InputFieldLoggedBy>
         </FullWidthContainer>
 
-        <FullWidthContainer>
-          <HeadingLabel1>Email</HeadingLabel1>
-
-          <HeadingLabel></HeadingLabel>
-        </FullWidthContainer>
-
-        <FullWidthContainer>
-          <InfoLabel style={{ marginLeft: 10 }}>
-            Send email to the following contractors?:
-          </InfoLabel>
-        </FullWidthContainer>
-
-        <FullWidthContainer>
+        <MainContainer>
+          <div />
           <ButtonsContainer>
             <StyledDiv
-              background={'000'}
-              color={'fff'}
+              background={'fff'}
+              color={'4fadea'}
               onClick={handleSubmit(onCancel)}
             >
               Cancel
             </StyledDiv>
-
             <StyledDiv
-              background={'d84937'}
+              background={'4fadea'}
               color={'fff'}
-              disabled={
-                assignedTo.length === 0 ||
-                (jobArea.indexOf('common-not-asset') === -1 &&
-                  asset.length === 0)
-              }
-              onClick={handleSubmit(onSubmit)}
-            >
-              Save
-            </StyledDiv>
-
-            <StyledDiv
-              background={'d84937'}
-              color={'fff'}
-              disabled={
-                assignedTo.length === 0 ||
-                (jobArea.indexOf('common-not-asset') === -1 &&
-                  asset.length === 0)
-              }
+              disabled={assignedTo.length === 0}
               onClick={handleSubmit(onAddAndReset)}
             >
               Save and Add New
             </StyledDiv>
+
+            <StyledDiv
+              background={'4fadea'}
+              color={'fff'}
+              disabled={assignedTo.length === 0}
+              onClick={handleSubmit(onSubmit)}
+            >
+              Save
+            </StyledDiv>
           </ButtonsContainer>
-        </FullWidthContainer>
+        </MainContainer>
       </MainWrapper>
     </div>
   );

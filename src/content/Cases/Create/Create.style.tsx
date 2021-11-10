@@ -37,13 +37,11 @@ export const WhiteLabel = styled(Typography)`
   font-size: 14px;
 
   margin-left: 5px;
-  color: #fff;
 `;
 
 export const HeadingLabel = styled(Typography)`
   font-size: 16px;
   text-align: left;
-  color: #838181;
   width: 350px;
 `;
 
@@ -68,7 +66,7 @@ export const FullWidthContainer = styled(Box)`
   grid-gap: 10px;
   justify-content: start;
   padding: 20px 45px;
-  margin-right: 20px;
+
   border: 1px solid #eee;
   border-top: none;
   border-radius: 6px;
@@ -77,10 +75,7 @@ export const FullWidthContainer = styled(Box)`
 `;
 
 export const FileuploadContainer = styled(Box)`
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 5px;
-  margin: 0px auto 0px auto;
+  background: #fff;
 `;
 export const GridContainerHeader = styled(Box)`
   display: grid;
@@ -106,6 +101,15 @@ export const GridContainer = styled(Box)`
   border-radius: 0 0 6px 6px;
   margin-bottom: 20px;
   background: #fff;
+  align-items: top;
+`;
+export const GridContainer3 = styled(Box)`
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  justify-content: space-around;
+  padding: 20px 0px;
+  background: #fff;
 `;
 export const GridContainerCheckBox = styled(Box)`
   display: flex;
@@ -119,8 +123,11 @@ export const GridContainer1 = styled(Box)`
   grid-template-columns: auto auto;
   grid-gap: 10px;
   justify-content: space-between;
-  margin-right: 40px;
   margin-left: 5px;
+  background: #fff;
+  padding: 10px;
+  border: 1px dashed #5faee3;
+  border-radius: 6px;
 `;
 export const GridContainerPhoto = styled(Box)`
   display: grid;
@@ -133,8 +140,9 @@ export const GridContainer2 = styled(Box)`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 5px;
-  margin: 10px auto;
   margin-left: 5px;
+  max-height: 400px;
+  overflow-x: auto;
 `;
 
 export const ButtonsContainer = styled(Box)`
@@ -200,6 +208,26 @@ export const InputField = styled(({ visible, ...otherProps }) => (
   margin-right: 5px;
 `;
 
+export const InputFieldLoggedBy = styled(({ visible, ...otherProps }) => (
+  <TextField variant="outlined" {...otherProps} />
+))`
+  height: 20px !important;
+  border-radius: 4px;
+  background: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  .MuiInputBase-input {
+    font-size: 14px;
+    line-height: 1.1875em;
+    color: #918e8e;
+    width: 600px;
+    height: 20px;
+  }
+  padding-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 40px;
+`;
+
 export const InputFieldNotes = styled(({ visible, ...otherProps }) => (
   <TextField variant="outlined" {...otherProps} />
 ))`
@@ -263,33 +291,30 @@ export const InputWrapper = styled(({ visible, ...otherProps }) => (
 
 export const MainWrapper = styled(({ visible, ...otherProps }) => (
   <div {...otherProps} />
-))`
-  background-color: none;
-
-  height: 900px;
-`;
+))``;
 export const BlueHeader = styled(({ visible, ...otherProps }) => (
   <div {...otherProps} />
 ))`
-  background-color: #5faee3;
-  height: 50px;
+  background-color: #fff;
+  height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 8px;
   margin-bottom: 20px;
+  border-radius: 6px;
 `;
 
 export const HorDiv = styled(({ visible, ...otherProps }) => (
   <div {...otherProps} />
 ))`
-  background-color: #5faee3;
-  height: 50px;
+  background-color: #fff;
+  height: 40px;
   display: flex;
   justify-content: start;
   align-items: center;
   padding: 5px;
-  color: #fff;
+
   gap: 5px;
 `;
 
@@ -325,11 +350,11 @@ export const StyledDiv = styled(
   ({ disabled, color, background, visible, ...otherProps }) => (
     <div {...otherProps} />
   )
-)` 
- 
+)`
+
 background-color:#${(props) => props.background};
 color:#${(props) => props.color};
-height: 50px;
+height: 30px;
 cursor: ${(props) => (props.disabled ? ' ' : 'pointer')};
 pointer-events: auto;
 opacity:${(props) => (props.disabled ? '0.3' : '1')};
@@ -339,6 +364,8 @@ display: flex;
   align-items: center;
 
 margin 6px;
+border:1px solid #4fadea;
+border-radius:6px;
 
 `;
 
@@ -346,7 +373,6 @@ export const ImagesDiv = styled(({ visible, ...otherProps }) => (
   <div {...otherProps} />
 ))` 
  
-
 
 display: flex;
   justify-content: start;
