@@ -71,6 +71,12 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
     status: null,
   });
 
+  const markAsCompleteVisible = () => {
+    if (selectedCases.length > 1) return true;
+    if (selectedCases.length === 1 && selectedCases[0] !== '') return true;
+    return false;
+  };
+
   const statusOptions = [
     {
       id: 'In Progress',
@@ -205,7 +211,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </MenuItem>
             ))}
           </Select>
-          {selectedCases.length > 1 && (
+          {markAsCompleteVisible() && (
             <Tooltip title="Mark As Complete" arrow>
               <div
                 style={{

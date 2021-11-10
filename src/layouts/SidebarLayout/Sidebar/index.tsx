@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import { SidebarContext } from 'src/contexts/SidebarContext';
 import Logo from 'src/components/Logo';
+import SidebarImage from 'src/components/SideBarImage';
 
 import { Box, Drawer, Hidden } from '@material-ui/core';
 
@@ -29,7 +30,8 @@ const SidebarWrapper = experimentalStyled(Box)(
 const TopSection = experimentalStyled(Box)(
   ({ theme }) => `
         display: flex;
-        height: 80px;
+        flex-direction:column;
+        height: 120px;
         align-items: top;
         padding: 5px;
         margin-bottom:100px;
@@ -51,6 +53,7 @@ function Sidebar() {
               <Box display="flex" alignItems="center">
                 <Logo />
               </Box>
+              <SidebarImage />
             </TopSection>
             <SidebarMenu />
           </Scrollbars>

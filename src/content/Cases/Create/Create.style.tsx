@@ -134,7 +134,6 @@ export const GridContainerPhoto = styled(Box)`
   grid-template-columns: auto auto auto auto;
   grid-gap: 5px;
   margin: 10px auto;
-  margin-left: 5px;
 `;
 export const GridContainer2 = styled(Box)`
   display: grid;
