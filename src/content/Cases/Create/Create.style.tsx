@@ -29,20 +29,24 @@ export const InfoLabel = styled(({ bold, visible, ...otherProps }) => (
   font-size: 12px;
   text-align: left;
   vertical-align: middle;
-  color: #838181;
+  color: #000;
   font-weight: ${(props) => (props.bold ? 'bold' : 'normal')};
 `;
 
 export const WhiteLabel = styled(Typography)`
-  font-size: 14px;
+  font-size: 18px;
 
   margin-left: 5px;
+  font-weight: 600;
+  color: #000;
 `;
 
 export const HeadingLabel = styled(Typography)`
-  font-size: 16px;
+  font-size: 14px;
   text-align: left;
   width: 350px;
+  font-weight: 600;
+  color: #000;
 `;
 
 export const HeadingLabel1 = styled(Typography)`
@@ -51,7 +55,8 @@ export const HeadingLabel1 = styled(Typography)`
   margin-right: 200px;
   margin-top: 50px;
   text-align: left;
-  color: #5faee3;
+  color: #000;
+  font-weight: 600;
 `;
 
 export const MainContainer = styled(Box)`
@@ -255,6 +260,7 @@ export const InputFieldSubject = styled(({ visible, ...otherProps }) => (
   color: #918e8e;
   font-size: 14px;
   border: 1px solid #ccc;
+  border-right: none;
   border-radius: 2px;
   background: #fff;
   -webkit-appearance: none;

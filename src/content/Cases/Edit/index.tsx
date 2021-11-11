@@ -13,6 +13,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone';
 import Photo from '../../../components/Photo';
+import SelectFile from '../../../components/SelectFile';
 
 import {
   DateField,
@@ -119,6 +120,15 @@ const Edit: FC = () => {
       boxShadow: 'none',
       padding: 4,
       outline: 'none',
+    },
+  }));
+  const useStyles1 = makeStyles((theme) => ({
+    myClassName: {
+      position: 'relative',
+      '&:hover': {
+        backgroundColor: '#5faee3 !important',
+        color: '#fff',
+      },
     },
   }));
 
@@ -488,6 +498,7 @@ const Edit: FC = () => {
     }
   };
   const classes = useStyles();
+  const classes1 = useStyles1();
 
   return (
     <div
@@ -606,12 +617,12 @@ const Edit: FC = () => {
             >
               <div style={{ width: '100px' }} />
               <StyledDiv
-                style={{ width: '100px' }}
+                style={{ width: '150px' }}
                 background={'fff'}
                 color={'4fadea'}
                 onClick={() => setOpenModal(true)}
               >
-                Select file
+                <SelectFile />
               </StyledDiv>
             </div>
             <GridContainer2>
@@ -742,20 +753,23 @@ const Edit: FC = () => {
           </GridContainer>
         </MainContainer>
         <FullWidthContainer>
-          <InfoLabel>Subject</InfoLabel>
+          <InfoLabel>Case Title</InfoLabel>
           <div>
             <InputFieldSubject
+              placeholder="Email Subject"
               onChange={(e) => onEmailSubjectChangeText(e)}
               value={email_subject}
             ></InputFieldSubject>
             <Button
               style={{
                 border: '1px solid #ccc',
+                borderLeft: 'none',
                 height: 36,
                 borderRadius: 0,
                 width: '610px',
                 position: 'relative',
                 left: '-550px',
+                top: '-1px',
                 zIndex: 1,
                 textAlign: 'right',
               }}
@@ -788,6 +802,7 @@ const Edit: FC = () => {
                   {mock_subject.map((option, index) => (
                     <ListItem key={index}>
                       <Button
+                        className={classes1.myClassName}
                         style={{
                           width: '610px',
                           justifyContent: 'flex-start',

@@ -1,6 +1,7 @@
 import { FC, ChangeEvent, useState } from 'react';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -247,21 +248,121 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
           <TableHead>
             <TableRow>
               <TableCell padding="checkbox">
-                <Checkbox
-                  color="primary"
+                <input
+                  style={{ width: '50px' }}
+                  type="checkbox"
                   checked={selectedAllCases}
                   onChange={handleSelectAllCases}
                 />
               </TableCell>
-              <TableCell>#</TableCell>
-              <TableCell>Added</TableCell>
-              <TableCell>Due Date</TableCell>
-              <TableCell>Subject</TableCell>
-              <TableCell>Type</TableCell>
-              <TableCell>Status</TableCell>
-              <TableCell>Assigned Contractors</TableCell>
-              <TableCell>Priority</TableCell>
-              <TableCell>Action</TableCell>
+              <TableCell>
+                <Typography
+                  fontSize={13}
+                  fontWeight="bold"
+                  variant="body1"
+                  color="text.primary"
+                  gutterBottom
+                  noWrap
+                >
+                  Case#
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  fontSize={13}
+                  fontWeight="bold"
+                  variant="body1"
+                  color="text.primary"
+                  gutterBottom
+                  noWrap
+                >
+                  Added
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  fontSize={13}
+                  fontWeight="bold"
+                  variant="body1"
+                  color="text.primary"
+                  gutterBottom
+                  noWrap
+                >
+                  Due Date
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  fontSize={13}
+                  fontWeight="bold"
+                  variant="body1"
+                  color="text.primary"
+                  gutterBottom
+                  noWrap
+                >
+                  Subject
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  fontSize={13}
+                  fontWeight="bold"
+                  variant="body1"
+                  color="text.primary"
+                  gutterBottom
+                  noWrap
+                >
+                  Type
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  fontSize={13}
+                  fontWeight="bold"
+                  variant="body1"
+                  color="text.primary"
+                  gutterBottom
+                  noWrap
+                >
+                  Status
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  fontSize={13}
+                  fontWeight="bold"
+                  variant="body1"
+                  color="text.primary"
+                  gutterBottom
+                  noWrap
+                >
+                  Assigned Contractors
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  fontSize={13}
+                  fontWeight="bold"
+                  variant="body1"
+                  color="text.primary"
+                  gutterBottom
+                  noWrap
+                >
+                  Priority
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  fontSize={13}
+                  fontWeight="bold"
+                  variant="body1"
+                  color="text.primary"
+                  gutterBottom
+                  noWrap
+                >
+                  Action
+                </Typography>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -270,17 +371,18 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               return (
                 <TableRow hover key={item.id} selected={isCaseselected}>
                   <TableCell padding="checkbox">
-                    <Checkbox
-                      color="primary"
+                    <input
+                      style={{ width: '50px' }}
+                      type="checkbox"
                       checked={isCaseselected}
                       onChange={(event: ChangeEvent<HTMLInputElement>) =>
                         handleSelectOneCryptoOrder(event, item.id)
                       }
-                      value={isCaseselected}
                     />
                   </TableCell>
                   <TableCell>
                     <Typography
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -291,6 +393,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -303,6 +406,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -315,6 +419,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -325,6 +430,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -335,6 +441,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -345,6 +452,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -357,6 +465,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -369,7 +478,10 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                     <HorDiv>
                       <Tooltip title="Edit Case" arrow>
                         <Link to={`/bm/cases/edit?id=${item.id}`}>
-                          <EditTwoToneIcon fontSize="small" />
+                          <EditTwoToneIcon
+                            style={{ fill: '#3996d3' }}
+                            fontSize="small"
+                          />
                         </Link>
                       </Tooltip>
                       <Tooltip title="Delete Case" arrow>
@@ -378,7 +490,10 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                           style={{ cursor: 'pointer' }}
                           data-value1={item.id}
                         >
-                          <DeleteTwoToneIcon fontSize="small" />
+                          <DeleteTwoToneIcon
+                            style={{ fill: '#3996d3' }}
+                            fontSize="small"
+                          />
                         </div>
                       </Tooltip>
                     </HorDiv>

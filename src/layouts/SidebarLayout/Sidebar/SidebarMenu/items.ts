@@ -1,19 +1,20 @@
-import { ReactNode } from 'react'
+import { ReactNode } from 'react';
 
-import BrightnessLowTwoToneIcon from '@material-ui/icons/BrightnessLowTwoTone'
-import TableChartTwoToneIcon from '@material-ui/icons/TableChartTwoTone'
+import AvTimerOutlinedIcon from '@mui/icons-material/AvTimerOutlined';
+
+import BuildOutlinedIcon from '@mui/icons-material/BuildOutlined';
 
 export interface MenuItem {
-  link?: string
-  icon?: ReactNode
-  badge?: string
-  items?: MenuItem[]
-  name: string
+  link?: string;
+  icon?: ReactNode;
+  badge?: string;
+  items?: MenuItem[];
+  name: string;
 }
 
 export interface MenuItems {
-  items: MenuItem[]
-  heading: string
+  items: MenuItem[];
+  heading: string;
 }
 
 const menuItems: MenuItems[] = [
@@ -23,16 +24,16 @@ const menuItems: MenuItems[] = [
       {
         name: 'Dashboard',
         link: '/bm/dashboards',
-        icon: BrightnessLowTwoToneIcon,
+        icon: AvTimerOutlinedIcon,
       },
 
       {
         name: 'Cases',
-        icon: TableChartTwoToneIcon,
+        icon: BuildOutlinedIcon,
         link: '/bm/cases/list',
       },
     ],
   },
-]
+];
 
-export default menuItems
+export default menuItems;

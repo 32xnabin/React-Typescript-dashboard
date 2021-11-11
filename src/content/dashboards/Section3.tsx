@@ -42,8 +42,18 @@ const Section3: React.FC = () => {
               Overdue cases
             </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8 }} noWrap>
-            7
+          <Typography
+            style={{
+              marginRight: 8,
+              padding: 6,
+              color: '#fff',
+              background: '#f04547',
+              borderRadius: 8,
+              fontSize: 10,
+            }}
+            noWrap
+          >
+            43
           </Typography>
         </Row>
         <Row>
@@ -53,8 +63,18 @@ const Section3: React.FC = () => {
               Overdue cases
             </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8 }} noWrap>
-            7
+          <Typography
+            style={{
+              marginRight: 8,
+              padding: 6,
+              color: '#fff',
+              background: '#f04547',
+              borderRadius: 8,
+              fontSize: 10,
+            }}
+            noWrap
+          >
+            32
           </Typography>
         </Row>
         <Row>
@@ -64,8 +84,18 @@ const Section3: React.FC = () => {
               Overdue cases
             </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8 }} noWrap>
-            7
+          <Typography
+            style={{
+              marginRight: 8,
+              padding: 6,
+              color: '#fff',
+              background: '#f04547',
+              borderRadius: 8,
+              fontSize: 10,
+            }}
+            noWrap
+          >
+            15
           </Typography>
         </Row>
         <Row>
@@ -75,8 +105,18 @@ const Section3: React.FC = () => {
               Overdue cases
             </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8 }} noWrap>
-            7
+          <Typography
+            style={{
+              marginRight: 8,
+              padding: 6,
+              color: '#fff',
+              background: '#f04547',
+              borderRadius: 8,
+              fontSize: 10,
+            }}
+            noWrap
+          >
+            09
           </Typography>
         </Row>
         <Row>
@@ -86,8 +126,18 @@ const Section3: React.FC = () => {
               Overdue cases
             </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8 }} noWrap>
-            7
+          <Typography
+            style={{
+              marginRight: 8,
+              padding: 6,
+              color: '#fff',
+              background: '#f04547',
+              borderRadius: 8,
+              fontSize: 10,
+            }}
+            noWrap
+          >
+            70
           </Typography>
         </Row>
         <Row>
@@ -97,8 +147,18 @@ const Section3: React.FC = () => {
               Overdue cases
             </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8 }} noWrap>
-            7
+          <Typography
+            style={{
+              marginRight: 8,
+              padding: 6,
+              color: '#fff',
+              background: '#f04547',
+              borderRadius: 8,
+              fontSize: 10,
+            }}
+            noWrap
+          >
+            711
           </Typography>
         </Row>
         <Row>
@@ -108,8 +168,18 @@ const Section3: React.FC = () => {
               Overdue cases
             </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8 }} noWrap>
-            7
+          <Typography
+            style={{
+              marginRight: 8,
+              padding: 6,
+              color: '#fff',
+              background: '#f04547',
+              borderRadius: 8,
+              fontSize: 10,
+            }}
+            noWrap
+          >
+            07
           </Typography>
         </Row>
         <Row>
@@ -119,8 +189,18 @@ const Section3: React.FC = () => {
               Overdue cases
             </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8 }} noWrap>
-            7
+          <Typography
+            style={{
+              marginRight: 8,
+              padding: 6,
+              color: '#fff',
+              background: '#f04547',
+              borderRadius: 8,
+              fontSize: 10,
+            }}
+            noWrap
+          >
+            22
           </Typography>
         </Row>
         <Row>
@@ -130,8 +210,18 @@ const Section3: React.FC = () => {
               Overdue cases
             </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8 }} noWrap>
-            7
+          <Typography
+            style={{
+              marginRight: 8,
+              padding: 6,
+              color: '#fff',
+              background: '#f04547',
+              borderRadius: 8,
+              fontSize: 10,
+            }}
+            noWrap
+          >
+            00
           </Typography>
         </Row>
       </GridContainer>

@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import upload_blue from './upload_blue.png';
+import SelectFile from './SelectFile';
 interface IProps {
   uploadImage: (file: any) => Promise<boolean>;
 }
@@ -17,25 +18,29 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
   const inputRef = useRef(null);
 
   return (
-    <div style={{ background: '#eee', textAlign: 'center' }}>
-      <h2 style={{ color: '#5faee3', width: '100%', textAlign: 'center' }}>
-        Upload File
-      </h2>
+    <div
+      style={{
+        textAlign: 'center',
+        margin: '6px',
+        padding: '6px',
+        border: '1px dashed #5faee3',
+        borderRadius: '6px',
+      }}
+    >
       <img
         src={file}
         style={{
-          backgroundImage: 'url(' + upload_blue + ')',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'auto',
           backgroundPositionY: 'center',
           backgroundPositionX: 'center',
-          backgroundColor: '#e5e5e5',
+          backgroundColor: '#fff',
           padding: 0,
           margin: 3,
           width: 'auto',
           maxWidth: '150px',
           height: 100,
-          border: '1px solid #5faee3',
+          border: '1px solid #eee',
           minHeight: '100px',
           minWidth: '200px',
           objectFit: 'cover',
@@ -43,20 +48,23 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
       />
       <br />
       <div>
-        <label
+        <div
           onClick={() => inputRef.current.click()}
           style={{
             color: '#fff',
             position: 'relative',
-            top: '25px',
-            left: '-5px',
+            top: '45px',
+            left: '-8px',
             margin: 4,
             width: '200px',
             zIndex: 2,
+            padding: '6px',
+            border: '1px solid #5faee3',
+            borderRadius: '6px',
           }}
         >
-          Select file
-        </label>
+          <SelectFile />
+        </div>
         <input
           ref={inputRef}
           id="browse"

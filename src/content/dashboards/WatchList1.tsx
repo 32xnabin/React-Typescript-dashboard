@@ -2,6 +2,7 @@ import { Grid } from '@material-ui/core';
 
 import Section1 from './Section1';
 import Section2 from './Section2';
+import Section3 from './Section3';
 
 const WatchList1: React.FC = () => {
   return (
@@ -13,11 +14,14 @@ const WatchList1: React.FC = () => {
         alignItems="stretch"
         spacing={3}
       >
-        <Grid item lg={6} xs={12}>
+        <Grid item lg={4} xs={12}>
           <Section1 />
         </Grid>
-        <Grid item lg={6} xs={12}>
+        <Grid item lg={4} xs={12}>
           <Section2 />
+        </Grid>
+        <Grid item lg={4} xs={12}>
+          <Section3 />
         </Grid>
       </Grid>
     </>

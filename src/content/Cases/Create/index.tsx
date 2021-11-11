@@ -13,6 +13,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone';
 import Photo from '../../../components/Photo';
+import SelectFile from '../../../components/SelectFile';
 
 import {
   DateField,
@@ -110,6 +111,15 @@ const Create: FC = () => {
   const handleClose = () => {
     setOpenModal(false);
   };
+  const useStyles1 = makeStyles((theme) => ({
+    myClassName: {
+      position: 'relative',
+      '&:hover': {
+        backgroundColor: '#5faee3 !important',
+        color: '#fff',
+      },
+    },
+  }));
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -438,6 +448,7 @@ const Create: FC = () => {
     }
   };
   const classes = useStyles();
+  const classes1 = useStyles1();
 
   return (
     <div
@@ -485,7 +496,7 @@ const Create: FC = () => {
 
         <MainContainer>
           <GridContainer>
-            <InfoLabel bold={true}>Case Number</InfoLabel>
+            <InfoLabel>Case number</InfoLabel>
             <InfoLabel>Case Type</InfoLabel>
 
             <Disabled>{casenum}</Disabled>
@@ -556,12 +567,12 @@ const Create: FC = () => {
             >
               <div style={{ width: '100px' }} />
               <StyledDiv
-                style={{ width: '100px' }}
+                style={{ width: '150px' }}
                 background={'fff'}
                 color={'4fadea'}
                 onClick={() => setOpenModal(true)}
               >
-                Select file
+                <SelectFile />
               </StyledDiv>
             </div>
             <GridContainer2>
@@ -689,20 +700,23 @@ const Create: FC = () => {
           </GridContainer>
         </MainContainer>
         <FullWidthContainer>
-          <InfoLabel>Subject</InfoLabel>
+          <InfoLabel>Case Title</InfoLabel>
           <div>
             <InputFieldSubject
+              placeholder={'Email Subject'}
               onChange={(e) => onEmailSubjectChangeText(e)}
               value={email_subject}
             ></InputFieldSubject>
             <Button
               style={{
                 border: '1px solid #ccc',
+                borderLeft: 'none',
                 height: 36,
                 borderRadius: 0,
                 width: '610px',
                 position: 'relative',
                 left: '-550px',
+                top: '-1px',
                 zIndex: 1,
                 textAlign: 'right',
               }}
@@ -731,10 +745,11 @@ const Create: FC = () => {
                   border: '1px solid #ccc',
                 }}
               >
-                <List sx={{ p: 1 }} component="nav">
+                <List sx={{ p: 0 }} component="nav">
                   {mock_subject.map((option, index) => (
                     <ListItem key={index}>
                       <Button
+                        className={classes1.myClassName}
                         style={{
                           width: '610px',
                           justifyContent: 'flex-start',

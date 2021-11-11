@@ -13,6 +13,12 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <title>Mybos Admin Dashboard</title>
     <meta
       name="description"
@@ -23,6 +29,20 @@
       content="material-ui, admin dashboard, admin template, react, react template, react admin template, react dashboard, react admin panel"
     />
     <style>
+      body,
+      html {
+        font-family: 'Rubik', sans-serif;
+      }
+      input[type='date']::-webkit-calendar-picker-indicator {
+        color: rgba(0, 0, 0, 0);
+        opacity: 1;
+        display: block;
+        background: url(/cal.png) no-repeat;
+        width: 20px;
+        height: 20px;
+        border-width: thin;
+      }
+
       /* Note: This CSS will style all instances of 
    <input type=file /> controls in your website. */
       input[type='file'],
@@ -93,7 +113,7 @@
         text-align: center;
         outline: none;
         border: none;
-        background: #5faee3;
+        background: #fff;
         white-space: nowrap;
         cursor: pointer;
       }
@@ -112,7 +132,7 @@
         color: #5faee3 !important;
         position: relative;
         left: 50px;
-        background: #5faee3;
+        background: #fff;
         white-space: nowrap;
         cursor: pointer;
       }
@@ -128,7 +148,7 @@
         border-radius: 0.1rem 0rem 0rem 0.1rem;
         outline: none;
         border: none;
-        background: #5faee3;
+        background: #fff;
         white-space: nowrap;
         cursor: pointer;
       }

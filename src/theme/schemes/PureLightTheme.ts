@@ -1062,8 +1062,8 @@ export const PureLightTheme = createTheme({
   },
   typography: {
     fontFamily: [
-      '"Roboto"',
-      '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
+      '"Rubik"',
+      '-apple-system,BlinkMacSystemFont,"Segoe UI",Rubik,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
     ].join(','),
     fontSize: 14,
     htmlFontSize: 15,

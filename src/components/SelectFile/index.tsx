@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/core';
 import { experimentalStyled } from '@material-ui/core/styles';
-import Logo1 from './Logo.png';
+import SelectFile from './selectfile.png';
 
 const LogoWrapper = experimentalStyled(Box)(
   ({ theme }) => `
@@ -13,7 +13,11 @@ const LogoWrapper = experimentalStyled(Box)(
 function Logo() {
   return (
     <LogoWrapper>
-      <img style={{ height: '40px', width: 'auto' }} src={Logo1} alt="logo" />
+      <img
+        style={{ height: '20px', width: 'auto' }}
+        src={SelectFile}
+        alt="SelectFile"
+      />
     </LogoWrapper>
   );
 }

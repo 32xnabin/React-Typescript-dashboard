@@ -78,6 +78,7 @@ const Section2: React.FC = () => {
   };
 
   const mock_assigned_to = [
+    { value: 'THREE_MONTHS', label: 'Three Months' },
     { value: 'TODAY', label: 'Today' },
     { value: 'THIS_WEEK', label: 'This Week' },
     { value: 'THIS_MONTH', label: 'Monthly' },
@@ -94,13 +95,33 @@ const Section2: React.FC = () => {
     getAllCases()
       .then((res) => {
         setMybosCases(res);
-        filterCases('TODAY', res);
+        filterCases('THREE_MONTHS', res);
       })
       .catch((error) => {
         navigate('/login');
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const colors = [
+    '#f44336',
+    '#e91e63',
+    '#9c27b0',
+    '#673ab7',
+    '#3f51b5',
+    '#2196f3',
+    '#03a9f4',
+    '#00bcd4',
+    '#009688',
+    '#4caf50',
+    '#8bc34a',
+    '#cddc39',
+    '#ffeb3b',
+    '#ffc107',
+    '#ff9800',
+    '#ff5722',
+    '#795548',
+    '#607d8b',
+  ];
 
   return (
     <Card style={{ padding: 10, height: '400px' }}>
@@ -110,7 +131,6 @@ const Section2: React.FC = () => {
             marginLeft: 8,
             color: '#45a7c1',
             fontSize: 18,
-            visibility: 'hidden',
           }}
           noWrap
         >
@@ -144,6 +164,7 @@ const Section2: React.FC = () => {
             outerRadius={0.3}
             selectedOffset={0.0}
             data={filteredCases}
+            colors={colors}
           />
         </Holder>
       </Box>
