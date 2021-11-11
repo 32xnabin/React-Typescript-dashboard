@@ -121,6 +121,7 @@ export const GridContainerCheckBox = styled(Box)`
   justify-content: space-between;
   align-items: center;
   width: 250px;
+  height: 10px;
 `;
 export const GridContainer1 = styled(Box)`
   display: grid;

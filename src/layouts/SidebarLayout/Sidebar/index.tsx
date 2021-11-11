@@ -1,10 +1,9 @@
-import { useContext } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars-2';
-import { SidebarContext } from 'src/contexts/SidebarContext';
+
 import Logo from 'src/components/Logo';
 import SidebarImage from 'src/components/SideBarImage';
 
-import { Box, Drawer, Hidden } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 
 import { experimentalStyled } from '@material-ui/core/styles';
 import SidebarMenu from './SidebarMenu';
@@ -40,9 +39,6 @@ const TopSection = experimentalStyled(Box)(
 );
 
 function Sidebar() {
-  const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
-  const closeSidebar = () => toggleSidebar();
-
   return (
     <SidebarWrapper>
       <Scrollbars autoHide>

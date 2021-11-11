@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { SidebarContext } from 'src/contexts/SidebarContext';
 
 import PropTypes from 'prop-types';
-import { Button, Badge, Collapse, ListItem } from '@material-ui/core';
+import { Button, Collapse, ListItem } from '@material-ui/core';
 
 import ExpandLessTwoToneIcon from '@material-ui/icons/ExpandLessTwoTone';
 import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone';

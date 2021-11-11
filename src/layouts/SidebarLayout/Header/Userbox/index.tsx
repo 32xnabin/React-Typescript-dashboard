@@ -6,7 +6,6 @@ import {
   Box,
   Button,
   Divider,
-  Hidden,
   List,
   ListItem,
   ListItemText,

@@ -1,10 +1,5 @@
-import { useContext } from 'react';
-
-import { Box, Hidden, IconButton, Tooltip } from '@material-ui/core';
+import { Box, Hidden } from '@material-ui/core';
 import { experimentalStyled } from '@material-ui/core/styles';
-import MenuTwoToneIcon from '@material-ui/icons/MenuTwoTone';
-import { SidebarContext } from 'src/contexts/SidebarContext';
-import CloseTwoToneIcon from '@material-ui/icons/CloseTwoTone';
 
 import Logo from 'src/components/Logo';
 import HeaderUserbox from './Userbox';
@@ -25,8 +20,6 @@ const HeaderWrapper = experimentalStyled(Box)(
 );
 
 function Header() {
-  const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
-
   return (
     <HeaderWrapper
       display="flex"
