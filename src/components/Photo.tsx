@@ -24,6 +24,7 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
         padding: '6px',
         border: '1px dashed #5faee3',
         borderRadius: '6px',
+        height: '180px',
       }}
     >
       <img
@@ -38,7 +39,7 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
           margin: 3,
           width: 'auto',
           maxWidth: '150px',
-          height: 100,
+          height: 40,
           border: '1px solid #eee',
           minHeight: '100px',
           minWidth: '200px',
@@ -52,12 +53,12 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
           style={{
             color: '#fff',
             position: 'relative',
-            top: '45px',
+            top: '-7px',
             left: '-8px',
             margin: 4,
             width: '200px',
             zIndex: 2,
-            padding: '10px',
+            padding: '5px',
             border: '1px solid #5faee3',
             borderRadius: '6px',
             background: '#fff',
@@ -69,18 +70,31 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
           ref={inputRef}
           id="browse"
           className="btn-file-upload"
-          style={{ color: '#5faee3', margin: 4, width: '200px' }}
+          style={{
+            color: '#5faee3',
+            margin: 4,
+            width: '200px',
+            position: 'relative',
+            top: '-55px',
+          }}
           type="file"
           onChange={handleChange}
         />
       </div>
 
       {uploading && file ? (
-        <div style={{ marginTop: 10, height: 20, color: '#5faee3' }}>
+        <div
+          style={{
+            height: 20,
+            color: '#5faee3',
+            position: 'relative',
+            top: '-35px',
+          }}
+        >
           uploading....
         </div>
       ) : (
-        <div style={{ marginTop: 10, height: 20 }}></div>
+        <div style={{ height: 20, position: 'relative', top: '-55px' }}></div>
       )}
     </div>
   );

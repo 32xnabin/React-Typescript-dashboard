@@ -726,13 +726,17 @@ const Edit: FC = () => {
                 <InfoLabel>Category</InfoLabel>
 
                 <InfoLabel>Asset</InfoLabel>
-                <DropDown id="category" {...register('category')}>
+                <DropDown
+                  id="category"
+                  style={{ zIndex: 8 }}
+                  {...register('category')}
+                >
                   {mock_category.map((option) => (
                     <option key={option}>{option}</option>
                   ))}
                 </DropDown>
 
-                <InputWrapper style={{ zIndex: 4 }}>
+                <InputWrapper style={{ zIndex: 6 }}>
                   <Select
                     isMulti
                     value={asset}
