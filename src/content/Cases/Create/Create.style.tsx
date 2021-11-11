@@ -44,7 +44,7 @@ export const WhiteLabel = styled(Typography)`
 export const HeadingLabel = styled(Typography)`
   font-size: 14px;
   text-align: left;
-  width: 350px;
+  width: 250px;
   font-weight: 600;
   color: #000;
 `;
@@ -99,6 +99,9 @@ export const GridContainerHeader = styled(Box)`
 export const GridContainer = styled(Box)`
   display: grid;
   grid-template-columns: auto auto;
+  @media (max-width: 1650px) {
+    grid-template-columns: auto auto;
+  }
   grid-gap: 10px;
   justify-content: space-around;
   padding: 20px 0px;
@@ -161,7 +164,7 @@ export const ButtonsContainer = styled(Box)`
 `;
 
 export const DropDown = styled.select`
-  width: 350px;
+  width: 250px;
   height: 35px;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -187,7 +190,7 @@ export const DropDownLong = styled.select`
 `;
 
 export const Disabled = styled.div`
-  width: 350px;
+  width: 250px;
   height: 35px;
   background-color: #eee;
   border: 1px solid #ccc;
@@ -276,7 +279,7 @@ export const InputFieldSubject = styled(({ visible, ...otherProps }) => (
 export const DateField = styled(({ visible, ...otherProps }) => (
   <input {...otherProps} />
 ))`
-  width: 350px;
+  width: 250px;
   height: 35px !important;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -287,7 +290,7 @@ export const DateField = styled(({ visible, ...otherProps }) => (
 export const Placeholder = styled(({ visible, ...otherProps }) => (
   <TextField variant="outlined" {...otherProps} />
 ))`
-  width: 350px;
+  width: 250px;
   height: 1px !important;
   visibility: hidden;
 `;
@@ -295,7 +298,7 @@ export const Placeholder = styled(({ visible, ...otherProps }) => (
 export const InputWrapper = styled(({ visible, ...otherProps }) => (
   <div {...otherProps} />
 ))`
-  width: 350px;
+  width: 250px;
 `;
 
 export const MainWrapper = styled(({ visible, ...otherProps }) => (
