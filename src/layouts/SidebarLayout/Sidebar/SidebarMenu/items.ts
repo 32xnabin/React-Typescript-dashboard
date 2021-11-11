@@ -1,8 +1,7 @@
 import { ReactNode } from 'react';
 
-import AvTimerOutlinedIcon from '@mui/icons-material/AvTimerOutlined';
-
-import BuildOutlinedIcon from '@mui/icons-material/BuildOutlined';
+import { ReactComponent as Dashboard } from '../../../../components/Dashboard/Dashboard.svg';
+import { ReactComponent as Case } from '../../../../components/Case/Cases.svg';
 
 export interface MenuItem {
   link?: string;
@@ -24,12 +23,12 @@ const menuItems: MenuItems[] = [
       {
         name: 'Dashboard',
         link: '/bm/dashboards',
-        icon: AvTimerOutlinedIcon,
+        icon: Dashboard,
       },
 
       {
         name: 'Cases',
-        icon: BuildOutlinedIcon,
+        icon: Case,
         link: '/bm/cases/list',
       },
     ],

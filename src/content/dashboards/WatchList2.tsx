@@ -15,13 +15,13 @@ const WatchList2: React.FC = () => {
         spacing={3}
       >
         <Grid item lg={4} xs={12}>
-          <Section4 />
-        </Grid>
-        <Grid item lg={4} xs={12}>
           <Section5 />
         </Grid>
         <Grid item lg={4} xs={12}>
           <Section6 />
+        </Grid>
+        <Grid item lg={4} xs={12}>
+          <Section4 />
         </Grid>
       </Grid>
     </>
