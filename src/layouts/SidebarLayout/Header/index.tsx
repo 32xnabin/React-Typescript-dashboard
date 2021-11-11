@@ -15,16 +15,12 @@ const HeaderWrapper = experimentalStyled(Box)(
         color: ${theme.header.textColor};
         padding: ${theme.spacing(0, 2)};
         right: 0;
-        z-index: 5;
+        z-index: 1;
         background-color: #fff;
         box-shadow: ${theme.header.boxShadow};
         position: fixed;
         justify-content: space-between;
-        margin-left:280px;
-        @media (min-width: ${theme.breakpoints.values.lg}px) {
-            left: 0;
-            width: auto;
-        }
+        width:100%;
 `
 );
 
@@ -32,20 +28,22 @@ function Header() {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
 
   return (
-    <HeaderWrapper display="flex" alignItems="center">
-      <Box style={{ visibility: 'hidden' }} display="flex" alignItems="center">
-        <Logo />
-      </Box>
-      <Box display="flex" alignItems="center">
-        <HeaderUserbox />
-
+    <HeaderWrapper
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+    >
+      <Box
+        display="flex"
+        alignItems="center"
+        style={{ marginLeft: '100px', height: '95px' }}
+      >
         <Hidden lgUp>
-          <Tooltip arrow title="Search">
-            <IconButton color="primary" onClick={toggleSidebar}>
-              {!sidebarToggle ? <MenuTwoToneIcon /> : <CloseTwoToneIcon />}
-            </IconButton>
-          </Tooltip>
+          <Logo />
         </Hidden>
+      </Box>
+      <Box display="flex" alignItems="center" style={{ marginRight: '100px' }}>
+        <HeaderUserbox />
       </Box>
     </HeaderWrapper>
   );

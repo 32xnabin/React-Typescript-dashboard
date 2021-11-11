@@ -57,9 +57,10 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
             margin: 4,
             width: '200px',
             zIndex: 2,
-            padding: '6px',
+            padding: '10px',
             border: '1px solid #5faee3',
             borderRadius: '6px',
+            background: '#fff',
           }}
         >
           <SelectFile />

@@ -1,9 +1,10 @@
 import { FC, ReactNode } from 'react';
 import { experimentalStyled } from '@material-ui/core/styles';
-import { Box } from '@material-ui/core';
 import { Outlet } from 'react-router-dom';
+import { Box, Hidden } from '@material-ui/core';
 
 import Sidebar from './Sidebar';
+import SidebarSmall from './SidebarSmall';
 import Header from './Header';
 
 interface SidebarLayoutProps {
@@ -32,15 +33,39 @@ const MainContent = experimentalStyled(Box)(
 `
 );
 
+const MainContentSmall = experimentalStyled(Box)(
+  ({ theme }) => `
+       
+       display:flex;
+       width:100%;
+       background:#ebeff3;
+       margin-left:100px;
+       margin-top:88px;
+        
+`
+);
+
 const SidebarLayout: FC<SidebarLayoutProps> = () => {
   return (
     <>
       <MainWrapper>
-        <Sidebar />
+        <Hidden lgUp>
+          <SidebarSmall />
+        </Hidden>
+        <Hidden lgDown>
+          <Sidebar />
+        </Hidden>
         <Header />
-        <MainContent>
-          <Outlet />
-        </MainContent>
+        <Hidden lgDown>
+          <MainContent>
+            <Outlet />
+          </MainContent>
+        </Hidden>
+        <Hidden lgUp>
+          <MainContentSmall>
+            <Outlet />
+          </MainContentSmall>
+        </Hidden>
       </MainWrapper>
     </>
   );

@@ -56,16 +56,13 @@ function HeaderUserbox() {
   return (
     <>
       <UserBoxButton color="secondary" ref={ref} onClick={handleOpen}>
-        <Hidden mdDown>
-          <UserBoxText>
-            <UserBoxLabel style={{ color: '#817d7d' }} variant="body1">
-              Demo Manager
-            </UserBoxLabel>
-          </UserBoxText>
-        </Hidden>
-        <Hidden smDown>
-          <ExpandMoreTwoToneIcon style={{ color: '#817d7d' }} sx={{ ml: 1 }} />
-        </Hidden>
+        <UserBoxText>
+          <UserBoxLabel style={{ color: '#817d7d' }} variant="body1">
+            Demo Manager
+          </UserBoxLabel>
+        </UserBoxText>
+
+        <ExpandMoreTwoToneIcon style={{ color: '#817d7d' }} sx={{ ml: 1 }} />
       </UserBoxButton>
       <Popover
         anchorEl={ref.current}

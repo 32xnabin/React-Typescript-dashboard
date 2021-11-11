@@ -14,6 +14,7 @@ import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone';
 import Photo from '../../../components/Photo';
 import SelectFile from '../../../components/SelectFile';
+import ThinSquare from '../../../components/ThinSquare';
 
 import {
   DateField,
@@ -616,6 +617,8 @@ const Create: FC = () => {
             <Placeholder />
             <GridContainerCheckBox>
               <Checkbox
+                icon={<ThinSquare />}
+                style={{ width: '30px', height: '30px' }}
                 color="primary"
                 checked={
                   jobArea.indexOf('common-not-asset') === -1 &&
@@ -626,6 +629,8 @@ const Create: FC = () => {
               />
               <InfoLabel>Asset</InfoLabel>
               <Checkbox
+                icon={<ThinSquare />}
+                style={{ width: '30px', height: '30px' }}
                 color="primary"
                 checked={
                   jobArea.indexOf('common-not-asset') === -1 &&
@@ -636,6 +641,8 @@ const Create: FC = () => {
               />
               <InfoLabel>Private Lot</InfoLabel>
               <Checkbox
+                icon={<ThinSquare />}
+                style={{ width: '30px', height: '30px' }}
                 color="primary"
                 checked={jobArea.indexOf('common-not-asset') !== -1}
                 value="common-not-asset"

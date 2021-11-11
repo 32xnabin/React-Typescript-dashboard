@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { SidebarContext } from 'src/contexts/SidebarContext';
 
 import PropTypes from 'prop-types';
-import { Button, Badge, Collapse, ListItem, Hidden } from '@material-ui/core';
+import { Button, Badge, Collapse, ListItem } from '@material-ui/core';
 
 import ExpandLessTwoToneIcon from '@material-ui/icons/ExpandLessTwoTone';
 import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone';
@@ -50,29 +50,22 @@ const SidebarMenuItem: FC<SidebarMenuItemProps> = ({
             menuToggle ? <ExpandLessTwoToneIcon /> : <ExpandMoreTwoToneIcon />
           }
           onClick={toggleMenu}
-        >
-          {active ? 'active' : 'not'}
-        </Button>
+        ></Button>
         <Collapse in={menuToggle}>{children}</Collapse>
       </ListItem>
     );
   }
 
   return (
-    <>
-      <ListItem key={name} {...rest}>
-        <Button
-          activeClassName="Mui-active"
-          component={RouterLink}
-          onClick={toggleSidebar}
-          to={link}
-          startIcon={active ? <Icon fill="#3569b7" /> : <Icon1 fill="white" />}
-        >
-          {name}
-          {badge && <Badge badgeContent={badge} />}
-        </Button>
-      </ListItem>
-    </>
+    <ListItem key={name} {...rest}>
+      <Button
+        activeClassName="Mui-active"
+        component={RouterLink}
+        onClick={toggleSidebar}
+        to={link}
+        startIcon={active ? <Icon fill="#3569b7" /> : <Icon1 fill="white" />}
+      ></Button>
+    </ListItem>
   );
 };
 

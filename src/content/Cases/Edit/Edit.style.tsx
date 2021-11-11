@@ -118,16 +118,15 @@ export const GridContainer3 = styled(Box)`
 `;
 export const GridContainerCheckBox = styled(Box)`
   display: flex;
-  justify-content: start;
-  align-items: middle;
-  width: 350px;
-  height: 20px;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
 `;
 export const GridContainer1 = styled(Box)`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 10px;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-left: 5px;
   background: #fff;
   padding: 10px;

@@ -11,16 +11,16 @@ import SidebarMenu from './SidebarMenu';
 
 const SidebarWrapper = experimentalStyled(Box)(
   ({ theme }) => `
-        width: ${theme.sidebar.width};
+        width:100px;
         color: ${theme.sidebar.textColor};
         border: 1px solid #000;
         background: ${theme.sidebar.background};
         height: 100%;
-        overflow:hidden !important;
+        overflow:hidden;
+        height: 1000px;
         position: fixed;
         z-index: 2;
         background-color: #10274b;
-        
         @media (min-width: ${theme.breakpoints.values.lg}px) {
         }
 `
@@ -46,12 +46,7 @@ function Sidebar() {
   return (
     <SidebarWrapper>
       <Scrollbars autoHide>
-        <TopSection>
-          <Box display="flex" alignItems="center">
-            <Logo />
-          </Box>
-          <SidebarImage />
-        </TopSection>
+        <TopSection />
         <SidebarMenu />
       </Scrollbars>
     </SidebarWrapper>
