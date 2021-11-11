@@ -40,7 +40,6 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
           width: 'auto',
           maxWidth: '150px',
           height: 40,
-          border: '1px solid #eee',
           minHeight: '100px',
           minWidth: '200px',
           objectFit: 'cover',
@@ -54,7 +53,7 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
             color: '#fff',
             position: 'relative',
             top: '-7px',
-            left: '-8px',
+
             margin: 4,
             width: '200px',
             zIndex: 2,
@@ -71,11 +70,11 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
           id="browse"
           className="btn-file-upload"
           style={{
-            color: '#5faee3',
+            color: '#fff',
             margin: 4,
             width: '200px',
             position: 'relative',
-            top: '-55px',
+            top: '-50px',
           }}
           type="file"
           onChange={handleChange}

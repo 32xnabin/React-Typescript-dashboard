@@ -693,14 +693,14 @@ const Create: FC = () => {
             <InfoLabel>Assigned To</InfoLabel>
             <InfoLabel>Contacts</InfoLabel>
 
-            <InputWrapper style={{ zIndex: 8 }}>
+            <InputWrapper style={{ zIndex: 3 }}>
               <Select
                 isMulti
                 onChange={onAssignedChange}
                 options={mock_assigned_to}
               />
             </InputWrapper>
-            <InputWrapper style={{ zIndex: 6 }}>
+            <InputWrapper style={{ zIndex: 3 }}>
               <Select
                 isMulti
                 onChange={onContactChange}
