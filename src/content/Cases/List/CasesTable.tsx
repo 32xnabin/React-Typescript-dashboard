@@ -1,7 +1,6 @@
 import { FC, ChangeEvent, useState } from 'react';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -9,7 +8,6 @@ import {
   Tooltip,
   Divider,
   Box,
-  Checkbox,
   Table,
   TableBody,
   TableCell,

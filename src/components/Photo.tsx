@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 
 import { useState, useRef } from 'react';
-import upload_blue from './upload_blue.png';
 import SelectFile from './SelectFile';
 interface IProps {
   uploadImage: (file: any) => Promise<boolean>;
