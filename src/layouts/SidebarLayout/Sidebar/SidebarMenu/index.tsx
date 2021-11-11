@@ -172,6 +172,7 @@ const reduceChildRoutes = ({
         open={partialMatch}
         name={item.name}
         icon={item.icon}
+        icon1={item.icon1}
         link={item.link}
         badge={item.badge}
       >
@@ -190,6 +191,7 @@ const reduceChildRoutes = ({
         link={item.link}
         badge={item.badge}
         icon={item.icon}
+        icon1={item.icon1}
       />
     );
   }

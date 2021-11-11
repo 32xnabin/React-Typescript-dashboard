@@ -13,6 +13,7 @@ interface SidebarMenuItemProps {
   children?: ReactNode;
   link?: string;
   icon?: any;
+  icon1?: any;
   badge?: string;
   open?: boolean;
   active?: boolean;
@@ -23,6 +24,7 @@ const SidebarMenuItem: FC<SidebarMenuItemProps> = ({
   children,
   link,
   icon: Icon,
+  icon1: Icon1,
   badge,
   open: openParent,
   active,
@@ -43,13 +45,13 @@ const SidebarMenuItem: FC<SidebarMenuItemProps> = ({
         <Button
           style={{ color: '#fff' }}
           className={clsx({ 'Mui-active': menuToggle })}
-          startIcon={Icon && <Icon />}
+          startIcon={openParent ? <Icon /> : <Icon1 />}
           endIcon={
             menuToggle ? <ExpandLessTwoToneIcon /> : <ExpandMoreTwoToneIcon />
           }
           onClick={toggleMenu}
         >
-          {name}
+          {active ? 'active' : 'not'}
         </Button>
         <Collapse in={menuToggle}>{children}</Collapse>
       </ListItem>
@@ -63,7 +65,7 @@ const SidebarMenuItem: FC<SidebarMenuItemProps> = ({
         component={RouterLink}
         onClick={toggleSidebar}
         to={link}
-        startIcon={Icon && <Icon />}
+        startIcon={active ? <Icon fill="#3569b7" /> : <Icon1 fill="white" />}
       >
         {name}
         {badge && <Badge badgeContent={badge} />}
