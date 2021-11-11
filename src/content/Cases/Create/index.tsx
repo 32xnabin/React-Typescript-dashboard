@@ -626,7 +626,7 @@ const Create: FC = () => {
                 onChange={handleJobAreaChange}
               />
               <InfoLabel>Asset</InfoLabel>
-              <Checkbox
+              <Checkbox   
                 color="primary"
                 checked={
                   jobArea.indexOf('common-not-asset') === -1 &&

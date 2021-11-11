@@ -13,7 +13,7 @@ const LogoWrapper = experimentalStyled(Box)(
 function Logo() {
   return (
     <LogoWrapper>
-      <img style={{ height: '20px', width: 'auto' }} src={Case} alt="logo" />
+      <img style={{ height: '30px', width: 'auto' }} src={Case} alt="logo" />
     </LogoWrapper>
   );
 }

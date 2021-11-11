@@ -12,6 +12,7 @@ import {
   TableBody,
   TableCell,
   TableHead,
+  Checkbox,
   TablePagination,
   TableRow,
   TableContainer,
@@ -27,6 +28,7 @@ import { Myboscase } from 'src/types';
 import { deleteCase, updateCase } from '../../../services/cases';
 import { HorDiv } from './CaseTable.style';
 import AlertDialog from '../../../components/AlertDialog';
+import ThinSquare from '../../../components/ThinSquare';
 
 interface RecentOrdersTableProps {
   className?: string;
@@ -246,9 +248,9 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
           <TableHead>
             <TableRow>
               <TableCell padding="checkbox">
-                <input
-                  style={{ width: '50px' }}
-                  type="checkbox"
+                <Checkbox
+                  icon={<ThinSquare />}
+                  style={{ width: '30px', height: '30px' }}
                   checked={selectedAllCases}
                   onChange={handleSelectAllCases}
                 />
@@ -369,9 +371,9 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               return (
                 <TableRow hover key={item.id} selected={isCaseselected}>
                   <TableCell padding="checkbox">
-                    <input
-                      style={{ width: '50px' }}
-                      type="checkbox"
+                    <Checkbox
+                      icon={<ThinSquare />}
+                      style={{ width: '30px', height: '30px' }}
                       checked={isCaseselected}
                       onChange={(event: ChangeEvent<HTMLInputElement>) =>
                         handleSelectOneCryptoOrder(event, item.id)
