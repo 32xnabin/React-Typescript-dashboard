@@ -75,9 +75,11 @@ const Photo: React.FC<IProps> = ({ uploadImage }) => {
       </div>
 
       {uploading && file ? (
-        <div style={{ height: 20, color: '#5faee3' }}>uploading....</div>
+        <div style={{ marginTop: 10, height: 20, color: '#5faee3' }}>
+          uploading....
+        </div>
       ) : (
-        <div style={{ height: 20 }}></div>
+        <div style={{ marginTop: 10, height: 20 }}></div>
       )}
     </div>
   );

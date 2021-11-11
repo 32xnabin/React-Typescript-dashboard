@@ -125,9 +125,9 @@ const Edit: FC = () => {
   const useStyles1 = makeStyles((theme) => ({
     myClassName: {
       position: 'relative',
+      color: '#000 !important',
       '&:hover': {
         backgroundColor: '#5faee3 !important',
-        color: '#fff',
       },
     },
   }));

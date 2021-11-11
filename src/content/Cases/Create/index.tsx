@@ -114,9 +114,9 @@ const Create: FC = () => {
   const useStyles1 = makeStyles((theme) => ({
     myClassName: {
       position: 'relative',
+      color: '#000 !important',
       '&:hover': {
         backgroundColor: '#5faee3 !important',
-        color: '#fff',
       },
     },
   }));
@@ -124,7 +124,6 @@ const Create: FC = () => {
   const useStyles = makeStyles((theme) => ({
     paper: {
       position: 'absolute',
-
       backgroundColor: '#fff',
       boxShadow: 'none',
       padding: 4,
@@ -626,7 +625,7 @@ const Create: FC = () => {
                 onChange={handleJobAreaChange}
               />
               <InfoLabel>Asset</InfoLabel>
-              <Checkbox   
+              <Checkbox
                 color="primary"
                 checked={
                   jobArea.indexOf('common-not-asset') === -1 &&
