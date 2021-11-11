@@ -259,7 +259,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  fontSize={13}
+                  fontSize={11}
                   fontWeight="bold"
                   variant="body1"
                   color="text.primary"
@@ -271,7 +271,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  fontSize={13}
+                  fontSize={11}
                   fontWeight="bold"
                   variant="body1"
                   color="text.primary"
@@ -281,21 +281,10 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   Added
                 </Typography>
               </TableCell>
+
               <TableCell>
                 <Typography
-                  fontSize={13}
-                  fontWeight="bold"
-                  variant="body1"
-                  color="text.primary"
-                  gutterBottom
-                  noWrap
-                >
-                  Due Date
-                </Typography>
-              </TableCell>
-              <TableCell>
-                <Typography
-                  fontSize={13}
+                  fontSize={11}
                   fontWeight="bold"
                   variant="body1"
                   color="text.primary"
@@ -307,7 +296,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  fontSize={13}
+                  fontSize={11}
                   fontWeight="bold"
                   variant="body1"
                   color="text.primary"
@@ -319,7 +308,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  fontSize={13}
+                  fontSize={11}
                   fontWeight="bold"
                   variant="body1"
                   color="text.primary"
@@ -331,7 +320,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  fontSize={13}
+                  fontSize={11}
                   fontWeight="bold"
                   variant="body1"
                   color="text.primary"
@@ -341,21 +330,10 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   Assigned Contractors
                 </Typography>
               </TableCell>
+
               <TableCell>
                 <Typography
-                  fontSize={13}
-                  fontWeight="bold"
-                  variant="body1"
-                  color="text.primary"
-                  gutterBottom
-                  noWrap
-                >
-                  Priority
-                </Typography>
-              </TableCell>
-              <TableCell>
-                <Typography
-                  fontSize={13}
+                  fontSize={11}
                   fontWeight="bold"
                   variant="body1"
                   color="text.primary"
@@ -385,7 +363,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
-                      fontSize={14}
+                      fontSize={12}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -396,7 +374,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
-                      fontSize={14}
+                      fontSize={12}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -407,22 +385,10 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                         : moment(new Date()).format('DD/MM/YYYY')}
                     </Typography>
                   </TableCell>
+
                   <TableCell>
                     <Typography
-                      fontSize={14}
-                      variant="body1"
-                      color="text.primary"
-                      gutterBottom
-                      noWrap
-                    >
-                      {item.due_date
-                        ? moment(new Date(item.due_date)).format('DD/MM/YYYY')
-                        : moment(new Date()).format('DD/MM/YYYY')}
-                    </Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography
-                      fontSize={14}
+                      fontSize={12}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -433,7 +399,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
-                      fontSize={14}
+                      fontSize={12}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -444,7 +410,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
-                      fontSize={14}
+                      fontSize={12}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -455,7 +421,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
-                      fontSize={14}
+                      fontSize={12}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -466,17 +432,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                         : 'Ace hanndy andy,AZ-Electrician,Chummins'}
                     </Typography>
                   </TableCell>
-                  <TableCell>
-                    <Typography
-                      fontSize={14}
-                      variant="body1"
-                      color="text.primary"
-                      gutterBottom
-                      noWrap
-                    >
-                      {item.priority}
-                    </Typography>
-                  </TableCell>
+
                   <TableCell>
                     <HorDiv>
                       <Tooltip title="Edit Case" arrow>
