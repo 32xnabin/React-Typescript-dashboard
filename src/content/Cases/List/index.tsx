@@ -20,6 +20,7 @@ function ApplicationsTransactions() {
             width: '90%',
             marginLeft: 16,
             marginBottom: '200px',
+            minHeight: '800px',
           }}
         >
           <BlueHeader>
