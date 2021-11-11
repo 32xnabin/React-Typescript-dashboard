@@ -613,7 +613,7 @@ const Create: FC = () => {
           <div></div>
         </MainContainer>
         <MainContainer>
-          <GridContainer>
+          <GridContainer style={{ paddingBottom: '200px', zIndex: 6 }}>
             <InfoLabel>Job Area</InfoLabel>
             <Placeholder />
             <GridContainerCheckBox>
@@ -681,7 +681,7 @@ const Create: FC = () => {
                   ))}
                 </DropDown>
 
-                <InputWrapper style={{ zIndex: 4 }}>
+                <InputWrapper style={{ zIndex: 6 }}>
                   <Select
                     isMulti
                     onChange={onAssetChange}
@@ -693,14 +693,14 @@ const Create: FC = () => {
             <InfoLabel>Assigned To</InfoLabel>
             <InfoLabel>Contacts</InfoLabel>
 
-            <InputWrapper style={{ zIndex: 3 }}>
+            <InputWrapper style={{ zIndex: 6 }}>
               <Select
                 isMulti
                 onChange={onAssignedChange}
                 options={mock_assigned_to}
               />
             </InputWrapper>
-            <InputWrapper style={{ zIndex: 3 }}>
+            <InputWrapper style={{ zIndex: 6 }}>
               <Select
                 isMulti
                 onChange={onContactChange}
@@ -723,9 +723,9 @@ const Create: FC = () => {
                 borderLeft: 'none',
                 height: 36,
                 borderRadius: 0,
-                width: '610px',
+                width: '300px',
                 position: 'relative',
-                left: '-550px',
+                left: '-250px',
                 top: '-1px',
                 zIndex: 1,
                 textAlign: 'right',
@@ -751,7 +751,7 @@ const Create: FC = () => {
             >
               <div
                 style={{
-                  width: '610px',
+                  width: '300px',
                   border: '1px solid #ccc',
                 }}
               >

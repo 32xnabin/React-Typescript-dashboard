@@ -664,7 +664,7 @@ const Edit: FC = () => {
           <div></div>
         </MainContainer>
         <MainContainer>
-          <GridContainer>
+          <GridContainer style={{ paddingBottom: '200px', zIndex: 6 }}>
             <InfoLabel>Job Area</InfoLabel>
             <Placeholder />
             <GridContainerCheckBox>
@@ -777,9 +777,9 @@ const Edit: FC = () => {
                 borderLeft: 'none',
                 height: 36,
                 borderRadius: 0,
-                width: '610px',
+                width: '300px',
                 position: 'relative',
-                left: '-550px',
+                left: '-250px',
                 top: '-1px',
                 zIndex: 1,
                 textAlign: 'right',
@@ -805,7 +805,7 @@ const Edit: FC = () => {
             >
               <div
                 style={{
-                  width: '610px',
+                  width: '300px',
                   border: '1px solid #ccc',
                 }}
               >

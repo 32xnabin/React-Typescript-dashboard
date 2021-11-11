@@ -262,7 +262,7 @@ export const InputFieldSubject = styled(({ visible, ...otherProps }) => (
   <input {...otherProps} />
 ))`
   height: 36px !important;
-  width: 550px;
+  width: 250px;
   padding-left: 5px;
   color: #918e8e;
   font-size: 14px;
