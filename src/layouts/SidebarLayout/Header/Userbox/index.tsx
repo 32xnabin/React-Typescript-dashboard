@@ -15,7 +15,6 @@ import {
 
 import { experimentalStyled } from '@material-ui/core/styles';
 import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone';
-import AccountBoxTwoToneIcon from '@material-ui/icons/AccountBoxTwoTone';
 import LockOpenTwoToneIcon from '@material-ui/icons/LockOpenTwoTone';
 
 const UserBoxButton = experimentalStyled(Button)(
@@ -78,10 +77,6 @@ function HeaderUserbox() {
       >
         <Divider sx={{ mb: 0 }} />
         <List sx={{ p: 1 }} component="nav">
-          <ListItem button to="#" component={NavLink}>
-            <AccountBoxTwoToneIcon fontSize="small" />
-            <ListItemText primary="My Profile" />
-          </ListItem>
           <ListItem button to="/login" component={NavLink}>
             <LockOpenTwoToneIcon sx={{ mr: 1 }} />
             <ListItemText primary="Logout" />

@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/core';
 import { experimentalStyled } from '@material-ui/core/styles';
-import Case from './thinsquare.png';
+import Unchecked from './unchecked.png';
 
 const LogoWrapper = experimentalStyled(Box)(
   ({ theme }) => `
@@ -10,12 +10,16 @@ const LogoWrapper = experimentalStyled(Box)(
 `
 );
 
-function Logo() {
+function UncheckedIcon() {
   return (
     <LogoWrapper>
-      <img style={{ height: '20px', width: 'auto' }} src={Case} alt="logo" />
+      <img
+        style={{ height: '20px', width: '20px' }}
+        src={Unchecked}
+        alt="logo"
+      />
     </LogoWrapper>
   );
 }
 
-export default Logo;
+export default UncheckedIcon;

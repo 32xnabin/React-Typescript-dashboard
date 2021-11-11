@@ -1,8 +1,10 @@
 import React from 'react';
-import { Card, Typography } from '@material-ui/core';
+import { Card, Typography, Checkbox } from '@material-ui/core';
 
 import { GridContainer } from './Common.style';
 import styled from 'styled-components';
+import CheckedIcon from '../../components/ThinSquare/CheckedIcon';
+import UncheckedIcon from '../../components/ThinSquare/UncheckedIcon';
 const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
   width: 100%;
 
@@ -81,7 +83,11 @@ const Section8: React.FC = () => {
               >
                 {numbers[index]}
               </Typography>
-              <input type="checkbox" />
+              <Checkbox
+                icon={<UncheckedIcon />}
+                checkedIcon={<CheckedIcon />}
+                style={{ width: '30px', height: '30px' }}
+              />
             </SubRow>
           </Row>
         ))}

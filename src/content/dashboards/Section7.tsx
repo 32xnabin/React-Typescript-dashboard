@@ -56,7 +56,7 @@ const Section7: React.FC = () => {
   };
 
   return (
-    <Card style={{ padding: 10, height: '400px' }}>
+    <Card style={{ padding: 10, height: '400px', paddingBottom: '10px' }}>
       <GridContainer>
         <Typography
           style={{ marginLeft: 8, color: '#000', fontSize: 14 }}

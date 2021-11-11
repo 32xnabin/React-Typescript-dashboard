@@ -28,7 +28,8 @@ import { Myboscase } from 'src/types';
 import { deleteCase, updateCase } from '../../../services/cases';
 import { HorDiv } from './CaseTable.style';
 import AlertDialog from '../../../components/AlertDialog';
-import ThinSquare from '../../../components/ThinSquare';
+import CheckedIcon from '../../../components/ThinSquare/CheckedIcon';
+import UncheckedIcon from '../../../components/ThinSquare/UncheckedIcon';
 
 interface RecentOrdersTableProps {
   className?: string;
@@ -249,7 +250,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
             <TableRow>
               <TableCell padding="checkbox">
                 <Checkbox
-                  icon={<ThinSquare />}
+                  icon={<UncheckedIcon />}
+                  checkedIcon={<CheckedIcon />}
                   style={{ width: '30px', height: '30px' }}
                   checked={selectedAllCases}
                   onChange={handleSelectAllCases}
@@ -372,7 +374,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                 <TableRow hover key={item.id} selected={isCaseselected}>
                   <TableCell padding="checkbox">
                     <Checkbox
-                      icon={<ThinSquare />}
+                      icon={<UncheckedIcon />}
+                      checkedIcon={<CheckedIcon />}
                       style={{ width: '30px', height: '30px' }}
                       checked={isCaseselected}
                       onChange={(event: ChangeEvent<HTMLInputElement>) =>

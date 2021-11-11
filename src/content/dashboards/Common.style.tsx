@@ -69,10 +69,11 @@ export const GridContainer = styled(({ color, ...otherProps }) => (
   <div {...otherProps} />
 ))`
   padding: 8px;
-  height: 400px;
+  height: 360px;
   width: 100%;
   border: none;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #fff;
+  margin-bottom: 10px;
 `;

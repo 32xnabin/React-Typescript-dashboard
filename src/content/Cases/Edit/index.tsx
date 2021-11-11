@@ -14,7 +14,8 @@ import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import ExpandMoreTwoToneIcon from '@material-ui/icons/ExpandMoreTwoTone';
 import Photo from '../../../components/Photo';
 import SelectFile from '../../../components/SelectFile';
-import ThinSquare from '../../../components/ThinSquare';
+import CheckedIcon from '../../../components/ThinSquare/CheckedIcon';
+import UncheckedIcon from '../../../components/ThinSquare/UncheckedIcon';
 
 import {
   DateField,
@@ -668,7 +669,8 @@ const Edit: FC = () => {
             <Placeholder />
             <GridContainerCheckBox>
               <Checkbox
-                icon={<ThinSquare />}
+                icon={<UncheckedIcon />}
+                checkedIcon={<CheckedIcon />}
                 style={{ width: '30px', height: '30px' }}
                 color="primary"
                 checked={
@@ -678,9 +680,10 @@ const Edit: FC = () => {
                 value="common-asset"
                 onChange={handleJobAreaChange}
               />
-              <InfoLabel>Asset</InfoLabel>
+              <InfoLabel style={{ marginBottom: '6px' }}>Asset</InfoLabel>
               <Checkbox
-                icon={<ThinSquare />}
+                icon={<UncheckedIcon />}
+                checkedIcon={<CheckedIcon />}
                 style={{ width: '30px', height: '30px' }}
                 color="primary"
                 checked={
@@ -690,16 +693,17 @@ const Edit: FC = () => {
                 value="private lot"
                 onChange={handleJobAreaChange}
               />
-              <InfoLabel>Private Lot</InfoLabel>
+              <InfoLabel style={{ marginBottom: '6px' }}>Private Lot</InfoLabel>
               <Checkbox
-                icon={<ThinSquare />}
+                icon={<UncheckedIcon />}
+                checkedIcon={<CheckedIcon />}
                 style={{ width: '30px', height: '30px' }}
                 color="primary"
                 checked={jobArea.indexOf('common-not-asset') !== -1}
                 value="common-not-asset"
                 onChange={handleJobAreaChange}
               />
-              <InfoLabel>N/A</InfoLabel>
+              <InfoLabel style={{ marginBottom: '6px' }}>N/A</InfoLabel>
             </GridContainerCheckBox>
             <div />
             {jobArea.indexOf('private lot') !== -1 && (
@@ -863,16 +867,20 @@ const Edit: FC = () => {
 
         <FullWidthContainer>
           <GridContainer3>
-            <input
-              type="checkbox"
+            <Checkbox
+              icon={<UncheckedIcon />}
+              checkedIcon={<CheckedIcon />}
+              style={{ width: '30px', height: '30px' }}
               id="add_to_report"
               {...register('add_to_report')}
             />
             <InfoLabel style={{ marginLeft: 10 }}>
               Add this case to management report?
             </InfoLabel>
-            <input
-              type="checkbox"
+            <Checkbox
+              icon={<UncheckedIcon />}
+              checkedIcon={<CheckedIcon />}
+              style={{ width: '30px', height: '30px' }}
               id="duplicate_case"
               {...register('duplicate_case')}
             />
