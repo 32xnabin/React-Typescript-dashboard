@@ -93,6 +93,8 @@ export const GridContainerHeader = styled(Box)`
   border-bottom: none;
   border-radius: 6px 6px 0 0;
   background: #fff;
+  overflow-x: auto;
+  overflow-y: hidden;
 `;
 export const GridContainer = styled(Box)`
   display: grid;
@@ -107,6 +109,8 @@ export const GridContainer = styled(Box)`
   margin-bottom: 20px;
   background: #fff;
   align-items: top;
+  overflow: auto;
+  overflow-y: hidden;
 `;
 export const GridContainer3 = styled(Box)`
   display: grid;
