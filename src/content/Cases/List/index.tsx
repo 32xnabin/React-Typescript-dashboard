@@ -9,17 +9,22 @@ import RecentOrders from './Cases';
 function ApplicationsTransactions() {
   return (
     <>
+    <div
+        style={{
+          marginTop: '27px',
+          paddingRight: '0px',          
+          marginBottom: '60px',
+          width:'100%'
+        }}
+      >
       <Grid container columns={1}>
         <Helmet>
           <title>MYBOS - Cases</title>
         </Helmet>
         <div
           style={{
-            marginTop: 20,
             border: 'none',
-            width: '90%',
-            marginLeft: 16,
-            marginBottom: '200px',
+            width: '100%',
             minHeight: '800px',
           }}
         >
@@ -49,6 +54,7 @@ function ApplicationsTransactions() {
           </Grid>
         </div>
       </Grid>
+      </div>
     </>
   );
 }

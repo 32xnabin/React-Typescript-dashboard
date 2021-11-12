@@ -191,7 +191,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
         style={{
           border: 0,
           boxShadow: 'none',
-          padding: 7,
+          padding: '28px 18px',
         }}
       >
         <Box

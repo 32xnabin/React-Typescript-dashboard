@@ -5,23 +5,27 @@ import { GridContainer } from './Common.style';
 import styled from 'styled-components';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
+import Checkbox from '@mui/material/Checkbox';
+import CheckedIcon from '../../components/ThinSquare/CheckedIcon';
+import UncheckedIcon from '../../components/ThinSquare/UncheckedIcon';
+
 const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
-  width: 100%;
-
-  height: 60px;
-  padding: 6px;
-
-  color: #000;
-  margin: 8px 8px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 16px;
+background-color: #fff;
+color: #000;
+border-top:1px solid #EBEBEB;
+min-width: 350px;
 `;
 const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 30px;
-
-  color: #000;
+display: flex;
+justify-content: start;
+align-items: center;
+background-color: #fff;
+color: #3A3A3A;
+width: 100%;
 `;
 const InputFilter = styled(({ color, ...otherProps }) => (
   <input {...otherProps} />
@@ -99,14 +103,19 @@ const Section7: React.FC = () => {
         {filteredArray.map((item, index) => (
           <Row key={index}>
             <SubRow>
-              <Typography style={{ marginLeft: 8, fontSize: 14 }} noWrap>
+              <Typography style={{ fontSize: 14, fontWeight: 'bold' }} noWrap>
                 {item}
-              </Typography>
-              <input type="checkbox" />
-            </SubRow>
-            <Typography style={{ marginLeft: 8, fontSize: 10 }} noWrap>
+                <Typography style={{ marginTop: '10px', fontSize: 14 }} noWrap>
               Check recyclables area
             </Typography>
+              </Typography>
+              <Checkbox
+                icon={<UncheckedIcon />}
+                checkedIcon={<CheckedIcon />}
+                style={{ width: '20px', height: '20px', marginLeft: 'auto' }}
+              />
+            </SubRow>
+            
           </Row>
         ))}
       </GridContainer>

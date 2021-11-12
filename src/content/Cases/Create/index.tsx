@@ -454,11 +454,9 @@ const Create: FC = () => {
   return (
     <div
       style={{
-        marginTop: 20,
+        marginTop: 27,
         border: '1px solid #eee',
-        width: '95%',
-        marginLeft: 8,
-        marginRight: 8,
+        width: '100%',
         marginBottom: '200px',
       }}
     >

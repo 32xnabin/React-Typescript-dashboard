@@ -6,7 +6,15 @@
         font-weight: 600 !important !important;
     }
     .content-holder {
-        margin-top: -50px;
+        
+        height: calc(100% - 50px);
+        @media (min-width:768px) {
+            margin-top: -50px;
+        }
+        .react-calendar {
+            width: 100%;
+            padding:  0 30px;
+        }
     }
 }
 .react-calendar button {

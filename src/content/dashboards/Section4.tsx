@@ -14,6 +14,7 @@ const Section4: React.FC = () => {
   background-color: #fff;
   color: #000;
   border-top:1px solid #EBEBEB;
+  min-width: 350px;
   `;
   const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
   display: flex;

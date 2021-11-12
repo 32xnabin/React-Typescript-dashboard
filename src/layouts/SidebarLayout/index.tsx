@@ -28,6 +28,8 @@ const MainContent = experimentalStyled(Box)(
        background:#ebeff3;
        margin-left:318px;
        margin-top:66px;
+       padding-right:37px;
+       width: 100%;
         
 `
 );

@@ -156,7 +156,7 @@ const Section2: React.FC = () => {
             width: '265px',
             height: '265px',
           }}
-          className="grap-chart-holder"
+          className="grap-chart-holder content-holder"
         >
           <DonutChart
             legend={false}

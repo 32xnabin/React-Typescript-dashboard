@@ -1,9 +1,12 @@
 .card-graph {
     .grap-chart-holder {
         svg {
-            width: 265px;
+            width: 200px;
             height: 300px;
             margin-top: -50px;
+            @media (min-width:992px) {
+                width: 265px;
+            }
         }
     }
 }

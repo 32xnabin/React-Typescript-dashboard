@@ -1,114 +1,117 @@
+import React from 'react';
 import { Card, Typography, CardContent, IconButton } from '@material-ui/core';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { GridContainer } from './Common.style';
 import styled from 'styled-components';
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import Checkbox from '@mui/material/Checkbox';
+import CheckedIcon from '../../components/ThinSquare/CheckedIcon';
+import UncheckedIcon from '../../components/ThinSquare/UncheckedIcon';
+
+const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 16px;
+background-color: #fff;
+color: #000;
+border-top:1px solid #EBEBEB;
+min-width: 350px;
+`;
+const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
+display: flex;
+justify-content: start;
+align-items: center;
+background-color: #fff;
+color: #3A3A3A;
+width: 100%;
+`;
+const InputFilter = styled(({ color, ...otherProps }) => (
+  <input {...otherProps} />
+))`
+  width: 99%;
+  height: 35px;
+  border: 1px solid #ccc;
+  margin-left: 5px;
+`;
+
 const Section9: React.FC = () => {
-  const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
-    width: 100%;
+  const items = [
+    '8/1/2015 10:05am - Add new invoice number:AP14565 - Benjamin Jameson',
+    '8/1/2015 10:05am - Add new invoice number:AP14565 - Benjamin Jameson',
+    '8/1/2015 10:05am - Add new invoice number:AP14565 - Benjamin Jameson',
+    'Lorem ipsum- 24/06/2021',
+    'RLorem ipsum- 24/06/2021',
+  ];
+  const [filterText, setFilterText] = React.useState('');
+  const [filteredArray, setFilteredArray] = React.useState(items);
 
-    height: 20px;
-    padding: 6px;
+  React.useEffect(() => {}, []);
 
-    color: #fff;
-    margin: 8px 8px;
-  `;
-  const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 30px;
-
-    color: #fff;
-  `;
+  const onFilterTextChange = (text: string) => {
+    setFilterText(text);
+    if (text !== '') {
+      setFilteredArray(
+        items.filter((item) =>
+          item.toUpperCase().startsWith(text.toUpperCase())
+        )
+      );
+    } else {
+      setFilteredArray(items);
+    }
+  };
 
   return (
-    <Card style={{ height: '1000px' }}>
+    <Card>
+      <CardContent>
+      <div className="card-header">
+        <Typography variant="h3" component="div">
+        Activity Feed
+        </Typography>
+        <div className="card-header-action">
+        <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        </div>
+        <Paper
+          component="form"
+          className="card-search-form"
+        >
+          <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M11 4C7.13401 4 4 7.13401 4 11C4 14.866 7.13401 18 11 18C14.866 18 18 14.866 18 11C18 7.13401 14.866 4 11 4ZM2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 15.9706 15.9706 20 11 20C6.02944 20 2 15.9706 2 11Z" fill="#828282"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9433 15.9433C16.3338 15.5528 16.967 15.5528 17.3575 15.9433L21.7075 20.2933C22.098 20.6838 22.098 21.317 21.7075 21.7075C21.317 22.098 20.6838 22.098 20.2933 21.7075L15.9433 17.3575C15.5528 16.967 15.5528 16.3338 15.9433 15.9433Z" fill="#828282"/>
+          </svg>
+          </IconButton>
+          <InputBase
+            sx={{ ml: 1, flex: 1 }}
+            placeholder="Search activity feed"
+            inputProps={{ 'aria-label': 'Search activity feed' }}
+            value={filterText}
+            onChange={(e) => onFilterTextChange(e.target.value)}
+          />
+        </Paper>
+        </div>
       <GridContainer>
-        <Typography
-          style={{ marginLeft: 8, color: '#fff', fontSize: 18 }}
-          noWrap
-        >
-          Activity Feed
-        </Typography>
+      
+        {/* <InputFilter
+          value={filterText}
+          onChange={(e) => onFilterTextChange(e.target.value)}
+        ></InputFilter> */}
 
-        <Typography
-          style={{ marginLeft: 8, color: '#fff', fontSize: 14, marginTop: 10 }}
-          noWrap
-        >
-          21/10/2021
-        </Typography>
-
-        <Row>
-          <SubRow>
-            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              Complete inspection Daily Inspection (7148) - Demo Manager
-            </Typography>
-          </SubRow>
-        </Row>
-        <Row>
-          <SubRow>
-            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              Complete inspection Daily Inspection (7148) - Demo Manager
-            </Typography>
-          </SubRow>
-        </Row>
-        <Row>
-          <SubRow>
-            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              Complete inspection Daily Inspection (7148) - Demo Manager
-            </Typography>
-          </SubRow>
-        </Row>
-        <Row>
-          <SubRow>
-            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              Complete inspection Daily Inspection (7148) - Demo Manager
-            </Typography>
-          </SubRow>
-        </Row>
-        <Row>
-          <SubRow>
-            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              Complete inspection Daily Inspection (7148) - Demo Manager
-            </Typography>
-          </SubRow>
-        </Row>
-        <Row>
-          <SubRow>
-            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              Complete inspection Daily Inspection (7148) - Demo Manager
-            </Typography>
-          </SubRow>
-        </Row>
-        <Row>
-          <SubRow>
-            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              Complete inspection Daily Inspection (7148) - Demo Manager
-            </Typography>
-          </SubRow>
-        </Row>
-        <Row>
-          <SubRow>
-            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              Complete inspection Daily Inspection (7148) - Demo Manager
-            </Typography>
-          </SubRow>
-        </Row>
-        <Row>
-          <SubRow>
-            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              Complete inspection Daily Inspection (7148) - Demo Manager
-            </Typography>
-          </SubRow>
-        </Row>
-        <Row>
-          <SubRow>
-            <Typography style={{ fontSize: 12, color: '#fff' }} noWrap>
-              Complete inspection Daily Inspection (7148) - Demo Manager
-            </Typography>
-          </SubRow>
-        </Row>
+        {filteredArray.map((item, index) => (
+          <Row key={index}>
+            <SubRow>
+            <Typography style={{ fontSize: 14 }}>
+                {item}
+              </Typography>
+            </SubRow>
+            
+          </Row>
+        ))}
       </GridContainer>
+      </CardContent>
     </Card>
   );
 };

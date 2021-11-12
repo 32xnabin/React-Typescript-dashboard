@@ -12,6 +12,7 @@ const DashboardCrypto: React.FC = () => {
           marginTop: '27px',
           paddingRight: '0px',          
           marginBottom: '60px',
+          width:'100%'
         }}
       >
         <Grid
@@ -20,6 +21,7 @@ const DashboardCrypto: React.FC = () => {
           justifyContent="center"
           alignItems="stretch"
           spacing={3}
+          className="dashboard-grid"
         >
           <Grid item xs={12}>
             <WatchList1 />

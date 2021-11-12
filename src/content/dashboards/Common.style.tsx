@@ -70,7 +70,7 @@ export const GridContainer = styled(({ color, ...otherProps }) => (
   padding: 0;
   border: none;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto;
   background-color: #fff;
   margin:0 -16px;
   height:calc(100% - 24px);
