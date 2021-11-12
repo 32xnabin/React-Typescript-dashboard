@@ -1,228 +1,171 @@
-import { Card, Typography } from '@material-ui/core';
-
+import { Card, Typography, CardContent, IconButton } from '@material-ui/core';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { GridContainer } from './Common.style';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 
 const Section4: React.FC = () => {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    height: 30px;
-    padding: 6px;
-    color: #000;
-    margin: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #fff;
+  color: #000;
+  border-top:1px solid #EBEBEB;
+  min-width: 350px;
   `;
   const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 30px;
-    color: #000;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: #fff;
+  color: #3A3A3A;
   `;
 
   return (
     <Card>
-      <GridContainer>
-        <Typography
-          style={{ marginLeft: 8, color: '#000', fontSize: 18 }}
-          noWrap
-        >
-          Management Reports Generated
+      <CardContent>
+      <div className="card-header">
+        <Typography variant="h3" component="div">
+        Latest Work Order Sent
         </Typography>
-        <Row>
+        <div className="card-header-action">
+        <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        </div>
+        </div>
+      <GridContainer>
+        <Row >
           <SubRow>
-            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
-            <Typography
-              style={{
-                marginLeft: 8,
-                color: '#fff',
-                background: '#837e7e',
-                padding: 2,
-                borderRadius: 6,
-                fontSize: 12,
-              }}
-              noWrap
-            >
-              Report Period 01/10/2021 - 31/10/2021
-            </Typography>
+            <FontAwesomeIcon color="#F87D7D" fontSize={8} icon={faFilePdf} />
+            <Typography style={{ fontSize: 14, fontWeight:500, marginLeft: '12px' }}>
+            Rooftop Repairs - WO# 2056-A
+                <Typography style={{ fontSize: 12 }} noWrap>
+                ABC Roofing 
+              </Typography>
+              </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
-            Created: 21/10/2021
+          <Typography style={{ fontSize: 12 }} noWrap>
+          Sent 27/04/21
           </Typography>
         </Row>
         <Row>
           <SubRow>
-            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
-            <Typography
-              style={{
-                marginLeft: 8,
-                color: '#fff',
-                background: '#837e7e',
-                padding: 2,
-                borderRadius: 6,
-                fontSize: 12,
-              }}
-              noWrap
-            >
-              Report Period 01/10/2021 - 31/10/2021
-            </Typography>
+            <FontAwesomeIcon color="#F87D7D" fontSize={8} icon={faFilePdf} />
+            <Typography style={{ fontSize: 14, fontWeight:500, marginLeft: '12px' }}>
+            Rooftop Repairs - WO# 2056-A
+                <Typography style={{ fontSize: 12 }} noWrap>
+                ABC Roofing 
+              </Typography>
+              </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
-            Created: 21/10/2021
+          <Typography style={{ fontSize: 12 }} noWrap>
+          Sent 27/04/21
           </Typography>
         </Row>
         <Row>
           <SubRow>
-            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
-            <Typography
-              style={{
-                marginLeft: 8,
-                color: '#fff',
-                background: '#837e7e',
-                padding: 2,
-                borderRadius: 6,
-                fontSize: 12,
-              }}
-              noWrap
-            >
-              Report Period 01/10/2021 - 31/10/2021
-            </Typography>
+            <FontAwesomeIcon color="#F87D7D" fontSize={8} icon={faFilePdf} />
+            <Typography style={{ fontSize: 14, fontWeight:500, marginLeft: '12px' }}>
+            Rooftop Repairs - WO# 2056-A
+                <Typography style={{ fontSize: 12 }} noWrap>
+                ABC Roofing 
+              </Typography>
+              </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
-            Created: 21/10/2021
+          <Typography style={{ fontSize: 12 }} noWrap>
+          Sent 27/04/21
           </Typography>
         </Row>
         <Row>
           <SubRow>
-            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
-            <Typography
-              style={{
-                marginLeft: 8,
-                color: '#fff',
-                background: '#837e7e',
-                padding: 2,
-                borderRadius: 6,
-                fontSize: 12,
-              }}
-              noWrap
-            >
-              Report Period 01/10/2021 - 31/10/2021
-            </Typography>
+            <FontAwesomeIcon color="#F87D7D" fontSize={8} icon={faFilePdf} />
+            <Typography style={{ fontSize: 14, fontWeight:500, marginLeft: '12px' }}>
+            Rooftop Repairs - WO# 2056-A
+                <Typography style={{ fontSize: 12 }} noWrap>
+                ABC Roofing 
+              </Typography>
+              </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
-            Created: 21/10/2021
+          <Typography style={{ fontSize: 12 }} noWrap>
+          Sent 27/04/21
           </Typography>
         </Row>
         <Row>
           <SubRow>
-            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
-            <Typography
-              style={{
-                marginLeft: 8,
-                color: '#fff',
-                background: '#837e7e',
-                padding: 2,
-                borderRadius: 6,
-                fontSize: 12,
-              }}
-              noWrap
-            >
-              Report Period 01/10/2021 - 31/10/2021
-            </Typography>
+            <FontAwesomeIcon color="#F87D7D" fontSize={8} icon={faFilePdf} />
+            <Typography style={{ fontSize: 14, fontWeight:500, marginLeft: '12px' }}>
+            Rooftop Repairs - WO# 2056-A
+                <Typography style={{ fontSize: 12 }} noWrap>
+                ABC Roofing 
+              </Typography>
+              </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
-            Created: 21/10/2021
+          <Typography style={{ fontSize: 12 }} noWrap>
+          Sent 27/04/21
           </Typography>
         </Row>
         <Row>
           <SubRow>
-            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
-            <Typography
-              style={{
-                marginLeft: 8,
-                color: '#fff',
-                background: '#837e7e',
-                padding: 2,
-                borderRadius: 6,
-                fontSize: 12,
-              }}
-              noWrap
-            >
-              Report Period 01/10/2021 - 31/10/2021
-            </Typography>
+            <FontAwesomeIcon color="#F87D7D" fontSize={8} icon={faFilePdf} />
+            <Typography style={{ fontSize: 14, fontWeight:500, marginLeft: '12px' }}>
+            Rooftop Repairs - WO# 2056-A
+                <Typography style={{ fontSize: 12 }} noWrap>
+                ABC Roofing 
+              </Typography>
+              </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
-            Created: 21/10/2021
+          <Typography style={{ fontSize: 12 }} noWrap>
+          Sent 27/04/21
           </Typography>
         </Row>
         <Row>
           <SubRow>
-            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
-            <Typography
-              style={{
-                marginLeft: 8,
-                color: '#fff',
-                background: '#837e7e',
-                padding: 2,
-                borderRadius: 6,
-                fontSize: 12,
-              }}
-              noWrap
-            >
-              Report Period 01/10/2021 - 31/10/2021
-            </Typography>
+            <FontAwesomeIcon color="#F87D7D" fontSize={8} icon={faFilePdf} />
+            <Typography style={{ fontSize: 14, fontWeight:500, marginLeft: '12px' }}>
+            Rooftop Repairs - WO# 2056-A
+                <Typography style={{ fontSize: 12 }} noWrap>
+                ABC Roofing 
+              </Typography>
+              </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
-            Created: 21/10/2021
+          <Typography style={{ fontSize: 12 }} noWrap>
+          Sent 27/04/21
           </Typography>
         </Row>
         <Row>
           <SubRow>
-            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
-            <Typography
-              style={{
-                marginLeft: 8,
-                color: '#fff',
-                background: '#837e7e',
-                padding: 2,
-                borderRadius: 6,
-                fontSize: 12,
-              }}
-              noWrap
-            >
-              Report Period 01/10/2021 - 31/10/2021
-            </Typography>
+            <FontAwesomeIcon color="#F87D7D" fontSize={8} icon={faFilePdf} />
+            <Typography style={{ fontSize: 14, fontWeight:500, marginLeft: '12px' }}>
+            Rooftop Repairs - WO# 2056-A
+                <Typography style={{ fontSize: 12 }} noWrap>
+                ABC Roofing 
+              </Typography>
+              </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
-            Created: 21/10/2021
+          <Typography style={{ fontSize: 12 }} noWrap>
+          Sent 27/04/21
           </Typography>
         </Row>
         <Row>
           <SubRow>
-            <FontAwesomeIcon color="white" fontSize={8} icon={faWrench} />
-            <Typography
-              style={{
-                marginLeft: 8,
-                color: '#fff',
-                background: '#837e7e',
-                padding: 2,
-                borderRadius: 6,
-                fontSize: 12,
-              }}
-              noWrap
-            >
-              Report Period 01/10/2021 - 31/10/2021
-            </Typography>
+            <FontAwesomeIcon color="#F87D7D" fontSize={8} icon={faFilePdf} />
+            <Typography style={{ fontSize: 14, fontWeight:500, marginLeft: '12px' }}>
+            Rooftop Repairs - WO# 2056-A
+                <Typography style={{ fontSize: 12 }} noWrap>
+                ABC Roofing 
+              </Typography>
+              </Typography>
           </SubRow>
-          <Typography style={{ marginRight: 8, fontSize: 10 }} noWrap>
-            Created: 21/10/2021
+          <Typography style={{ fontSize: 12 }} noWrap>
+          Sent 27/04/21
           </Typography>
         </Row>
       </GridContainer>
+      </CardContent>
     </Card>
   );
 };

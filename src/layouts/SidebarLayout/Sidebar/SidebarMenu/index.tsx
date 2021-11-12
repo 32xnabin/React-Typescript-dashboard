@@ -27,24 +27,27 @@ const SubMenuWrapper = experimentalStyled(List)(
   ({ theme }) => `
     &.MuiList-root {
       padding: 0;
+      margin-top:25px;
 
       .MuiList-root .MuiList-root .MuiListItem-root .MuiButton-root {
         font-weight: normal !important;
       }
 
       .MuiListItem-root {
-        padding: 2px ${theme.spacing(2)};
+        padding: 0;
+        border-top:1px solid rgba(244,244,244, 0.1);
+      };
     
         .MuiButton-root {
           display: flex;
           color: #fff;
-         
+         font-weight:400;
           width: 100%;
           justify-content: flex-start;
           font-size: ${theme.typography.pxToRem(14)};
-          padding-top: ${theme.spacing(0.8)};
-          padding-bottom: ${theme.spacing(0.8)};
+          padding:10px 22px;
           position: relative;
+          border-radius:0px;
 
           .MuiBadge-root {
             position: absolute;

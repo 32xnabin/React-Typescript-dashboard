@@ -1,18 +1,17 @@
 import { Box } from '@material-ui/core';
 import { experimentalStyled } from '@material-ui/core/styles';
-import Image from './sidebarImage.jpg';
+import Image from './Location-image.png';
 
 const LogoWrapper = experimentalStyled(Box)(
   ({ theme }) => `
-  margin: 20px auto;
+  padding: 0px 22px;
 `
 );
 
 function SideBarImage() {
   return (
-    <LogoWrapper>
-      <img
-        style={{ height: '120px', width: 'auto' }}
+    <LogoWrapper className="location-image">
+      <img        
         src={Image}
         alt="sidebar"
       />

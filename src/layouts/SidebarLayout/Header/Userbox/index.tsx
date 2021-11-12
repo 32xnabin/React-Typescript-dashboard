@@ -33,7 +33,7 @@ const UserBoxText = experimentalStyled(Box)(
 
 const UserBoxLabel = experimentalStyled(Typography)(
   ({ theme }) => `
-        font-weight: ${theme.typography.fontWeightBold};
+        font-weight: ${theme.typography.fontWeightRegular};
         color: ${theme.palette.secondary.main};
         display: block;
 `
@@ -81,7 +81,7 @@ function HeaderUserbox() {
             <LockOpenTwoToneIcon sx={{ mr: 1 }} />
             <ListItemText primary="Logout" />
           </ListItem>
-          <ListItem button to="#" component={NavLink}></ListItem>
+          {/* <ListItem button to="#" component={NavLink}></ListItem> */}
         </List>
         <Divider />
       </Popover>

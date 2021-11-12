@@ -20,7 +20,6 @@ export const DropDown = styled.select`
 export const HorDiv = styled(({ visible, ...otherProps }) => (
   <div {...otherProps} />
 ))`
-  height: 50px;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -43,11 +42,10 @@ export const BlueHeader = styled(({ visible, ...otherProps }) => (
   <div {...otherProps} />
 ))`
   background-color: #fff;
-  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 14px 20px;
   margin-bottom: 20px;
   border: 1px solid #eee;
   border-radius: 6px;
@@ -55,8 +53,8 @@ export const BlueHeader = styled(({ visible, ...otherProps }) => (
 
 export const WhiteLabel = styled(Typography)`
   font-size: 30px;
-  color: #000;
-  margin-left: 5px;
+  color: rgba(58, 58, 58, 1);
+  line-height: normal;
 `;
 export const NewButton = styled(Link)`
   color: #fff;
@@ -64,6 +62,7 @@ export const NewButton = styled(Link)`
   padding: 6px 40px;
   border-radius: 6px;
   text-decoration: none;
+  font-size: 16px;
 
   &:hover {
     background: #0087de;

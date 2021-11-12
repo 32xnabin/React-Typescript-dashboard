@@ -2,7 +2,7 @@ import { Grid } from '@material-ui/core';
 
 import Section7 from './Section7';
 import Section8 from './Section8';
-import Section6 from './Section6';
+import Section9 from './Section9';
 
 const WatchList3: React.FC = () => {
   return (
@@ -13,15 +13,16 @@ const WatchList3: React.FC = () => {
         justifyContent="center"
         alignItems="stretch"
         spacing={3}
+        className="dashboard-grid"
       >
-        <Grid item lg={4} xs={12}>
+        <Grid item md={4} xs={12}>
           <Section7 />
         </Grid>
-        <Grid item lg={4} xs={12}>
+        <Grid item md={4} xs={12}>
           <Section8 />
         </Grid>
-        <Grid item lg={4} xs={12}>
-          <Section6 />
+        <Grid item md={4} xs={12}>
+          <Section9 />
         </Grid>
       </Grid>
     </>

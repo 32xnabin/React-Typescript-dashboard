@@ -33,7 +33,8 @@ const SubMenuWrapper = experimentalStyled(List)(
       }
 
       .MuiListItem-root {
-        padding: 2px ${theme.spacing(2)};
+        padding: 0;
+        border-top:1px solid rgba(244,244,244, 0.1);
     
         .MuiButton-root {
           display: flex;
@@ -42,8 +43,7 @@ const SubMenuWrapper = experimentalStyled(List)(
           width: 100%;
           justify-content: flex-start;
           font-size: ${theme.typography.pxToRem(14)};
-          padding-top: ${theme.spacing(0.8)};
-          padding-bottom: ${theme.spacing(0.8)};
+          padding:10px 22px;
           position: relative;
 
           .MuiBadge-root {
@@ -60,6 +60,7 @@ const SubMenuWrapper = experimentalStyled(List)(
           .MuiButton-startIcon,
           .MuiButton-endIcon {
             transition: ${theme.transitions.create(['color'])};
+            margin-right:0px;
 
             .MuiSvgIcon-root {
               font-size: inherit;
@@ -69,7 +70,7 @@ const SubMenuWrapper = experimentalStyled(List)(
 
           .MuiButton-startIcon {
             font-size: ${theme.typography.pxToRem(26)};
-            margin-right: ${theme.spacing(1.5)};
+            margin-right: 0;
             color: #fff;
           }
           

@@ -1,0 +1,32 @@
+.card-calender {
+    * {
+        font-family: $inter;
+    }
+    .react-calendar button .react-calendar__navigation__label {
+        font-weight: 600 !important !important;
+    }
+    .content-holder {
+        
+        height: calc(100% - 50px);
+        @media (min-width:768px) {
+            margin-top: -50px;
+        }
+        .react-calendar {
+            width: 100%;
+            padding:  0 30px;
+        }
+    }
+}
+.react-calendar button {
+    border-radius: 50px;
+    &:hover {
+        background-color: $background-blue;
+    }
+}
+.eLcLUu .react-calendar__tile--now, .react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
+    background-color: $bos-blue !important;
+    border-radius: 50px;
+}
+.react-calendar__month-view__weekdays__weekday abbr {
+    text-decoration: none;
+}
