@@ -63,7 +63,7 @@ export const HeadingLabel1 = styled(Typography)`
 
 export const MainContainer = styled(Box)`
   display: grid;
-  grid-template-columns: 55% 35%;
+  grid-template-columns: 55% 44.5%;
   @media (max-width: 960px) {
     grid-template-columns: auto;
     width: 100%;
@@ -84,7 +84,7 @@ export const FullWidthContainer = styled(Box)`
   margin-bottom: 20px;
   background: #fff;
   overflow-x: auto;
-  width: 90%;
+
   @media (max-width: 960px) {
     width: 100%;
   }
@@ -99,7 +99,7 @@ export const FullWidthContainer1 = styled(Box)`
   border-radius: 6px;
   margin-bottom: 20px;
   overflow: hidden;
-  width: 90%;
+
   @media (max-width: 960px) {
     grid-template-columns: auto;
     width: 100%;
@@ -138,7 +138,7 @@ export const GridContainerHeader1 = styled(Box)`
   background: #fff;
   overflow-x: auto;
   overflow-y: hidden;
-  width: 90%;
+
   @media (max-width: 960px) {
     position: relative;
     top: 10px;
@@ -378,7 +378,6 @@ export const BlueHeader = styled(({ visible, ...otherProps }) => (
   margin-bottom: 20px;
   border-radius: 6px;
 
-  width: 90.5%;
   @media (max-width: 960px) {
     width: 100%;
   }

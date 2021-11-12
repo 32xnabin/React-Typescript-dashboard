@@ -171,7 +171,7 @@ const Edit: FC = () => {
   ];
 
   const mock_apartments = [
-    'Pick Appartments',
+    'Pick Apartments',
     '44',
     '375',
     '77',

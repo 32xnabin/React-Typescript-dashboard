@@ -39,7 +39,7 @@ const Section5: React.FC = () => {
     <Card>
       <CardContent>
       <div className="card-header">
-        <Typography variant="h3" component="div">
+        <Typography fontSize={20} component="div">
         Management Reports Generated
         </Typography>
         <div className="card-header-action">

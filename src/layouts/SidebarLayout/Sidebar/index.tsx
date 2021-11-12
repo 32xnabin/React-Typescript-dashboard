@@ -16,7 +16,7 @@ const SidebarWrapper = experimentalStyled(Box)(
         height: 100%;
         overflow:hidden !important;
         position: fixed;
-        z-index: 2;
+        z-index: 9;
         background-color: #10274b;
         
         @media (min-width: ${theme.breakpoints.values.lg}px) {

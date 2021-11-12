@@ -181,6 +181,13 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
     window.location.reload();
   };
 
+  const getJobArea = (jobArea: string) => {
+    if (jobArea.startsWith('[')) {
+      return JSON.parse(jobArea)[0];
+    }
+    return jobArea;
+  };
+
   return (
     <>
       <Box
@@ -265,9 +272,9 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  variant="h4"
-                  component="h4"
+                  fontSize={14}
                   color="text.primary"
+                  fontWeight="bold"
                   style={{ textTransform: 'none' }}
                   gutterBottom
                   noWrap
@@ -277,8 +284,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  variant="h4"
-                  component="h4"
+                  fontSize={14}
+                  fontWeight="bold"
                   color="text.primary"
                   style={{ textTransform: 'none' }}
                   gutterBottom
@@ -290,8 +297,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
 
               <TableCell>
                 <Typography
-                  variant="h4"
-                  component="h4"
+                  fontSize={14}
+                  fontWeight="bold"
                   style={{ textTransform: 'none' }}
                   color="text.primary"
                   gutterBottom
@@ -302,8 +309,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  variant="h4"
-                  component="h4"
+                  fontSize={14}
+                  fontWeight="bold"
                   style={{ textTransform: 'none' }}
                   color="text.primary"
                   gutterBottom
@@ -314,8 +321,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  variant="h4"
-                  component="h4"
+                  fontSize={14}
+                  fontWeight="bold"
                   color="text.primary"
                   style={{ textTransform: 'none' }}
                   gutterBottom
@@ -326,8 +333,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  variant="h4"
-                  component="h4"
+                  fontSize={14}
+                  fontWeight="bold"
                   color="text.primary"
                   style={{ textTransform: 'none' }}
                   gutterBottom
@@ -338,8 +345,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  variant="h4"
-                  component="h4"
+                  fontSize={14}
+                  fontWeight="bold"
                   color="text.primary"
                   style={{ textTransform: 'none' }}
                   gutterBottom
@@ -350,8 +357,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  variant="h4"
-                  component="h4"
+                  fontSize={14}
+                  fontWeight="bold"
                   color="text.primary"
                   style={{ textTransform: 'none' }}
                   gutterBottom
@@ -362,8 +369,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  variant="h4"
-                  component="h4"
+                  fontSize={14}
+                  fontWeight="bold"
                   style={{ textTransform: 'none' }}
                   color="text.primary"
                   gutterBottom
@@ -375,8 +382,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
 
               <TableCell>
                 <Typography
-                  variant="h4"
-                  component="h4"
+                  fontSize={14}
+                  fontWeight="bold"
                   color="text.primary"
                   style={{ textTransform: 'none' }}
                   gutterBottom
@@ -484,7 +491,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                       gutterBottom
                       noWrap
                     >
-                      {JSON.parse(item.job_area)[0]}
+                      {getJobArea(item.job_area)}
                     </Typography>
                   </TableCell>
                   <TableCell>
@@ -496,7 +503,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                       noWrap
                     >
                       {item.apartment === 'Pick Appartments' ||
-                      item.apartment === ''
+                      item.apartment === 'Pick Apartments' ||
+                      item.apartment === undefined
                         ? '103'
                         : item.apartment}
                     </Typography>

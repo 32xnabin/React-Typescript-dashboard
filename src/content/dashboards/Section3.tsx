@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWrench } from '@fortawesome/free-solid-svg-icons';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Case from '../../components/Case';
 const Section3: React.FC = () => {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
     display: flex;
@@ -13,7 +14,7 @@ const Section3: React.FC = () => {
     padding: 10px 16px;
     background-color: #fff;
     color: #000;
-    border-top:1px solid #EBEBEB;
+    border-top: 1px solid #ebebeb;
     min-width: 350px;
   `;
   const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
@@ -21,223 +22,222 @@ const Section3: React.FC = () => {
     justify-content: start;
     align-items: center;
     background-color: #fff;
-    color: #3A3A3A;
-    
+    color: #3a3a3a;
   `;
 
   return (
     <Card>
       <CardContent>
-      <div className="card-header">
-        <Typography variant="h3" component="div">
-          Items Requiring Action
-        </Typography>
-        <div className="card-header-action">
-        <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
+        <div className="card-header">
+          <Typography variant="h3" component="div">
+            Items Requiring Action
+          </Typography>
+          <div className="card-header-action">
+            <IconButton aria-label="settings">
+              <MoreVertIcon />
+            </IconButton>
+          </div>
         </div>
-        </div>
-      <GridContainer color={'f04547'}>
-        <Row>
-          <SubRow>
-            <FontAwesomeIcon color="#828282" fontSize={16} icon={faWrench} />
-            <Typography style={{ marginLeft: 32 }} noWrap>
-              Overdue cases
+        <GridContainer color={'f04547'}>
+          <Row>
+            <SubRow>
+              <Case fill="#ccc" />
+              <Typography style={{ marginLeft: 32 }} noWrap>
+                Overdue cases
+              </Typography>
+            </SubRow>
+            <Typography
+              style={{
+                marginRight: 0,
+                padding: '7px 10px',
+                color: '#fff',
+                background: '#f04547',
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 'bold',
+              }}
+              noWrap
+            >
+              43
             </Typography>
-          </SubRow>
-          <Typography
-            style={{
-              marginRight: 0,
-              padding: '7px 10px',
-              color: '#fff',
-              background: '#f04547',
-              borderRadius: 8,
-              fontSize: 12,
-              fontWeight:'bold'
-            }}
-            noWrap
-          >
-            43
-          </Typography>
-        </Row>
-        <Row>
-          <SubRow>
-            <FontAwesomeIcon color="#828282" fontSize={8} icon={faWrench} />
-            <Typography style={{ marginLeft: 32 }} noWrap>
-              Overdue cases
+          </Row>
+          <Row>
+            <SubRow>
+              <Case fill="#ccc" />
+              <Typography style={{ marginLeft: 32 }} noWrap>
+                Overdue cases
+              </Typography>
+            </SubRow>
+            <Typography
+              style={{
+                marginRight: 0,
+                padding: '7px 10px',
+                color: '#fff',
+                background: '#f04547',
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 'bold',
+              }}
+              noWrap
+            >
+              32
             </Typography>
-          </SubRow>
-          <Typography
-            style={{
-              marginRight: 0,
-              padding: '7px 10px',
-              color: '#fff',
-              background: '#f04547',
-              borderRadius: 8,
-              fontSize: 12,
-              fontWeight:'bold'
-            }}
-            noWrap
-          >
-            32
-          </Typography>
-        </Row>
-        <Row>
-          <SubRow>
-            <FontAwesomeIcon color="#828282" fontSize={8} icon={faWrench} />
-            <Typography style={{ marginLeft: 32 }} noWrap>
-              Overdue cases
+          </Row>
+          <Row>
+            <SubRow>
+              <Case fill="#ccc" />
+              <Typography style={{ marginLeft: 32 }} noWrap>
+                Overdue cases
+              </Typography>
+            </SubRow>
+            <Typography
+              style={{
+                marginRight: 0,
+                padding: '7px 10px',
+                color: '#fff',
+                background: '#f04547',
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 'bold',
+              }}
+              noWrap
+            >
+              15
             </Typography>
-          </SubRow>
-          <Typography
-            style={{
-              marginRight: 0,
-              padding: '7px 10px',
-              color: '#fff',
-              background: '#f04547',
-              borderRadius: 8,
-              fontSize: 12,
-              fontWeight:'bold'
-            }}
-            noWrap
-          >
-            15
-          </Typography>
-        </Row>
-        <Row>
-          <SubRow>
-            <FontAwesomeIcon color="#828282" fontSize={8} icon={faWrench} />
-            <Typography style={{ marginLeft: 32 }} noWrap>
-              Overdue cases
+          </Row>
+          <Row>
+            <SubRow>
+              <Case fill="#ccc" />
+              <Typography style={{ marginLeft: 32 }} noWrap>
+                Overdue cases
+              </Typography>
+            </SubRow>
+            <Typography
+              style={{
+                marginRight: 0,
+                padding: '7px 10px',
+                color: '#fff',
+                background: '#f04547',
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 'bold',
+              }}
+              noWrap
+            >
+              09
             </Typography>
-          </SubRow>
-          <Typography
-            style={{
-              marginRight: 0,
-              padding: '7px 10px',
-              color: '#fff',
-              background: '#f04547',
-              borderRadius: 8,
-              fontSize: 12,
-              fontWeight:'bold'
-            }}
-            noWrap
-          >
-            09
-          </Typography>
-        </Row>
-        <Row>
-          <SubRow>
-            <FontAwesomeIcon color="#828282" fontSize={8} icon={faWrench} />
-            <Typography style={{ marginLeft: 32 }} noWrap>
-              Overdue cases
+          </Row>
+          <Row>
+            <SubRow>
+              <Case fill="#ccc" />
+              <Typography style={{ marginLeft: 32 }} noWrap>
+                Overdue cases
+              </Typography>
+            </SubRow>
+            <Typography
+              style={{
+                marginRight: 0,
+                padding: '7px 10px',
+                color: '#fff',
+                background: '#f04547',
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 'bold',
+              }}
+              noWrap
+            >
+              70
             </Typography>
-          </SubRow>
-          <Typography
-            style={{
-              marginRight: 0,
-              padding: '7px 10px',
-              color: '#fff',
-              background: '#f04547',
-              borderRadius: 8,
-              fontSize: 12,
-              fontWeight:'bold'
-            }}
-            noWrap
-          >
-            70
-          </Typography>
-        </Row>
-        <Row>
-          <SubRow>
-            <FontAwesomeIcon color="#828282" fontSize={8} icon={faWrench} />
-            <Typography style={{ marginLeft: 32 }} noWrap>
-              Overdue cases
+          </Row>
+          <Row>
+            <SubRow>
+              <Case fill="#ccc" />
+              <Typography style={{ marginLeft: 32 }} noWrap>
+                Overdue cases
+              </Typography>
+            </SubRow>
+            <Typography
+              style={{
+                marginRight: 0,
+                padding: '7px 10px',
+                color: '#fff',
+                background: '#f04547',
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 'bold',
+              }}
+              noWrap
+            >
+              711
             </Typography>
-          </SubRow>
-          <Typography
-            style={{
-              marginRight: 0,
-              padding: '7px 10px',
-              color: '#fff',
-              background: '#f04547',
-              borderRadius: 8,
-              fontSize: 12,
-              fontWeight:'bold'
-            }}
-            noWrap
-          >
-            711
-          </Typography>
-        </Row>
-        <Row>
-          <SubRow>
-            <FontAwesomeIcon color="#828282" fontSize={8} icon={faWrench} />
-            <Typography style={{ marginLeft: 32 }} noWrap>
-              Overdue cases
+          </Row>
+          <Row>
+            <SubRow>
+              <Case fill="#ccc" />
+              <Typography style={{ marginLeft: 32 }} noWrap>
+                Overdue cases
+              </Typography>
+            </SubRow>
+            <Typography
+              style={{
+                marginRight: 0,
+                padding: '7px 10px',
+                color: '#fff',
+                background: '#f04547',
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 'bold',
+              }}
+              noWrap
+            >
+              07
             </Typography>
-          </SubRow>
-          <Typography
-            style={{
-              marginRight: 0,
-              padding: '7px 10px',
-              color: '#fff',
-              background: '#f04547',
-              borderRadius: 8,
-              fontSize: 12,
-              fontWeight:'bold'
-            }}
-            noWrap
-          >
-            07
-          </Typography>
-        </Row>
-        <Row>
-          <SubRow>
-            <FontAwesomeIcon color="#828282" fontSize={8} icon={faWrench} />
-            <Typography style={{ marginLeft: 32 }} noWrap>
-              Overdue cases
+          </Row>
+          <Row>
+            <SubRow>
+              <Case fill="#ccc" />
+              <Typography style={{ marginLeft: 32 }} noWrap>
+                Overdue cases
+              </Typography>
+            </SubRow>
+            <Typography
+              style={{
+                marginRight: 0,
+                padding: '7px 10px',
+                color: '#fff',
+                background: '#f04547',
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 'bold',
+              }}
+              noWrap
+            >
+              22
             </Typography>
-          </SubRow>
-          <Typography
-            style={{
-              marginRight: 0,
-              padding: '7px 10px',
-              color: '#fff',
-              background: '#f04547',
-              borderRadius: 8,
-              fontSize: 12,
-              fontWeight:'bold'
-            }}
-            noWrap
-          >
-            22
-          </Typography>
-        </Row>
-        <Row>
-          <SubRow>
-            <FontAwesomeIcon color="#828282" fontSize={8} icon={faWrench} />
-            <Typography style={{ marginLeft: 32 }} noWrap>
-              Overdue cases
+          </Row>
+          <Row>
+            <SubRow>
+              <FontAwesomeIcon color="#828282" fontSize={5} icon={faWrench} />
+              <Typography style={{ marginLeft: 32 }} noWrap>
+                Overdue cases
+              </Typography>
+            </SubRow>
+            <Typography
+              style={{
+                marginRight: 0,
+                padding: '7px 10px',
+                color: '#fff',
+                background: '#f04547',
+                borderRadius: 8,
+                fontSize: 12,
+                fontWeight: 'bold',
+              }}
+              noWrap
+            >
+              00
             </Typography>
-          </SubRow>
-          <Typography
-            style={{
-              marginRight: 0,
-              padding: '7px 10px',
-              color: '#fff',
-              background: '#f04547',
-              borderRadius: 8,
-              fontSize: 12,
-              fontWeight:'bold'
-            }}
-            noWrap
-          >
-            00
-          </Typography>
-        </Row>
-      </GridContainer>
+          </Row>
+        </GridContainer>
       </CardContent>
     </Card>
   );

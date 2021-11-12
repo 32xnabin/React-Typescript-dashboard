@@ -8,7 +8,7 @@ const HeaderWrapper = experimentalStyled(Box)(
         color: ${theme.header.textColor};
         padding: ${theme.spacing(0, 0)};
         right: 0;
-        z-index: 1;
+        z-index: 8;
         background-color: #fff;
         box-shadow: ${theme.header.boxShadow};
         position: fixed;
