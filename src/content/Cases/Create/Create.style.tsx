@@ -34,10 +34,9 @@ export const InfoLabel = styled(({ bold, visible, ...otherProps }) => (
 `;
 
 export const WhiteLabel = styled(Typography)`
-  font-size: 18px;
-  margin-left: 5px;
-  font-weight: 600;
-  color: #000;
+font-size: 30px;
+color: rgba(58, 58, 58, 1);
+line-height:normal;
 `;
 
 export const HeadingLabel = styled(Typography)`
@@ -306,14 +305,14 @@ export const MainWrapper = styled(({ visible, ...otherProps }) => (
 export const BlueHeader = styled(({ visible, ...otherProps }) => (
   <div {...otherProps} />
 ))`
-  background-color: #fff;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px;
-  margin-bottom: 20px;
-  border-radius: 6px;
+background-color: #fff;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 14px 20px;
+margin-bottom: 20px;
+border: 1px solid #eee;
+border-radius: 6px;
 `;
 
 export const HorDiv = styled(({ visible, ...otherProps }) => (
