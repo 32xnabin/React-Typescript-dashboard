@@ -7,7 +7,6 @@ import { createCase, uploadImage } from '../../../services/cases';
 import SlateEditor from '../../../components/SlateEditor/Editor';
 import { TextareaAutosize } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWrench } from '@fortawesome/free-solid-svg-icons';
 import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
@@ -475,11 +474,6 @@ const Create: FC = () => {
         />
         <BlueHeader>
           <HorDiv>
-            <FontAwesomeIcon
-              color="white"
-              style={{ visibility: 'hidden' }}
-              icon={faWrench}
-            />
             <WhiteLabel>Create Cases</WhiteLabel>
           </HorDiv>
           <HorDiv style={{ visibility: 'hidden' }}>
@@ -633,7 +627,7 @@ const Create: FC = () => {
         </MainContainer>
         <MainContainer>
           <SectionContainer>
-            <InfoLabel>Job Area</InfoLabel>
+            <InfoLabel style={{ marginLeft: '14px' }}>Job Area</InfoLabel>
             <Placeholder />
             <GridContainerCheckBox>
               <Checkbox
@@ -652,7 +646,7 @@ const Create: FC = () => {
               <Checkbox
                 icon={<UncheckedIcon />}
                 checkedIcon={<CheckedIcon />}
-                style={{ width: '30px', height: '30px' }}
+                style={{ width: '30px', height: '30px', marginLeft: '12px' }}
                 color="primary"
                 checked={
                   jobArea.indexOf('common-not-asset') === -1 &&
@@ -665,7 +659,7 @@ const Create: FC = () => {
               <Checkbox
                 icon={<UncheckedIcon />}
                 checkedIcon={<CheckedIcon />}
-                style={{ width: '30px', height: '30px' }}
+                style={{ width: '30px', height: '30px', marginLeft: '12px' }}
                 color="primary"
                 checked={jobArea.indexOf('common-not-asset') !== -1}
                 value="common-not-asset"
@@ -741,7 +735,10 @@ const Create: FC = () => {
         </MainContainer>
         <FullWidthContainer>
           <InfoLabel>Case Title</InfoLabel>
-          <div className="email-search" style={{ position: 'relative', maxWidth:400 }}>
+          <div
+            className="email-search"
+            style={{ position: 'relative', maxWidth: 400 }}
+          >
             <InputFieldSubject
               placeholder={'Email Subject'}
               onChange={(e) => onEmailSubjectChangeText(e)}
@@ -759,7 +756,7 @@ const Create: FC = () => {
                 top: '0',
                 zIndex: 2,
                 textAlign: 'right',
-                opacity:1
+                opacity: 1,
               }}
               ref={ref}
               onClick={handleOpenPop}
@@ -840,7 +837,7 @@ const Create: FC = () => {
               id="add_to_report"
               {...register('add_to_report')}
             />
-            <InfoLabel style={{ marginLeft: 10 }}>
+            <InfoLabel style={{ marginLeft: 10, marginBottom: '10px' }}>
               Add this case to management report?
             </InfoLabel>
             <Checkbox

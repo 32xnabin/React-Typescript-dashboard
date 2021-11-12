@@ -7,7 +7,6 @@ import { getCaseById, uploadImage, updateCase } from '../../../services/cases';
 import SlateEditor from '../../../components/SlateEditor/Editor';
 import { TextareaAutosize } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWrench } from '@fortawesome/free-solid-svg-icons';
 import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
@@ -528,11 +527,6 @@ const Edit: FC = () => {
         />
         <BlueHeader>
           <HorDiv>
-            <FontAwesomeIcon
-              color="white"
-              style={{ visibility: 'hidden' }}
-              icon={faWrench}
-            />
             <WhiteLabel>Edit Case</WhiteLabel>
           </HorDiv>
           <HorDiv style={{ visibility: 'hidden' }}>
@@ -685,13 +679,13 @@ const Edit: FC = () => {
         </MainContainer>
         <MainContainer>
           <SectionContainer>
-            <InfoLabel>Job Area</InfoLabel>
+            <InfoLabel style={{ marginLeft: '14px' }}>Job Area</InfoLabel>
             <Placeholder />
             <GridContainerCheckBox>
               <Checkbox
                 icon={<UncheckedIcon />}
                 checkedIcon={<CheckedIcon />}
-                style={{ width: '30px', height: '30px' }}
+                style={{ width: '30px', height: '30px', marginLeft: '12px' }}
                 color="primary"
                 checked={
                   jobArea.indexOf('common-not-asset') === -1 &&
@@ -704,7 +698,7 @@ const Edit: FC = () => {
               <Checkbox
                 icon={<UncheckedIcon />}
                 checkedIcon={<CheckedIcon />}
-                style={{ width: '30px', height: '30px' }}
+                style={{ width: '30px', height: '30px', marginLeft: '12px' }}
                 color="primary"
                 checked={
                   jobArea.indexOf('common-not-asset') === -1 &&
@@ -944,6 +938,22 @@ const Edit: FC = () => {
             </StyledDiv>
           </ButtonsContainer>
         </FullWidthContainer1>
+        <GridContainerHeader1 style={{ borderBottom: '1px solid #cccc' }}>
+          <HeadingLabel>Activity history</HeadingLabel>
+          <Placeholder />
+        </GridContainerHeader1>
+
+        <FullWidthContainer>
+          <div style={{ display: 'flex', flexDirection: 'row', fontSize: 12 }}>
+            <InfoLabel>28/09/2013 09:57 AM </InfoLabel>
+            <InfoLabel style={{ margin: '0px 6px' }}>|</InfoLabel>
+            <InfoLabel style={{ color: '#4fadea' }}>
+              Shared Management
+            </InfoLabel>
+            <InfoLabel style={{ margin: '0px 6px' }}>|</InfoLabel>
+            <InfoLabel style={{ color: '#4fadea' }}>Removed</InfoLabel>
+          </div>
+        </FullWidthContainer>
       </MainWrapper>
     </div>
   );

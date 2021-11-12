@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {
   Tooltip,
-  Divider,
   Box,
   Table,
   TableBody,

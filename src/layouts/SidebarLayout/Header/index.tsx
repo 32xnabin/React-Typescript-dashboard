@@ -1,7 +1,5 @@
-import { Box, Hidden } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { experimentalStyled } from '@material-ui/core/styles';
-
-import Logo from 'src/components/Logo';
 import HeaderUserbox from './Userbox';
 
 const HeaderWrapper = experimentalStyled(Box)(
@@ -35,7 +33,11 @@ function Header() {
           <Logo />
         </Hidden>
       </Box> */}
-      <Box display="flex" alignItems="center" style={{ marginRight: '37px', marginLeft: 'auto' }}>
+      <Box
+        display="flex"
+        alignItems="center"
+        style={{ marginRight: '37px', marginLeft: 'auto' }}
+      >
         <HeaderUserbox />
       </Box>
     </HeaderWrapper>

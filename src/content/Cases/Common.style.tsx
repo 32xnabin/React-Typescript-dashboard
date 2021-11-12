@@ -26,7 +26,7 @@ export const CreateCaseForm = styled(Box)`
 export const InfoLabel = styled(({ bold, visible, ...otherProps }) => (
   <Typography {...otherProps} />
 ))`
-  font-size: 12px;
+  font-size: 14px;
   text-align: left;
   vertical-align: middle;
   padding: 8px 0px;
@@ -35,15 +35,16 @@ export const InfoLabel = styled(({ bold, visible, ...otherProps }) => (
 `;
 
 export const WhiteLabel = styled(Typography)`
-  font-size: 18px;
-  margin-left: 5px;
-  font-weight: 600;
-  color: #000;
+  font-size: 30px;
+  color: rgba(58, 58, 58, 1);
+  line-height: normal;
+  margin-left: 14px;
 `;
 
 export const HeadingLabel = styled(Typography)`
   font-size: 14px;
   text-align: left;
+  margin-left: 10px;
   width: 100%;
   font-weight: 600;
   color: #000;
@@ -51,6 +52,7 @@ export const HeadingLabel = styled(Typography)`
 
 export const HeadingLabel1 = styled(Typography)`
   font-size: 14px;
+  margin-left: 10px;
   font-weight: bold;
   margin-right: 200px;
   margin-top: 50px;
@@ -61,8 +63,8 @@ export const HeadingLabel1 = styled(Typography)`
 
 export const MainContainer = styled(Box)`
   display: grid;
-  grid-template-columns: 60% 40%;
-  @media (max-width: 1650px) {
+  grid-template-columns: 55% 35%;
+  @media (max-width: 960px) {
     grid-template-columns: auto;
     width: 100%;
   }
@@ -82,7 +84,8 @@ export const FullWidthContainer = styled(Box)`
   margin-bottom: 20px;
   background: #fff;
   overflow-x: auto;
-  @media (max-width: 1650px) {
+  width: 90%;
+  @media (max-width: 960px) {
     width: 100%;
   }
 `;
@@ -93,13 +96,11 @@ export const FullWidthContainer1 = styled(Box)`
 
   padding: 20px;
 
-  border: 1px solid #eee;
-
   border-radius: 6px;
   margin-bottom: 20px;
-  background: #fff;
-  overflow-x: auto;
-  @media (max-width: 1650px) {
+  overflow: hidden;
+  width: 90%;
+  @media (max-width: 960px) {
     grid-template-columns: auto;
     width: 100%;
   }
@@ -120,7 +121,7 @@ export const GridContainerHeader = styled(Box)`
   background: #fff;
   overflow-x: auto;
   overflow-y: hidden;
-  @media (max-width: 1650px) {
+  @media (max-width: 960px) {
     position: relative;
     top: 10px;
   }
@@ -137,7 +138,8 @@ export const GridContainerHeader1 = styled(Box)`
   background: #fff;
   overflow-x: auto;
   overflow-y: hidden;
-  @media (max-width: 1650px) {
+  width: 90%;
+  @media (max-width: 960px) {
     position: relative;
     top: 10px;
     width: 100%;
@@ -154,6 +156,7 @@ export const SectionContainer = styled(Box)`
 export const SingleContainer = styled(Box)`
   display: grid;
   grid-template-columns: auto;
+  padding-left: 8px;
   width: 100%;
 `;
 export const GridContainer = styled(Box)`
@@ -166,7 +169,7 @@ export const GridContainer = styled(Box)`
 
   background: #fff;
 
-  @media (max-width: 1650px) {
+  @media (max-width: 960px) {
     grid-template-columns: auto;
   }
 `;
@@ -175,15 +178,17 @@ export const GridContainer3 = styled(Box)`
   grid-template-columns: auto auto;
   grid-gap: 10px;
   justify-content: space-around;
+  align-items: center;
   padding: 20px 0px;
   background: #fff;
 `;
 export const GridContainerCheckBox = styled(Box)`
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   width: 100%;
   height: 10px;
+  margin-left: 8px;
 `;
 export const GridContainer1 = styled(Box)`
   display: grid;
@@ -200,7 +205,7 @@ export const GridContainerPhoto = styled(Box)`
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 5px;
-  @media (max-width: 1650px) {
+  @media (max-width: 960px) {
     grid-template-columns: auto auto auto;
   }
 `;
@@ -219,9 +224,6 @@ export const ButtonsContainer = styled(Box)`
   flex-direction: row;
   grid-gap: 10px;
   padding: 10px;
-  @media (max-width: 1650px) {
-    flex-direction: column;
-  }
 `;
 
 export const DropDown = styled.select`
@@ -373,10 +375,12 @@ export const BlueHeader = styled(({ visible, ...otherProps }) => (
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
+
   margin-bottom: 20px;
   border-radius: 6px;
-  @media (max-width: 1650px) {
+
+  width: 90.5%;
+  @media (max-width: 960px) {
     width: 100%;
   }
 `;
@@ -434,7 +438,8 @@ height: 30px;
 cursor: ${(props) => (props.disabled ? ' ' : 'pointer')};
 pointer-events: auto;
 opacity:${(props) => (props.disabled ? '0.3' : '1')};
-min-width:150px;
+min-width:100px;
+font-size:12px;
 &:hover {
   background: ${(props) => (props.disabled ? '#4fadea' : '#0087de')};
 }
@@ -445,7 +450,7 @@ display: flex;
 
 margin 6px;
 border:1px solid #4fadea;
-border-radius:6px;
+border-radius:3px;
 
 `;
 

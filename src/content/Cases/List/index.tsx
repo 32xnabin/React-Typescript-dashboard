@@ -9,51 +9,51 @@ import RecentOrders from './Cases';
 function ApplicationsTransactions() {
   return (
     <>
-    <div
+      <div
         style={{
           marginTop: '27px',
-          paddingRight: '0px',          
+          paddingRight: '0px',
           marginBottom: '60px',
-          width:'100%'
+          width: '90%',
         }}
       >
-      <Grid container columns={1}>
-        <Helmet>
-          <title>MYBOS - Cases</title>
-        </Helmet>
-        <div
-          style={{
-            border: 'none',
-            width: '100%',
-            minHeight: '800px',
-          }}
-        >
-          <BlueHeader>
-            <WhiteLabel>Cases</WhiteLabel>
-            <HorDiv>
-              <NewButton to="/bm/cases/create">New Case</NewButton>
-            </HorDiv>
-          </BlueHeader>
-          <Grid
-            direction="row"
-            justifyContent="center"
-            alignItems="stretch"
-            spacing={3}
+        <Grid container columns={1}>
+          <Helmet>
+            <title>MYBOS - Cases</title>
+          </Helmet>
+          <div
+            style={{
+              border: 'none',
+              width: '100%',
+              minHeight: '800px',
+            }}
           >
-            <Grid item xs={12}>
-              <div
-                style={{
-                  border: '1px solid #eee',
-                  borderRadius: '6px',
-                  background: '#fff',
-                }}
-              >
-                <RecentOrders />
-              </div>
+            <BlueHeader>
+              <WhiteLabel>Cases</WhiteLabel>
+              <HorDiv>
+                <NewButton to="/bm/cases/create">New Case</NewButton>
+              </HorDiv>
+            </BlueHeader>
+            <Grid
+              direction="row"
+              justifyContent="center"
+              alignItems="stretch"
+              spacing={3}
+            >
+              <Grid item xs={12}>
+                <div
+                  style={{
+                    border: '1px solid #eee',
+                    borderRadius: '6px',
+                    background: '#fff',
+                  }}
+                >
+                  <RecentOrders />
+                </div>
+              </Grid>
             </Grid>
-          </Grid>
-        </div>
-      </Grid>
+          </div>
+        </Grid>
       </div>
     </>
   );
