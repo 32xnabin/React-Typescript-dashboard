@@ -876,6 +876,7 @@ const Create: FC = () => {
               Cancel
             </StyledDiv>
             <StyledDiv
+              width={'160px'}
               background={'4fadea'}
               color={'fff'}
               disabled={assignedTo.length === 0}
@@ -894,6 +895,17 @@ const Create: FC = () => {
             </StyledDiv>
           </ButtonsContainer>
         </FullWidthContainer1>
+        <FullWidthContainer>
+          <div style={{ display: 'flex', flexDirection: 'row', fontSize: 12 }}>
+            <InfoLabel>28/09/2013 09:57 AM </InfoLabel>
+            <InfoLabel style={{ margin: '0px 6px' }}>|</InfoLabel>
+            <InfoLabel style={{ color: '#4fadea' }}>
+              Shared Management
+            </InfoLabel>
+            <InfoLabel style={{ margin: '0px 6px' }}>|</InfoLabel>
+            <InfoLabel style={{ color: '#4fadea' }}>Removed</InfoLabel>
+          </div>
+        </FullWidthContainer>
       </MainWrapper>
     </div>
   );

@@ -222,8 +222,7 @@ export const ButtonsContainer = styled(Box)`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  grid-gap: 10px;
-  padding: 10px;
+  grid-gap: 4px;
 `;
 
 export const DropDown = styled.select`
@@ -427,7 +426,7 @@ export const StyledDivSmall = styled(
 `;
 
 export const StyledDiv = styled(
-  ({ disabled, color, background, visible, ...otherProps }) => (
+  ({ width, disabled, color, background, visible, ...otherProps }) => (
     <div {...otherProps} />
   )
 )`
@@ -439,7 +438,8 @@ cursor: ${(props) => (props.disabled ? ' ' : 'pointer')};
 pointer-events: auto;
 opacity:${(props) => (props.disabled ? '0.3' : '1')};
 min-width:100px;
-font-size:12px;
+width:${(props) => (props.width ? props.width : '100px')};
+font-size:13px;
 &:hover {
   background: ${(props) => (props.disabled ? '#4fadea' : '#0087de')};
 }
@@ -448,7 +448,7 @@ display: flex;
   justify-content: center;
   align-items: center;
 
-margin 6px;
+margin 4px;
 border:1px solid #4fadea;
 border-radius:3px;
 
