@@ -107,8 +107,8 @@ const Edit: FC = () => {
     const left = 50 + rand();
 
     return {
-      top: `${top}%`,
-      left: `${left}%`,
+      top: `45%`,
+      left: `53%`,
       transform: `translate(-${top}%, -${left}%)`,
     };
   }
@@ -635,7 +635,7 @@ const Edit: FC = () => {
                 margin: '10px',
               }}
             >
-              <div style={{ width: '100px' }} />
+              <div />
               <StyledDiv
                 style={{ width: '150px' }}
                 background={'fff'}

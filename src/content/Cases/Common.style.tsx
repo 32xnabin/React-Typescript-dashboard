@@ -153,10 +153,8 @@ export const GridContainerPhoto = styled(Box)`
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 5px;
-  margin: 5px auto;
   @media (max-width: 1650px) {
-    grid-template-columns: auto auto;
-    margin: auto 5px;
+    grid-template-columns: auto auto auto;
   }
 `;
 export const GridContainer2 = styled(Box)`

@@ -107,8 +107,8 @@ const Create: FC = () => {
     const left = 50 + rand();
 
     return {
-      top: `${top}%`,
-      left: `${left}%`,
+      top: `45%`,
+      left: `53%`,
       transform: `translate(-${top}%, -${left}%)`,
     };
   }
@@ -579,12 +579,13 @@ const Create: FC = () => {
                 width: '95%',
                 padding: 15,
                 display: 'flex',
+                flexWrap: 'wrap',
                 justifyContent: 'space-between',
                 border: '1px dashed #5faee3',
                 margin: '10px',
               }}
             >
-              <div style={{ width: '100px' }} />
+              <div />
               <StyledDiv
                 style={{ width: '150px' }}
                 background={'fff'}
