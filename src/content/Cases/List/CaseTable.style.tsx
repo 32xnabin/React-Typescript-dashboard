@@ -54,18 +54,18 @@ export const BlueHeader = styled(({ visible, ...otherProps }) => (
 `;
 
 export const WhiteLabel = styled(Typography)`
-  font-size: 16px;
+  font-size: 30px;
   color: #000;
   margin-left: 5px;
 `;
 export const NewButton = styled(Link)`
   color: #fff;
-  background: #5faee3;
+  background: #4fadea;
   padding: 6px 40px;
   border-radius: 6px;
   text-decoration: none;
 
   &:hover {
-    color: #000;
+    background: #0087de;
   }
 `;

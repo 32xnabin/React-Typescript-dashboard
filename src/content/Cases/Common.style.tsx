@@ -434,6 +434,9 @@ cursor: ${(props) => (props.disabled ? ' ' : 'pointer')};
 pointer-events: auto;
 opacity:${(props) => (props.disabled ? '0.3' : '1')};
 min-width:150px;
+&:hover {
+  background: ${(props) => (props.disabled ? '#4fadea' : '#0087de')};
+}
 
 display: flex;
   justify-content: center;

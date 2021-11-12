@@ -107,7 +107,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
     },
     {
       id: 'all',
-      name: 'All',
+      name: 'Current Cases',
     },
   ];
 
@@ -198,7 +198,14 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
           display="flex"
           alignItems="center"
           justifyContent="start"
-          style={{ border: 0, boxShadow: 'none' }}
+          style={{
+            border: 0,
+            boxShadow: 'none',
+            padding: 18,
+            position: 'relative',
+            top: '3px',
+            zIndex: 3,
+          }}
         >
           <Select
             style={{ minWidth: 200, height: 30, marginRight: 20 }}
@@ -224,7 +231,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   cursor: 'pointer',
                   height: 30,
                   width: 30,
-                  borderRadius: 10,
+                  borderRadius: 15,
                 }}
               >
                 <FontAwesomeIcon
@@ -243,10 +250,10 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
         setShowDeleteConfirm={setShowDeleteConfirm}
         message={'Delete this case ?'}
       />
-      <Divider />
+
       <TableContainer style={{ border: 0, boxShadow: 'none' }}>
         <Table>
-          <TableHead>
+          <TableHead style={{ background: '#fff !important' }}>
             <TableRow>
               <TableCell padding="checkbox">
                 <Checkbox
@@ -259,10 +266,10 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  fontSize={11}
-                  fontWeight="bold"
-                  variant="body1"
+                  variant="h4"
+                  component="h4"
                   color="text.primary"
+                  style={{ textTransform: 'none' }}
                   gutterBottom
                   noWrap
                 >
@@ -271,10 +278,10 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  fontSize={11}
-                  fontWeight="bold"
-                  variant="body1"
+                  variant="h4"
+                  component="h4"
                   color="text.primary"
+                  style={{ textTransform: 'none' }}
                   gutterBottom
                   noWrap
                 >
@@ -284,9 +291,9 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
 
               <TableCell>
                 <Typography
-                  fontSize={11}
-                  fontWeight="bold"
-                  variant="body1"
+                  variant="h4"
+                  component="h4"
+                  style={{ textTransform: 'none' }}
                   color="text.primary"
                   gutterBottom
                   noWrap
@@ -296,9 +303,9 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  fontSize={11}
-                  fontWeight="bold"
-                  variant="body1"
+                  variant="h4"
+                  component="h4"
+                  style={{ textTransform: 'none' }}
                   color="text.primary"
                   gutterBottom
                   noWrap
@@ -308,9 +315,57 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
               </TableCell>
               <TableCell>
                 <Typography
-                  fontSize={11}
-                  fontWeight="bold"
-                  variant="body1"
+                  variant="h4"
+                  component="h4"
+                  color="text.primary"
+                  style={{ textTransform: 'none' }}
+                  gutterBottom
+                  noWrap
+                >
+                  Assigned contractors
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  variant="h4"
+                  component="h4"
+                  color="text.primary"
+                  style={{ textTransform: 'none' }}
+                  gutterBottom
+                  noWrap
+                >
+                  Priority
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  variant="h4"
+                  component="h4"
+                  color="text.primary"
+                  style={{ textTransform: 'none' }}
+                  gutterBottom
+                  noWrap
+                >
+                  Job area
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  variant="h4"
+                  component="h4"
+                  color="text.primary"
+                  style={{ textTransform: 'none' }}
+                  gutterBottom
+                  noWrap
+                >
+                  Apartments
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  variant="h4"
+                  component="h4"
+                  style={{ textTransform: 'none' }}
                   color="text.primary"
                   gutterBottom
                   noWrap
@@ -318,25 +373,13 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   Status
                 </Typography>
               </TableCell>
-              <TableCell>
-                <Typography
-                  fontSize={11}
-                  fontWeight="bold"
-                  variant="body1"
-                  color="text.primary"
-                  gutterBottom
-                  noWrap
-                >
-                  Assigned Contractors
-                </Typography>
-              </TableCell>
 
               <TableCell>
                 <Typography
-                  fontSize={11}
-                  fontWeight="bold"
-                  variant="body1"
+                  variant="h4"
+                  component="h4"
                   color="text.primary"
+                  style={{ textTransform: 'none' }}
                   gutterBottom
                   noWrap
                 >
@@ -363,7 +406,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
-                      fontSize={12}
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -374,7 +417,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
-                      fontSize={12}
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -388,18 +431,20 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
 
                   <TableCell>
                     <Typography
-                      fontSize={12}
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
                       noWrap
                     >
-                      {item.email_subject}
+                      {item.email_subject === ''
+                        ? 'Maintainable Request'
+                        : item.email_subject}
                     </Typography>
                   </TableCell>
                   <TableCell>
                     <Typography
-                      fontSize={12}
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -410,18 +455,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   </TableCell>
                   <TableCell>
                     <Typography
-                      fontSize={12}
-                      variant="body1"
-                      color="text.primary"
-                      gutterBottom
-                      noWrap
-                    >
-                      {item.status}
-                    </Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography
-                      fontSize={12}
+                      fontSize={14}
                       variant="body1"
                       color="text.primary"
                       gutterBottom
@@ -429,7 +463,54 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                     >
                       {item.assigned_to
                         ? item.assigned_to
-                        : 'Ace hanndy andy,AZ-Electrician,Chummins'}
+                        : 'AZ-Electrician,Chummins'}
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography
+                      fontSize={14}
+                      variant="body1"
+                      color="text.primary"
+                      gutterBottom
+                      noWrap
+                    >
+                      {item.priority}
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography
+                      fontSize={14}
+                      variant="body1"
+                      color="text.primary"
+                      gutterBottom
+                      noWrap
+                    >
+                      {JSON.parse(item.job_area)[0]}
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography
+                      fontSize={14}
+                      variant="body1"
+                      color="text.primary"
+                      gutterBottom
+                      noWrap
+                    >
+                      {item.apartment === 'Pick Appartments' ||
+                      item.apartment === ''
+                        ? '103'
+                        : item.apartment}
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography
+                      fontSize={14}
+                      variant="body1"
+                      color="text.primary"
+                      gutterBottom
+                      noWrap
+                    >
+                      {item.status}
                     </Typography>
                   </TableCell>
 
