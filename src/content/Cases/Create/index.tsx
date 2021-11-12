@@ -741,7 +741,7 @@ const Create: FC = () => {
         </MainContainer>
         <FullWidthContainer>
           <InfoLabel>Case Title</InfoLabel>
-          <div>
+          <div className="email-search" style={{ position: 'relative', maxWidth:400 }}>
             <InputFieldSubject
               placeholder={'Email Subject'}
               onChange={(e) => onEmailSubjectChangeText(e)}
@@ -753,12 +753,13 @@ const Create: FC = () => {
                 borderLeft: 'none',
                 height: 36,
                 borderRadius: 0,
-                width: '300px',
-                position: 'relative',
-                left: '-250px',
-                top: '-1px',
-                zIndex: 1,
+                width: '100%',
+                position: 'absolute',
+                left: '0',
+                top: '0',
+                zIndex: 2,
                 textAlign: 'right',
+                opacity:1
               }}
               ref={ref}
               onClick={handleOpenPop}

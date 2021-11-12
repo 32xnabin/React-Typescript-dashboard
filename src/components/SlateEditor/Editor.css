@@ -28,7 +28,7 @@ button {
   border: 1px solid #ccc !important;
   background: #ffffff;
   width: 100%;
-  min-width: 610px;
+  min-width: 100%;
   min-height: 200px;
   height: fit-content;
 }

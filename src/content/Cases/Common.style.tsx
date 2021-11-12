@@ -64,7 +64,7 @@ export const MainContainer = styled(Box)`
   grid-template-columns: 60% 40%;
   @media (max-width: 1650px) {
     grid-template-columns: auto;
-    width: 98%;
+    width: 100%;
   }
   grid-gap: 10px;
 `;
@@ -74,15 +74,16 @@ export const FullWidthContainer = styled(Box)`
   grid-template-columns: auto;
   grid-gap: 10px;
   justify-content: start;
-  padding: 20px 45px;
+  padding: 20px;
 
   border: 1px solid #eee;
 
   border-radius: 6px;
   margin-bottom: 20px;
   background: #fff;
+  overflow-x: auto;
   @media (max-width: 1650px) {
-    width: 98%;
+    width: 100%;
   }
 `;
 export const FullWidthContainer1 = styled(Box)`
@@ -90,16 +91,17 @@ export const FullWidthContainer1 = styled(Box)`
   grid-template-columns: 50% 50%;
   grid-gap: 10px;
 
-  padding: 20px 45px;
+  padding: 20px;
 
   border: 1px solid #eee;
 
   border-radius: 6px;
   margin-bottom: 20px;
   background: #fff;
+  overflow-x: auto;
   @media (max-width: 1650px) {
     grid-template-columns: auto;
-    width: 98%;
+    width: 100%;
   }
 `;
 
@@ -138,7 +140,7 @@ export const GridContainerHeader1 = styled(Box)`
   @media (max-width: 1650px) {
     position: relative;
     top: 10px;
-    width: 98%;
+    width: 100%;
   }
 `;
 export const SectionContainer = styled(Box)`
@@ -375,7 +377,7 @@ export const BlueHeader = styled(({ visible, ...otherProps }) => (
   margin-bottom: 20px;
   border-radius: 6px;
   @media (max-width: 1650px) {
-    width: 98%;
+    width: 100%;
   }
 `;
 
@@ -398,7 +400,7 @@ export const BlueLine = styled(({ visible, ...otherProps }) => (
   background-color: #ccc;
   height: 1px;
 
-  width: 98%;
+  width: 100%;
 `;
 
 export const StyledDivSmall = styled(

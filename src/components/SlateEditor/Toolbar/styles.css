@@ -5,7 +5,7 @@
   /* box-shadow:  -8px 8px 13px #ededed,
              8px -8px 13px #ffffff; */
   width: 100%;
-  min-width: 610px;
+  min-width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
