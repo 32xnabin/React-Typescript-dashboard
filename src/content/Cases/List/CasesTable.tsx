@@ -182,7 +182,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
   };
 
   const getJobArea = (jobArea: string) => {
-    if (jobArea.startsWith('[')) {
+    if (jobArea && jobArea.startsWith('[')) {
       return JSON.parse(jobArea)[0];
     }
     return jobArea;
