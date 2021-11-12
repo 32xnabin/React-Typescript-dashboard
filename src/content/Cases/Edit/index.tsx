@@ -25,9 +25,11 @@ import {
   SingleContainer,
   SectionContainer,
   GridContainerHeader,
+  GridContainerHeader1,
   GridContainer,
   GridContainerCheckBox,
   FullWidthContainer,
+  FullWidthContainer1,
   GridContainer2,
   GridContainer3,
   FileuploadContainer,
@@ -878,21 +880,10 @@ const Edit: FC = () => {
           ></TextareaAutosize>
         </FullWidthContainer>
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'start',
-            background: '#fff',
-            padding: '10px 40px',
-            borderBottom: '1px solid #ccc',
-            borderRadius: '6px 6px 0 0',
-            position: 'relative',
-            top: '30px',
-          }}
-        >
-          <div>Options</div>
-        </div>
-        <Placeholder />
+        <GridContainerHeader1 style={{ borderBottom: '1px solid #cccc' }}>
+          <HeadingLabel>Options</HeadingLabel>
+          <Placeholder />
+        </GridContainerHeader1>
 
         <FullWidthContainer>
           <GridContainer3>
@@ -919,21 +910,11 @@ const Edit: FC = () => {
             </InfoLabel>
           </GridContainer3>
         </FullWidthContainer>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'start',
-            background: '#fff',
-            padding: '10px 40px',
-            borderBottom: '1px solid #ccc',
-            borderRadius: '6px 6px 0 0',
-            position: 'relative',
-            top: '30px',
-          }}
-        >
-          <div>Activity History</div>
-        </div>
-        <Placeholder />
+        <GridContainerHeader1 style={{ borderBottom: '1px solid #cccc' }}>
+          <HeadingLabel>Activity history</HeadingLabel>
+          <Placeholder />
+        </GridContainerHeader1>
+
         <FullWidthContainer>
           <InfoLabel>Jobs logged by</InfoLabel>
           <InputFieldLoggedBy
@@ -943,20 +924,17 @@ const Edit: FC = () => {
           ></InputFieldLoggedBy>
         </FullWidthContainer>
 
-        <GridContainer>
+        <FullWidthContainer1>
           <div />
           <ButtonsContainer>
             <StyledDiv
-              style={{ maxWidth: '150px' }}
               background={'fff'}
               color={'4fadea'}
               onClick={handleSubmit(onCancel)}
             >
               Cancel
             </StyledDiv>
-
             <StyledDiv
-              style={{ maxWidth: '150px' }}
               background={'4fadea'}
               color={'fff'}
               disabled={assignedTo.length === 0}
@@ -965,7 +943,7 @@ const Edit: FC = () => {
               Save
             </StyledDiv>
           </ButtonsContainer>
-        </GridContainer>
+        </FullWidthContainer1>
       </MainWrapper>
     </div>
   );
