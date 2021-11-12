@@ -577,7 +577,7 @@ const Create: FC = () => {
                 background: '#fff',
                 borderRadius: '6px',
                 width: '95%',
-                padding: 15,
+                padding: 5,
                 display: 'flex',
                 flexWrap: 'wrap',
                 justifyContent: 'space-between',
@@ -603,7 +603,7 @@ const Create: FC = () => {
                     <div
                       style={{
                         height: '100px',
-                        width: '200px',
+                        width: '150px',
                         background: 'no-repeat center',
                         backgroundPosition: 'center',
                         backgroundSize: 'contain',
@@ -890,10 +890,11 @@ const Create: FC = () => {
           ></InputFieldLoggedBy>
         </FullWidthContainer>
 
-        <MainContainer>
+        <GridContainer>
           <div />
           <ButtonsContainer>
             <StyledDiv
+              style={{ maxWidth: '150px' }}
               background={'fff'}
               color={'4fadea'}
               onClick={handleSubmit(onCancel)}
@@ -901,6 +902,7 @@ const Create: FC = () => {
               Cancel
             </StyledDiv>
             <StyledDiv
+              style={{ maxWidth: '150px' }}
               background={'4fadea'}
               color={'fff'}
               disabled={assignedTo.length === 0}
@@ -910,6 +912,7 @@ const Create: FC = () => {
             </StyledDiv>
 
             <StyledDiv
+              style={{ maxWidth: '150px' }}
               background={'4fadea'}
               color={'fff'}
               disabled={assignedTo.length === 0}
@@ -918,7 +921,7 @@ const Create: FC = () => {
               Save
             </StyledDiv>
           </ButtonsContainer>
-        </MainContainer>
+        </GridContainer>
       </MainWrapper>
     </div>
   );

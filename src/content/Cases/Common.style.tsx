@@ -63,6 +63,9 @@ export const HeadingLabel1 = styled(Typography)`
 export const MainContainer = styled(Box)`
   display: grid;
   grid-template-columns: 60% 40%;
+  @media (max-width: 1650px) {
+    grid-template-columns: 97%;
+  }
   grid-gap: 10px;
 `;
 
@@ -158,19 +161,22 @@ export const GridContainerPhoto = styled(Box)`
   }
 `;
 export const GridContainer2 = styled(Box)`
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
+  flex-wrap: wrap;
   grid-gap: 5px;
   margin-left: 5px;
-  max-height: 400px;
-  overflow-x: auto;
+  max-height: 250px;
+  overflow: auto;
 `;
 
 export const ButtonsContainer = styled(Box)`
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 10px;
-  margin: 20px;
+  padding: 10px;
+  @media (max-width: 1650px) {
+    grid-template-columns: auto;
+  }
 `;
 
 export const DropDown = styled.select`

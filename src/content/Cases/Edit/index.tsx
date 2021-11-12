@@ -628,7 +628,7 @@ const Edit: FC = () => {
                 background: '#fff',
                 borderRadius: '6px',
                 width: '95%',
-                padding: 15,
+                padding: 5,
                 display: 'flex',
                 justifyContent: 'space-between',
                 border: '1px dashed #5faee3',
@@ -653,7 +653,7 @@ const Edit: FC = () => {
                     <div
                       style={{
                         height: '100px',
-                        width: '200px',
+                        width: '150px',
                         background: 'no-repeat center',
                         backgroundPosition: 'center',
                         backgroundSize: 'contain',
@@ -943,10 +943,11 @@ const Edit: FC = () => {
           ></InputFieldLoggedBy>
         </FullWidthContainer>
 
-        <MainContainer>
+        <GridContainer>
           <div />
           <ButtonsContainer>
             <StyledDiv
+              style={{ maxWidth: '150px' }}
               background={'fff'}
               color={'4fadea'}
               onClick={handleSubmit(onCancel)}
@@ -955,6 +956,7 @@ const Edit: FC = () => {
             </StyledDiv>
 
             <StyledDiv
+              style={{ maxWidth: '150px' }}
               background={'4fadea'}
               color={'fff'}
               disabled={assignedTo.length === 0}
@@ -963,7 +965,7 @@ const Edit: FC = () => {
               Save
             </StyledDiv>
           </ButtonsContainer>
-        </MainContainer>
+        </GridContainer>
       </MainWrapper>
     </div>
   );
