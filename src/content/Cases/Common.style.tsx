@@ -29,6 +29,7 @@ export const InfoLabel = styled(({ bold, visible, ...otherProps }) => (
   font-size: 12px;
   text-align: left;
   vertical-align: middle;
+  padding: 8px 0px;
   color: #000;
   font-weight: ${(props) => (props.bold ? 'bold' : 'normal')};
 `;
@@ -44,7 +45,7 @@ export const WhiteLabel = styled(Typography)`
 export const HeadingLabel = styled(Typography)`
   font-size: 14px;
   text-align: left;
-  width: 250px;
+  width: 100%;
   font-weight: 600;
   color: #000;
 `;
@@ -86,9 +87,8 @@ export const GridContainerHeader = styled(Box)`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 10px;
-  justify-content: space-around;
-  padding: 10px 0px;
-  margin-right: 20px;
+  justify-content: start;
+  padding: 10px;
   border: 1px solid #eee;
   border-bottom: none;
   border-radius: 6px 6px 0 0;
@@ -96,24 +96,32 @@ export const GridContainerHeader = styled(Box)`
   overflow-x: auto;
   overflow-y: hidden;
 `;
-export const GridContainer = styled(Box)`
-  display: grid;
-  grid-template-columns: auto auto;
-  @media (max-width: 1650px) {
-    grid-template-columns: auto auto;
-  }
-  grid-gap: 10px;
-  justify-content: space-around;
-  padding: 20px 0px;
-  margin-right: 20px;
+export const SectionContainer = styled(Box)`
+  background: #fff;
   border: 1px solid #eee;
   border-top: none;
+  border-radius: 0px 0px 6px 6px;
+  margin-bottom: 10px;
+  padding: 15px 8px;
+`;
+export const SingleContainer = styled(Box)`
+  display: grid;
+  grid-template-columns: auto;
+  width: 100%;
+`;
+export const GridContainer = styled(Box)`
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-gap: 10px;
+  padding: 6px;
+  margin-right: 20px;
   border-radius: 0 0 6px 6px;
-  margin-bottom: 20px;
+
   background: #fff;
-  align-items: top;
-  overflow: auto;
-  overflow-y: hidden;
+
+  @media (max-width: 1650px) {
+    grid-template-columns: auto;
+  }
 `;
 export const GridContainer3 = styled(Box)`
   display: grid;
@@ -127,7 +135,7 @@ export const GridContainerCheckBox = styled(Box)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 250px;
+  width: 100%;
   height: 10px;
 `;
 export const GridContainer1 = styled(Box)`
@@ -164,7 +172,7 @@ export const ButtonsContainer = styled(Box)`
 `;
 
 export const DropDown = styled.select`
-  width: 250px;
+  width: 100%;
   height: 35px;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -190,7 +198,7 @@ export const DropDownLong = styled.select`
 `;
 
 export const Disabled = styled.div`
-  width: 250px;
+  width: 100%;
   height: 35px;
   background-color: #eee;
   border: 1px solid #ccc;
@@ -279,7 +287,7 @@ export const InputFieldSubject = styled(({ visible, ...otherProps }) => (
 export const DateField = styled(({ visible, ...otherProps }) => (
   <input {...otherProps} />
 ))`
-  width: 250px;
+  width: 100%;
   height: 35px !important;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -290,7 +298,7 @@ export const DateField = styled(({ visible, ...otherProps }) => (
 export const Placeholder = styled(({ visible, ...otherProps }) => (
   <TextField variant="outlined" {...otherProps} />
 ))`
-  width: 250px;
+  width: 100%;
   height: 1px !important;
   visibility: hidden;
 `;
@@ -298,7 +306,7 @@ export const Placeholder = styled(({ visible, ...otherProps }) => (
 export const InputWrapper = styled(({ visible, ...otherProps }) => (
   <div {...otherProps} />
 ))`
-  width: 250px;
+  width: 100%;
 `;
 
 export const MainWrapper = styled(({ visible, ...otherProps }) => (

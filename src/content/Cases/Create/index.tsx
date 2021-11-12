@@ -23,6 +23,8 @@ import {
   Placeholder,
   MainContainer,
   GridContainerHeader,
+  SectionContainer,
+  SingleContainer,
   GridContainer,
   GridContainerCheckBox,
   FullWidthContainer,
@@ -43,7 +45,7 @@ import {
   Disabled,
   GridContainerPhoto,
   HeadingLabel,
-} from './Create.style';
+} from '../Common.style';
 import { makeStyles } from '@material-ui/styles';
 import { Modal } from '@material-ui/core';
 import Button from '@mui/material/Button';
@@ -496,48 +498,64 @@ const Create: FC = () => {
         </MainContainer>
 
         <MainContainer>
-          <GridContainer>
-            <InfoLabel>Case number</InfoLabel>
-            <InfoLabel>Case Type</InfoLabel>
+          <SectionContainer>
+            <GridContainer>
+              <SingleContainer>
+                <InfoLabel>Case number</InfoLabel>
+                <Disabled>{casenum}</Disabled>
+              </SingleContainer>
+              <SingleContainer>
+                <InfoLabel>Case Type</InfoLabel>
+                <DropDown id="case_type" {...register('case_type')}>
+                  {mock_case_types.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </DropDown>
+              </SingleContainer>
+            </GridContainer>
+            <GridContainer>
+              <SingleContainer>
+                <InfoLabel>Added</InfoLabel>
+                <DateField
+                  value={addedDate}
+                  onChange={(e) => onAddedDateChange(e.target.value)}
+                  id="added_date"
+                  type="date"
+                />
+              </SingleContainer>
+              <SingleContainer>
+                <InfoLabel>Due Date</InfoLabel>
 
-            <Disabled>{casenum}</Disabled>
-            <DropDown id="case_type" {...register('case_type')}>
-              {mock_case_types.map((option) => (
-                <option key={option}>{option}</option>
-              ))}
-            </DropDown>
+                <DateField
+                  value={dueDate}
+                  onChange={(e) => onDueDateChange(e.target.value)}
+                  id="due_date"
+                  type="date"
+                />
+              </SingleContainer>
+            </GridContainer>
+            <GridContainer>
+              <SingleContainer>
+                <InfoLabel>Priority</InfoLabel>{' '}
+                <DropDown id="priority" {...register('priority')}>
+                  {mock_priority.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </DropDown>
+              </SingleContainer>
+            </GridContainer>
+            <GridContainer>
+              <SingleContainer>
+                <InfoLabel>Status</InfoLabel>
 
-            <InfoLabel>Added</InfoLabel>
-
-            <InfoLabel>Due Date</InfoLabel>
-            <DateField
-              value={addedDate}
-              onChange={(e) => onAddedDateChange(e.target.value)}
-              id="added_date"
-              type="date"
-            />
-
-            <DateField
-              value={dueDate}
-              onChange={(e) => onDueDateChange(e.target.value)}
-              id="due_date"
-              type="date"
-            />
-
-            <InfoLabel>Priority</InfoLabel>
-
-            <InfoLabel>Status</InfoLabel>
-            <DropDown id="priority" {...register('priority')}>
-              {mock_priority.map((option) => (
-                <option key={option}>{option}</option>
-              ))}
-            </DropDown>
-            <DropDown id="status" {...register('status')}>
-              {mock_status.map((option) => (
-                <option key={option}>{option}</option>
-              ))}
-            </DropDown>
-          </GridContainer>
+                <DropDown id="status" {...register('status')}>
+                  {mock_status.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </DropDown>
+              </SingleContainer>
+            </GridContainer>
+          </SectionContainer>
 
           <FileuploadContainer>
             <Modal onClose={handleClose} open={openModal}>
@@ -613,7 +631,7 @@ const Create: FC = () => {
           <div></div>
         </MainContainer>
         <MainContainer>
-          <GridContainer style={{ paddingBottom: '200px', zIndex: 6 }}>
+          <SectionContainer>
             <InfoLabel>Job Area</InfoLabel>
             <Placeholder />
             <GridContainerCheckBox>
@@ -655,59 +673,70 @@ const Create: FC = () => {
               <InfoLabel style={{ marginBottom: '6px' }}>N/A</InfoLabel>
             </GridContainerCheckBox>
             <div />
-            {jobArea.indexOf('private lot') !== -1 && (
-              <>
-                <InfoLabel>Apartment</InfoLabel>
-                <Placeholder />
-                <DropDown id="apartment" {...register('apartment')}>
-                  {mock_apartments.map((option) => (
-                    <option key={option}>{option}</option>
-                  ))}
-                </DropDown>
-                <Placeholder />
-                <Placeholder />
-                <Placeholder />
-              </>
-            )}
 
-            {jobArea.indexOf('common-not-asset') === -1 && (
-              <>
-                <InfoLabel>Category</InfoLabel>
+            <GridContainer>
+              <SingleContainer>
+                {jobArea.indexOf('private lot') !== -1 && (
+                  <>
+                    <InfoLabel>Apartment</InfoLabel>
 
-                <InfoLabel>Asset</InfoLabel>
-                <DropDown id="category" {...register('category')}>
-                  {mock_category.map((option) => (
-                    <option key={option}>{option}</option>
-                  ))}
-                </DropDown>
-
-                <InputWrapper style={{ zIndex: 6 }}>
+                    <DropDown id="apartment" {...register('apartment')}>
+                      {mock_apartments.map((option) => (
+                        <option key={option}>{option}</option>
+                      ))}
+                    </DropDown>
+                  </>
+                )}
+              </SingleContainer>
+            </GridContainer>
+            <GridContainer>
+              {jobArea.indexOf('common-not-asset') === -1 && (
+                <>
+                  <SingleContainer>
+                    <InfoLabel>Category</InfoLabel>
+                    <DropDown id="category" {...register('category')}>
+                      {mock_category.map((option) => (
+                        <option key={option}>{option}</option>
+                      ))}
+                    </DropDown>
+                  </SingleContainer>
+                  <SingleContainer>
+                    <InfoLabel>Asset</InfoLabel>
+                    <InputWrapper style={{ zIndex: 6 }}>
+                      <Select
+                        isMulti
+                        onChange={onAssetChange}
+                        options={mock_assets}
+                      />
+                    </InputWrapper>
+                  </SingleContainer>
+                </>
+              )}
+            </GridContainer>
+            <GridContainer>
+              <SingleContainer>
+                <InfoLabel>Assigned To</InfoLabel>
+                <InputWrapper style={{ zIndex: 4 }}>
                   <Select
                     isMulti
-                    onChange={onAssetChange}
-                    options={mock_assets}
+                    onChange={onAssignedChange}
+                    options={mock_assigned_to}
                   />
                 </InputWrapper>
-              </>
-            )}
-            <InfoLabel>Assigned To</InfoLabel>
-            <InfoLabel>Contacts</InfoLabel>
+              </SingleContainer>
 
-            <InputWrapper style={{ zIndex: 3 }}>
-              <Select
-                isMulti
-                onChange={onAssignedChange}
-                options={mock_assigned_to}
-              />
-            </InputWrapper>
-            <InputWrapper style={{ zIndex: 3 }}>
-              <Select
-                isMulti
-                onChange={onContactChange}
-                options={mock_contacts}
-              />
-            </InputWrapper>
-          </GridContainer>
+              <SingleContainer>
+                <InfoLabel>Contacts</InfoLabel>
+                <InputWrapper style={{ zIndex: 3 }}>
+                  <Select
+                    isMulti
+                    onChange={onContactChange}
+                    options={mock_contacts}
+                  />
+                </InputWrapper>
+              </SingleContainer>
+            </GridContainer>
+          </SectionContainer>
         </MainContainer>
         <FullWidthContainer>
           <InfoLabel>Case Title</InfoLabel>
