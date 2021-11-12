@@ -1,0 +1,42 @@
+@import './calender';
+@import './cardGraph';
+.MuiCard-root {
+    height: 100%;
+    .MuiCardContent-root {
+        height: 100%;
+    }
+}
+.card-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 5px;
+    .MuiTypography-root {
+        color: $nav-blue;
+        font-size: 16px !important;
+        font-weight: 400;
+        @media (min-width:768px) {
+            font-size: 20px !important;
+        }
+    }
+    &-action {
+        margin-left: auto;
+        select {
+            border: none;
+            outline: none;
+            font-family: $rubik;
+            color: #606060;
+            font-size: 14px;
+        }
+    }
+    .card-search-form {
+        width: 100%;
+        box-shadow: none;
+        border: 1px solid #E0E0E0;
+        display: flex;
+        align-items: center;
+        .MuiButtonBase-root {
+            padding: 6px 10px;
+        }
+    }
+}

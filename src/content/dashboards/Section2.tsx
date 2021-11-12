@@ -1,11 +1,12 @@
 import React from 'react';
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
-import { Card, Typography, Box } from '@material-ui/core';
+import { Card, Typography, Box, CardContent, IconButton } from '@material-ui/core';
 import DonutChart from 'react-donut-chart';
 import { Myboscase } from '../../types';
 import { getAllCases } from '../../services/cases';
 import { Holder } from './Common.style';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const Section2: React.FC = () => {
   let navigate = useNavigate();
@@ -124,19 +125,13 @@ const Section2: React.FC = () => {
   ];
 
   return (
-    <Card style={{ padding: 10, height: '400px' }}>
-      <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Typography
-          style={{
-            marginLeft: 8,
-            color: '#45a7c1',
-            fontSize: 18,
-          }}
-          noWrap
-        >
+    <Card className="card-graph">
+      <CardContent>
+        <div className="card-header">
+        <Typography variant="h3" component="div">
           Cases graph
         </Typography>
-
+        <div className="card-header-action">
         <select
           id="duration"
           name="duration"
@@ -150,13 +145,18 @@ const Section2: React.FC = () => {
             )
           )}
         </select>
-      </Box>
-      <Box display="flex" alignItems="center" justifyContent="center">
+        <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        </div>
+        </div>
+        <Box display="flex" alignItems="center" justifyContent="center">
         <Holder
           style={{
-            width: '300px',
-            height: '300px',
+            width: '265px',
+            height: '265px',
           }}
+          className="grap-chart-holder"
         >
           <DonutChart
             legend={false}
@@ -168,6 +168,8 @@ const Section2: React.FC = () => {
           />
         </Holder>
       </Box>
+      </CardContent>
+      
     </Card>
   );
 };

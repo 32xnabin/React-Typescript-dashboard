@@ -12,7 +12,6 @@ const SidebarWrapper = experimentalStyled(Box)(
   ({ theme }) => `
         width: ${theme.sidebar.width};
         color: ${theme.sidebar.textColor};
-        border: 1px solid #000;
         background: ${theme.sidebar.background};
         height: 100%;
         overflow:hidden !important;
@@ -29,21 +28,17 @@ const TopSection = experimentalStyled(Box)(
   ({ theme }) => `
         display: flex;
         flex-direction:column;
-        height: 130px;
-        align-items: top;
-        padding: 5px;
-        margin-bottom:100px;
-        
+        align-items: top;     
        
 `
 );
 
 function Sidebar() {
   return (
-    <SidebarWrapper>
+    <SidebarWrapper className="main-sidebar">
       <Scrollbars autoHide>
         <TopSection>
-          <Box display="flex" alignItems="center">
+          <Box display="flex" alignItems="center" className="logo-wrapper">
             <Logo />
           </Box>
           <SidebarImage />

@@ -8,7 +8,7 @@ const HeaderWrapper = experimentalStyled(Box)(
   ({ theme }) => `
         height: ${theme.header.height};
         color: ${theme.header.textColor};
-        padding: ${theme.spacing(0, 2)};
+        padding: ${theme.spacing(0, 0)};
         right: 0;
         z-index: 1;
         background-color: #fff;
@@ -26,7 +26,7 @@ function Header() {
       justifyContent="space-between"
       alignItems="center"
     >
-      <Box
+      {/* <Box
         display="flex"
         alignItems="center"
         style={{ marginLeft: '100px', height: '95px' }}
@@ -34,8 +34,8 @@ function Header() {
         <Hidden lgUp>
           <Logo />
         </Hidden>
-      </Box>
-      <Box display="flex" alignItems="center" style={{ marginRight: '100px' }}>
+      </Box> */}
+      <Box display="flex" alignItems="center" style={{ marginRight: '37px', marginLeft: 'auto' }}>
         <HeaderUserbox />
       </Box>
     </HeaderWrapper>

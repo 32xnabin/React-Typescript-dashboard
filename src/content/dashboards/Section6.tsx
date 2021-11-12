@@ -1,5 +1,5 @@
-import { Card, Typography } from '@material-ui/core';
-
+import { Card, Typography, CardContent, IconButton } from '@material-ui/core';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { GridContainer } from './Common.style';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,38 +7,36 @@ import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 
 const Section6: React.FC = () => {
   const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
-    display: flex;
-    width: 100%;
-    height: 40px;
-    justify-content: space-between;
-    align-items: center;
-    height: 40px;
-    padding: 6px;
-    color: #fff;
-    margin: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #fff;
+  color: #000;
+  border-top:1px solid #EBEBEB;
   `;
   const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 40px;
-    color: #fff;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: #fff;
+  color: #3A3A3A;
   `;
 
   return (
-    <Card style={{ padding: 10, height: '400px' }}>
-      <GridContainer>
-        <Typography
-          style={{
-            marginLeft: 8,
-            marginBottom: 10,
-            color: '#000',
-            fontSize: 16,
-          }}
-          noWrap
-        >
-          Building Summary
+    <Card>
+      <CardContent>
+      <div className="card-header">
+        <Typography variant="h3" component="div">
+        Management Reports Generated
         </Typography>
+        <div className="card-header-action">
+        <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        </div>
+        </div>
+      <GridContainer>
         <Row>
           <SubRow>
             <FontAwesomeIcon
@@ -53,7 +51,7 @@ const Section6: React.FC = () => {
               icon={faFilePdf}
             />
             <Typography
-              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              style={{ marginLeft: 32 }}
               noWrap
             >
               WO#2514-A
@@ -61,12 +59,13 @@ const Section6: React.FC = () => {
           </SubRow>
           <Typography
             style={{
-              marginRight: 8,
-              padding: 6,
+              marginRight: 0,
+              padding: '7px 10px',
               color: '#fff',
-              background: '#45c67b',
+              background: '#39C67B',
               borderRadius: 8,
-              fontSize: 10,
+              fontSize: 12,
+              fontWeight:'bold'
             }}
             noWrap
           >
@@ -87,7 +86,7 @@ const Section6: React.FC = () => {
               icon={faFilePdf}
             />
             <Typography
-              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              style={{ marginLeft: 32 }}
               noWrap
             >
               WO#2514-A
@@ -95,12 +94,13 @@ const Section6: React.FC = () => {
           </SubRow>
           <Typography
             style={{
-              marginRight: 8,
-              padding: 6,
+              marginRight: 0,
+              padding: '7px 10px',
               color: '#fff',
-              background: '#45c67b',
+              background: '#39C67B',
               borderRadius: 8,
-              fontSize: 10,
+              fontSize: 12,
+              fontWeight:'bold'
             }}
             noWrap
           >
@@ -121,7 +121,7 @@ const Section6: React.FC = () => {
               icon={faFilePdf}
             />
             <Typography
-              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              style={{ marginLeft: 32 }}
               noWrap
             >
               WO#2514-A
@@ -129,12 +129,13 @@ const Section6: React.FC = () => {
           </SubRow>
           <Typography
             style={{
-              marginRight: 8,
-              padding: 6,
+              marginRight: 0,
+              padding: '7px 10px',
               color: '#fff',
-              background: '#45c67b',
+              background: '#39C67B',
               borderRadius: 8,
-              fontSize: 10,
+              fontSize: 12,
+              fontWeight:'bold'
             }}
             noWrap
           >
@@ -155,7 +156,7 @@ const Section6: React.FC = () => {
               icon={faFilePdf}
             />
             <Typography
-              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              style={{ marginLeft: 32 }}
               noWrap
             >
               WO#2514-A
@@ -163,12 +164,13 @@ const Section6: React.FC = () => {
           </SubRow>
           <Typography
             style={{
-              marginRight: 8,
-              padding: 6,
+              marginRight: 0,
+              padding: '7px 10px',
               color: '#fff',
-              background: '#45c67b',
+              background: '#39C67B',
               borderRadius: 8,
-              fontSize: 10,
+              fontSize: 12,
+              fontWeight:'bold'
             }}
             noWrap
           >
@@ -190,9 +192,7 @@ const Section6: React.FC = () => {
             />
             <Typography
               style={{
-                marginLeft: 8,
-                color: '#000',
-                fontSize: 12,
+                marginLeft: 32
               }}
               noWrap
             >
@@ -201,12 +201,13 @@ const Section6: React.FC = () => {
           </SubRow>
           <Typography
             style={{
-              marginRight: 8,
-              padding: 6,
+              marginRight: 0,
+              padding: '7px 10px',
               color: '#fff',
-              background: '#45c67b',
+              background: '#39C67B',
               borderRadius: 8,
-              fontSize: 10,
+              fontSize: 12,
+              fontWeight:'bold'
             }}
             noWrap
           >
@@ -227,7 +228,7 @@ const Section6: React.FC = () => {
               icon={faFilePdf}
             />
             <Typography
-              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              style={{ marginLeft: 32 }}
               noWrap
             >
               WO#2514-A
@@ -235,12 +236,13 @@ const Section6: React.FC = () => {
           </SubRow>
           <Typography
             style={{
-              marginRight: 8,
-              padding: 6,
+              marginRight: 0,
+              padding: '7px 10px',
               color: '#fff',
-              background: '#45c67b',
+              background: '#39C67B',
               borderRadius: 8,
-              fontSize: 10,
+              fontSize: 12,
+              fontWeight:'bold'
             }}
             noWrap
           >
@@ -261,7 +263,7 @@ const Section6: React.FC = () => {
               icon={faFilePdf}
             />
             <Typography
-              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              style={{ marginLeft: 32 }}
               noWrap
             >
               WO#2514-A
@@ -269,12 +271,13 @@ const Section6: React.FC = () => {
           </SubRow>
           <Typography
             style={{
-              marginRight: 8,
-              padding: 6,
+              marginRight: 0,
+              padding: '7px 10px',
               color: '#fff',
-              background: '#45c67b',
+              background: '#39C67B',
               borderRadius: 8,
-              fontSize: 10,
+              fontSize: 12,
+              fontWeight:'bold'
             }}
             noWrap
           >
@@ -295,7 +298,7 @@ const Section6: React.FC = () => {
               icon={faFilePdf}
             />
             <Typography
-              style={{ marginLeft: 8, color: '#000', fontSize: 12 }}
+              style={{ marginLeft: 32 }}
               noWrap
             >
               WO#2514-A
@@ -303,12 +306,13 @@ const Section6: React.FC = () => {
           </SubRow>
           <Typography
             style={{
-              marginRight: 8,
-              padding: 6,
+              marginRight: 0,
+              padding: '7px 10px',
               color: '#fff',
-              background: '#45c67b',
+              background: '#39C67B',
               borderRadius: 8,
-              fontSize: 10,
+              fontSize: 12,
+              fontWeight:'bold'
             }}
             noWrap
           >
@@ -316,6 +320,7 @@ const Section6: React.FC = () => {
           </Typography>
         </Row>
       </GridContainer>
+      </CardContent>
     </Card>
   );
 };

@@ -6,9 +6,8 @@ import SidebarMenu from './SidebarMenu';
 
 const SidebarWrapper = experimentalStyled(Box)(
   ({ theme }) => `
-        width:100px;
+        width:66px;
         color: ${theme.sidebar.textColor};
-        border: 1px solid #000;
         background: ${theme.sidebar.background};
         height: 100%;
         overflow:hidden;

@@ -25,10 +25,9 @@ const MainContent = experimentalStyled(Box)(
   ({ theme }) => `
        
        display:flex;
-       width:100%;
        background:#ebeff3;
-       margin-left:300px;
-       margin-top:88px;
+       margin-left:318px;
+       margin-top:66px;
         
 `
 );
@@ -37,10 +36,15 @@ const MainContentSmall = experimentalStyled(Box)(
   ({ theme }) => `
        
        display:flex;
-       width:100%;
        background:#ebeff3;
-       margin-left:100px;
-       margin-top:88px;
+       padding: 0 20px 0 86px;
+       width:100%;
+      box-sizing: border-box;
+       margin-top:66px;
+       > div {
+        width:100%;
+
+       }
         
 `
 );

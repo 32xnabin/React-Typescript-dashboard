@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Typography, Checkbox } from '@material-ui/core';
-
+import { Card, Typography, Checkbox, CardContent, IconButton } from '@material-ui/core';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { GridContainer } from './Common.style';
 import styled from 'styled-components';
 import CheckedIcon from '../../components/ThinSquare/CheckedIcon';

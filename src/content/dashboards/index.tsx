@@ -9,9 +9,9 @@ const DashboardCrypto: React.FC = () => {
     <>
       <div
         style={{
-          marginTop: '20px',
-          width: '98%',
-          marginBottom: '20px',
+          marginTop: '27px',
+          paddingRight: '0px',          
+          marginBottom: '60px',
         }}
       >
         <Grid

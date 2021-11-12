@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card } from '@material-ui/core';
-
+import { Card, CardHeader, IconButton  } from '@material-ui/core';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Holder, ReactCalender } from './Common.style';
 
 const Section1: React.FC = () => {
@@ -10,8 +10,15 @@ const Section1: React.FC = () => {
   };
 
   return (
-    <Card style={{ height: '400px' }}>
-      <Holder background={'45a7c1'}>
+    <Card className="card-calender">
+      <CardHeader
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+      />
+      <Holder className="content-holder">
         <ReactCalender onChange={onChange} value={value} />
       </Holder>
     </Card>

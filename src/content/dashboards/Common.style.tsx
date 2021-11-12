@@ -27,7 +27,6 @@ export const Holder = styled(({ background, color, ...otherProps }) => (
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
   width: 100%;
   background-color: #fff;
 `;
@@ -68,12 +67,15 @@ export const ReactCalender = styled(({ color, ...otherProps }) => (
 export const GridContainer = styled(({ color, ...otherProps }) => (
   <div {...otherProps} />
 ))`
-  padding: 8px;
-  height: 360px;
-  width: 100%;
+  padding: 0;
   border: none;
   overflow-y: auto;
   overflow-x: hidden;
   background-color: #fff;
-  margin-bottom: 10px;
+  margin:0 -16px;
+  height:calc(100% - 24px);
+  .svg-inline--fa {
+        font-size: 24px !important;
+        maring-right:24px;
+    }
 `;

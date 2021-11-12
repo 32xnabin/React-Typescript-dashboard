@@ -1,8 +1,11 @@
 import React from 'react';
-import { Card, Typography } from '@material-ui/core';
-
+import { Card, Typography, CardContent, IconButton } from '@material-ui/core';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { GridContainer } from './Common.style';
 import styled from 'styled-components';
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
 const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
   width: 100%;
 
@@ -56,18 +59,42 @@ const Section7: React.FC = () => {
   };
 
   return (
-    <Card style={{ padding: 10, height: '400px', paddingBottom: '10px' }}>
-      <GridContainer>
-        <Typography
-          style={{ marginLeft: 8, color: '#000', fontSize: 14 }}
-          noWrap
-        >
-          Notes
+    <Card>
+      <CardContent>
+      <div className="card-header">
+        <Typography variant="h3" component="div">
+        Notes
         </Typography>
-        <InputFilter
+        <div className="card-header-action">
+        <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        </div>
+        <Paper
+          component="form"
+          className="card-search-form"
+        >
+          <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M11 4C7.13401 4 4 7.13401 4 11C4 14.866 7.13401 18 11 18C14.866 18 18 14.866 18 11C18 7.13401 14.866 4 11 4ZM2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 15.9706 15.9706 20 11 20C6.02944 20 2 15.9706 2 11Z" fill="#828282"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9433 15.9433C16.3338 15.5528 16.967 15.5528 17.3575 15.9433L21.7075 20.2933C22.098 20.6838 22.098 21.317 21.7075 21.7075C21.317 22.098 20.6838 22.098 20.2933 21.7075L15.9433 17.3575C15.5528 16.967 15.5528 16.3338 15.9433 15.9433Z" fill="#828282"/>
+          </svg>
+          </IconButton>
+          <InputBase
+            sx={{ ml: 1, flex: 1 }}
+            placeholder="Search notes"
+            inputProps={{ 'aria-label': 'Search notes' }}
+            value={filterText}
+            onChange={(e) => onFilterTextChange(e.target.value)}
+          />
+        </Paper>
+        </div>
+      <GridContainer>
+      
+        {/* <InputFilter
           value={filterText}
           onChange={(e) => onFilterTextChange(e.target.value)}
-        ></InputFilter>
+        ></InputFilter> */}
 
         {filteredArray.map((item, index) => (
           <Row key={index}>
@@ -83,6 +110,7 @@ const Section7: React.FC = () => {
           </Row>
         ))}
       </GridContainer>
+      </CardContent>
     </Card>
   );
 };

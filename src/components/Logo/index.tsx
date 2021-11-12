@@ -1,6 +1,6 @@
 import { Box } from '@material-ui/core';
 import { experimentalStyled } from '@material-ui/core/styles';
-import Logo1 from './Logo.png';
+import Logo1 from './logo.svg';
 
 const LogoWrapper = experimentalStyled(Box)(
   ({ theme }) => `

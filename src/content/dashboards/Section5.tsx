@@ -1,23 +1,25 @@
 import React from 'react';
-import { Card, Typography } from '@material-ui/core';
+import { Card, Typography,CardContent, IconButton } from '@material-ui/core';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { GridContainer } from './Common.style';
 import styled from 'styled-components';
 const Row = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
-  width: 100%;
-
-  align-items: center;
-  margin-bottom: 10px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 16px;
+background-color: #fff;
+color: #000;
+border-top:1px solid #EBEBEB;
 `;
 const SubRow = styled(({ color, ...otherProps }) => <div {...otherProps} />)`
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  height: 25px;
-  margin-left: 8px;
-
-  color: #000;
+display: flex;
+justify-content: start;
+align-items: center;
+background-color: #fff;
+color: #3A3A3A;
 `;
 
 const Section5: React.FC = () => {
@@ -33,19 +35,19 @@ const Section5: React.FC = () => {
   React.useEffect(() => {}, []);
 
   return (
-    <Card style={{ padding: 10, height: '400px' }}>
-      <GridContainer>
-        <Typography
-          style={{
-            marginLeft: 8,
-            marginBottom: 10,
-            color: '#000',
-            fontSize: 14,
-          }}
-          noWrap
-        >
-          Management Reports Generated
+    <Card>
+      <CardContent>
+      <div className="card-header">
+        <Typography variant="h3" component="div">
+        Management Reports Generated
         </Typography>
+        <div className="card-header-action">
+        <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        </div>
+        </div>
+      <GridContainer>
 
         {items.map((item, index) => (
           <Row key={index}>
@@ -61,19 +63,17 @@ const Section5: React.FC = () => {
                 fontSize={8}
                 icon={faFilePdf}
               />
-              <Typography style={{ fontSize: 12, marginLeft: '8px' }}>
+              <Typography style={{ fontSize: 14, fontWeight:500, marginLeft: '12px' }}>
                 {item}
-              </Typography>
-            </SubRow>
-
-            <SubRow>
-              <Typography style={{ fontSize: 10, marginLeft: '16px' }} noWrap>
+                <Typography style={{ fontSize: 12 }} noWrap>
                 Check recyclables area
+              </Typography>
               </Typography>
             </SubRow>
           </Row>
         ))}
       </GridContainer>
+      </CardContent>
     </Card>
   );
 };

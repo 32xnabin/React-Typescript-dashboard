@@ -13,14 +13,15 @@ const WatchList3: React.FC = () => {
         justifyContent="center"
         alignItems="stretch"
         spacing={3}
+        className="dashboard-grid"
       >
-        <Grid item lg={4} xs={12}>
+        <Grid item md={4} xs={12}>
           <Section7 />
         </Grid>
-        <Grid item lg={4} xs={12}>
+        <Grid item md={4} xs={12}>
           <Section8 />
         </Grid>
-        <Grid item lg={4} xs={12}>
+        <Grid item md={4} xs={12}>
           <Section6 />
         </Grid>
       </Grid>

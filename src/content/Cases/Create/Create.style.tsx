@@ -35,7 +35,6 @@ export const InfoLabel = styled(({ bold, visible, ...otherProps }) => (
 
 export const WhiteLabel = styled(Typography)`
   font-size: 18px;
-
   margin-left: 5px;
   font-weight: 600;
   color: #000;
