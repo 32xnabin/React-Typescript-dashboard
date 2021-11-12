@@ -29,13 +29,13 @@ export const InfoLabel = styled(({ bold, visible, ...otherProps }) => (
   font-size: 12px;
   text-align: left;
   vertical-align: middle;
+  padding: 8px 0px;
   color: #000;
   font-weight: ${(props) => (props.bold ? 'bold' : 'normal')};
 `;
 
 export const WhiteLabel = styled(Typography)`
   font-size: 18px;
-
   margin-left: 5px;
   font-weight: 600;
   color: #000;
@@ -44,7 +44,7 @@ export const WhiteLabel = styled(Typography)`
 export const HeadingLabel = styled(Typography)`
   font-size: 14px;
   text-align: left;
-  width: 250px;
+  width: 100%;
   font-weight: 600;
   color: #000;
 `;
@@ -62,6 +62,10 @@ export const HeadingLabel1 = styled(Typography)`
 export const MainContainer = styled(Box)`
   display: grid;
   grid-template-columns: 60% 40%;
+  @media (max-width: 1650px) {
+    grid-template-columns: auto;
+    width: 98%;
+  }
   grid-gap: 10px;
 `;
 
@@ -73,10 +77,30 @@ export const FullWidthContainer = styled(Box)`
   padding: 20px 45px;
 
   border: 1px solid #eee;
-  border-top: none;
+
   border-radius: 6px;
   margin-bottom: 20px;
   background: #fff;
+  @media (max-width: 1650px) {
+    width: 98%;
+  }
+`;
+export const FullWidthContainer1 = styled(Box)`
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 10px;
+
+  padding: 20px 45px;
+
+  border: 1px solid #eee;
+
+  border-radius: 6px;
+  margin-bottom: 20px;
+  background: #fff;
+  @media (max-width: 1650px) {
+    grid-template-columns: auto;
+    width: 98%;
+  }
 `;
 
 export const FileuploadContainer = styled(Box)`
@@ -86,34 +110,63 @@ export const GridContainerHeader = styled(Box)`
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 10px;
-  justify-content: space-around;
-  padding: 10px 0px;
-  margin-right: 20px;
+  justify-content: start;
+  padding: 10px;
   border: 1px solid #eee;
   border-bottom: none;
   border-radius: 6px 6px 0 0;
   background: #fff;
   overflow-x: auto;
   overflow-y: hidden;
+  @media (max-width: 1650px) {
+    position: relative;
+    top: 10px;
+  }
+`;
+export const GridContainerHeader1 = styled(Box)`
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  justify-content: start;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  background: #fff;
+  overflow-x: auto;
+  overflow-y: hidden;
+  @media (max-width: 1650px) {
+    position: relative;
+    top: 10px;
+    width: 98%;
+  }
+`;
+export const SectionContainer = styled(Box)`
+  background: #fff;
+  border: 1px solid #eee;
+  border-top: none;
+  border-radius: 0px 0px 6px 6px;
+  margin-bottom: 10px;
+  padding: 15px 8px;
+`;
+export const SingleContainer = styled(Box)`
+  display: grid;
+  grid-template-columns: auto;
+  width: 100%;
 `;
 export const GridContainer = styled(Box)`
   display: grid;
-  grid-template-columns: auto auto;
-  @media (max-width: 1650px) {
-    grid-template-columns: auto auto;
-  }
+  grid-template-columns: 48% 48%;
   grid-gap: 10px;
-  justify-content: space-around;
-  padding: 20px 0px;
+  padding: 6px;
   margin-right: 20px;
-  border: 1px solid #eee;
-  border-top: none;
   border-radius: 0 0 6px 6px;
-  margin-bottom: 20px;
+
   background: #fff;
-  align-items: top;
-  overflow: auto;
-  overflow-y: hidden;
+
+  @media (max-width: 1650px) {
+    grid-template-columns: auto;
+  }
 `;
 export const GridContainer3 = styled(Box)`
   display: grid;
@@ -127,7 +180,7 @@ export const GridContainerCheckBox = styled(Box)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 250px;
+  width: 100%;
   height: 10px;
 `;
 export const GridContainer1 = styled(Box)`
@@ -145,26 +198,32 @@ export const GridContainerPhoto = styled(Box)`
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 5px;
-  margin: 10px auto;
+  @media (max-width: 1650px) {
+    grid-template-columns: auto auto auto;
+  }
 `;
 export const GridContainer2 = styled(Box)`
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
+  flex-wrap: wrap;
   grid-gap: 5px;
   margin-left: 5px;
-  max-height: 400px;
-  overflow-x: auto;
+  max-height: 250px;
+  overflow: auto;
 `;
 
 export const ButtonsContainer = styled(Box)`
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   grid-gap: 10px;
-  margin: 20px;
+  padding: 10px;
+  @media (max-width: 1650px) {
+    flex-direction: column;
+  }
 `;
 
 export const DropDown = styled.select`
-  width: 250px;
+  width: 100%;
   height: 35px;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -190,7 +249,7 @@ export const DropDownLong = styled.select`
 `;
 
 export const Disabled = styled.div`
-  width: 250px;
+  width: 100%;
   height: 35px;
   background-color: #eee;
   border: 1px solid #ccc;
@@ -279,7 +338,7 @@ export const InputFieldSubject = styled(({ visible, ...otherProps }) => (
 export const DateField = styled(({ visible, ...otherProps }) => (
   <input {...otherProps} />
 ))`
-  width: 250px;
+  width: 100%;
   height: 35px !important;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -290,7 +349,7 @@ export const DateField = styled(({ visible, ...otherProps }) => (
 export const Placeholder = styled(({ visible, ...otherProps }) => (
   <TextField variant="outlined" {...otherProps} />
 ))`
-  width: 250px;
+  width: 100%;
   height: 1px !important;
   visibility: hidden;
 `;
@@ -298,7 +357,7 @@ export const Placeholder = styled(({ visible, ...otherProps }) => (
 export const InputWrapper = styled(({ visible, ...otherProps }) => (
   <div {...otherProps} />
 ))`
-  width: 250px;
+  width: 100%;
 `;
 
 export const MainWrapper = styled(({ visible, ...otherProps }) => (
@@ -315,6 +374,9 @@ export const BlueHeader = styled(({ visible, ...otherProps }) => (
   padding: 8px;
   margin-bottom: 20px;
   border-radius: 6px;
+  @media (max-width: 1650px) {
+    width: 98%;
+  }
 `;
 
 export const HorDiv = styled(({ visible, ...otherProps }) => (
@@ -344,9 +406,9 @@ export const StyledDivSmall = styled(
     <div {...otherProps} />
   )
 )`
-  background-color: #5faee3;
+  background-color: #4fadea;
   color: #${(props) => props.color};
-  height: 25px;
+  height: 30px;
   cursor: ${(props) => (props.disabled ? ' ' : 'pointer')};
   pointer-events: auto;
   opacity: ${(props) => (props.disabled ? '0.3' : '1')};
@@ -355,7 +417,7 @@ export const StyledDivSmall = styled(
   justify-content: center;
   align-items: center;
 
-  padding: 6px;
+  padding: 6px 8px;
 `;
 
 export const StyledDiv = styled(
@@ -370,6 +432,10 @@ height: 30px;
 cursor: ${(props) => (props.disabled ? ' ' : 'pointer')};
 pointer-events: auto;
 opacity:${(props) => (props.disabled ? '0.3' : '1')};
+min-width:150px;
+&:hover {
+  background: ${(props) => (props.disabled ? '#4fadea' : '#0087de')};
+}
 
 display: flex;
   justify-content: center;
