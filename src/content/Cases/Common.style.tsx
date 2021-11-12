@@ -46,7 +46,7 @@ export const HeadingLabel = styled(Typography)`
   text-align: left;
   margin-left: 10px;
   width: 100%;
-  font-weight: 600;
+  font-weight: 400;
   color: #000;
 `;
 
@@ -58,7 +58,7 @@ export const HeadingLabel1 = styled(Typography)`
   margin-top: 50px;
   text-align: left;
   color: #000;
-  font-weight: 600;
+  font-weight: 400;
 `;
 
 export const MainContainer = styled(Box)`
@@ -227,7 +227,7 @@ export const ButtonsContainer = styled(Box)`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  grid-gap: 4px;
+  justify-content: end;
 `;
 
 export const DropDown = styled.select`
