@@ -486,9 +486,7 @@ const Create: FC = () => {
             <HeadingLabel>Case Information</HeadingLabel>
             <Placeholder />
           </GridContainerHeader>
-          <div style={{ background: '#fff', borderRadius: '6px', padding: 15 }}>
-            <HeadingLabel>Photos</HeadingLabel>
-          </div>
+          <Placeholder />
         </MainContainer>
 
         <MainContainer>
@@ -566,6 +564,16 @@ const Create: FC = () => {
                 <Photo uploadImage={onImageUploaded} />
               </GridContainerPhoto>
             </Modal>
+            <div
+              style={{
+                background: '#fff',
+                borderRadius: '6px 6px 0px 0px',
+                padding: 10,
+                borderBottom: '1px solid #cccc',
+              }}
+            >
+              <HeadingLabel>Photos</HeadingLabel>
+            </div>
             <div
               style={{
                 background: '#fff',

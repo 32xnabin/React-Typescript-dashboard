@@ -108,6 +108,11 @@ export const FullWidthContainer1 = styled(Box)`
 
 export const FileuploadContainer = styled(Box)`
   background: #fff;
+  border-radius: 6px 6px 0px 0px;
+  @media (min-width: 960px) {
+    position: relative;
+    top: -41px;
+  }
 `;
 export const GridContainerHeader = styled(Box)`
   display: grid;

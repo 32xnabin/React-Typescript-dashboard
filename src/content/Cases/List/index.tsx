@@ -14,7 +14,7 @@ function ApplicationsTransactions() {
           marginTop: '27px',
           paddingRight: '0px',
           marginBottom: '60px',
-          width: '90%',
+          width: '100%',
         }}
       >
         <Grid container columns={1}>
