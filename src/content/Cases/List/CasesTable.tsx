@@ -278,6 +278,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
                   height: 30,
                   width: 30,
                   borderRadius: 15,
+                  marginLeft: 8,
                 }}
               >
                 <FontAwesomeIcon

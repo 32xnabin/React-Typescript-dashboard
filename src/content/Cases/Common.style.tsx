@@ -42,7 +42,7 @@ export const WhiteLabel = styled(Typography)`
 `;
 
 export const HeadingLabel = styled(Typography)`
-  font-size: 14px;
+  font-size: 25px;
   text-align: left;
   margin-left: 10px;
   width: 100%;
@@ -51,7 +51,7 @@ export const HeadingLabel = styled(Typography)`
 `;
 
 export const HeadingLabel1 = styled(Typography)`
-  font-size: 14px;
+  font-size: 25px;
   margin-left: 10px;
   font-weight: bold;
   margin-right: 200px;
