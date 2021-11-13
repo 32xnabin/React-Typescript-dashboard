@@ -208,18 +208,14 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
             onClick={(event) => handlePageChange(event, page - 1)}
             disabled={page === 0}
           >
-            <ArrowBackIosNewSharpIcon
-              style={{ color: '#cccc', fontSize: 16 }}
-            />
+            <ArrowBackIosNewSharpIcon style={{ color: '#000', fontSize: 16 }} />
           </IconButton>
           {page}
           <IconButton
             onClick={(event) => handlePageChange(event, page + 1)}
             disabled={page === Math.ceil(count / rowsPerPage) - 1}
           >
-            <ArrowForwardIosSharpIcon
-              style={{ color: '#cccc', fontSize: 16 }}
-            />
+            <ArrowForwardIosSharpIcon style={{ color: '#000', fontSize: 16 }} />
           </IconButton>
         </div>
       </div>
@@ -608,7 +604,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
         rowsPerPageOptions={[5, 10, 25, 30]}
         ActionsComponent={CustomActions}
         labelDisplayedRows={({ from, to, count }) =>
-          `entries  Showing ${from}-${to} of  ${count} entries`
+          `Showing ${from}-${to} of  ${count} entries`
         }
       />
     </>
