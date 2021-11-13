@@ -1,9 +1,13 @@
-import { FC, ChangeEvent, useState } from 'react';
+import { FC, ChangeEvent, useState, useEffect } from 'react';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import ListItemText from '@mui/material/ListItemText';
+
 import {
   Tooltip,
   Box,
@@ -15,10 +19,9 @@ import {
   TablePagination,
   TableRow,
   TableContainer,
-  Select,
-  MenuItem,
   Typography,
 } from '@material-ui/core';
+import MenuItem from '@mui/material/MenuItem';
 
 import { CaseStatus } from 'src/types';
 import EditTwoToneIcon from '@material-ui/icons/EditTwoTone';
@@ -29,6 +32,13 @@ import { HorDiv } from './CaseTable.style';
 import AlertDialog from '../../../components/AlertDialog';
 import CheckedIcon from '../../../components/ThinSquare/CheckedIcon';
 import UncheckedIcon from '../../../components/ThinSquare/UncheckedIcon';
+
+import { makeStyles, useTheme } from '@material-ui/styles';
+
+import IconButton from '@material-ui/core/IconButton';
+import ArrowBackIosNewSharpIcon from '@mui/icons-material/ArrowBackIosNewSharp';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import OutlinedInput from '@mui/material/OutlinedInput';
 
 interface RecentOrdersTableProps {
   className?: string;
@@ -54,6 +64,21 @@ const applyFilters = (
   });
 };
 
+const performFilter = (myboscases: Myboscase[], personName: string[]) => {
+  if (personName.indexOf('Current Cases') !== -1) {
+    return myboscases;
+  }
+  return myboscases.filter((myboscase) => {
+    let matches = true;
+
+    if (personName.indexOf(myboscase.status) === -1) {
+      matches = false;
+    }
+
+    return matches;
+  });
+};
+
 const applyPagination = (
   myboscases: Myboscase[],
   page: number,
@@ -62,15 +87,27 @@ const applyPagination = (
   return myboscases.slice(page * limit, page * limit + limit);
 };
 
+const useStyles1 = makeStyles((theme) => ({
+  root: {
+    flexShrink: 0,
+    marginLeft: 6,
+  },
+}));
+
 const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [selectedCaseId, setSelectedCaseId] = useState('');
   const [selectedCases, setSelectedCases] = useState<string[]>(['']);
   const [page, setPage] = useState<number>(0);
   const [limit, setLimit] = useState<number>(5);
+  const [personName, setPersonName] = useState<string[]>([]);
   const [filters, setFilters] = useState<Filters>({
     status: null,
   });
+
+  useEffect(() => {
+    setPersonName(['Current Cases']);
+  }, []);
 
   const markAsCompleteVisible = () => {
     if (selectedCases.length > 1) return true;
@@ -105,7 +142,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
       name: 'Awaiting Quote',
     },
     {
-      id: 'all',
+      id: 'Current Cases',
       name: 'Current Cases',
     },
   ];
@@ -140,6 +177,22 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
     }));
   };
 
+  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+    const {
+      target: { value },
+    } = event;
+    // if (
+    //   value !== 'Current Cases' &&
+    //   personName.indexOf('Current Cases') !== -1
+    // ) {
+    //   setPersonName([]);
+    // }
+    setPersonName(
+      // On autofill we get a the stringified value.
+      typeof value === 'string' ? value.split(',') : value
+    );
+  };
+
   const handleSelectAllCases = (event: ChangeEvent<HTMLInputElement>): void => {
     setSelectedCases(
       event.target.checked ? myboscases.map((item) => item.id) : []
@@ -167,7 +220,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
     setLimit(parseInt(event.target.value));
   };
 
-  const filteredCases = applyFilters(myboscases, filters);
+  const filteredCases = performFilter(myboscases, personName);
   const paginatedCases = applyPagination(filteredCases, page, limit);
   const selectedAllCases = selectedCases.length === myboscases.length;
 
@@ -187,6 +240,45 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
     }
     return jobArea;
   };
+  const CustomActions = (props) => {
+    const { count, page, rowsPerPage } = props;
+    return (
+      <div
+        className="nextAction"
+        style={{ display: 'flex', alignItems: 'center', background: '#fff' }}
+      >
+        Pages
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            border: '1px solid #ccc',
+            borderRadius: '6px',
+            width: '120px !important',
+            marginLeft: '5px',
+          }}
+        >
+          <IconButton
+            onClick={(event) => handlePageChange(event, page - 1)}
+            disabled={page === 0}
+          >
+            <ArrowBackIosNewSharpIcon
+              style={{ color: '#cccc', fontSize: 16 }}
+            />
+          </IconButton>
+          {page}
+          <IconButton
+            onClick={(event) => handlePageChange(event, page + 1)}
+            disabled={page === Math.ceil(count / rowsPerPage) - 1}
+          >
+            <ArrowForwardIosSharpIcon
+              style={{ color: '#cccc', fontSize: 16 }}
+            />
+          </IconButton>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -197,7 +289,6 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
         style={{
           border: 0,
           boxShadow: 'none',
-          padding: '28px 18px',
         }}
       >
         <Box
@@ -214,18 +305,25 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
           }}
         >
           <Select
-            style={{ minWidth: 200, height: 30, marginRight: 20 }}
-            value={filters.status || 'all'}
-            onChange={handleStatusChange}
-            label="Status"
-            autoWidth
+            style={{ width: '250px', height: '30px' }}
+            labelId="demo-multiple-checkbox-label"
+            id="demo-multiple-checkbox"
+            multiple
+            value={personName}
+            onChange={handleChange}
+            input={<OutlinedInput />}
+            renderValue={(selected) => selected.join(', ')}
           >
             {statusOptions.map((statusOption) => (
               <MenuItem key={statusOption.id} value={statusOption.id}>
-                {statusOption.name}
+                <Checkbox
+                  checked={personName.indexOf(statusOption.name) > -1}
+                />
+                <ListItemText primary={statusOption.name} />
               </MenuItem>
             ))}
           </Select>
+
           {markAsCompleteVisible() && (
             <Tooltip title="Mark As Complete" arrow>
               <div
@@ -551,17 +649,22 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      <Box p={2}>
-        <TablePagination
-          component="div"
-          count={filteredCases.length}
-          onPageChange={handlePageChange}
-          onRowsPerPageChange={handleLimitChange}
-          page={page}
-          rowsPerPage={limit}
-          rowsPerPageOptions={[5, 10, 25, 30]}
-        />
-      </Box>
+
+      <TablePagination
+        style={{ background: '#fff', padding: '30px 20px' }}
+        component="div"
+        count={filteredCases.length}
+        labelRowsPerPage="Show"
+        onPageChange={handlePageChange}
+        onRowsPerPageChange={handleLimitChange}
+        page={page}
+        rowsPerPage={limit}
+        rowsPerPageOptions={[5, 10, 25, 30]}
+        ActionsComponent={CustomActions}
+        labelDisplayedRows={({ from, to, count }) =>
+          `entries  Showing ${from}-${to} of  ${count} entries`
+        }
+      />
     </>
   );
 };

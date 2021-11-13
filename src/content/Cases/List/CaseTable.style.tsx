@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core';
+import { Typography,Button } from '@material-ui/core';
 
 import { Link } from 'react-router-dom';
 
@@ -67,4 +67,10 @@ export const NewButton = styled(Link)`
   &:hover {
     background: #0087de;
   }
+`;
+
+export const ActionButton = styled(({ background, visible, ...otherProps }) => (
+  <Button {...otherProps} />
+))`
+   width:'
 `;

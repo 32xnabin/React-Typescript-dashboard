@@ -16,6 +16,7 @@ const MainWrapper = experimentalStyled(Box)(
         flex: 1 1 auto;
         display: flex;
         background:#ebeff3;
+        overflow:hidden;
        
         
 `
@@ -30,6 +31,7 @@ const MainContent = experimentalStyled(Box)(
        margin-top:66px;
        padding-right:37px;
        width: 100%;
+       overflow:hidden;
         
 `
 );
@@ -47,6 +49,7 @@ const MainContentSmall = experimentalStyled(Box)(
         width:100%;
 
        }
+       overflow:hidden;
         
 `
 );

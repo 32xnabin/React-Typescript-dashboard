@@ -11,7 +11,7 @@ const SidebarWrapper = experimentalStyled(Box)(
         background: ${theme.sidebar.background};
         height: 100%;
         overflow:hidden;
-        height: 1000px;
+        height: 100vh;
         position: fixed;
         z-index: 9;
         background-color: #10274b;
@@ -28,6 +28,7 @@ const TopSection = experimentalStyled(Box)(
         align-items: top;
         padding: 5px;
         margin-bottom:60px;
+        overflow:hidden;
         
        
 `

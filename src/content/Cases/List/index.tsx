@@ -12,9 +12,10 @@ function ApplicationsTransactions() {
       <div
         style={{
           marginTop: '27px',
-          paddingRight: '0px',
+
           marginBottom: '60px',
           width: '100%',
+          height: '100vh',
         }}
       >
         <Grid container columns={1}>
@@ -34,24 +35,16 @@ function ApplicationsTransactions() {
                 <NewButton to="/bm/cases/create">New Case</NewButton>
               </HorDiv>
             </BlueHeader>
-            <Grid
-              direction="row"
-              justifyContent="center"
-              alignItems="stretch"
-              spacing={3}
+
+            <div
+              style={{
+                border: '1px solid #eee',
+                borderRadius: '6px',
+                background: '#fff',
+              }}
             >
-              <Grid item xs={12}>
-                <div
-                  style={{
-                    border: '1px solid #eee',
-                    borderRadius: '6px',
-                    background: '#fff',
-                  }}
-                >
-                  <RecentOrders />
-                </div>
-              </Grid>
-            </Grid>
+              <RecentOrders />
+            </div>
           </div>
         </Grid>
       </div>
