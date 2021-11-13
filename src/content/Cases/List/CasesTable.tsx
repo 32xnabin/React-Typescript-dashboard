@@ -187,7 +187,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
     return jobArea;
   };
   const CustomActions = (props) => {
-    const { count, page, rowsPerPage } = props;
+    const count = filteredCases.length;
+    const rowsPerPage = limit;
     return (
       <div
         className="nextAction"
@@ -210,7 +211,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
           >
             <ArrowBackIosNewSharpIcon style={{ color: '#000', fontSize: 16 }} />
           </IconButton>
-          {page}
+          {page + 1}
           <IconButton
             onClick={(event) => handlePageChange(event, page + 1)}
             disabled={page === Math.ceil(count / rowsPerPage) - 1}
@@ -592,22 +593,29 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
           </TableBody>
         </Table>
       </TableContainer>
-
-      <TablePagination
-        style={{ background: '#fff', padding: '30px 20px' }}
-        component="div"
-        count={filteredCases.length}
-        labelRowsPerPage="Show"
-        onPageChange={handlePageChange}
-        onRowsPerPageChange={handleLimitChange}
-        page={page}
-        rowsPerPage={limit}
-        rowsPerPageOptions={[5, 10, 25, 30]}
-        ActionsComponent={CustomActions}
-        labelDisplayedRows={({ from, to, count }) =>
-          `Showing ${from}-${to} of  ${count} entries`
-        }
-      />
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '10px',
+        }}
+      >
+        <TablePagination
+          style={{ background: '#fff', padding: '30px 20px' }}
+          component="div"
+          count={filteredCases.length}
+          labelRowsPerPage="Show"
+          onPageChange={handlePageChange}
+          onRowsPerPageChange={handleLimitChange}
+          page={page}
+          rowsPerPage={limit}
+          rowsPerPageOptions={[5, 10, 25, 30]}
+          labelDisplayedRows={({ from, to, count }) =>
+            `Showing ${from}-${to} of  ${count} entries`
+          }
+        />
+        <CustomActions style={{ marginRight: '10px' }} />
+      </div>
     </>
   );
 };

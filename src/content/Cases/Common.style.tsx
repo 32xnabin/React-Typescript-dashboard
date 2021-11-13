@@ -114,6 +114,18 @@ export const FileuploadContainer = styled(Box)`
     top: -41px;
   }
 `;
+
+export const PhotosBox = styled.div`
+background: #fff;
+borderRadius: '6px 6px 0px 0px;
+padding:10px ;
+borderBottom: 1px solid #cccc;
+
+  @media (min-width: 960px) {
+    position: relative;
+    top: -16px;
+  }
+`;
 export const GridContainerHeader = styled(Box)`
   display: grid;
   grid-template-columns: auto auto;

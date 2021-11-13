@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { createCase, uploadImage } from '../../../services/cases';
 import SlateEditor from '../../../components/SlateEditor/Editor';
-import { TextareaAutosize } from '@material-ui/core';
+import { TextareaAutosize, Hidden } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
@@ -564,16 +564,32 @@ const Create: FC = () => {
                 <Photo uploadImage={onImageUploaded} />
               </GridContainerPhoto>
             </Modal>
-            <div
-              style={{
-                background: '#fff',
-                borderRadius: '6px 6px 0px 0px',
-                padding: 10,
-                borderBottom: '1px solid #cccc',
-              }}
-            >
-              <HeadingLabel>Photos</HeadingLabel>
-            </div>
+            <Hidden lgDown>
+              <div
+                style={{
+                  background: '#fff',
+                  borderRadius: '6px 6px 0px 0px',
+                  padding: 10,
+                  borderBottom: '1px solid #cccc',
+                  position: 'relative',
+                  top: '-16px',
+                }}
+              >
+                <HeadingLabel>Photos</HeadingLabel>
+              </div>
+            </Hidden>
+            <Hidden lgUp>
+              <div
+                style={{
+                  background: '#fff',
+                  borderRadius: '6px 6px 0px 0px',
+                  padding: 10,
+                  borderBottom: '1px solid #cccc',
+                }}
+              >
+                <HeadingLabel>Photos</HeadingLabel>
+              </div>
+            </Hidden>
             <div
               style={{
                 background: '#fff',
