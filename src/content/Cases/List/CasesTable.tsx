@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import ListItemText from '@mui/material/ListItemText';
 
@@ -23,7 +22,6 @@ import {
 } from '@material-ui/core';
 import MenuItem from '@mui/material/MenuItem';
 
-import { CaseStatus } from 'src/types';
 import EditTwoToneIcon from '@material-ui/icons/EditTwoTone';
 import DeleteTwoToneIcon from '@material-ui/icons/DeleteTwoTone';
 import { Myboscase } from 'src/types';
@@ -32,8 +30,6 @@ import { HorDiv } from './CaseTable.style';
 import AlertDialog from '../../../components/AlertDialog';
 import CheckedIcon from '../../../components/ThinSquare/CheckedIcon';
 import UncheckedIcon from '../../../components/ThinSquare/UncheckedIcon';
-
-import { makeStyles, useTheme } from '@material-ui/styles';
 
 import IconButton from '@material-ui/core/IconButton';
 import ArrowBackIosNewSharpIcon from '@mui/icons-material/ArrowBackIosNewSharp';
@@ -45,27 +41,8 @@ interface RecentOrdersTableProps {
   myboscases: Myboscase[];
 }
 
-interface Filters {
-  status?: CaseStatus;
-}
-
-const applyFilters = (
-  myboscases: Myboscase[],
-  filters: Filters
-): Myboscase[] => {
-  return myboscases.filter((myboscase) => {
-    let matches = true;
-
-    if (filters.status && myboscase.status !== filters.status) {
-      matches = false;
-    }
-
-    return matches;
-  });
-};
-
 const performFilter = (myboscases: Myboscase[], personName: string[]) => {
-  if (personName.indexOf('Current Cases') !== -1) {
+  if (personName.indexOf('Current Cases') !== -1 && personName.length === 1) {
     return myboscases;
   }
   return myboscases.filter((myboscase) => {
@@ -87,13 +64,6 @@ const applyPagination = (
   return myboscases.slice(page * limit, page * limit + limit);
 };
 
-const useStyles1 = makeStyles((theme) => ({
-  root: {
-    flexShrink: 0,
-    marginLeft: 6,
-  },
-}));
-
 const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [selectedCaseId, setSelectedCaseId] = useState('');
@@ -101,9 +71,6 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
   const [page, setPage] = useState<number>(0);
   const [limit, setLimit] = useState<number>(5);
   const [personName, setPersonName] = useState<string[]>([]);
-  const [filters, setFilters] = useState<Filters>({
-    status: null,
-  });
 
   useEffect(() => {
     setPersonName(['Current Cases']);
@@ -164,33 +131,12 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ myboscases }) => {
     setShowDeleteConfirm(true);
   };
 
-  const handleStatusChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    let value = null;
-
-    if (e.target.value !== 'all') {
-      value = e.target.value;
-    }
-
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      status: value,
-    }));
-  };
-
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
     const {
       target: { value },
     } = event;
-    // if (
-    //   value !== 'Current Cases' &&
-    //   personName.indexOf('Current Cases') !== -1
-    // ) {
-    //   setPersonName([]);
-    // }
-    setPersonName(
-      // On autofill we get a the stringified value.
-      typeof value === 'string' ? value.split(',') : value
-    );
+
+    setPersonName(typeof value === 'string' ? value.split(',') : value);
   };
 
   const handleSelectAllCases = (event: ChangeEvent<HTMLInputElement>): void => {
