@@ -99,6 +99,7 @@ const Section2: React.FC = () => {
         filterCases('THREE_MONTHS', res);
       })
       .catch((error) => {
+        console.log("error getall cases dashboard->",error)
         navigate('/login');
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps

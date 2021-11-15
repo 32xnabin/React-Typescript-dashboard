@@ -375,10 +375,12 @@ const Create: FC = () => {
       data['assigned_to'] = createCSV(assignedTo);
       data['asset'] = createCSV(asset);
       data['email_subject'] = email_subject;
+
       data['email_description'] = JSON.stringify(email_desc);
       if (caseImages.length > 0) {
         data['images'] = caseImages;
       }
+      console.log('data---->', data);
 
       createCase(data)
         .then((result: any) => {

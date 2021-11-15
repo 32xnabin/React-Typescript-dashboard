@@ -18,6 +18,7 @@ function Cases() {
         setMybosCases(res);
       })
       .catch((error) => {
+        console.log("error getall cases->",error)
         navigate('/login');
       });
   });
