@@ -380,7 +380,7 @@ const Create: FC = () => {
       if (caseImages.length > 0) {
         data['images'] = caseImages;
       }
-      console.log('data---->', data);
+     
 
       createCase(data)
         .then((result: any) => {

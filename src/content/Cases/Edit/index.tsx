@@ -307,7 +307,6 @@ const Edit: FC = () => {
   }, []);
 
   const prefillForm = (item: Myboscase) => {
-    console.log('---00--->', item);
     setCasenum(Number(item.case_number));
 
     const added_date = new Date(item.added_date || new Date())
