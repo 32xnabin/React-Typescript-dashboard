@@ -33,13 +33,13 @@ const reducer = (
       return typedAction.payload.cases;
 
     case getType(addCase.success):
-      return [typedAction.payload.caseObj];
+      return initialState;
 
     case getType(updateCase.success):
-      return [typedAction.payload.caseObj];
+      return initialState;
 
     case getType(deleteCase.success):
-      return [typedAction.payload.caseObj];
+      return initialState;
 
     default:
       return state;

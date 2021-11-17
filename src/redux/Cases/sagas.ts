@@ -45,7 +45,9 @@ export function* updateCaseSaga(
 ) {
   try {
     const caseObj: Myboscase = yield call(
-      [axios.patch, updateCase],
+      apiCall,
+      'PUT',
+      `${CASES}/${action.payload.caseObj.id}`,
       action.payload.caseObj
     );
 
@@ -61,8 +63,9 @@ export function* deleteCaseSaga(
 ) {
   try {
     const caseObj: Myboscase = yield call(
-      [axios.delete, deleteCase],
-      action.payload.caseId
+      apiCall,
+      'DELETE',
+      `${CASES}/${action.payload.caseId}`
     );
 
     yield put(deleteCaseAction.success({ caseObj }));

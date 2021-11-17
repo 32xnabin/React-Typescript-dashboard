@@ -16,8 +16,8 @@ export interface Myboscase {
   email_subject?: string;
   email_description?: string;
   notes?: string;
-  add_to_report?: string;
-  duplicate_case?: string;
+  add_to_report?: boolean;
+  duplicate_case?: boolean;
   logged_by?: string;
   images?: string[];
   createdAt?: Date;
